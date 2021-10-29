@@ -1,11 +1,14 @@
 package GUI;
 
 import java.awt.EventQueue;
+import java.awt.Graphics;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
+import java.awt.GridLayout;
 
 public class VentanaGUI extends JFrame {
 
@@ -14,7 +17,9 @@ public class VentanaGUI extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-
+	private JPanel panel;
+	private Graphics graph;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -42,10 +47,18 @@ public class VentanaGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setBackground(Color.BLACK);
 		panel.setForeground(Color.BLACK);
 		panel.setBounds(10, 10, 768, 768);
 		contentPane.add(panel);
+		graph = panel.getGraphics();
+		
+	}
+
+	public void moverEntidad(int posX, int posY, int posXFin, int posYFin, MovilGUI representacion) {
+		
+		graph.drawImage((new ImageIcon(representacion.getImagen())).getImage(), posXFin, posYFin, panel);
+		panel.update(graph);
 	}
 }
