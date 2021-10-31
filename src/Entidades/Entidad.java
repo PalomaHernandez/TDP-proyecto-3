@@ -11,6 +11,15 @@ public abstract class Entidad {
 	protected Visitor visitor;
 	protected Zona miZona;
 	protected Juego miJuego;
+	protected boolean visible;
+	
+	public void setVisible(boolean visible) {
+		this.visible = visible;
+	}
+	
+	public boolean getVisible() {
+		return visible;
+	}
 	
 	public int getX() {
 		return posX;
