@@ -2,12 +2,14 @@ package Entidades.Moviles;
 
 import Entidades.Entidad;
 import GUI.MovilGUI;
+import Logica.Juego;
 
 public abstract class Movil extends Entidad{
 
 	protected int direccion;
 	protected MovilGUI miRepresentacion;
 	private final int rango = 768;
+	protected Juego miJuego;
 	
 	public Movil() {
 		direccion = 0; //se inicializa moviendose hacia arriba
@@ -16,7 +18,7 @@ public abstract class Movil extends Entidad{
 	public void moverArriba() {
 		int posFin;
 		
-		posFin = posY - 32;
+		posFin = posY - 4;
 		
 		if(direccion != 0) {
 			cambiarImagen(0);
@@ -24,11 +26,10 @@ public abstract class Movil extends Entidad{
 		}
 		
 		if(posFin >= 0) {
-			while(posY != posFin) {
 				miJuego.moverEntidad(posX, posY, posX, posY - 4, this); //Esto chequearia las colisiones
 				posY -= 4;
 				//Falta cambiar de zona si es necesario hacerlo
-			}
+			
 			
 		}
 	}
@@ -37,7 +38,7 @@ public abstract class Movil extends Entidad{
 	public void moverAbajo() {
 		int posFin;
 		
-		posFin = posY + 32;
+		posFin = posY + 4;
 		
 		if(direccion != 1) {
 			cambiarImagen(1);
@@ -45,11 +46,11 @@ public abstract class Movil extends Entidad{
 		}
 		
 		if(posFin <= rango) {
-			while(posY != posFin) {
+			
 				miJuego.moverEntidad(posX, posY, posX, posY + 4, this);
 				posY += 4;
 				//Falta cambiar de zona si es necesario hacerlo
-			}
+			
 			
 		}
 	}
@@ -57,7 +58,7 @@ public abstract class Movil extends Entidad{
 	public void moverIzquierda() {
 		int posFin;
 		
-		posFin = posX - 32;
+		posFin = posX - 4;
 		
 		if(direccion != 3) {
 			cambiarImagen(3);
@@ -65,12 +66,11 @@ public abstract class Movil extends Entidad{
 		}
 		
 		if(posFin >= 0) {
-			while(posX != posFin) {
-				miJuego.moverEntidad(posX, posY, posX - 4, posY, this);
-				posX -= 4;
-				//Falta cambiar de zona si es necesario hacerlo
-				
-			}
+			miJuego.moverEntidad(posX, posY, posX - 4, posY, this);
+			posX -= 4;
+			//Falta cambiar de zona si es necesario hacerlo
+			
+			
 		}
 		
 	}
@@ -78,7 +78,7 @@ public abstract class Movil extends Entidad{
 	public void moverDerecha() {
 		int posFin;
 		
-		posFin = posX + 32;
+		posFin = posX + 4;
 		
 		if(direccion != 2) {
 			cambiarImagen(2);
@@ -86,11 +86,10 @@ public abstract class Movil extends Entidad{
 		}
 		
 		if(posFin <= rango) {
-			while(posX != posFin) {
 				miJuego.moverEntidad(posX, posY, posX + 4, posY, this); // El +4 sumado a posX seria los pixeles que se corre la imagen en la grafica
 				posX += 4; 
 				//Falta cambiar de zona si es necesario hacerlo
-			}
+			
 		}
 	}
 	

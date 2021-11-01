@@ -1,5 +1,11 @@
 package Entidades.Moviles;
 
-public abstract class Clyde extends Enemigo{
+public class Clyde extends Enemigo{
+
+	@Override
+	public void cambiarImagen(int num) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

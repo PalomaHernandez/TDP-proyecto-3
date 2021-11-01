@@ -1,5 +1,11 @@
 package Entidades.Moviles;
 
-public abstract class Pinky extends Enemigo{
+public class Pinky extends Enemigo{
+
+	@Override
+	public void cambiarImagen(int num) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

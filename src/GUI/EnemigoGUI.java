@@ -2,8 +2,8 @@ package GUI;
 
 public class EnemigoGUI extends MovilGUI{
 
-	public EnemigoGUI(String abajo, String arriba, String izquierda, String derecha, String azul, int x, int y) {
-		super(x, y);
+	public EnemigoGUI(String abajo, String arriba, String izquierda, String derecha, String azul) {
+		super();
 		
 		this.estadoActual = abajo;
 		

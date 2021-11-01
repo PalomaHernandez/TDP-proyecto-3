@@ -10,9 +10,16 @@ import Entidades.Estaticas.PowerPellet;
 import Entidades.Estaticas.Velocidad;
 import Entidades.Moviles.Enemigo;
 import Entidades.Moviles.Protagonista;
+import Logica.Juego;
 
 public class TemaB extends Tema{
 
+	private Juego miJuego;
+	
+	public TemaB(Juego miJuego) {
+		this.miJuego = miJuego;
+	}
+	
 	@Override
 	public Pared getPared() {
 		// TODO Auto-generated method stub

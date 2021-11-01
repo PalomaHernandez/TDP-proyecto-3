@@ -1,5 +1,11 @@
 package Entidades.Moviles;
 
-public abstract class Inky extends Enemigo{
+public class Inky extends Enemigo{
+
+	@Override
+	public void cambiarImagen(int num) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

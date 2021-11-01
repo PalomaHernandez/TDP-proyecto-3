@@ -1,8 +1,9 @@
 package Entidades.Moviles;
 
 import GUI.ProtagonistaGUI;
+import Logica.Juego;
 
-public abstract class Protagonista extends Movil {
+public class Protagonista extends Movil {
 
 	protected int estadoVelocidad;
 	protected int estadoBomba;
@@ -10,12 +11,18 @@ public abstract class Protagonista extends Movil {
 	protected int vidas;
 	protected ProtagonistaGUI miRepresentacion;
 	
-	public Protagonista() {
-		super();
+	public Protagonista(Juego miJuego) {
+		this.miJuego = miJuego;
+		miRepresentacion = new ProtagonistaGUI();
 		estadoVelocidad = 0;
 		estadoBomba = 0;
 		estadoPowerPellet = 0;
 		vidas = 3;
+		tamano = 32;
+	}
+	
+	public ProtagonistaGUI getGUI() {
+		return miRepresentacion;
 	}
 	
 	public void setVelocidad(int estadoVelocidad) {
@@ -69,12 +76,16 @@ public abstract class Protagonista extends Movil {
 			this.miRepresentacion.ponerAzul();
 			break;
 		case 5:
-			this.miRepresentacion.bomba();
+			//this.miRepresentacion.bomba();
 			break;
 		case 6: 
-			this.miRepresentacion.velocidad();
+			//this.miRepresentacion.velocidad();
 			break;
 		}
+	}
+	
+	public String getRepresentacion() {
+		return miRepresentacion.getImagen();
 	}
 	
 }

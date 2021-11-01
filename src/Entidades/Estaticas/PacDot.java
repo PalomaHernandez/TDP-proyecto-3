@@ -1,5 +1,5 @@
 package Entidades.Estaticas;
 
-public abstract class PacDot extends Punto{
+public class PacDot extends Punto{
 
 }

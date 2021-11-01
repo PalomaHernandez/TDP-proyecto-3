@@ -1,5 +1,5 @@
 package Entidades.Estaticas;
 
-public abstract class Bomba extends Pocion {
+public class Bomba extends Pocion {
 	
 }

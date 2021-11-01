@@ -42,6 +42,7 @@ public class BuilderNivel implements Builder{
 		protagonista = tema.getProtagonista();
 		protagonista.setX(x);
 		protagonista.setY(y);
+		miNivel.setProtagonista(protagonista);
 		miNivel.addEntidad(protagonista);
 	}
 

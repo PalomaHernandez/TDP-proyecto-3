@@ -1,13 +1,15 @@
 package Fabrica;
 
+import Logica.Juego;
+
 public class Director {
 	
 	private Builder builder;
 	private Tema tema;
 	private Fabrica miFabrica;
 	
-	public Director(int tema) {
-		miFabrica = new Fabrica();
+	public Director(int tema, Juego juego) {
+		miFabrica = new Fabrica(juego);
 		if(tema == 1)
 			this.tema = miFabrica.getTemaA();
 		else
@@ -21,7 +23,7 @@ public class Director {
 		
 		crearParedes();
 		
-		//builder.setProtagonista(tema, 320, 544);
+		builder.setProtagonista(tema, 320, 544);
 		/**
 		crearEnemigos();
 		crearPacDots();
@@ -233,21 +235,21 @@ public class Director {
 		builder.setPared(tema, 544, 512);
 		builder.setPared(tema, 576, 512);
 		
-		builder.setPared(tema, 64, 572);
-		builder.setPared(tema, 96, 572);
-		builder.setPared(tema, 128, 572);
-		builder.setPared(tema, 160, 572);
-		builder.setPared(tema, 192, 572);
-		builder.setPared(tema, 256, 572);
-		builder.setPared(tema, 288, 572);
-		builder.setPared(tema, 320, 572);
-		builder.setPared(tema, 352, 572);
-		builder.setPared(tema, 384, 572);
-		builder.setPared(tema, 448, 572);
-		builder.setPared(tema, 480, 572);
-		builder.setPared(tema, 512, 572);
-		builder.setPared(tema, 544, 572);
-		builder.setPared(tema, 576, 572);
+		builder.setPared(tema, 64, 576);
+		builder.setPared(tema, 96, 576);
+		builder.setPared(tema, 128, 576);
+		builder.setPared(tema, 160, 576);
+		builder.setPared(tema, 192, 576);
+		builder.setPared(tema, 256, 576);
+		builder.setPared(tema, 288, 576);
+		builder.setPared(tema, 320, 576);
+		builder.setPared(tema, 352, 576);
+		builder.setPared(tema, 384, 576);
+		builder.setPared(tema, 448, 576);
+		builder.setPared(tema, 480, 576);
+		builder.setPared(tema, 512, 576);
+		builder.setPared(tema, 544, 576);
+		builder.setPared(tema, 576, 576);
 		
 	}
 

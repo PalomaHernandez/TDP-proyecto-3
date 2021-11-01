@@ -1,13 +1,17 @@
 package Fabrica;
 
+import Logica.Juego;
+
 public class Fabrica {
 	
 	private Tema temaA;
 	private Tema temaB;
-
-	public Fabrica() {
-		temaA = new TemaA();
-		temaB = new TemaB();
+	private Juego miJuego;
+	
+	public Fabrica(Juego miJuego) {
+		this.miJuego = miJuego;
+		temaA = new TemaA(miJuego);
+		temaB = new TemaB(miJuego);
 	}
 	
 	public Tema getTemaA() {

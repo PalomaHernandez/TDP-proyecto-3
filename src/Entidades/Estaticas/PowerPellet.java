@@ -1,5 +1,5 @@
 package Entidades.Estaticas;
 
-public abstract class PowerPellet extends Pocion{
+public class PowerPellet extends Pocion{
 
 }

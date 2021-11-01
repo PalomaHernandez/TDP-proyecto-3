@@ -1,5 +1,11 @@
 package Entidades.Moviles;
 
-public abstract class Blinky extends Enemigo{
+public class Blinky extends Enemigo{
+
+	@Override
+	public void cambiarImagen(int num) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

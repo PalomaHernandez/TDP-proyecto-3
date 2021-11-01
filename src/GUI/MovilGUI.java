@@ -6,9 +6,7 @@ public abstract class MovilGUI {
 	protected int posX;
 	protected int posY; 
 	
-	public MovilGUI(int x, int y) {
-		posX = x;
-		posY = y;
+	public MovilGUI() {
 	}
 	
 	public void rotarAbajo() {

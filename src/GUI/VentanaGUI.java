@@ -15,9 +15,11 @@ import Logica.Juego;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.List;
 
-public class VentanaGUI extends JFrame {
+public class VentanaGUI extends JFrame implements KeyListener{
 
 	/**
 	 * 
@@ -63,17 +65,19 @@ public class VentanaGUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		panel = new JPanel();
-		panel.setBackground(Color.BLACK);
+		panel.setBackground(Color.GRAY);
 		panel.setBounds(10, 10, 672, 672);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		miJuego = new Juego(1, this);
+
+		addKeyListener(this);
 		
 	}
 
 	public void moverEntidad(int posX, int posY, int posXFin, int posYFin, String representacion) {
-		
+		((JLabel)panel.getComponentAt(posX, posY)).setBounds(posXFin, posYFin, 32, 32);
 	}
 
 	public void inicializarNivel(List<Entidad> nivel) {
@@ -89,5 +93,37 @@ public class VentanaGUI extends JFrame {
 			arregloLabel[i].setIcon(imagen);
 			i++;
 		}
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		int code = e.getKeyCode();
+		
+		switch(code) {
+		case KeyEvent.VK_RIGHT:
+			miJuego.moverDerAction();
+			break;
+		case KeyEvent.VK_LEFT: 
+			miJuego.moverIzqAction();
+			break;
+		case KeyEvent.VK_DOWN:
+			miJuego.moverAbajoAction();
+			break;
+		case KeyEvent.VK_UP:
+			miJuego.moverArribaAction();
+			break;
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
