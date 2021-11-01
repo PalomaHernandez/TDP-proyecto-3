@@ -11,6 +11,7 @@ public abstract class Protagonista extends Movil {
 	protected ProtagonistaGUI miRepresentacion;
 	
 	public Protagonista() {
+		super();
 		estadoVelocidad = 0;
 		estadoBomba = 0;
 		estadoPowerPellet = 0;

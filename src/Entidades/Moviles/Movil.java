@@ -97,7 +97,7 @@ public abstract class Movil extends Entidad{
 	
 	public abstract void cambiarImagen(int num);
 	
-	public MovilGUI getRepresentacion() {
-		return miRepresentacion;
+	public String getRepresentacion() {
+		return representacion;
 	}
 }

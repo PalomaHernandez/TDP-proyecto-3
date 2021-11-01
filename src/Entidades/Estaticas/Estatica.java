@@ -4,4 +4,5 @@ import Entidades.Entidad;
 
 public abstract class Estatica extends Entidad{
 
+	
 }

@@ -1,10 +1,8 @@
 package GUI;
 
-import javax.swing.JPanel;
-
 public abstract class MovilGUI {
-	private String[] representacion;
-	private String estadoActual; 
+	protected String[] representacion;
+	protected String estadoActual; 
 	protected int posX;
 	protected int posY; 
 	

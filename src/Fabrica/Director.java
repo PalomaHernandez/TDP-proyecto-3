@@ -6,9 +6,9 @@ public class Director {
 	private Tema tema;
 	private Fabrica miFabrica;
 	
-	public Director(String tema) {
+	public Director(int tema) {
 		miFabrica = new Fabrica();
-		if(tema == "Autos")
+		if(tema == 1)
 			this.tema = miFabrica.getTemaA();
 		else
 			this.tema = miFabrica.getTemaB();
@@ -21,14 +21,15 @@ public class Director {
 		
 		crearParedes();
 		
-		builder.setProtagonista(tema, 320, 544);
-		
+		//builder.setProtagonista(tema, 320, 544);
+		/**
 		crearEnemigos();
 		crearPacDots();
 		crearBomba();
 		crearFruta();
 		crearPowerPellets();
 		crearVelocidad();
+		**/
 		
 	}
 	
@@ -76,8 +77,16 @@ public class Director {
 	private void crearParedes() {
 		
 		for(int i = 0 ; i <= 640 ; i += 32) 
-			for(int j = 0 ; j <= 640 ; j += 32)
-				builder.setPared(tema, i, j);
+			builder.setPared(tema, i, 0);
+		
+		for(int i = 0 ; i <= 640 ; i += 32) 
+			builder.setPared(tema, i, 640);
+		
+		for(int j = 0 ; j <= 640 ; j += 32)
+			builder.setPared(tema, 0, j);
+		
+		for(int j = 0 ; j <= 640 ; j += 32)
+			builder.setPared(tema, 640, j);
 		
 		builder.setPared(tema, 64, 64);
 		builder.setPared(tema, 96, 64);
@@ -183,6 +192,7 @@ public class Director {
 		builder.setPared(tema, 64, 384);
 		builder.setPared(tema, 128, 384);
 		builder.setPared(tema, 192, 384);
+		builder.setPared(tema, 448, 384);
 		builder.setPared(tema, 512, 384);
 		builder.setPared(tema, 576, 384);
 		
@@ -193,7 +203,6 @@ public class Director {
 		builder.setPared(tema, 320, 416);
 		builder.setPared(tema, 352, 416);
 		builder.setPared(tema, 384, 416);
-		builder.setPared(tema, 192, 416);
 		builder.setPared(tema, 512, 416);
 		builder.setPared(tema, 576, 416);
 		

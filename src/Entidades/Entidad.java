@@ -12,6 +12,7 @@ public abstract class Entidad {
 	protected Zona miZona;
 	protected Juego miJuego;
 	protected boolean visible;
+	protected String representacion;
 	
 	public void setVisible(boolean visible) {
 		this.visible = visible;
@@ -29,11 +30,23 @@ public abstract class Entidad {
 		return posY;
 	}
 	
+	public void setX(int posX) {
+		this.posX = posX;
+	}
+	
+	public void setY(int posY) {
+		this.posY = posY;
+	}
+	
 	public Zona getZona() {
 		return miZona;
 	}
 	
 	public Visitor getVisitor() {
 		return visitor;
+	}
+	
+	public String getRepresentacion() {
+		return representacion;
 	}
 }
