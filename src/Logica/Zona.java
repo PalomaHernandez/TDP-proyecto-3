@@ -1,5 +1,6 @@
 package Logica;
 
+import java.awt.Rectangle;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,8 +19,16 @@ public class Zona {
 	}
 
 	public boolean existePosLibre(int cordX, int cordY, int tamanoX, int tamanoY) {
-		// TODO Auto-generated method stub
-		return false;
+	boolean libre = true;
+	
+		Rectangle entidad = new Rectangle(cordX, cordY, tamanoX, tamanoY);
+		for(Entidad e : lista) {
+			Rectangle entidad2 = new Rectangle(e.getX(), e.getY(), e.getTamano(), e.getTamano());
+			if(entidad.intersects(entidad2)) {
+				libre = false;
+			}
+		}
+		return libre;
 	}
 
 	public void removeEntidad(Entidad e) {

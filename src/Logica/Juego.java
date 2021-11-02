@@ -100,7 +100,7 @@ public class Juego {
 			existe = zonaFinalC.existePosLibre(miProtagonista.getX() + 4, miProtagonista.getY(), miProtagonista.getTamano(), miProtagonista.getTamano());
 		if(zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
 			existe = zonaFinalD.existePosLibre(miProtagonista.getX() + 4, miProtagonista.getY(), miProtagonista.getTamano(), miProtagonista.getTamano());
-		
+	
 		if(existe) {
 			if(zonaFinalA != zonaActualA) {
 				zonaActualA.removeEntidad(miProtagonista);
@@ -123,14 +123,173 @@ public class Juego {
 	}
 
 	public void moverIzqAction() {
+		/*
+		boolean existe;
+		
+		existe = true;
+		
+		Zona zonaActualA;//(0,0)
+		Zona zonaActualB;//(32,0)
+		Zona zonaActualC;//(0,32)
+		Zona zonaActualD;//(32,32)
+		
+		Zona zonaFinalA;
+		Zona zonaFinalB;
+		Zona zonaFinalC;
+		Zona zonaFinalD;
+		
+		zonaActualA = calcularZona(miProtagonista.getX(), miProtagonista.getY());
+		zonaActualB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY());
+		zonaActualC = calcularZona(miProtagonista.getX(), miProtagonista.getY() + miProtagonista.getTamano());
+		zonaActualD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + miProtagonista.getTamano());
+		
+		zonaFinalA = calcularZona(miProtagonista.getX() - 4, miProtagonista.getY());
+		zonaFinalB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() - 4, miProtagonista.getY());
+		zonaFinalC = calcularZona(miProtagonista.getX() - 4, miProtagonista.getY() + miProtagonista.getTamano());
+		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() - 4, miProtagonista.getY() + miProtagonista.getTamano());
+		
+		existe = zonaFinalA.existePosLibre(miProtagonista.getX() - 4, miProtagonista.getY(), miProtagonista.getTamano(), miProtagonista.getTamano());
+		if(zonaFinalA != zonaFinalB)
+			existe = zonaFinalB.existePosLibre(miProtagonista.getX() - 4, miProtagonista.getY(), miProtagonista.getTamano(), miProtagonista.getTamano());
+		if(zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
+			existe = zonaFinalC.existePosLibre(miProtagonista.getX() - 4, miProtagonista.getY(), miProtagonista.getTamano(), miProtagonista.getTamano());
+		if(zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
+			existe = zonaFinalD.existePosLibre(miProtagonista.getX() - 4, miProtagonista.getY(), miProtagonista.getTamano(), miProtagonista.getTamano());
+		
+		if(existe) {
+			if(zonaFinalA != zonaActualA) {
+				zonaActualA.removeEntidad(miProtagonista);
+				zonaFinalA.addEntidad(miProtagonista);
+			}
+			if(zonaFinalB != zonaActualB) {
+				zonaActualB.removeEntidad(miProtagonista);
+				zonaFinalB.addEntidad(miProtagonista);
+			}
+			if(zonaFinalC != zonaActualC){
+				zonaActualC.removeEntidad(miProtagonista);
+				zonaFinalC.addEntidad(miProtagonista);
+			}
+			if(zonaFinalD != zonaActualD) {
+				zonaActualD.removeEntidad(miProtagonista);
+				zonaFinalD.removeEntidad(miProtagonista);
+			}
+			miProtagonista.moverIzquierda();
+		}
+		*/
 		miProtagonista.moverIzquierda();
 	}
 
 	public void moverAbajoAction() {
+		/*
+		boolean existe;
+		
+		existe = true;
+		
+		Zona zonaActualA;//(0,0)
+		Zona zonaActualB;//(32,0)
+		Zona zonaActualC;//(0,32)
+		Zona zonaActualD;//(32,32)
+		
+		Zona zonaFinalA;
+		Zona zonaFinalB;
+		Zona zonaFinalC;
+		Zona zonaFinalD;
+		
+		zonaActualA = calcularZona(miProtagonista.getX(), miProtagonista.getY());
+		zonaActualB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY());
+		zonaActualC = calcularZona(miProtagonista.getX(), miProtagonista.getY() + miProtagonista.getTamano());
+		zonaActualD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + miProtagonista.getTamano());
+		
+		zonaFinalA = calcularZona(miProtagonista.getX(), miProtagonista.getY() + 4);
+		zonaFinalB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + 4);
+		zonaFinalC = calcularZona(miProtagonista.getX(), miProtagonista.getY() + miProtagonista.getTamano() + 4);
+		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + miProtagonista.getTamano() + 4);
+		
+		existe = zonaFinalA.existePosLibre(miProtagonista.getX(), miProtagonista.getY() + 4, miProtagonista.getTamano(), miProtagonista.getTamano());
+		if(zonaFinalA != zonaFinalB)
+			existe = zonaFinalB.existePosLibre(miProtagonista.getX(), miProtagonista.getY() + 4, miProtagonista.getTamano(), miProtagonista.getTamano());
+		if(zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
+			existe = zonaFinalC.existePosLibre(miProtagonista.getX(), miProtagonista.getY() + 4, miProtagonista.getTamano(), miProtagonista.getTamano());
+		if(zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
+			existe = zonaFinalD.existePosLibre(miProtagonista.getX(), miProtagonista.getY() + 4, miProtagonista.getTamano(), miProtagonista.getTamano());
+		
+		if(existe) {
+			if(zonaFinalA != zonaActualA) {
+				zonaActualA.removeEntidad(miProtagonista);
+				zonaFinalA.addEntidad(miProtagonista);
+			}
+			if(zonaFinalB != zonaActualB) {
+				zonaActualB.removeEntidad(miProtagonista);
+				zonaFinalB.addEntidad(miProtagonista);
+			}
+			if(zonaFinalC != zonaActualC){
+				zonaActualC.removeEntidad(miProtagonista);
+				zonaFinalC.addEntidad(miProtagonista);
+			}
+			if(zonaFinalD != zonaActualD) {
+				zonaActualD.removeEntidad(miProtagonista);
+				zonaFinalD.removeEntidad(miProtagonista);
+			}
+			miProtagonista.moverAbajo();
+		}
+		*/
 		miProtagonista.moverAbajo();
 	}
 
 	public void moverArribaAction() {
+		/*
+		boolean existe;
+		
+		existe = true;
+		
+		Zona zonaActualA;//(0,0)
+		Zona zonaActualB;//(32,0)
+		Zona zonaActualC;//(0,32)
+		Zona zonaActualD;//(32,32)
+		
+		Zona zonaFinalA;
+		Zona zonaFinalB;
+		Zona zonaFinalC;
+		Zona zonaFinalD;
+		
+		zonaActualA = calcularZona(miProtagonista.getX(), miProtagonista.getY());
+		zonaActualB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY());
+		zonaActualC = calcularZona(miProtagonista.getX(), miProtagonista.getY() + miProtagonista.getTamano());
+		zonaActualD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + miProtagonista.getTamano());
+		
+		zonaFinalA = calcularZona(miProtagonista.getX(), miProtagonista.getY() - 4);
+		zonaFinalB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() - 4);
+		zonaFinalC = calcularZona(miProtagonista.getX(), miProtagonista.getY() + miProtagonista.getTamano() - 4);
+		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + miProtagonista.getTamano() - 4);
+		
+		existe = zonaFinalA.existePosLibre(miProtagonista.getX(), miProtagonista.getY() - 4, miProtagonista.getTamano(), miProtagonista.getTamano());
+		if(zonaFinalA != zonaFinalB)
+			existe = zonaFinalB.existePosLibre(miProtagonista.getX(), miProtagonista.getY() - 4, miProtagonista.getTamano(), miProtagonista.getTamano());
+		if(zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
+			existe = zonaFinalC.existePosLibre(miProtagonista.getX(), miProtagonista.getY() - 4, miProtagonista.getTamano(), miProtagonista.getTamano());
+		if(zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
+			existe = zonaFinalD.existePosLibre(miProtagonista.getX(), miProtagonista.getY() - 4, miProtagonista.getTamano(), miProtagonista.getTamano());
+		
+		if(existe) {
+			if(zonaFinalA != zonaActualA) {
+				zonaActualA.removeEntidad(miProtagonista);
+				zonaFinalA.addEntidad(miProtagonista);
+			}
+			if(zonaFinalB != zonaActualB) {
+				zonaActualB.removeEntidad(miProtagonista);
+				zonaFinalB.addEntidad(miProtagonista);
+			}
+			if(zonaFinalC != zonaActualC){
+				zonaActualC.removeEntidad(miProtagonista);
+				zonaFinalC.addEntidad(miProtagonista);
+			}
+			if(zonaFinalD != zonaActualD) {
+				zonaActualD.removeEntidad(miProtagonista);
+				zonaFinalD.removeEntidad(miProtagonista);
+			}
+			miProtagonista.moverArriba();
+		}
+		*/
 		miProtagonista.moverArriba();
 	}
 
