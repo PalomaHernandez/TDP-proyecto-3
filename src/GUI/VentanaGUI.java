@@ -32,6 +32,7 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	private Entidad entidadActual;
 	private List<Entidad> nivel;
 	private JLabel[] arregloLabel;
+	private JLabel labelProtagonista;
 	
 	/**
 	 * Launch the application.
@@ -76,22 +77,24 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		
 	}
 
-	public void moverEntidad(int posX, int posY, int posXFin, int posYFin, String representacion) {
-		((JLabel)panel.getComponentAt(posX, posY)).setBounds(posXFin, posYFin, 32, 32);
+	public void moverEntidad(int posX, int posY, int posXFin, int posYFin, Entidad e) {
+		//labelProtagonista.move(posXFin, posYFin);
+		e.setBounds(posXFin, posYFin, e.getWidth(), e.getHeight());
+		//((JLabel)panel.getComponentAt(posX, posY)).move(posXFin, posYFin);;
+		//((JLabel)panel.getComponentAt(posX, posY)).setBounds(posXFin, posYFin, 32, 32);
 	}
 
-	public void inicializarNivel(List<Entidad> nivel) {
+	public void inicializarNivel1(List<Entidad> nivel) {
 		arregloLabel = new JLabel[nivel.size()];
-		int i = 0;
 		this.nivel = nivel;
 		ImageIcon imagen;
 		for(Entidad e : nivel) {
-			arregloLabel[i] = new JLabel();
-			arregloLabel[i].setBounds(e.getX(), e.getY(), 32, 32);
-			panel.add(arregloLabel[i]);
+			//arregloLabel[i] = new JLabel();
+			//arregloLabel[i].setBounds(e.getX(), e.getY(), 32, 32);
+			e.setBounds(e.getX(), e.getY(), 32, 32);
+			panel.add(e);
 			imagen = new ImageIcon(VentanaGUI.class.getResource(e.getRepresentacion()));
-			arregloLabel[i].setIcon(imagen);
-			i++;
+			e.setIcon(imagen);
 		}
 	}
 

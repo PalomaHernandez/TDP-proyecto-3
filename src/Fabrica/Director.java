@@ -24,12 +24,12 @@ public class Director {
 		crearParedes1();
 		
 		builder.setProtagonista(tema, 320, 544);
+		crearPowerPellets1();
 		/**
 		crearEnemigos1();
 		crearPacDots1();
 		crearBomba1();
 		crearFruta1();
-		crearPowerPellets1();
 		crearVelocidad1();
 		**/
 		
@@ -40,22 +40,22 @@ public class Director {
 	}
 
 	private void crearPowerPellets1() {
-		builder.setPowerPellet(tema, 608, 32);
-		builder.setPowerPellet(tema, 32, 32);
+		builder.setPowerPellet(tema, 614, 32);
+		builder.setPowerPellet(tema, 38, 32);
 		
-		builder.setPowerPellet(tema, 160, 96);
-		builder.setPowerPellet(tema, 480, 96);
+		builder.setPowerPellet(tema, 166, 96);
+		builder.setPowerPellet(tema, 486, 96);
 		
-		builder.setPowerPellet(tema, 32, 160);
-		builder.setPowerPellet(tema, 608, 160);
+		builder.setPowerPellet(tema, 38, 160);
+		builder.setPowerPellet(tema, 614, 160);
 		
-		builder.setPowerPellet(tema, 32, 320);
-		builder.setPowerPellet(tema, 160, 320);
-		builder.setPowerPellet(tema, 480, 320);
-		builder.setPowerPellet(tema, 608, 320);
+		builder.setPowerPellet(tema, 38, 320);
+		builder.setPowerPellet(tema, 166, 320);
+		builder.setPowerPellet(tema, 486, 320);
+		builder.setPowerPellet(tema, 614, 320);
 		
-		builder.setPowerPellet(tema, 32, 608);
-		builder.setPowerPellet(tema, 608, 608);
+		builder.setPowerPellet(tema, 38, 608);
+		builder.setPowerPellet(tema, 614, 608);
 		
 	}
 

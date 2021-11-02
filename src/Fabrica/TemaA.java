@@ -65,7 +65,7 @@ public class TemaA extends Tema{
 
 	@Override
 	public PowerPellet getPowerPellet() {
-		return new PowerPellet();
+		return new PowerPellet("/imagenes/bidon.png");
 	}
 
 	@Override

@@ -6,6 +6,10 @@ import Logica.Juego;
 
 public abstract class Movil extends Entidad{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected int direccion;
 	protected MovilGUI miRepresentacion;
 	private final int rango = 768;
@@ -27,7 +31,7 @@ public abstract class Movil extends Entidad{
 		
 		if(posFin >= 0) {
 				miJuego.moverEntidad(posX, posY, posX, posY - 4, this); //Esto chequearia las colisiones
-				posY -= 4;
+				this.setY(posY - 4);
 				//Falta cambiar de zona si es necesario hacerlo
 			
 			
@@ -48,7 +52,7 @@ public abstract class Movil extends Entidad{
 		if(posFin <= rango) {
 			
 				miJuego.moverEntidad(posX, posY, posX, posY + 4, this);
-				posY += 4;
+				this.setY(posY + 4);
 				//Falta cambiar de zona si es necesario hacerlo
 			
 			
@@ -67,7 +71,7 @@ public abstract class Movil extends Entidad{
 		
 		if(posFin >= 0) {
 			miJuego.moverEntidad(posX, posY, posX - 4, posY, this);
-			posX -= 4;
+			this.setX(posX - 4);
 			//Falta cambiar de zona si es necesario hacerlo
 			
 			
@@ -87,14 +91,32 @@ public abstract class Movil extends Entidad{
 		
 		if(posFin <= rango) {
 				miJuego.moverEntidad(posX, posY, posX + 4, posY, this); // El +4 sumado a posX seria los pixeles que se corre la imagen en la grafica
-				posX += 4; 
+				this.setX(posX + 4);
 				//Falta cambiar de zona si es necesario hacerlo
 			
 		}
 	}
 	
 	
-	public abstract void cambiarImagen(int num);
+	public void cambiarImagen(int num) {
+		switch(num) {
+		case 0:
+			this.miRepresentacion.rotarAbajo();
+			break;
+		case 1: 
+			this.miRepresentacion.rotarArriba();
+			break;
+		case 2:
+			this.miRepresentacion.rotarDer();
+			break;
+		case 3:
+			this.miRepresentacion.rotarIzq();
+			break;
+		case 4:
+			this.miRepresentacion.ponerAzul();
+			break;
+		}
+	}
 	
 	public String getRepresentacion() {
 		return representacion;

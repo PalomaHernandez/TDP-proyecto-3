@@ -1,6 +1,9 @@
 package Entidades.Moviles;
 
+import javax.swing.ImageIcon;
+
 import GUI.ProtagonistaGUI;
+import GUI.VentanaGUI;
 import Logica.Juego;
 
 public class Protagonista extends Movil {
@@ -82,6 +85,7 @@ public class Protagonista extends Movil {
 			//this.miRepresentacion.velocidad();
 			break;
 		}
+		this.setIcon(new ImageIcon(VentanaGUI.class.getResource(miRepresentacion.getImagen())));
 	}
 	
 	public String getRepresentacion() {

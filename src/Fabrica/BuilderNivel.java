@@ -30,8 +30,9 @@ public class BuilderNivel implements Builder{
 		Pared pared;
 		
 		pared = tema.getPared();
-		pared.setX(x);
-		pared.setY(y);
+		pared.setPos(x, y);
+		//pared.setX(x);
+		//pared.setY(y);
 		miNivel.addEntidad(pared);
 	}
 
@@ -40,8 +41,9 @@ public class BuilderNivel implements Builder{
 		Protagonista protagonista;
 		
 		protagonista = tema.getProtagonista();
-		protagonista.setX(x);
-		protagonista.setY(y);
+		protagonista.setPos(x, y);
+		//protagonista.setX(x);
+		//protagonista.setY(y);
 		miNivel.setProtagonista(protagonista);
 		miNivel.addEntidad(protagonista);
 	}
@@ -53,8 +55,9 @@ public class BuilderNivel implements Builder{
 		lista = tema.getEnemigos();
 		
 		for(Enemigo e : lista) {
-			e.setX(x);
-			e.setY(y);
+			e.setPos(x, y);
+			//e.setX(x);
+			//e.setY(y);
 			miNivel.addEntidad(e);
 		}
 		
@@ -65,8 +68,10 @@ public class BuilderNivel implements Builder{
 		Fruta fruta;
 		
 		fruta = tema.getFruta();
-		fruta.setX(x);
-		fruta.setY(y);
+		
+		fruta.setPos(x, y);
+		//fruta.setX(x);
+		//fruta.setY(y);
 		miNivel.addEntidad(fruta);
 	}
 
@@ -75,8 +80,10 @@ public class BuilderNivel implements Builder{
 		PowerPellet powerP;
 		
 		powerP = tema.getPowerPellet();
-		powerP.setX(x);
-		powerP.setY(y);
+		
+		powerP.setPos(x, y);
+		//powerP.setX(x);
+		//powerP.setY(y);
 		miNivel.addEntidad(powerP);
 	}
 
@@ -85,8 +92,10 @@ public class BuilderNivel implements Builder{
 		PacDot pacD;
 		
 		pacD = tema.getPacDot();
-		pacD.setX(x);
-		pacD.setY(y);
+		
+		pacD.setPos(x, y);
+		//pacD.setX(x);
+		//pacD.setY(y);
 		miNivel.addEntidad(pacD);
 	}
 
@@ -95,8 +104,10 @@ public class BuilderNivel implements Builder{
 		Bomba bomba;
 		
 		bomba = tema.getBomba();
-		bomba.setX(x);
-		bomba.setY(y);
+		
+		bomba.setPos(x, y);
+		//bomba.setX(x);
+		//bomba.setY(y);
 		miNivel.addEntidad(bomba);
 	}
 
@@ -105,8 +116,10 @@ public class BuilderNivel implements Builder{
 		Velocidad velocidad;
 		
 		velocidad = tema.getVelocidad();
-		velocidad.setX(x);
-		velocidad.setY(y);
+		
+		velocidad.setPos(x, y);
+		//velocidad.setX(x);
+		//velocidad.setY(y);
 		miNivel.addEntidad(velocidad);
 	}
 

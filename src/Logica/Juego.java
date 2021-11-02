@@ -60,12 +60,12 @@ public class Juego {
 		
 		miNivel = constructorNivel1.getResult();
 		miProtagonista = miNivel.getProtagonista();
-		miVentana.inicializarNivel(miNivel.getNivel());
+		miVentana.inicializarNivel1(miNivel.getNivel());
 	}
 
 	public void moverEntidad(int posX, int posY, int posXFin, int posYFin, Movil movil) {
 		
-		miVentana.moverEntidad(posX, posY, posXFin, posYFin, movil.getRepresentacion());
+		miVentana.moverEntidad(posX, posY, posXFin, posYFin, movil);
 	}
 
 	public void moverDerAction() {
@@ -82,7 +82,7 @@ public class Juego {
 		Zona zonaFinalB;
 		Zona zonaFinalC;
 		Zona zonaFinalD;
-		
+	/*	
 		zonaActualA = calcularZona(miProtagonista.getX(), miProtagonista.getY());
 		zonaActualB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY());
 		zonaActualC = calcularZona(miProtagonista.getX(), miProtagonista.getY() + miProtagonista.getTamano());
@@ -120,6 +120,8 @@ public class Juego {
 			}
 			miProtagonista.moverDerecha();
 		}
+			*/
+		miProtagonista.moverDerecha();
 	}
 
 	public void moverIzqAction() {

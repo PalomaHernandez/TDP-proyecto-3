@@ -1,11 +1,17 @@
 package Entidades;
 
+import javax.swing.JLabel;
+
 import Logica.Juego;
 import Logica.Zona;
 import Visitors.Visitor;
 
-public abstract class Entidad {
+public abstract class Entidad extends JLabel{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected int posX;
 	protected int posY;
 	protected Visitor visitor;
@@ -36,10 +42,18 @@ public abstract class Entidad {
 	
 	public void setX(int posX) {
 		this.posX = posX;
+		this.setBounds(posX, posY, this.getWidth(), this.getHeight());
+	}
+	
+	public void setPos(int posX, int posY) {
+		this.posX = posX;
+		this.posY = posY;
+		this.setBounds(this.posX, this.posY, this.getWidth(), this.getHeight());
 	}
 	
 	public void setY(int posY) {
 		this.posY = posY;
+		this.setBounds(posX, posY, this.getWidth(), this.getHeight());
 	}
 	
 	public Zona getZona() {

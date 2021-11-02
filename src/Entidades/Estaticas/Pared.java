@@ -4,6 +4,10 @@ import GUI.ParedGUI;
 
 public class Pared extends Estatica {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ParedGUI miRepresentacion;
 	
 	public Pared(String pared) {
