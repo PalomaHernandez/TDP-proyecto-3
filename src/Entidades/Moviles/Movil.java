@@ -2,6 +2,7 @@ package Entidades.Moviles;
 
 import Entidades.Entidad;
 import GUI.MovilGUI;
+import Hilos.HiloMover;
 import Logica.Juego;
 
 public abstract class Movil extends Entidad{
@@ -12,27 +13,25 @@ public abstract class Movil extends Entidad{
 	private static final long serialVersionUID = 1L;
 	protected int direccion;
 	protected MovilGUI miRepresentacion;
-	private final int rango = 768;
+	private final int rango = 608;
 	protected Juego miJuego;
 	
 	public Movil() {
-		direccion = 0; //se inicializa moviendose hacia arriba
+		direccion = 3; //se inicializa moviendose hacia la izquierda
 	}
 	
 	public void moverArriba() {
-		int posFin;
-		
-		posFin = posY - 4;
 		
 		if(direccion != 0) {
 			cambiarImagen(0);
 			direccion = 0;
 		}
 		
-		if(posFin >= 0) {
-				miJuego.moverEntidad(posX, posY, posX, posY - 4, this); //Esto chequearia las colisiones
-				this.setY(posY - 4);
-				//Falta cambiar de zona si es necesario hacerlo
+		if(posY -32 >= 32) {
+			
+			miJuego.moverEntidad(posX, posY, posX, posY - 32, 1, this); //Esto chequearia las colisiones
+			//this.setY(posY - 32);
+			//Falta cambiar de zona si es necesario hacerlo
 			
 			
 		}
@@ -51,7 +50,7 @@ public abstract class Movil extends Entidad{
 		
 		if(posFin <= rango) {
 			
-				miJuego.moverEntidad(posX, posY, posX, posY + 4, this);
+				miJuego.moverEntidad(posX, posY, posX, posY + 4, 0, this);
 				this.setY(posY + 4);
 				//Falta cambiar de zona si es necesario hacerlo
 			
@@ -69,8 +68,8 @@ public abstract class Movil extends Entidad{
 			direccion = 3;
 		}
 		
-		if(posFin >= 0) {
-			miJuego.moverEntidad(posX, posY, posX - 4, posY, this);
+		if(posFin >= 32) {
+			miJuego.moverEntidad(posX, posY, posX - 4, posY, 3, this);
 			this.setX(posX - 4);
 			//Falta cambiar de zona si es necesario hacerlo
 			
@@ -90,7 +89,7 @@ public abstract class Movil extends Entidad{
 		}
 		
 		if(posFin <= rango) {
-				miJuego.moverEntidad(posX, posY, posX + 4, posY, this); // El +4 sumado a posX seria los pixeles que se corre la imagen en la grafica
+				miJuego.moverEntidad(posX, posY, posX + 4, posY,2, this); // El +4 sumado a posX seria los pixeles que se corre la imagen en la grafica
 				this.setX(posX + 4);
 				//Falta cambiar de zona si es necesario hacerlo
 			
