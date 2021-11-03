@@ -25,13 +25,15 @@ public class Director {
 		
 		builder.setProtagonista(tema, 320, 544);
 		crearPowerPellets1();
-		/**
-		crearEnemigos1();
+		crearBomba1();
+		crearFruta1();
+		
+		/*crearEnemigos1();
 		crearPacDots1();
 		crearBomba1();
 		crearFruta1();
-		crearVelocidad1();
-		**/
+		crearVelocidad1();*/
+		
 		
 	}
 	
@@ -64,7 +66,7 @@ public class Director {
 	}
 
 	private void crearBomba1() {
-		builder.setBomba(tema, 320, 384);
+		builder.setBomba(tema, 320, 544);
 	}
 
 	private void crearPacDots1() {
@@ -261,32 +263,44 @@ public class Director {
 		
 		builder.setProtagonista(tema, 320, 480);
 		
-		crearEnemigos2();
-		crearPacDots2();
+		crearPowerPellets2();
 		crearBomba2();
 		crearFruta2();
-		crearPowerPellets2();
-		crearVelocidad();
+		
+		//crearVelocidad2();
+		//crearEnemigos2();
+		//crearPacDots2();
+	
 		
 	}
 	
-	private void crearVelocidad() {
-		// TODO Auto-generated method stub
+	private void crearVelocidad2() {
+		builder.setVelocidad(tema, 326, 132);
 		
 	}
 
 	private void crearPowerPellets2() {
-		// TODO Auto-generated method stub
+		builder.setPowerPellet(tema, 614, 100);
+		builder.setPowerPellet(tema, 38, 100);
+		
+		builder.setPowerPellet(tema, 614, 544);
+		builder.setPowerPellet(tema, 38, 544);
+		
+		builder.setPowerPellet(tema, 326, 32);
+		builder.setPowerPellet(tema, 326, 608);
+		
+		builder.setPowerPellet(tema, 132, 320);
+		builder.setPowerPellet(tema, 518, 320);
 		
 	}
 
 	private void crearFruta2() {
-		// TODO Auto-generated method stub
+		builder.setFruta(tema, 326, 352);
 		
 	}
 
 	private void crearBomba2() {
-		// TODO Auto-generated method stub
+		builder.setBomba(tema, 326, 544);
 		
 	}
 
@@ -296,7 +310,7 @@ public class Director {
 	}
 
 	private void crearEnemigos2() {
-		// TODO Auto-generated method stub
+		builder.setEnemigos(tema, 320, 320);
 		
 	}
 

@@ -46,21 +46,21 @@ public class TemaA extends Tema{
 		
 		lista = new LinkedList<Enemigo>();
 		
-		lista.add(new Inky());
-		lista.add(new Blinky());
-		lista.add(new Pinky());
-		lista.add(new Clyde());
+		lista.add(new Inky(null));
+		lista.add(new Blinky(null));
+		lista.add(new Pinky(null));
+		lista.add(new Clyde(null));
 		return lista;
 	}
 
 	@Override
 	public Bomba getBomba() {
-		return new Bomba();
+		return new Bomba("/imagenes/bomba.png");
 	}
 
 	@Override
 	public Velocidad getVelocidad() {
-		return new Velocidad();
+		return new Velocidad("/imagenes/velocidad.png");
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class TemaA extends Tema{
 
 	@Override
 	public Fruta getFruta() {
-		return new Fruta();
+		return new Fruta("/imagenes/herramienta.png");
 	}
 
 }
