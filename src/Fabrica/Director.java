@@ -27,9 +27,10 @@ public class Director {
 		crearPowerPellets1();
 		crearBomba1();
 		crearFruta1();
+		crearPacDots1();
 		
 		/*crearEnemigos1();
-		crearPacDots1();
+		
 		crearBomba1();
 		crearFruta1();
 		crearVelocidad1();*/
@@ -58,7 +59,6 @@ public class Director {
 		
 		builder.setPowerPellet(tema, 38, 608);
 		builder.setPowerPellet(tema, 614, 608);
-		
 	}
 
 	private void crearFruta1() {
@@ -66,12 +66,143 @@ public class Director {
 	}
 
 	private void crearBomba1() {
-		builder.setBomba(tema, 320, 544);
+		builder.setBomba(tema, 325, 544);
 	}
 
 	private void crearPacDots1() {
-		// TODO Auto-generated method stub
+		builder.setPacDot(tema, 42, 64);
+		builder.setPacDot(tema, 42, 96);
+		builder.setPacDot(tema, 42, 128);
+		builder.setPacDot(tema, 42, 192);
+		builder.setPacDot(tema, 42, 224);
+		builder.setPacDot(tema, 42, 256);
+		builder.setPacDot(tema, 42, 288);
 		
+		for(int j = 352; j <= 576; j += 32) {
+			builder.setPacDot(tema, 42, j);
+		}
+		
+		builder.setPacDot(tema, 618, 64);
+		builder.setPacDot(tema, 618, 96);
+		builder.setPacDot(tema, 618, 128);
+		builder.setPacDot(tema, 618, 192);
+		builder.setPacDot(tema, 618, 224);
+		builder.setPacDot(tema, 618, 256);
+		builder.setPacDot(tema, 618, 288);
+		
+		for(int j = 352; j <= 576; j += 32) {
+			builder.setPacDot(tema, 618, j);
+		}
+		
+		builder.setPacDot(tema, 138, 64);
+		builder.setPacDot(tema, 138, 96);
+		builder.setPacDot(tema, 106, 96);
+		builder.setPacDot(tema, 74, 96);
+		builder.setPacDot(tema, 138, 64);
+		
+		builder.setPacDot(tema, 522, 64);
+		builder.setPacDot(tema, 522, 96);
+		builder.setPacDot(tema, 554, 96);
+		builder.setPacDot(tema, 586, 96);
+		builder.setPacDot(tema, 490, 128);
+		builder.setPacDot(tema, 490, 160);
+		builder.setPacDot(tema, 490, 192);
+		builder.setPacDot(tema, 490, 224);
+		builder.setPacDot(tema, 490, 256);
+		builder.setPacDot(tema, 458, 256);
+		builder.setPacDot(tema, 522, 256);
+		builder.setPacDot(tema, 586, 256);
+		
+		builder.setPacDot(tema, 234, 576);
+		builder.setPacDot(tema, 426, 576);
+		
+		builder.setPacDot(tema, 202, 416);
+		builder.setPacDot(tema, 458, 416);
+		
+		builder.setPacDot(tema, 522, 448);
+		builder.setPacDot(tema, 586, 448);
+		builder.setPacDot(tema, 522, 320);
+		builder.setPacDot(tema, 586, 320);
+		
+		builder.setPacDot(tema, 298, 480);
+		builder.setPacDot(tema, 298, 512);
+		builder.setPacDot(tema, 362, 480);
+		builder.setPacDot(tema, 362, 512);
+		
+		builder.setPacDot(tema, 74, 320);
+		builder.setPacDot(tema, 138, 320);
+		builder.setPacDot(tema, 74, 256);
+		builder.setPacDot(tema, 138, 256);
+		builder.setPacDot(tema, 202, 256);
+		
+		builder.setPacDot(tema, 330, 192);
+		builder.setPacDot(tema, 330, 224);
+
+		
+		for(int i = 266; i <= 394; i += 32) {
+			builder.setPacDot(tema, i, 160);
+		}
+		
+		for(int j = 256; j >= 128; j -= 32) {
+			builder.setPacDot(tema, 170, j);
+		}
+		
+		for(int i = 74; i < 170; i += 32) {
+			builder.setPacDot(tema, i, 448);
+		}
+		
+		for(int i = 266; i < 426; i += 32) {
+			builder.setPacDot(tema, i, 448);
+		}
+		
+		for(int j = 512; j > 320; j -= 32) {
+			builder.setPacDot(tema, 170, j);
+		}
+		
+		for(int j = 512; j > 320; j -= 32) {
+			builder.setPacDot(tema, 490, j);
+		}
+		
+		for(int j = 416; j <= 512; j += 32) {
+			builder.setPacDot(tema, 234, j);
+		}
+		
+		for(int j = 64; j <= 224; j += 32) {
+			builder.setPacDot(tema, 234, j);
+		}
+		
+		for(int j = 416; j <= 512; j += 32) {
+			builder.setPacDot(tema, 426, j);
+		}
+		
+		for(int j = 64; j <= 224; j += 32) {
+			builder.setPacDot(tema, 426, j);
+		}
+		
+		for(int j = 256; j < 448; j += 32) {
+			builder.setPacDot(tema, 106, j);
+		}
+		
+		for(int j = 256; j <= 448; j += 32) {
+			builder.setPacDot(tema, 554, j);
+		}
+		
+		for(int i = 74; i < 330; i += 32) {
+			builder.setPacDot(tema, i, 544);
+		}
+		
+		for(int i = 362; i < 608; i += 32) {
+			builder.setPacDot(tema, i, 544);
+		}
+
+		for(int i = 74; i < 608; i +=32) {
+			builder.setPacDot(tema, i, 32);
+		}
+		
+		for(int i = 74; i < 608; i += 32) {
+			builder.setPacDot(tema, i, 608);
+		}
+
 	}
 
 	private void crearEnemigos1() {
@@ -485,10 +616,6 @@ public class Director {
 		
 		builder.setPared(tema, 160, 608);
 		builder.setPared(tema, 480, 608);
-		
-		
-		
-		
 		
 	}
 

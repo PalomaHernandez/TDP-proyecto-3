@@ -70,7 +70,7 @@ public class TemaA extends Tema{
 
 	@Override
 	public PacDot getPacDot() {
-		return new PacDot();
+		return new PacDot("/imagenes/rueda.png");
 	}
 
 	@Override
