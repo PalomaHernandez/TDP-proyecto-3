@@ -1,5 +1,8 @@
 package Entidades.Moviles;
 
+import java.util.Timer;
+import java.util.concurrent.TimeUnit;
+
 import Entidades.Entidad;
 import GUI.MovilGUI;
 import Hilos.HiloMover;
@@ -15,26 +18,43 @@ public abstract class Movil extends Entidad{
 	protected MovilGUI miRepresentacion;
 	private final int rango = 608;
 	protected Juego miJuego;
+	private Timer timer;
 	
 	public Movil() {
 		direccion = 3; //se inicializa moviendose hacia la izquierda
 	}
 	
 	public void moverArriba() {
+		int posYFin;
 		
+		posYFin = posY - 32;
 		if(direccion != 0) {
 			cambiarImagen(0);
 			direccion = 0;
 		}
 		
-		if(posY -32 >= 32) {
+		if(posY -4 >= 32) {
 			
-			miJuego.moverEntidad(posX, posY, posX, posY - 32, 1, this); //Esto chequearia las colisiones
-			//this.setY(posY - 32);
+			this.setY(posY -4);
+			
+			/*
+			while(posY != posYFin) {
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				this.setBounds(this.posX, this.posY - 4, this.getHeight(), this.getWidth());
+				posY -= 4;
+			}
+				*/
+				
+			}
 			//Falta cambiar de zona si es necesario hacerlo
 			
 			
-		}
+		
 	}
 	
 	

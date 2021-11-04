@@ -21,25 +21,22 @@ public class Director {
 		this.builder = builder;
 		builder.reset();
 		
-		crearParedes1();
 		
 		builder.setProtagonista(tema, 320, 544);
 		crearPowerPellets1();
 		crearBomba1();
 		crearFruta1();
 		crearPacDots1();
+		crearParedes1();
 		
 		/*crearEnemigos1();
-		
-		crearBomba1();
-		crearFruta1();
-		crearVelocidad1();*/
+		*/
 		
 		
 	}
 	
 	private void crearVelocidad1() {
-		builder.setVelocidad(tema, 320, 384);
+		builder.setVelocidad(tema, 326, 384);
 	}
 
 	private void crearPowerPellets1() {
@@ -62,11 +59,11 @@ public class Director {
 	}
 
 	private void crearFruta1() {
-		builder.setFruta(tema, 320, 384);
+		builder.setFruta(tema, 326, 384);
 	}
 
 	private void crearBomba1() {
-		builder.setBomba(tema, 325, 544);
+		builder.setBomba(tema, 326, 448);
 	}
 
 	private void crearPacDots1() {
@@ -151,7 +148,10 @@ public class Director {
 			builder.setPacDot(tema, i, 448);
 		}
 		
-		for(int i = 266; i < 426; i += 32) {
+		for(int i = 266 ; i < 320 ; i += 32)
+			builder.setPacDot(tema, i, 448);
+		
+		for(int i = 362; i < 426; i += 32) {
 			builder.setPacDot(tema, i, 448);
 		}
 		
@@ -390,7 +390,6 @@ public class Director {
 		this.builder = builder;
 		builder.reset();
 		
-		crearParedes2();
 		
 		builder.setProtagonista(tema, 320, 480);
 		
@@ -401,12 +400,13 @@ public class Director {
 		//crearVelocidad2();
 		//crearEnemigos2();
 		crearPacDots2();
+		crearParedes2();
 	
 		
 	}
 	
 	private void crearVelocidad2() {
-		builder.setVelocidad(tema, 326, 132);
+		builder.setVelocidad(tema, 326, 352);
 		
 	}
 
@@ -756,7 +756,6 @@ public class Director {
 		this.builder = builder;
 		builder.reset();
 		
-		crearParedes3();
 		
 		builder.setProtagonista(tema, 320, 480);
 
@@ -766,6 +765,7 @@ public class Director {
 		crearBomba3();
 		crearFruta3();
 		crearVelocidad3();
+		crearParedes3();
 	}
 
 	private void crearVelocidad3() {

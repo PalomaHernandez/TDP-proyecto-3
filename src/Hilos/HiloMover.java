@@ -34,7 +34,7 @@ public class HiloMover extends Thread {
 		this.posXFin = posXFin;
 		this.posYFin = posYFin;
 		this.movimiento = movimiento;// 0 abajo, 1 arriba, 2 derecha, 3 izquierda
-		start();
+		run();
 	}
 	
 	public void run() {

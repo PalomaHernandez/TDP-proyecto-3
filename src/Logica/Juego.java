@@ -20,13 +20,14 @@ public class Juego {
 	
 	public Juego(int tema, VentanaGUI ventana) {
 		miDirector = new Director(tema, this);
-		hiloMover = new HiloMover(10);
+		//hiloMover = new HiloMover(10);
 		matriz = new Zona[7][7];
 		for(int i = 0; i < 7 ; i++)
 			for(int j = 0 ; j < 7 ; j++)
 				matriz[i][j] = new Zona();
 		
 		miVentana = ventana;
+		
 		inicializarNivel1();
 		agregarAZona();
 	}
@@ -58,7 +59,7 @@ public class Juego {
 		
 		constructorNivel1 = new BuilderNivel();
 		
-		miDirector.makeNivel3(constructorNivel1);
+		miDirector.makeNivel1(constructorNivel1);
 		
 		miNivel = constructorNivel1.getResult();
 		miProtagonista = miNivel.getProtagonista();
@@ -66,7 +67,7 @@ public class Juego {
 	}
 
 	public void moverEntidad(int posX, int posY, int posXFin, int posYFin,int movimiento, Movil movil) {
-		hiloMover.moverEntidad(posX, posY, posXFin, posYFin, movimiento, movil);
+		miVentana.moverEntidad(posX, posY, posXFin, posYFin, movil);
 	}
 
 	public void moverDerAction() {
