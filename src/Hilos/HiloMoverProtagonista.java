@@ -4,7 +4,7 @@ import Entidades.Moviles.Movil;
 import GUI.VentanaGUI;
 import Logica.Juego;
 
-public class HiloMover extends Thread {
+public class HiloMoverProtagonista extends Thread {
 	
 	private int movimiento;
 	private Movil miEntidad;
@@ -15,7 +15,7 @@ public class HiloMover extends Thread {
 	private int posXFin;
 	private int posYFin;
 	
-	public HiloMover(int s) {
+	public HiloMoverProtagonista(int s) {
 		step=s;
 	}
 	
@@ -34,7 +34,7 @@ public class HiloMover extends Thread {
 		this.posXFin = posXFin;
 		this.posYFin = posYFin;
 		this.movimiento = movimiento;// 0 abajo, 1 arriba, 2 derecha, 3 izquierda
-		run();
+		
 	}
 	
 	public void run() {
@@ -42,9 +42,21 @@ public class HiloMover extends Thread {
 			try {
 				Thread.sleep(step);
 				switch(movimiento) {
+				case 0: 
+					miEntidad.setY(posY + 4);
+					posY +=4;
+					break;
 				case 1:
-					miEntidad.setBounds(posX, posY - 4, miEntidad.getWidth(), miEntidad.getHeight());
+					miEntidad.setY(posY - 4);
 					posY -=4;
+					break;
+				case 2:
+					miEntidad.setX(posX + 4);
+					posX +=4;
+					break;
+				case 3: 
+					miEntidad.setX(posX - 4);
+					posX -= 4;
 					break;
 				}
 			}catch (InterruptedException e) {

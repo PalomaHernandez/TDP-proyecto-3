@@ -1,11 +1,9 @@
 package Entidades.Moviles;
 
-import java.util.Timer;
-import java.util.concurrent.TimeUnit;
 
 import Entidades.Entidad;
 import GUI.MovilGUI;
-import Hilos.HiloMover;
+import Hilos.HiloMoverProtagonista;
 import Logica.Juego;
 
 public abstract class Movil extends Entidad{
@@ -18,7 +16,7 @@ public abstract class Movil extends Entidad{
 	protected MovilGUI miRepresentacion;
 	private final int rango = 608;
 	protected Juego miJuego;
-	private Timer timer;
+	private HiloMoverProtagonista hilo;
 	
 	public Movil() {
 		direccion = 3; //se inicializa moviendose hacia la izquierda
@@ -26,32 +24,18 @@ public abstract class Movil extends Entidad{
 	
 	public void moverArriba() {
 		int posYFin;
-		
+
+		hilo = new HiloMoverProtagonista(20);
 		posYFin = posY - 32;
-		if(direccion != 0) {
-			cambiarImagen(0);
-			direccion = 0;
+		if(direccion != 1) {
+			cambiarImagen(1);
+			direccion = 1;
 		}
 		
-		if(posY -4 >= 32) {
-			
-			this.setY(posY -4);
-			
-			/*
-			while(posY != posYFin) {
-				try {
-					Thread.sleep(500);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				this.setBounds(this.posX, this.posY - 4, this.getHeight(), this.getWidth());
-				posY -= 4;
-			}
-				*/
-				
-			}
-			//Falta cambiar de zona si es necesario hacerlo
+		// Este if deberia hacerse chequeando colisiones con paredes, no mirando el rangoif(posY - 32 >= 32) {
+
+		hilo.moverEntidad(posX, posY, posX, posYFin, 1, this);
+		hilo.start();
 			
 			
 		
@@ -60,60 +44,54 @@ public abstract class Movil extends Entidad{
 	
 	public void moverAbajo() {
 		int posFin;
+
+		hilo = new HiloMoverProtagonista(20);
+		posFin = posY + 32;
 		
-		posFin = posY + 4;
-		
-		if(direccion != 1) {
-			cambiarImagen(1);
-			direccion = 1;
+		if(direccion != 0) {
+			cambiarImagen(0);
+			direccion = 0;
 		}
 		
-		if(posFin <= rango) {
+		hilo.moverEntidad(posX, posY, posX, posFin, 0, this);
+		hilo.start();	
 			
-				miJuego.moverEntidad(posX, posY, posX, posY + 4, 0, this);
-				this.setY(posY + 4);
-				//Falta cambiar de zona si es necesario hacerlo
-			
-			
-		}
+		
 	}
 	
 	public void moverIzquierda() {
 		int posFin;
-		
-		posFin = posX - 4;
+
+		hilo = new HiloMoverProtagonista(20);
+		posFin = posX - 32;
 		
 		if(direccion != 3) {
 			cambiarImagen(3);
 			direccion = 3;
 		}
+	
+		hilo.moverEntidad(posX, posY, posFin, posY, 3, this);
+		hilo.start();
+		//Falta cambiar de zona si es necesario hacerlo
+			
+			
 		
-		if(posFin >= 32) {
-			miJuego.moverEntidad(posX, posY, posX - 4, posY, 3, this);
-			this.setX(posX - 4);
-			//Falta cambiar de zona si es necesario hacerlo
-			
-			
-		}
 		
 	}
 	
 	public void moverDerecha() {
 		int posFin;
 		
-		posFin = posX + 4;
+		hilo = new HiloMoverProtagonista(20);
+		posFin = posX + 32;
 		
 		if(direccion != 2) {
 			cambiarImagen(2);
 			direccion = 2;
 		}
 		
-		if(posFin <= rango) {
-				miJuego.moverEntidad(posX, posY, posX + 4, posY,2, this); // El +4 sumado a posX seria los pixeles que se corre la imagen en la grafica
-				this.setX(posX + 4);
-				//Falta cambiar de zona si es necesario hacerlo
-			
-		}
+		hilo.moverEntidad(posX, posY, posFin, posY, 2, this);
+		hilo.start();
 	}
 	
 	

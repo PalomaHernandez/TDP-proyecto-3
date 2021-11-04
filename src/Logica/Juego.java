@@ -7,7 +7,7 @@ import Fabrica.Builder;
 import Fabrica.BuilderNivel;
 import Fabrica.Director;
 import GUI.VentanaGUI;
-import Hilos.HiloMover;
+import Hilos.HiloMoverProtagonista;
 
 public class Juego {
 
@@ -16,7 +16,7 @@ public class Juego {
 	private Nivel miNivel;
 	private Protagonista miProtagonista;
 	private Zona [][] matriz;
-	private HiloMover hiloMover;
+	private HiloMoverProtagonista hiloMover;
 	
 	public Juego(int tema, VentanaGUI ventana) {
 		miDirector = new Director(tema, this);
@@ -59,15 +59,11 @@ public class Juego {
 		
 		constructorNivel1 = new BuilderNivel();
 		
-		miDirector.makeNivel1(constructorNivel1);
+		miDirector.makeNivel2(constructorNivel1);
 		
 		miNivel = constructorNivel1.getResult();
 		miProtagonista = miNivel.getProtagonista();
 		miVentana.inicializarNivel1(miNivel.getNivel());
-	}
-
-	public void moverEntidad(int posX, int posY, int posXFin, int posYFin,int movimiento, Movil movil) {
-		miVentana.moverEntidad(posX, posY, posXFin, posYFin, movil);
 	}
 
 	public void moverDerAction() {
@@ -240,7 +236,7 @@ public class Juego {
 		miProtagonista.moverAbajo();
 	}
 
-	public void moverArribaAction() {
+	public synchronized void moverArribaAction() {
 		/*
 		boolean existe;
 		
