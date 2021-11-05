@@ -26,6 +26,7 @@ public class Director {
 		crearPowerPellets1();
 		crearBomba1();
 		crearFruta1();
+		crearVelocidad1();
 		crearPacDots1();
 		crearParedes1();
 		
@@ -36,7 +37,7 @@ public class Director {
 	}
 	
 	private void crearVelocidad1() {
-		builder.setVelocidad(tema, 326, 384);
+		builder.setVelocidad(tema, 326, 160);
 	}
 
 	private void crearPowerPellets1() {
@@ -63,7 +64,7 @@ public class Director {
 	}
 
 	private void crearBomba1() {
-		builder.setBomba(tema, 326, 448);
+		builder.setBomba(tema, 320, 448);
 	}
 
 	private void crearPacDots1() {
@@ -397,7 +398,7 @@ public class Director {
 		crearBomba2();
 		crearFruta2();
 		
-		//crearVelocidad2();
+		crearVelocidad2();
 		//crearEnemigos2();
 		crearPacDots2();
 		crearParedes2();
@@ -406,7 +407,7 @@ public class Director {
 	}
 	
 	private void crearVelocidad2() {
-		builder.setVelocidad(tema, 326, 352);
+		builder.setVelocidad(tema, 326, 96);
 		
 	}
 
@@ -431,7 +432,7 @@ public class Director {
 	}
 
 	private void crearBomba2() {
-		builder.setBomba(tema, 326, 544);
+		builder.setBomba(tema, 320, 544);
 		
 	}
 
@@ -759,17 +760,17 @@ public class Director {
 		
 		builder.setProtagonista(tema, 320, 480);
 
-		crearPowerPellets3();
+		crearParedes3();
 		crearEnemigos3();
-		crearPacDots3();
+		crearPowerPellets3();
 		crearBomba3();
 		crearFruta3();
 		crearVelocidad3();
-		crearParedes3();
+		crearPacDots3();
 	}
 
 	private void crearVelocidad3() {
-		// TODO Auto-generated method stub
+		builder.setVelocidad(tema, 326, 96);
 		
 	}
 
