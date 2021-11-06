@@ -59,7 +59,7 @@ public class Juego {
 		
 		constructorNivel1 = new BuilderNivel();
 		
-		miDirector.makeNivel3(constructorNivel1);
+		miDirector.makeNivel2(constructorNivel1);
 		
 		miNivel = constructorNivel1.getResult();
 		miProtagonista = miNivel.getProtagonista();
@@ -80,17 +80,17 @@ public class Juego {
 		Zona zonaFinalB;
 		Zona zonaFinalC;
 		Zona zonaFinalD;
-	/*	
+	
 		zonaActualA = calcularZona(miProtagonista.getX(), miProtagonista.getY());
 		zonaActualB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY());
 		zonaActualC = calcularZona(miProtagonista.getX(), miProtagonista.getY() + miProtagonista.getTamano());
 		zonaActualD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + miProtagonista.getTamano());
 		
-		zonaFinalA = calcularZona(miProtagonista.getX() + 4, miProtagonista.getY());
-		zonaFinalB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() + 4, miProtagonista.getY());
-		zonaFinalC = calcularZona(miProtagonista.getX() + 4, miProtagonista.getY() + miProtagonista.getTamano());
-		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() + 4, miProtagonista.getY() + miProtagonista.getTamano());
-		
+		zonaFinalA = calcularZona(miProtagonista.getX() + 32, miProtagonista.getY());
+		zonaFinalB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() + 32, miProtagonista.getY());
+		zonaFinalC = calcularZona(miProtagonista.getX() + 32, miProtagonista.getY() + miProtagonista.getTamano());
+		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() + 32, miProtagonista.getY() + miProtagonista.getTamano());
+		/*
 		existe = zonaFinalA.existePosLibre(miProtagonista.getX() + 4, miProtagonista.getY(), miProtagonista.getTamano(), miProtagonista.getTamano());
 		if(zonaFinalA != zonaFinalB)
 			existe = zonaFinalB.existePosLibre(miProtagonista.getX() + 4, miProtagonista.getY(), miProtagonista.getTamano(), miProtagonista.getTamano());

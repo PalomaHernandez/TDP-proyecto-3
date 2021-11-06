@@ -212,178 +212,183 @@ public class Director {
 
 	private void crearParedes1() {
 		
-		for(int i = 0 ; i <= 640 ; i += 32) 
-			builder.setPared(tema, i, 0);
+		builder.setPared(tema, 0, 0, 8);
+		builder.setPared(tema, 640, 0, 11);
+		for(int i = 32 ; i <= 608 ; i += 32) 
+			builder.setPared(tema, i, 0, 2);
 		
-		for(int i = 0 ; i <= 640 ; i += 32) 
-			builder.setPared(tema, i, 640);
+		builder.setPared(tema, 0, 640, 14);
+		builder.setPared(tema, 640, 640, 17);
 		
-		for(int j = 0 ; j <= 640 ; j += 32)
-			builder.setPared(tema, 0, j);
+		for(int i = 32 ; i <= 608 ; i += 32) 
+			builder.setPared(tema, i, 640, 1);
 		
-		for(int j = 0 ; j <= 640 ; j += 32)
-			builder.setPared(tema, 640, j);
+		for(int j = 32 ; j <= 608 ; j += 32)
+			builder.setPared(tema, 0, j, 4);
 		
-		builder.setPared(tema, 64, 64);
-		builder.setPared(tema, 96, 64);
-		builder.setPared(tema, 160, 64);
-		builder.setPared(tema, 192, 64);
-		builder.setPared(tema, 256, 64);
-		builder.setPared(tema, 288, 64);
-		builder.setPared(tema, 320, 64);
-		builder.setPared(tema, 352, 64);
-		builder.setPared(tema, 384, 64);
-		builder.setPared(tema, 448, 64);
-		builder.setPared(tema, 480, 64);
-		builder.setPared(tema, 544, 64);
-		builder.setPared(tema, 576, 64);
+		for(int j = 32 ; j <= 608 ; j += 32)
+			builder.setPared(tema, 640, j, 5);
+		
+		builder.setPared(tema, 64, 64, 21);
+		builder.setPared(tema, 96, 64, 20);
+		builder.setPared(tema, 160, 64, 21);
+		builder.setPared(tema, 192, 64, 9);
+		builder.setPared(tema, 256, 64, 7);
+		builder.setPared(tema, 288, 64, 1);
+		builder.setPared(tema, 320, 64, 1);
+		builder.setPared(tema, 352, 64, 1);
+		builder.setPared(tema, 384, 64, 10);
+		builder.setPared(tema, 448, 64, 6);
+		builder.setPared(tema, 480, 64, 20);
+		builder.setPared(tema, 544, 64, 21);
+		builder.setPared(tema, 576, 64, 20);
 	
-		builder.setPared(tema, 192, 96);
-		builder.setPared(tema, 256, 96);
-		builder.setPared(tema, 288, 96);
-		builder.setPared(tema, 320, 96);
-		builder.setPared(tema, 352, 96);
-		builder.setPared(tema, 384, 96);
-		builder.setPared(tema, 448, 96);
+		builder.setPared(tema, 192, 96, 3);
+		builder.setPared(tema, 256, 96, 5);
+		builder.setPared(tema, 288, 96, 22);
+		builder.setPared(tema, 320, 96, 22);
+		builder.setPared(tema, 352, 96, 22);
+		builder.setPared(tema, 384, 96, 4);
+		builder.setPared(tema, 448, 96, 3);
 		
-		builder.setPared(tema, 64, 128);
-		builder.setPared(tema, 96, 128);
-		builder.setPared(tema, 128, 128);
-		builder.setPared(tema, 192, 128);
-		builder.setPared(tema, 256, 128);
-		builder.setPared(tema, 288, 128);
-		builder.setPared(tema, 320, 128);
-		builder.setPared(tema, 352, 128);
-		builder.setPared(tema, 384, 128);
-		builder.setPared(tema, 448, 128);
-		builder.setPared(tema, 512, 128);
-		builder.setPared(tema, 544, 128);
-		builder.setPared(tema, 576, 128);
+		builder.setPared(tema, 64, 128, 7);
+		builder.setPared(tema, 96, 128, 1);
+		builder.setPared(tema, 128, 128, 10);
+		builder.setPared(tema, 192, 128, 3);
+		builder.setPared(tema, 256, 128, 13);
+		builder.setPared(tema, 288, 128, 2);
+		builder.setPared(tema, 320, 128, 2);
+		builder.setPared(tema, 352, 128, 2);
+		builder.setPared(tema, 384, 128, 16);
+		builder.setPared(tema, 448, 128, 3);
+		builder.setPared(tema, 512, 128, 7);
+		builder.setPared(tema, 544, 128, 1);
+		builder.setPared(tema, 576, 128, 10);
 		
-		builder.setPared(tema, 64, 160);
-		builder.setPared(tema, 96, 160);
-		builder.setPared(tema, 128, 160);
-		builder.setPared(tema, 192, 160);
-		builder.setPared(tema, 448, 160);
-		builder.setPared(tema, 512, 160);
-		builder.setPared(tema, 544, 160);
-		builder.setPared(tema, 576, 160);
+		builder.setPared(tema, 64, 160, 5);
+		builder.setPared(tema, 96, 160, 22);
+		builder.setPared(tema, 128, 160, 4);
+		builder.setPared(tema, 192, 160, 3);
+		builder.setPared(tema, 448, 160, 3);
+		builder.setPared(tema, 512, 160, 5);
+		builder.setPared(tema, 544, 160, 22);
+		builder.setPared(tema, 576, 160, 4);
 		
-		builder.setPared(tema, 64, 192);
-		builder.setPared(tema, 96, 192);
-		builder.setPared(tema, 128, 192);
-		builder.setPared(tema, 192, 192);
-		builder.setPared(tema, 256, 192);
-		builder.setPared(tema, 288, 192);
-		builder.setPared(tema, 352, 192);
-		builder.setPared(tema, 384, 192);
-		builder.setPared(tema, 448, 192);
-		builder.setPared(tema, 512, 192);
-		builder.setPared(tema, 544, 192);
-		builder.setPared(tema, 576, 192);
+		builder.setPared(tema, 64, 192, 5);
+		builder.setPared(tema, 96, 192, 22);
+		builder.setPared(tema, 128, 192, 4);
+		builder.setPared(tema, 192, 192, 3);
+		builder.setPared(tema, 256, 192, 7);
+		builder.setPared(tema, 288, 192, 10);
+		builder.setPared(tema, 352, 192, 7);
+		builder.setPared(tema, 384, 192, 10);
+		builder.setPared(tema, 448, 192, 3);
+		builder.setPared(tema, 512, 192, 5);
+		builder.setPared(tema, 544, 192, 22);
+		builder.setPared(tema, 576, 192, 4);
 		
-		builder.setPared(tema, 64, 224);
-		builder.setPared(tema, 96, 224);
-		builder.setPared(tema, 128, 224);
-		builder.setPared(tema, 192, 224);
-		builder.setPared(tema, 256, 224);
-		builder.setPared(tema, 288, 224);
-		builder.setPared(tema, 352, 224);
-		builder.setPared(tema, 384, 224);
-		builder.setPared(tema, 448, 224);
-		builder.setPared(tema, 512, 224);
-		builder.setPared(tema, 544, 224);
-		builder.setPared(tema, 576, 224);
+		builder.setPared(tema, 64, 224, 13);
+		builder.setPared(tema, 96, 224, 2);
+		builder.setPared(tema, 128, 224, 16);
+		builder.setPared(tema, 192, 224, 18);
+		builder.setPared(tema, 256, 224, 13);
+		builder.setPared(tema, 288, 224, 16);
+		builder.setPared(tema, 352, 224, 13);
+		builder.setPared(tema, 384, 224, 16);
+		builder.setPared(tema, 448, 224, 18);
+		builder.setPared(tema, 512, 224, 13);
+		builder.setPared(tema, 544, 224, 2);
+		builder.setPared(tema, 576, 224, 16);
 		
-		builder.setPared(tema, 64, 288);
-		builder.setPared(tema, 128, 288);
-		builder.setPared(tema, 160, 288);
-		builder.setPared(tema, 192, 288);
-		builder.setPared(tema, 256, 288);
-		builder.setPared(tema, 288, 288);
-		builder.setPared(tema, 352, 288);
-		builder.setPared(tema, 384, 288);
-		builder.setPared(tema, 448, 288);
-		builder.setPared(tema, 480, 288);
-		builder.setPared(tema, 512, 288);
-		builder.setPared(tema, 576, 288);
+		builder.setPared(tema, 64, 288, 0); //rotonda
+		builder.setPared(tema, 128, 288, 21);
+		builder.setPared(tema, 160, 288, 0);
+		builder.setPared(tema, 192, 288, 9);
+		builder.setPared(tema, 256, 288, 6);
+		builder.setPared(tema, 288, 288, 20);
+		builder.setPared(tema, 352, 288, 21);
+		builder.setPared(tema, 384, 288, 9);
+		builder.setPared(tema, 448, 288, 6);
+		builder.setPared(tema, 480, 288, 0);
+		builder.setPared(tema, 512, 288, 20);
+		builder.setPared(tema, 576, 288, 0); //rotonda
 		
-		builder.setPared(tema, 192, 320);
-		builder.setPared(tema, 256, 320);
-		builder.setPared(tema, 384, 320);
-		builder.setPared(tema, 448, 320);
+		builder.setPared(tema, 192, 320, 3);
+		builder.setPared(tema, 256, 320, 3);
+		builder.setPared(tema, 384, 320, 3);
+		builder.setPared(tema, 448, 320, 3);
 		
-		builder.setPared(tema, 64, 352);
-		builder.setPared(tema, 128, 352);
-		builder.setPared(tema, 192, 352);
-		builder.setPared(tema, 256, 352);
-		builder.setPared(tema, 288, 352);
-		builder.setPared(tema, 320, 352);
-		builder.setPared(tema, 352, 352);
-		builder.setPared(tema, 384, 352);
-		builder.setPared(tema, 448, 352);
-		builder.setPared(tema, 512, 352);
-		builder.setPared(tema, 576, 352);
+		builder.setPared(tema, 64, 352, 19);
+		builder.setPared(tema, 128, 352, 19);
+		builder.setPared(tema, 192, 352, 3);
+		builder.setPared(tema, 256, 352, 12);
+		builder.setPared(tema, 288, 352, 0);
+		builder.setPared(tema, 320, 352, 0);
+		builder.setPared(tema, 352, 352, 0);
+		builder.setPared(tema, 384, 352, 15);
+		builder.setPared(tema, 448, 352, 3);
+		builder.setPared(tema, 512, 352, 19);
+		builder.setPared(tema, 576, 352, 19);
 		
-		builder.setPared(tema, 64, 384);
-		builder.setPared(tema, 128, 384);
-		builder.setPared(tema, 192, 384);
-		builder.setPared(tema, 448, 384);
-		builder.setPared(tema, 512, 384);
-		builder.setPared(tema, 576, 384);
+		builder.setPared(tema, 64, 384, 3);
+		builder.setPared(tema, 128, 384, 3);
+		builder.setPared(tema, 192, 384, 18);
+		builder.setPared(tema, 448, 384, 18);
+		builder.setPared(tema, 512, 384, 3);
+		builder.setPared(tema, 576, 384, 3);
 		
-		builder.setPared(tema, 64, 416);
-		builder.setPared(tema, 128, 416);
-		builder.setPared(tema, 256, 416);
-		builder.setPared(tema, 288, 416);
-		builder.setPared(tema, 320, 416);
-		builder.setPared(tema, 352, 416);
-		builder.setPared(tema, 384, 416);
-		builder.setPared(tema, 512, 416);
-		builder.setPared(tema, 576, 416);
+		builder.setPared(tema, 64, 416, 18);
+		builder.setPared(tema, 128, 416, 18);
+		builder.setPared(tema, 256, 416, 21);
+		builder.setPared(tema, 288, 416, 0);
+		builder.setPared(tema, 320, 416, 0);
+		builder.setPared(tema, 352, 416, 0);
+		builder.setPared(tema, 384, 416, 20);
+		builder.setPared(tema, 512, 416, 18);
+		builder.setPared(tema, 576, 416, 18);
 		
-		builder.setPared(tema, 192, 448);
-		builder.setPared(tema, 448, 448);
+		builder.setPared(tema, 192, 448, 19);
+		builder.setPared(tema, 448, 448, 19);
 		
-		builder.setPared(tema, 64, 480);
-		builder.setPared(tema, 96, 480);
-		builder.setPared(tema, 128, 480);
-		builder.setPared(tema, 192, 480);
-		builder.setPared(tema, 256, 480);
-		builder.setPared(tema, 320, 480);
-		builder.setPared(tema, 384, 480);
-		builder.setPared(tema, 448, 480);
-		builder.setPared(tema, 512, 480);
-		builder.setPared(tema, 544, 480);
-		builder.setPared(tema, 576, 480);
+		builder.setPared(tema, 64, 480, 7);
+		builder.setPared(tema, 96, 480, 1);
+		builder.setPared(tema, 128, 480, 10);
+		builder.setPared(tema, 192, 480, 3);
+		builder.setPared(tema, 256, 480, 19);
+		builder.setPared(tema, 320, 480, 19);
+		builder.setPared(tema, 384, 480, 19);
+		builder.setPared(tema, 448, 480, 3);
+		builder.setPared(tema, 512, 480, 7);
+		builder.setPared(tema, 544, 480, 1);
+		builder.setPared(tema, 576, 480, 10);
 		
-		builder.setPared(tema, 64, 512);
-		builder.setPared(tema, 96, 512);
-		builder.setPared(tema, 128, 512);
-		builder.setPared(tema, 192, 512);
-		builder.setPared(tema, 256, 512);
-		builder.setPared(tema, 320, 512);
-		builder.setPared(tema, 384, 512);
-		builder.setPared(tema, 448, 512);
-		builder.setPared(tema, 512, 512);
-		builder.setPared(tema, 544, 512);
-		builder.setPared(tema, 576, 512);
+		builder.setPared(tema, 64, 512, 13);
+		builder.setPared(tema, 96, 512, 2);
+		builder.setPared(tema, 128, 512, 16);
+		builder.setPared(tema, 192, 512, 18);
+		builder.setPared(tema, 256, 512, 18);
+		builder.setPared(tema, 320, 512, 18);
+		builder.setPared(tema, 384, 512, 18);
+		builder.setPared(tema, 448, 512, 18);
+		builder.setPared(tema, 512, 512, 13);
+		builder.setPared(tema, 544, 512, 2);
+		builder.setPared(tema, 576, 512, 16);
 		
-		builder.setPared(tema, 64, 576);
-		builder.setPared(tema, 96, 576);
-		builder.setPared(tema, 128, 576);
-		builder.setPared(tema, 160, 576);
-		builder.setPared(tema, 192, 576);
-		builder.setPared(tema, 256, 576);
-		builder.setPared(tema, 288, 576);
-		builder.setPared(tema, 320, 576);
-		builder.setPared(tema, 352, 576);
-		builder.setPared(tema, 384, 576);
-		builder.setPared(tema, 448, 576);
-		builder.setPared(tema, 480, 576);
-		builder.setPared(tema, 512, 576);
-		builder.setPared(tema, 544, 576);
-		builder.setPared(tema, 576, 576);
+		builder.setPared(tema, 64, 576, 21);
+		builder.setPared(tema, 96, 576, 0);
+		builder.setPared(tema, 128, 576, 0);
+		builder.setPared(tema, 160, 576, 0);
+		builder.setPared(tema, 192, 576, 20);
+		builder.setPared(tema, 256, 576, 21);
+		builder.setPared(tema, 288, 576, 0);
+		builder.setPared(tema, 320, 576, 0);
+		builder.setPared(tema, 352, 576, 0);
+		builder.setPared(tema, 384, 576, 20);
+		builder.setPared(tema, 448, 576, 21);
+		builder.setPared(tema, 480, 576, 0);
+		builder.setPared(tema, 512, 576, 0);
+		builder.setPared(tema, 544, 576, 0);
+		builder.setPared(tema, 576, 576, 20);
 		
 	}
 
@@ -401,7 +406,7 @@ public class Director {
 		crearVelocidad2();
 		//crearEnemigos2();
 		crearPacDots2();
-		crearParedes2();
+		crearParedes2();//habria que cambiar la disposicion de las paredes para que se facilite la grafica
 	
 		
 	}
@@ -580,75 +585,76 @@ public class Director {
 	}
 
 	private void crearParedes2() {
-		for(int i = 0 ; i <= 640 ; i += 32) 
-			builder.setPared(tema, i, 0);
 		
-		for(int i = 0 ; i <= 640 ; i += 32) 
-			builder.setPared(tema, i, 640);
+		builder.setPared(tema, 0, 0, 8);
+		builder.setPared(tema, 640, 0, 11);
+		for(int i = 32 ; i <= 608 ; i += 32) 
+			builder.setPared(tema, i, 0, 2);
 		
-		for(int j = 0 ; j <= 640 ; j += 32)
-			builder.setPared(tema, 0, j);
+		builder.setPared(tema, 0, 640, 14);
+		builder.setPared(tema, 640, 640, 17);
 		
-		for(int j = 0 ; j <= 640 ; j += 32)
-			builder.setPared(tema, 640, j);
+		for(int i = 32 ; i <= 608 ; i += 32) 
+			builder.setPared(tema, i, 640, 1);
 		
-
-		builder.setPared(tema, 160, 32);
-		builder.setPared(tema, 480, 32);
+		for(int j = 32 ; j <= 608 ; j += 32)
+			builder.setPared(tema, 0, j, 4);
 		
-		builder.setPared(tema, 64, 64);
-		builder.setPared(tema, 96, 64);
-		builder.setPared(tema, 160, 64);
-		builder.setPared(tema, 224, 64);
-		builder.setPared(tema, 256, 64);
-		builder.setPared(tema, 288, 64);
-		builder.setPared(tema, 320, 64);
-		builder.setPared(tema, 352, 64);
-		builder.setPared(tema, 384, 64);
-		builder.setPared(tema, 416, 64);
-		builder.setPared(tema, 480, 64);
-		builder.setPared(tema, 544, 64);
-		builder.setPared(tema, 576, 64);
+		for(int j = 32 ; j <= 608 ; j += 32)
+			builder.setPared(tema, 640, j, 5);
 		
-		builder.setPared(tema, 64, 96);
-		builder.setPared(tema, 576, 96);
+		builder.setPared(tema, 64, 64, 6);
+		builder.setPared(tema, 96, 64, 20);
+		builder.setPared(tema, 160, 64, 0); //rotonda
+		builder.setPared(tema, 224, 64, 21);
+		builder.setPared(tema, 256, 64, 0);
+		builder.setPared(tema, 288, 64, 0);
+		builder.setPared(tema, 320, 64, 0);
+		builder.setPared(tema, 352, 64, 0);
+		builder.setPared(tema, 384, 64, 0);
+		builder.setPared(tema, 416, 64, 20);
+		builder.setPared(tema, 480, 64, 0); //rotonda
+		builder.setPared(tema, 544, 64, 21);
+		builder.setPared(tema, 576, 64, 9);
 		
-		builder.setPared(tema, 64, 128);
-		builder.setPared(tema, 128, 128);
-		builder.setPared(tema, 160, 128);
-		builder.setPared(tema, 224, 128);
-		builder.setPared(tema, 256, 128);
-		builder.setPared(tema, 288, 128);
-		builder.setPared(tema, 320, 128);
-		builder.setPared(tema, 352, 128);
-		builder.setPared(tema, 384, 128);
-		builder.setPared(tema, 416, 128);
-		builder.setPared(tema, 480, 128);
-		builder.setPared(tema, 512, 128);
-		builder.setPared(tema, 576, 128);
+		builder.setPared(tema, 64, 96, 3);
+		builder.setPared(tema, 576, 96, 3);
 		
-		builder.setPared(tema, 64, 160);
-		builder.setPared(tema, 128, 160);
-		builder.setPared(tema, 160, 160);
-		builder.setPared(tema, 480, 160);
-		builder.setPared(tema, 512, 160);
-		builder.setPared(tema, 576, 160);
+		builder.setPared(tema, 64, 128, 3);
+		builder.setPared(tema, 128, 128, 7);
+		builder.setPared(tema, 160, 128, 10);
+		builder.setPared(tema, 224, 128, 21);
+		builder.setPared(tema, 256, 128, 0);
+		builder.setPared(tema, 288, 128, 0);
+		builder.setPared(tema, 320, 128, 0);
+		builder.setPared(tema, 352, 128, 0);
+		builder.setPared(tema, 384, 128, 0);
+		builder.setPared(tema, 416, 128, 20);
+		builder.setPared(tema, 480, 128, 7);
+		builder.setPared(tema, 512, 128, 10);
+		builder.setPared(tema, 576, 128, 3);
 		
-		builder.setPared(tema, 64, 192);
-		builder.setPared(tema, 224, 192);
-		builder.setPared(tema, 288, 192);
-		builder.setPared(tema, 352, 192);
-		builder.setPared(tema, 416, 192);
-		builder.setPared(tema, 576, 192);
+		builder.setPared(tema, 64, 160, 3);
+		builder.setPared(tema, 128, 160, 13);
+		builder.setPared(tema, 160, 160, 16);
+		builder.setPared(tema, 480, 160, 13);
+		builder.setPared(tema, 512, 160, 16);
+		builder.setPared(tema, 576, 160, 3);
 		
-		builder.setPared(tema, 128, 224);
-		builder.setPared(tema, 160, 224);
-		builder.setPared(tema, 480, 224);
-		builder.setPared(tema, 512, 224);
+		builder.setPared(tema, 64, 192, 18);
+		builder.setPared(tema, 224, 192, 0);//rotonda
+		builder.setPared(tema, 288, 192, 0);//rotonda
+		builder.setPared(tema, 352, 192, 0);//rotonda 
+		builder.setPared(tema, 416, 192, 0);//rotonda
+		builder.setPared(tema, 576, 192, 18);
 		
-		builder.setPared(tema, 64, 256);
-		builder.setPared(tema, 224, 256);
-		builder.setPared(tema, 256, 256);
+		builder.setPared(tema, 128, 224, 21);
+		builder.setPared(tema, 160, 224, 20);
+		builder.setPared(tema, 480, 224, 21);
+		builder.setPared(tema, 512, 224, 20);
+		
+		builder.setPared(tema, 64, 256, 19);
+		builder.setPared(tema, 256, 256, 6);/*
 		builder.setPared(tema, 288, 256);
 		builder.setPared(tema, 352, 256);
 		builder.setPared(tema, 384, 256);
@@ -750,6 +756,7 @@ public class Director {
 		
 		builder.setPared(tema, 160, 608);
 		builder.setPared(tema, 480, 608);
+		*/
 		
 	}
 
@@ -897,19 +904,24 @@ public class Director {
 		
 	}
 
-	private void crearParedes3() {
-		for(int i = 0 ; i <= 640 ; i += 32) 
-			builder.setPared(tema, i, 0);
+	private void crearParedes3() {/*
+	
+		builder.setPared(tema, 0, 0, 8);
+		builder.setPared(tema, 640, 0, 11);
+		for(int i = 32 ; i <= 608 ; i += 32) 
+			builder.setPared(tema, i, 0, 2);
 		
-		for(int i = 0 ; i <= 640 ; i += 32) 
-			builder.setPared(tema, i, 640);
+		builder.setPared(tema, 0, 640, 14);
+		builder.setPared(tema, 640, 640, 17);
 		
-		for(int j = 0 ; j <= 640 ; j += 32)
-			builder.setPared(tema, 0, j);
+		for(int i = 32 ; i <= 608 ; i += 32) 
+			builder.setPared(tema, i, 640, 1);
 		
-		for(int j = 0 ; j <= 640 ; j += 32)
-			builder.setPared(tema, 640, j);
-
+		for(int j = 32 ; j <= 608 ; j += 32)
+			builder.setPared(tema, 0, j, 4);
+		
+		for(int j = 32 ; j <= 608 ; j += 32)
+			builder.setPared(tema, 640, j, 5);
 		builder.setPared(tema, 128, 32);
 		builder.setPared(tema, 512, 32);
 
@@ -1077,6 +1089,6 @@ public class Director {
 		builder.setPared(tema, 256, 608);
 		builder.setPared(tema, 384, 608);
 		builder.setPared(tema, 512, 608);
-		
+		*/
 	}
 }

@@ -16,4 +16,13 @@ public class Pared extends Estatica {
 		tamano = 32;
 	}
 	
+	public ParedGUI getRepre() {
+		return miRepresentacion;
+	}
+	
+	public void setImagen(int repre) {
+		miRepresentacion.setImagen(repre);
+		this.representacion = miRepresentacion.getImagen();
+	}
+	
 }

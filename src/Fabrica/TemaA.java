@@ -27,7 +27,9 @@ public class TemaA extends Tema{
 	
 	@Override
 	public Pared getPared() {
-		return new Pared("/imagenes/pared.png");
+		Pared pared =new Pared("/imagenes/ParedAuto/h0.png");
+		pared.getRepre().agregarImagenes("/imagenes/ParedAuto/h1.png", "/imagenes/ParedAuto/h2.png", "/imagenes/ParedAuto/v3.png", "/imagenes/ParedAuto/v4.png", "/imagenes/ParedAuto/v5.png", "/imagenes/ParedAuto/c6.png", "/imagenes/ParedAuto/c7.png", "/imagenes/ParedAuto/c8.png", "/imagenes/ParedAuto/c9.png", "/imagenes/ParedAuto/c10.png", "/imagenes/ParedAuto/c11.png", "/imagenes/ParedAuto/c12.png", "/imagenes/ParedAuto/c13.png", "/imagenes/ParedAuto/c14.png", "/imagenes/ParedAuto/c15.png", "/imagenes/ParedAuto/c16.png", "/imagenes/ParedAuto/c17.png", "/imagenes/ParedAuto/v18.png", "/imagenes/ParedAuto/v19.png", "/imagenes/ParedAuto/h20.png", "/imagenes/ParedAuto/h21.png", "/imagenes/ParedAuto/cesped.png");
+		return pared;
 	}
 
 	@Override

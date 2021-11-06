@@ -26,10 +26,11 @@ public class BuilderNivel implements Builder{
 	}
 
 	@Override
-	public void setPared(Tema tema,int x, int y) {
+	public void setPared(Tema tema,int x, int y, int repre) {
 		Pared pared;
 		
 		pared = tema.getPared();
+		pared.setImagen(repre);
 		pared.setPos(x, y);
 		//pared.setX(x);
 		//pared.setY(y);
