@@ -9,8 +9,8 @@ public abstract class Punto extends Estatica{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	int cantPuntos;
-	Visitor v;
+	protected int cantPuntos;
+	protected Visitor v;
 	
 	public int getCantPuntos() {
 		return cantPuntos;
@@ -18,6 +18,10 @@ public abstract class Punto extends Estatica{
 	
 	public void setCantPuntos(int cantidad) {
 		cantPuntos=cantidad;
+	}
+	
+	public Visitor getVisitor() {
+		return v;
 	}
 	
 	public abstract void accept(Visitor v);

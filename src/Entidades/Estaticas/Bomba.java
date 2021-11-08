@@ -1,6 +1,7 @@
 package Entidades.Estaticas;
 
 import GUI.BombaGUI;
+import Visitors.Visitor;
 
 public class Bomba extends Pocion {
 	
@@ -14,6 +15,12 @@ public class Bomba extends Pocion {
 		miRepresentacion = new BombaGUI(bomba);
 		this.representacion = bomba;
 		tamano = 20;
+	}
+
+	@Override
+	public void accept(Visitor v) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

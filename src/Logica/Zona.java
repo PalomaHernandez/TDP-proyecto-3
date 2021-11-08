@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import Entidades.Entidad;
+import Visitors.Visitor;
+import Visitors.VisitorProtagonista;
 
 public class Zona {
 
@@ -26,6 +28,8 @@ public class Zona {
 			Rectangle entidad2 = new Rectangle(e.getX(), e.getY(), e.getTamano(), e.getTamano());
 			if(entidad.intersects(entidad2)) {
 				System.out.println("Colision.");
+				//Visitor v1= new VisitorProtagonista();
+				//e.accept(v1);
 			}
 		}
 		return libre;

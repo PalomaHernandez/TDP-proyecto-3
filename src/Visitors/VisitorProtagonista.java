@@ -45,7 +45,8 @@ public class VisitorProtagonista implements Visitor{
 	public void visit(PacDot pacdot) {
 		pacdot.setCantPuntos(pacdot.getCantPuntos()-1);
 		Zona z=pacdot.getZona();
-		z.removeEntidad(pacdot);
+		//z.removeEntidad(pacdot);
+		//pacdot.setVisible(false);
 	}
 
 	@Override

@@ -5,9 +5,12 @@ import javax.swing.ImageIcon;
 import GUI.ProtagonistaGUI;
 import GUI.VentanaGUI;
 import Logica.Juego;
+import Visitors.Visitor;
+import Visitors.VisitorProtagonista;
 
 public class Protagonista extends Movil {
 
+	protected Visitor v;
 	protected int estadoVelocidad;
 	protected int estadoBomba;
 	protected int estadoPowerPellet;
@@ -22,6 +25,7 @@ public class Protagonista extends Movil {
 		estadoPowerPellet = 0;
 		vidas = 3;
 		tamano = 32;
+		v= new VisitorProtagonista();
 	}
 	
 	public ProtagonistaGUI getGUI() {
@@ -44,7 +48,9 @@ public class Protagonista extends Movil {
 		this.vidas = vidas;
 	}
 	
-	
+	public Visitor getVisitor() {
+		return v;
+	}
 	public int getVelocidad() {
 		return estadoVelocidad;
 	}
@@ -90,6 +96,12 @@ public class Protagonista extends Movil {
 	
 	public String getRepresentacion() {
 		return miRepresentacion.getImagen();
+	}
+
+	@Override
+	public void accept(Visitor v) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

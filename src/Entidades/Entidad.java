@@ -14,7 +14,7 @@ public abstract class Entidad extends JLabel{
 	private static final long serialVersionUID = 1L;
 	protected int posX;
 	protected int posY;
-	protected Visitor visitor;
+	protected Visitor v;
 	protected Zona miZona;
 	protected boolean visible;
 	protected String representacion;
@@ -61,8 +61,10 @@ public abstract class Entidad extends JLabel{
 	}
 	
 	public Visitor getVisitor() {
-		return visitor;
+		return v;
 	}
+	
+	public abstract void accept(Visitor v);
 	
 	public String getRepresentacion() {
 		return representacion;

@@ -1,6 +1,7 @@
 package Entidades.Estaticas;
 
 import GUI.FrutaGUI;
+import Visitors.Visitor;
 
 public class Fruta extends Pocion {
 	
@@ -14,6 +15,12 @@ public class Fruta extends Pocion {
 		miRepresentacion = new FrutaGUI(fruta);
 		this.representacion = fruta;
 		tamano = 20;
+	}
+
+	@Override
+	public void accept(Visitor v) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

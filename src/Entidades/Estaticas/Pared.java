@@ -1,6 +1,7 @@
 package Entidades.Estaticas;
 
 import GUI.ParedGUI;
+import Visitors.Visitor;
 
 public class Pared extends Estatica {
 
@@ -23,6 +24,12 @@ public class Pared extends Estatica {
 	public void setImagen(int repre) {
 		miRepresentacion.setImagen(repre);
 		this.representacion = miRepresentacion.getImagen();
+	}
+
+	@Override
+	public void accept(Visitor v) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
