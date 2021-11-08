@@ -6,7 +6,7 @@ public class ParedGUI extends EntidadGUI {
 	private String actual;
 	
 	public ParedGUI(String h0){
-		representacion = new String[23];
+		representacion = new String[24];
 		representacion[0] = h0;
 		actual = h0;
 	}
@@ -15,7 +15,7 @@ public class ParedGUI extends EntidadGUI {
 		actual = representacion[imagen];
 	}
 	
-	public void agregarImagenes(String h1, String h2, String v3, String v4, String v5, String c6, String c7, String c8, String c9, String c10, String c11, String c12, String c13, String c14, String c15, String c16, String c17, String v18, String v19, String h20, String h21, String libre ) {
+	public void agregarImagenes(String h1, String h2, String v3, String v4, String v5, String c6, String c7, String c8, String c9, String c10, String c11, String c12, String c13, String c14, String c15, String c16, String c17, String v18, String v19, String h20, String h21, String libre, String rotonda) {
 		representacion[1] = h1;
 		representacion[2] = h2;
 		representacion[3] = v3;
@@ -38,6 +38,7 @@ public class ParedGUI extends EntidadGUI {
 		representacion[20] = h20;
 		representacion[21] = h21;
 		representacion[22] = libre;
+		representacion[23] = rotonda;
 	}
 	
 	public String getImagen() {
