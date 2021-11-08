@@ -27,8 +27,8 @@ public class TemaA extends Tema{
 	
 	@Override
 	public Pared getPared() {
-		Pared pared =new Pared("/imagenes/ParedAuto/h0.png");
-		pared.getRepre().agregarImagenes("/imagenes/ParedAuto/h1.png", "/imagenes/ParedAuto/h2.png", "/imagenes/ParedAuto/v3.png", "/imagenes/ParedAuto/v4.png", "/imagenes/ParedAuto/v5.png", "/imagenes/ParedAuto/c6.png", "/imagenes/ParedAuto/c7.png", "/imagenes/ParedAuto/c8.png", "/imagenes/ParedAuto/c9.png", "/imagenes/ParedAuto/c10.png", "/imagenes/ParedAuto/c11.png", "/imagenes/ParedAuto/c12.png", "/imagenes/ParedAuto/c13.png", "/imagenes/ParedAuto/c14.png", "/imagenes/ParedAuto/c15.png", "/imagenes/ParedAuto/c16.png", "/imagenes/ParedAuto/c17.png", "/imagenes/ParedAuto/v18.png", "/imagenes/ParedAuto/v19.png", "/imagenes/ParedAuto/h20.png", "/imagenes/ParedAuto/h21.png", "/imagenes/ParedAuto/cesped.png", "/imagenes/ParedAuto/rotonda.png");
+		Pared pared =new Pared("/imagenesA/ParedAuto/h0.png");
+		pared.getRepre().agregarImagenes("/imagenesA/ParedAuto/h1.png", "/imagenesA/ParedAuto/h2.png", "/imagenesA/ParedAuto/v3.png", "/imagenesA/ParedAuto/v4.png", "/imagenesA/ParedAuto/v5.png", "/imagenesA/ParedAuto/c6.png", "/imagenesA/ParedAuto/c7.png", "/imagenesA/ParedAuto/c8.png", "/imagenesA/ParedAuto/c9.png", "/imagenesA/ParedAuto/c10.png", "/imagenesA/ParedAuto/c11.png", "/imagenesA/ParedAuto/c12.png", "/imagenesA/ParedAuto/c13.png", "/imagenesA/ParedAuto/c14.png", "/imagenesA/ParedAuto/c15.png", "/imagenesA/ParedAuto/c16.png", "/imagenesA/ParedAuto/c17.png", "/imagenesA/ParedAuto/v18.png", "/imagenesA/ParedAuto/v19.png", "/imagenesA/ParedAuto/h20.png", "/imagenesA/ParedAuto/h21.png", "/imagenesA/ParedAuto/cesped.png", "/imagenesA/ParedAuto/rotonda.png");
 		return pared;
 	}
 
@@ -37,7 +37,7 @@ public class TemaA extends Tema{
 		Protagonista protagonista;
 		
 		protagonista = new Protagonista(miJuego);
-		protagonista.getGUI().setNormal("/imagenes/autoArriba.png", "/imagenes/autoAbajo.png", "/imagenes/autoDerecha.png", "/imagenes/autoIzquierda.png");
+		protagonista.getGUI().setNormal("/imagenesA/autoArriba.png", "/imagenesA/autoAbajo.png", "/imagenesA/autoDerecha.png", "/imagenesA/autoIzquierda.png");
 		
 		return protagonista;
 	}
@@ -57,27 +57,27 @@ public class TemaA extends Tema{
 
 	@Override
 	public Bomba getBomba() {
-		return new Bomba("/imagenes/bomba.png");
+		return new Bomba("/imagenesA/bomba.png");
 	}
 
 	@Override
 	public Velocidad getVelocidad() {
-		return new Velocidad("/imagenes/velocidad.png");
+		return new Velocidad("/imagenesA/velocidad.png");
 	}
 
 	@Override
 	public PowerPellet getPowerPellet() {
-		return new PowerPellet("/imagenes/bidon.png");
+		return new PowerPellet("/imagenesA/bidon.png");
 	}
 
 	@Override
 	public PacDot getPacDot() {
-		return new PacDot("/imagenes/rueda.png");
+		return new PacDot("/imagenesA/rueda.png");
 	}
 
 	@Override
 	public Fruta getFruta() {
-		return new Fruta("/imagenes/herramienta.png");
+		return new Fruta("/imagenesA/herramienta.png");
 	}
 
 }

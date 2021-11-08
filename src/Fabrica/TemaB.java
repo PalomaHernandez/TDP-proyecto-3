@@ -27,7 +27,7 @@ public class TemaB extends Tema{
 	
 	@Override
 	public Pared getPared() {
-		Pared pared =new Pared("/imagenes/ParedB.png");
+		Pared pared =new Pared("/imagenesB/ParedB.png");
 		return pared;
 	}
 
@@ -36,7 +36,7 @@ public class TemaB extends Tema{
 		Protagonista protagonista;
 		
 		protagonista = new Protagonista(miJuego);
-		protagonista.getGUI().setNormal("/imagenes/barco_arriba.png", "/imagenes/barco_abajo.png", "/imagenes/barco_der.png", "/imagenes/barco_izq.png");
+		protagonista.getGUI().setNormal("/imagenesB/barco_arriba.png", "/imagenesB/barco_abajo.png", "/imagenesB/barco_der.png", "/imagenesB/barco_izq.png");
 		
 		return protagonista;
 	}
@@ -56,7 +56,7 @@ public class TemaB extends Tema{
 
 	@Override
 	public Bomba getBomba() {
-		return new Bomba("/imagenes/bomba.png");
+		return new Bomba("/imagenesB/bomba.png");
 	}
 
 	@Override
