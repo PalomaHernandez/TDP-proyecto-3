@@ -1,6 +1,6 @@
 package GUI;
 
-public class ParedGUI {
+public class ParedGUI extends EntidadGUI {
 
 	private String representacion[];
 	private String actual;

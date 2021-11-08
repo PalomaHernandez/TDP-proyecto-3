@@ -1,15 +1,9 @@
 package GUI;
 
-public class FrutaGUI {
+public class FrutaGUI extends EntidadGUI {
 
-	private String representacion;
-	
 	public FrutaGUI(String representacion) {
 		this.representacion = representacion;
-	}
-	
-	public String getImagen() {
-		return representacion;
 	}
 	
 }

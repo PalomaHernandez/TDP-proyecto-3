@@ -1,15 +1,9 @@
 package GUI;
 
-public class BombaGUI {
+public class BombaGUI extends EntidadGUI{
 
-	private String representacion;
-	
 	public BombaGUI(String representacion) {
 		this.representacion = representacion;
-	}
-	
-	public String getImagen() {
-		return representacion;
 	}
 	
 }

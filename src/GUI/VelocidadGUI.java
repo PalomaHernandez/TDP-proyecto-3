@@ -1,15 +1,9 @@
 package GUI;
 
-public class VelocidadGUI {
+public class VelocidadGUI extends EntidadGUI {
 
-	private String representacion;
-	
 	public VelocidadGUI(String representacion) {
 		this.representacion = representacion;
-	}
-	
-	public String getImagen() {
-		return representacion;
 	}
 	
 }

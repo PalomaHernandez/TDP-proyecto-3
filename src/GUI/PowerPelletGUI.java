@@ -1,15 +1,9 @@
 package GUI;
 
-public class PowerPelletGUI {
+public class PowerPelletGUI extends EntidadGUI{
 
-	private String representacion;
-	
 	public PowerPelletGUI(String representacion) {
 		this.representacion = representacion;
-	}
-	
-	public String getImagen() {
-		return representacion;
 	}
 	
 }

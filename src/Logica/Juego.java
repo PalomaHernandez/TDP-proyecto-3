@@ -59,7 +59,7 @@ public class Juego {
 		
 		constructorNivel1 = new BuilderNivel();
 		
-		miDirector.makeNivel2(constructorNivel1);
+		miDirector.makeNivel1(constructorNivel1);
 		
 		miNivel = constructorNivel1.getResult();
 		miProtagonista = miNivel.getProtagonista();
