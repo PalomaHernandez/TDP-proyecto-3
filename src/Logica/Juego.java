@@ -90,14 +90,14 @@ public class Juego {
 		zonaFinalB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() + 32, miProtagonista.getY());
 		zonaFinalC = calcularZona(miProtagonista.getX() + 32, miProtagonista.getY() + miProtagonista.getTamano());
 		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() + 32, miProtagonista.getY() + miProtagonista.getTamano());
-		/*
+		
 		existe = zonaFinalA.existePosLibre(miProtagonista.getX() + 4, miProtagonista.getY(), miProtagonista.getTamano(), miProtagonista.getTamano());
 		if(zonaFinalA != zonaFinalB)
-			existe = zonaFinalB.existePosLibre(miProtagonista.getX() + 4, miProtagonista.getY(), miProtagonista.getTamano(), miProtagonista.getTamano());
+			existe = zonaFinalB.existePosLibre(miProtagonista.getX() + miProtagonista.getTamano() + 4, miProtagonista.getY(), miProtagonista.getTamano(), miProtagonista.getTamano());
 		if(zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
-			existe = zonaFinalC.existePosLibre(miProtagonista.getX() + 4, miProtagonista.getY(), miProtagonista.getTamano(), miProtagonista.getTamano());
+			existe = zonaFinalC.existePosLibre(miProtagonista.getX() + 4, miProtagonista.getY() + miProtagonista.getTamano(), miProtagonista.getTamano(), miProtagonista.getTamano());
 		if(zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
-			existe = zonaFinalD.existePosLibre(miProtagonista.getX() + 4, miProtagonista.getY(), miProtagonista.getTamano(), miProtagonista.getTamano());
+			existe = zonaFinalD.existePosLibre(miProtagonista.getX() + miProtagonista.getTamano() + 4, miProtagonista.getY() + miProtagonista.getTamano(), miProtagonista.getTamano(), miProtagonista.getTamano());
 	
 		if(existe) {
 			if(zonaFinalA != zonaActualA) {
@@ -118,12 +118,12 @@ public class Juego {
 			}
 			miProtagonista.moverDerecha();
 		}
-			*/
-		miProtagonista.moverDerecha();
+			
+		//miProtagonista.moverDerecha();
 	}
 
 	public void moverIzqAction() {
-		/*
+		
 		boolean existe;
 		
 		existe = true;
@@ -150,11 +150,11 @@ public class Juego {
 		
 		existe = zonaFinalA.existePosLibre(miProtagonista.getX() - 4, miProtagonista.getY(), miProtagonista.getTamano(), miProtagonista.getTamano());
 		if(zonaFinalA != zonaFinalB)
-			existe = zonaFinalB.existePosLibre(miProtagonista.getX() - 4, miProtagonista.getY(), miProtagonista.getTamano(), miProtagonista.getTamano());
+			existe = zonaFinalB.existePosLibre(miProtagonista.getX() + miProtagonista.getTamano() - 4, miProtagonista.getY(), miProtagonista.getTamano(), miProtagonista.getTamano());
 		if(zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
-			existe = zonaFinalC.existePosLibre(miProtagonista.getX() - 4, miProtagonista.getY(), miProtagonista.getTamano(), miProtagonista.getTamano());
+			existe = zonaFinalC.existePosLibre(miProtagonista.getX() - 4, miProtagonista.getY() + miProtagonista.getTamano(), miProtagonista.getTamano(), miProtagonista.getTamano());
 		if(zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
-			existe = zonaFinalD.existePosLibre(miProtagonista.getX() - 4, miProtagonista.getY(), miProtagonista.getTamano(), miProtagonista.getTamano());
+			existe = zonaFinalD.existePosLibre(miProtagonista.getX() + miProtagonista.getTamano() - 4, miProtagonista.getY() + miProtagonista.getTamano(), miProtagonista.getTamano(), miProtagonista.getTamano());
 		
 		if(existe) {
 			if(zonaFinalA != zonaActualA) {
@@ -175,12 +175,12 @@ public class Juego {
 			}
 			miProtagonista.moverIzquierda();
 		}
-		*/
-		miProtagonista.moverIzquierda();
+		
+		//miProtagonista.moverIzquierda();
 	}
 
 	public void moverAbajoAction() {
-		/*
+		
 		boolean existe;
 		
 		existe = true;
@@ -207,11 +207,11 @@ public class Juego {
 		
 		existe = zonaFinalA.existePosLibre(miProtagonista.getX(), miProtagonista.getY() + 4, miProtagonista.getTamano(), miProtagonista.getTamano());
 		if(zonaFinalA != zonaFinalB)
-			existe = zonaFinalB.existePosLibre(miProtagonista.getX(), miProtagonista.getY() + 4, miProtagonista.getTamano(), miProtagonista.getTamano());
+			existe = zonaFinalB.existePosLibre(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + 4, miProtagonista.getTamano(), miProtagonista.getTamano());
 		if(zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
-			existe = zonaFinalC.existePosLibre(miProtagonista.getX(), miProtagonista.getY() + 4, miProtagonista.getTamano(), miProtagonista.getTamano());
+			existe = zonaFinalC.existePosLibre(miProtagonista.getX(), miProtagonista.getY() + miProtagonista.getTamano() + 4, miProtagonista.getTamano(), miProtagonista.getTamano());
 		if(zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
-			existe = zonaFinalD.existePosLibre(miProtagonista.getX(), miProtagonista.getY() + 4, miProtagonista.getTamano(), miProtagonista.getTamano());
+			existe = zonaFinalD.existePosLibre(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + miProtagonista.getTamano() + 4, miProtagonista.getTamano(), miProtagonista.getTamano());
 		
 		if(existe) {
 			if(zonaFinalA != zonaActualA) {
@@ -232,12 +232,12 @@ public class Juego {
 			}
 			miProtagonista.moverAbajo();
 		}
-		*/
-		miProtagonista.moverAbajo();
+		
+		//miProtagonista.moverAbajo();
 	}
 
 	public synchronized void moverArribaAction() {
-		/*
+		
 		boolean existe;
 		
 		existe = true;
@@ -264,11 +264,11 @@ public class Juego {
 		
 		existe = zonaFinalA.existePosLibre(miProtagonista.getX(), miProtagonista.getY() - 4, miProtagonista.getTamano(), miProtagonista.getTamano());
 		if(zonaFinalA != zonaFinalB)
-			existe = zonaFinalB.existePosLibre(miProtagonista.getX(), miProtagonista.getY() - 4, miProtagonista.getTamano(), miProtagonista.getTamano());
+			existe = zonaFinalB.existePosLibre(miProtagonista.getX() + miProtagonista.getTamano() , miProtagonista.getY() - 4, miProtagonista.getTamano(), miProtagonista.getTamano());
 		if(zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
-			existe = zonaFinalC.existePosLibre(miProtagonista.getX(), miProtagonista.getY() - 4, miProtagonista.getTamano(), miProtagonista.getTamano());
+			existe = zonaFinalC.existePosLibre(miProtagonista.getX(), miProtagonista.getY() + miProtagonista.getTamano() - 4, miProtagonista.getTamano(), miProtagonista.getTamano());
 		if(zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
-			existe = zonaFinalD.existePosLibre(miProtagonista.getX(), miProtagonista.getY() - 4, miProtagonista.getTamano(), miProtagonista.getTamano());
+			existe = zonaFinalD.existePosLibre(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + miProtagonista.getTamano() - 4, miProtagonista.getTamano(), miProtagonista.getTamano());
 		
 		if(existe) {
 			if(zonaFinalA != zonaActualA) {
@@ -289,8 +289,8 @@ public class Juego {
 			}
 			miProtagonista.moverArriba();
 		}
-		*/
-		miProtagonista.moverArriba();
+		
+		//miProtagonista.moverArriba();
 	}
 
 	private Zona calcularZona(int cordX, int cordY) { //La zona se calcula con las coordenadas x e y, con el punto (0,0) de la entidad

@@ -19,13 +19,13 @@ public class Zona {
 	}
 
 	public boolean existePosLibre(int cordX, int cordY, int tamanoX, int tamanoY) {
-	boolean libre = true;
+		boolean libre = true;
 	
 		Rectangle entidad = new Rectangle(cordX, cordY, tamanoX, tamanoY);
 		for(Entidad e : lista) {
 			Rectangle entidad2 = new Rectangle(e.getX(), e.getY(), e.getTamano(), e.getTamano());
-			if(entidad.intersects(entidad2)) {
-				libre = false;
+			if(entidad.intersects(entidad2) && !entidad.equals(entidad2)) {
+				System.out.println("Colision.");
 			}
 		}
 		return libre;
