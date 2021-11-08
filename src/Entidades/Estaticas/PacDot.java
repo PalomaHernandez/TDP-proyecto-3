@@ -1,6 +1,7 @@
 package Entidades.Estaticas;
 
 import GUI.PacDotGUI;
+import Visitors.Visitor;
 
 public class PacDot extends Punto{
 
@@ -11,6 +12,11 @@ public class PacDot extends Punto{
 		miRepresentacion = new PacDotGUI(pacDot);
 		this.representacion = pacDot;
 		tamano = 10;
+	}
+
+	@Override
+	public void accept(Visitor v) {
+		v.visit(this);
 	}
 
 }
