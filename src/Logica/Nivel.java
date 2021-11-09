@@ -22,6 +22,10 @@ public class Nivel {
 	public void addEntidad(Entidad e) {
 		lista.add(e);
 	}
+	
+	public void eliminarEntidad(Entidad e) {
+		lista.remove(e);
+	}
 
 	public void limpiar() {
 		if(!lista.isEmpty())

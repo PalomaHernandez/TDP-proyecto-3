@@ -1,6 +1,8 @@
 package Entidades.Estaticas;
 
 import GUI.PacDotGUI;
+import Logica.Nivel;
+import Logica.Zona;
 import Visitors.Visitor;
 
 public class PacDot extends Punto{

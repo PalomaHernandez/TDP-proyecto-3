@@ -34,7 +34,11 @@ public class Zona {
 		}
 		return libre;
 	}
-
+	
+	public List<Entidad> getLista() {
+		return lista;
+	}
+	
 	public void removeEntidad(Entidad e) {
 		lista.remove(e);
 	}

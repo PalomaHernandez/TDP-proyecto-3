@@ -5,6 +5,7 @@ import javax.swing.ImageIcon;
 import GUI.ProtagonistaGUI;
 import GUI.VentanaGUI;
 import Logica.Juego;
+import Logica.Zona;
 import Visitors.Visitor;
 import Visitors.VisitorProtagonista;
 
@@ -100,7 +101,6 @@ public class Protagonista extends Movil {
 
 	@Override
 	public void accept(Visitor v) {
-		// TODO Auto-generated method stub
 		
 	}
 	

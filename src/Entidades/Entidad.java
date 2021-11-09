@@ -3,6 +3,7 @@ package Entidades;
 import javax.swing.JLabel;
 
 import Logica.Juego;
+import Logica.Nivel;
 import Logica.Zona;
 import Visitors.Visitor;
 
@@ -69,4 +70,8 @@ public abstract class Entidad extends JLabel{
 	public String getRepresentacion() {
 		return representacion;
 	}
+	
+//	public void setRepresentacion(String s) {
+//		representacion=s;
+//	}
 }

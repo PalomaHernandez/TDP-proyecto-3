@@ -43,10 +43,12 @@ public class VisitorProtagonista implements Visitor{
 
 	@Override
 	public void visit(PacDot pacdot) {
+		System.out.println("visite pacdot");
 		pacdot.setCantPuntos(pacdot.getCantPuntos()-1);
-		Zona z=pacdot.getZona();
+		//Zona z=pacdot.getZona();
 		//z.removeEntidad(pacdot);
 		//pacdot.setVisible(false);
+		//actualizarPuntaje
 	}
 
 	@Override

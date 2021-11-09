@@ -99,6 +99,7 @@ public class BuilderNivel implements Builder{
 		miNivel.addEntidad(pacD);
 	}
 
+	
 	@Override
 	public void setBomba(Tema tema,int x, int y) {
 		Bomba bomba;

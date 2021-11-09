@@ -1,5 +1,7 @@
 package Entidades.Estaticas;
 
+import Logica.Nivel;
+import Logica.Zona;
 import Visitors.Visitor;
 
 public abstract class Punto extends Estatica{
