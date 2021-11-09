@@ -84,10 +84,13 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		//((JLabel)panel.getComponentAt(posX, posY)).setBounds(posXFin, posYFin, 32, 32);
 	}
 
-	public void inicializarNivel1(List<Entidad> nivel) {
+	public void inicializarNivel1(List<Entidad> nivel, Entidad protagonista) {
 		arregloLabel = new JLabel[nivel.size()];
 		this.nivel = nivel;
 		ImageIcon imagen;
+		protagonista.setBounds(protagonista.getX(), protagonista.getY(), 32, 32);
+		panel.add(protagonista);
+		protagonista.setIcon(new ImageIcon(VentanaGUI.class.getResource(protagonista.getRepresentacion())));
 		for(Entidad e : nivel) {
 			//arregloLabel[i] = new JLabel();
 			//arregloLabel[i].setBounds(e.getX(), e.getY(), 32, 32);

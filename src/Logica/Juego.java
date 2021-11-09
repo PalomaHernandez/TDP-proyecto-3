@@ -37,6 +37,19 @@ public class Juego {
 		Zona zona2;
 		Zona zona3;
 		Zona zona4;
+		zona1 = calcularZona(miProtagonista.getX(), miProtagonista.getY());
+		zona2 = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY());
+		zona3 = calcularZona(miProtagonista.getX(), miProtagonista.getY() + miProtagonista.getTamano());
+		zona4 = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + miProtagonista.getTamano());
+		
+		zona1.addEntidad(miProtagonista);
+		if(zona1 != zona2)
+			zona2.addEntidad(miProtagonista);
+		if(zona1 != zona3 && zona2 != zona3)
+			zona3.addEntidad(miProtagonista);
+		if(zona1 != zona4 && zona2 != zona4 && zona3 != zona4)
+			zona4.addEntidad(miProtagonista);
+		
 		for(Entidad e : miNivel.getNivel()) {
 			zona1 = calcularZona(e.getX(), e.getY());
 			zona2 = calcularZona(e.getX() + e.getTamano(), e.getY());
@@ -63,7 +76,7 @@ public class Juego {
 		
 		miNivel = constructorNivel1.getResult();
 		miProtagonista = miNivel.getProtagonista();
-		miVentana.inicializarNivel1(miNivel.getNivel());
+		miVentana.inicializarNivel1(miNivel.getNivel(), miProtagonista);
 	}
 
 	public void moverDerAction() {
@@ -107,14 +120,6 @@ public class Juego {
 			if(zonaFinalB != zonaActualB) {
 				zonaActualB.removeEntidad(miProtagonista);
 				zonaFinalB.addEntidad(miProtagonista);
-			}
-			if(zonaFinalC != zonaActualC){
-				zonaActualC.removeEntidad(miProtagonista);
-				zonaFinalC.addEntidad(miProtagonista);
-			}
-			if(zonaFinalD != zonaActualD) {
-				zonaActualD.removeEntidad(miProtagonista);
-				zonaFinalD.removeEntidad(miProtagonista);
 			}
 			miProtagonista.moverDerecha();
 		}
@@ -165,14 +170,6 @@ public class Juego {
 				zonaActualB.removeEntidad(miProtagonista);
 				zonaFinalB.addEntidad(miProtagonista);
 			}
-			if(zonaFinalC != zonaActualC){
-				zonaActualC.removeEntidad(miProtagonista);
-				zonaFinalC.addEntidad(miProtagonista);
-			}
-			if(zonaFinalD != zonaActualD) {
-				zonaActualD.removeEntidad(miProtagonista);
-				zonaFinalD.removeEntidad(miProtagonista);
-			}
 			miProtagonista.moverIzquierda();
 		}
 		
@@ -218,17 +215,9 @@ public class Juego {
 				zonaActualA.removeEntidad(miProtagonista);
 				zonaFinalA.addEntidad(miProtagonista);
 			}
-			if(zonaFinalB != zonaActualB) {
-				zonaActualB.removeEntidad(miProtagonista);
-				zonaFinalB.addEntidad(miProtagonista);
-			}
 			if(zonaFinalC != zonaActualC){
 				zonaActualC.removeEntidad(miProtagonista);
 				zonaFinalC.addEntidad(miProtagonista);
-			}
-			if(zonaFinalD != zonaActualD) {
-				zonaActualD.removeEntidad(miProtagonista);
-				zonaFinalD.removeEntidad(miProtagonista);
 			}
 			miProtagonista.moverAbajo();
 		}
@@ -275,17 +264,9 @@ public class Juego {
 				zonaActualA.removeEntidad(miProtagonista);
 				zonaFinalA.addEntidad(miProtagonista);
 			}
-			if(zonaFinalB != zonaActualB) {
-				zonaActualB.removeEntidad(miProtagonista);
-				zonaFinalB.addEntidad(miProtagonista);
-			}
 			if(zonaFinalC != zonaActualC){
 				zonaActualC.removeEntidad(miProtagonista);
 				zonaFinalC.addEntidad(miProtagonista);
-			}
-			if(zonaFinalD != zonaActualD) {
-				zonaActualD.removeEntidad(miProtagonista);
-				zonaFinalD.removeEntidad(miProtagonista);
 			}
 			miProtagonista.moverArriba();
 		}
@@ -300,34 +281,34 @@ public class Juego {
 		i = 0;
 		j = 0;
 		
-		if(cordX < 96) 
+		if(cordX <= 96) 
 			i = 0;
-		else if(cordX < 192)
+		else if(cordX <= 192)
 			i = 1;
-		else if(cordX < 288)
+		else if(cordX <= 288)
 			i = 2;
-		else if(cordX < 384)
+		else if(cordX <= 384)
 			i = 3;
-		else if(cordX < 480)
+		else if(cordX <= 480)
 			i = 4;
-		else if(cordX < 576)
+		else if(cordX <= 576)
 			i = 5;
-		else if(cordX < 678)
+		else if(cordX <= 678)
 			i = 6;
 		
 		if(cordY < 96) 
 			j = 0;
-		else if(cordY < 192)
+		else if(cordY <= 192)
 			j = 1;
-		else if(cordY < 288)
+		else if(cordY <= 288)
 			j = 2;
-		else if(cordY < 384)
+		else if(cordY <= 384)
 			j = 3;
-		else if(cordY < 480)
+		else if(cordY <= 480)
 			j = 4;
-		else if(cordY < 576)
+		else if(cordY <= 576)
 			j = 5;
-		else if(cordY < 678)
+		else if(cordY <= 678)
 			j = 6;
 		
 		return matriz[i][j];

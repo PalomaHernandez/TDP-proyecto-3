@@ -46,7 +46,6 @@ public class BuilderNivel implements Builder{
 		//protagonista.setX(x);
 		//protagonista.setY(y);
 		miNivel.setProtagonista(protagonista);
-		miNivel.addEntidad(protagonista);
 	}
 
 	@Override
