@@ -57,6 +57,7 @@ public class Director {
 		
 		builder.setPowerPellet(tema, 38, 608);
 		builder.setPowerPellet(tema, 614, 608);
+		
 	}
 
 	private void crearFruta1() {
@@ -425,8 +426,6 @@ public class Director {
 		
 		builder.setPowerPellet(tema, 326, 32);
 		builder.setPowerPellet(tema, 326, 608);
-		
-		
 	}
 
 	private void crearFruta2() {
@@ -440,10 +439,20 @@ public class Director {
 	}
 
 	private void crearPacDots2() {
-		for(int i = 32 ; i < 640 ; i +=32) {
+		builder.setPacDot(tema, 42, 32);
+		builder.setPacDot(tema, 42, 64);
+		builder.setPacDot(tema, 618, 32);
+		builder.setPacDot(tema, 618, 64);
+		
+		for(int i = 128 ; i < 544 ; i +=32) {
 			builder.setPacDot(tema, 42, i);
 			builder.setPacDot(tema, 618, i);
 		}
+		
+		builder.setPacDot(tema, 42, 576);
+		builder.setPacDot(tema, 42, 608);
+		builder.setPacDot(tema, 618, 576);
+		builder.setPacDot(tema, 618, 608);
 
 		builder.setPacDot(tema, 74, 32);
 		builder.setPacDot(tema, 74, 224);
@@ -472,6 +481,7 @@ public class Director {
 		builder.setPacDot(tema, 138, 64);
 		builder.setPacDot(tema, 138, 96);
 		builder.setPacDot(tema, 138, 224);
+		builder.setPacDot(tema, 138, 352);
 		builder.setPacDot(tema, 138, 448);
 		builder.setPacDot(tema, 138, 544);
 		builder.setPacDot(tema, 138, 576);
@@ -563,15 +573,11 @@ public class Director {
 		builder.setPacDot(tema, 362, 544);
 		builder.setPacDot(tema, 362, 608);
 		
-		builder.setPacDot(tema, 330, 32);
 		builder.setPacDot(tema, 330, 96);
 		builder.setPacDot(tema, 330, 160);
 		builder.setPacDot(tema, 330, 192);
 		builder.setPacDot(tema, 330, 416);
 		builder.setPacDot(tema, 330, 544);
-		builder.setPacDot(tema, 330, 608);
-		
-		
 	}
 
 	private void crearEnemigos2() {
@@ -781,12 +787,14 @@ public class Director {
 	}
 
 	private void crearPowerPellets3() {
+		
 		builder.setPowerPellet(tema, 38, 32);
 		builder.setPowerPellet(tema, 38, 608);
 		
 
 		builder.setPowerPellet(tema, 616, 32);
 		builder.setPowerPellet(tema, 616, 608);
+		
 	}
 
 	private void crearFruta3() {
@@ -798,7 +806,7 @@ public class Director {
 	}
 
 	private void crearPacDots3() {
-		for(int i = 32 ; i < 640 ; i+=32) {
+		for(int i = 64 ; i < 608 ; i+=32) {
 			builder.setPacDot(tema, 42, i);
 			builder.setPacDot(tema, 618, i);
 		}

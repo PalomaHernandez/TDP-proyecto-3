@@ -16,7 +16,6 @@ public abstract class Entidad extends JLabel{
 	protected int posX;
 	protected int posY;
 	protected Visitor v;
-	protected Zona miZona;
 	protected boolean visible;
 	protected String representacion;
 	protected int tamano;
@@ -55,10 +54,6 @@ public abstract class Entidad extends JLabel{
 	public void setY(int posY) {
 		this.posY = posY;
 		this.setBounds(posX, posY, this.getWidth(), this.getHeight());
-	}
-	
-	public Zona getZona() {
-		return miZona;
 	}
 	
 	public Visitor getVisitor() {

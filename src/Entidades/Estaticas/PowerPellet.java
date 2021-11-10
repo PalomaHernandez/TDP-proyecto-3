@@ -19,8 +19,7 @@ public class PowerPellet extends Pocion{
 
 	@Override
 	public void accept(Visitor v) {
-		// TODO Auto-generated method stub
-		
+		v.visit(this);
 	}
 	
 }
