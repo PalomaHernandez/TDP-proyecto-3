@@ -29,9 +29,8 @@ public class Director {
 		crearVelocidad1();
 		crearPacDots1();
 		crearParedes1();
+		//crearBlinky1();
 		
-		/*crearEnemigos1();
-		*/
 		
 		
 	}
@@ -207,8 +206,8 @@ public class Director {
 
 	}
 
-	private void crearEnemigos1() {
-		builder.setEnemigos(tema, 320, 320);
+	private void crearBlinky1() {
+		builder.setBlinky1(tema, 320, 320);
 	}
 
 	private void crearParedes1() {

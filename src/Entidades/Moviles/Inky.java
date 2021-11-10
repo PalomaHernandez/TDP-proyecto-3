@@ -2,8 +2,8 @@ package Entidades.Moviles;
 
 public class Inky extends Enemigo{
 
-	public Inky(String enemigo) {
-		super(enemigo);
+	public Inky(String enemigoAbajo, String enemigoArriba, String enemigoIzquierda, String enemigoDerecha, String enemigoAzul) {
+		super(enemigoAbajo, enemigoArriba, enemigoIzquierda, enemigoDerecha, enemigoAzul);
 		// TODO Auto-generated constructor stub
 	}
 

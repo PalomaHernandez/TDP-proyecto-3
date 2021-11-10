@@ -3,8 +3,8 @@ package GUI;
 public class EnemigoGUI extends MovilGUI{
 
 	public EnemigoGUI(String abajo, String arriba, String izquierda, String derecha, String azul) {
-		super();
 		
+		representacion= new String[5];
 		this.estadoActual = abajo;
 		
 		representacion[0] = abajo;

@@ -2,8 +2,8 @@ package Entidades.Moviles;
 
 public class Clyde extends Enemigo{
 
-	public Clyde(String enemigo) {
-		super(enemigo);
+	public Clyde(String enemigoAbajo, String enemigoArriba, String enemigoIzquierda, String enemigoDerecha, String enemigoAzul) {
+		super(enemigoAbajo, enemigoArriba, enemigoIzquierda, enemigoDerecha, enemigoAzul);
 		// TODO Auto-generated constructor stub
 	}
 

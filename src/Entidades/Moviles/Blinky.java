@@ -2,9 +2,8 @@ package Entidades.Moviles;
 
 public class Blinky extends Enemigo{
 
-	public Blinky(String enemigo) {
-		super(enemigo);
-		// TODO Auto-generated constructor stub
+	public Blinky(String enemigoAbajo, String enemigoArriba, String enemigoIzquierda, String enemigoDerecha, String enemigoAzul) {
+		super(enemigoAbajo, enemigoArriba, enemigoIzquierda, enemigoDerecha, enemigoAzul);
 	}
 
 	@Override

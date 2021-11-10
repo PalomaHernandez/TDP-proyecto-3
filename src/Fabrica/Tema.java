@@ -21,5 +21,5 @@ public abstract class Tema {
 	public abstract PowerPellet getPowerPellet();
 	public abstract PacDot getPacDot();
 	public abstract Fruta getFruta();
-	
+	public abstract Enemigo getEnemigo();
 }

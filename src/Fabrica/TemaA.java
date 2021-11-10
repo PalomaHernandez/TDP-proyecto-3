@@ -48,13 +48,21 @@ public class TemaA extends Tema{
 		
 		lista = new LinkedList<Enemigo>();
 		
-		lista.add(new Inky(null));
-		lista.add(new Blinky(null));
-		lista.add(new Pinky(null));
-		lista.add(new Clyde(null));
+		lista.add(new Blinky("/imagenesA/PoliciaAbajo.png","/imagenesA/PoliciaArriba.png","/imagenesA/PoliciaIzquierda.png","/imagenesA/PoliciaDerecha.png","/imagenesA/PoliciaAbajo.png" ));
+		lista.add(new Inky("/imagenesA/PoliciaAbajo.png","/imagenesA/PoliciaArriba.png","/imagenesA/PoliciaIzquierda.png","/imagenesA/PoliciaDerecha.png","/imagenesA/PoliciaAbajo.png" ));
+		lista.add(new Pinky("/imagenesA/PoliciaAbajo.png","/imagenesA/PoliciaArriba.png","/imagenesA/PoliciaIzquierda.png","/imagenesA/PoliciaDerecha.png","/imagenesA/PoliciaAbajo.png" ));
+		lista.add(new Clyde("/imagenesA/PoliciaAbajo.png","/imagenesA/PoliciaArriba.png","/imagenesA/PoliciaIzquierda.png","/imagenesA/PoliciaDerecha.png","/imagenesA/PoliciaAbajo.png" ));
+		
+		
 		return lista;
 	}
 
+	public Enemigo getEnemigo() {
+		Enemigo enemigo;
+		enemigo=new Enemigo("/imagenesA/policiaAbajo.png","/imagenesA/policiaArriba.png","/imagenesA/policiaIzquierda.png","/imagenesA/policiaDerecha.png","/imagenesA/policiaAbajo.png" );
+		return enemigo;
+	}
+	
 	@Override
 	public Bomba getBomba() {
 		return new Bomba("/imagenesA/bomba.png");
