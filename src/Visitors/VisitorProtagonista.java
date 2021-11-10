@@ -67,7 +67,7 @@ public class VisitorProtagonista implements Visitor{
 	@Override
 	public void visit(Fruta fruta, Juego j) {
 		System.out.println("visite fruta");
-		//Zona z=fruta.getZona();
+		//Zona z = j.calcularZona(fruta.getX(), fruta.getY());
 		//z.removeEntidad(fruta);
 		fruta.setVisible(false);
 		//actualizarPuntaje

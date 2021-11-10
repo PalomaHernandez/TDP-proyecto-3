@@ -81,12 +81,13 @@ public class Juego {
 		miVentana.inicializarNivel1(miNivel.getNivel(), miProtagonista);
 	}
 
-	public void colisionProtagonista(Protagonista p, List<Entidad> list) {
+	public boolean colisionProtagonista(Protagonista p, List<Entidad> list) {
 		//boolean libre = true;
 		int cordX=miProtagonista.getX();
 		int cordY=miProtagonista.getY();
 		int tamanoX=miProtagonista.getTamano();
 		int tamanoY=miProtagonista.getTamano();
+		boolean esPared = true;
 		
 		Rectangle entidad = new Rectangle(cordX, cordY, tamanoX, tamanoY);
 		for(Entidad e : list) {
@@ -94,9 +95,12 @@ public class Juego {
 			if(entidad.intersects(entidad2)) {
 				//System.out.println("Colision.");
 				Visitor v1= miProtagonista.getVisitor();
+				esPared = e.esPared();
 				e.accept(v1, this);
 			}
 		}
+		
+		return esPared;
 	}
 	
 	public void moverDerAction() {
