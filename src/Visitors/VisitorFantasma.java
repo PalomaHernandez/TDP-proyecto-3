@@ -3,6 +3,7 @@ package Visitors;
 import Entidades.Estaticas.Bomba;
 import Entidades.Estaticas.Fruta;
 import Entidades.Estaticas.PacDot;
+import Entidades.Estaticas.Pared;
 import Entidades.Estaticas.PowerPellet;
 import Entidades.Estaticas.Velocidad;
 import Entidades.Moviles.Enemigo;
@@ -63,5 +64,11 @@ public class VisitorFantasma implements Visitor {
 //		// TODO Auto-generated method stub
 //		
 //	}
+
+	@Override
+	public void visit(Pared pared) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
