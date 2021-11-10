@@ -4,8 +4,7 @@ import Entidades.Estaticas.*;
 import Entidades.Moviles.Enemigo;
 import Entidades.Moviles.Protagonista;
 import Logica.Juego;
-import Logica.Nivel;
-import Logica.Zona;
+
 
 public interface Visitor {
 

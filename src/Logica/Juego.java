@@ -90,7 +90,9 @@ public class Juego {
 		boolean esPared = false;
 		
 		Rectangle entidad = new Rectangle(cordX, cordY, tamanoX, tamanoY);
-		for(Entidad e : list) {
+		List<Entidad> listAux = List.copyOf(list);
+	
+		for(Entidad e : listAux) {
 			Rectangle entidad2 = new Rectangle(e.getX(), e.getY(), e.getTamano(), e.getTamano());
 			if(entidad.intersects(entidad2)) {
 				//System.out.println("Colision.");
