@@ -9,7 +9,7 @@ import Visitors.VisitorFantasma;
 public class Enemigo extends Movil {
 	
 	/**
-	 * 
+	 *                                                                                                                                                                                                                                                                                                                                                                                              
 	 */
 	private static final long serialVersionUID = 1L;
 	private EnemigoGUI miRepresentacion;
