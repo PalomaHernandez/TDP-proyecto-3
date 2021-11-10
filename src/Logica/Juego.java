@@ -81,12 +81,12 @@ public class Juego {
 		miVentana.inicializarNivel1(miNivel.getNivel(), miProtagonista);
 	}
 
-	public void colisionProtagonista(Protagonista p, List<Entidad> list) {
-		//boolean libre = true;
+	public boolean colisionProtagonista(Protagonista p, List<Entidad> list) {
 		int cordX=miProtagonista.getX();
 		int cordY=miProtagonista.getY();
 		int tamanoX=miProtagonista.getTamano();
 		int tamanoY=miProtagonista.getTamano();
+		boolean esPared = false;
 		
 		Rectangle entidad = new Rectangle(cordX, cordY, tamanoX, tamanoY);
 		for(Entidad e : list) {
@@ -94,48 +94,16 @@ public class Juego {
 			if(entidad.intersects(entidad2)) {
 				//System.out.println("Colision.");
 				Visitor v1= miProtagonista.getVisitor();
+				esPared = e.esPared();
 				e.accept(v1);
 			}
 		}
+		return esPared;
 	}
 	
 	public void moverDerAction() {
-		Zona zonaActualA;//(0,0)
-		Zona zonaActualB;//(32,0)
-		
-		Zona zonaFinalA;
-		Zona zonaFinalB;
-		Zona zonaFinalC;
-		Zona zonaFinalD;
-	
-		zonaActualA = calcularZona(miProtagonista.getX(), miProtagonista.getY());
-		zonaActualB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY());
-		
-		zonaFinalA = calcularZona(miProtagonista.getX() + 32, miProtagonista.getY());
-		zonaFinalB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() + 32, miProtagonista.getY());
-		zonaFinalC = calcularZona(miProtagonista.getX() + 32, miProtagonista.getY() + miProtagonista.getTamano());
-		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() + 32, miProtagonista.getY() + miProtagonista.getTamano());
-			
 		miProtagonista.moverDerecha();
 		
-		colisionProtagonista(miProtagonista, zonaFinalA.getLista());
-		if(zonaFinalA != zonaFinalB)
-			colisionProtagonista(miProtagonista, zonaFinalB.getLista());
-		if(zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
-			colisionProtagonista(miProtagonista, zonaFinalC.getLista());
-		if(zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
-			colisionProtagonista(miProtagonista, zonaFinalD.getLista());
-		
-		if(zonaFinalA != zonaActualA) {
-			zonaActualA.removeEntidad(miProtagonista);
-			zonaFinalA.addEntidad(miProtagonista);
-			colisionProtagonista(miProtagonista,zonaFinalA.getLista());
-		}
-		if(zonaFinalB != zonaActualB) {
-			zonaActualB.removeEntidad(miProtagonista);
-			zonaFinalB.addEntidad(miProtagonista);
-			colisionProtagonista(miProtagonista,zonaFinalB.getLista());
-		}
 	}
 
 	public void moverIzqAction() {
@@ -249,7 +217,7 @@ public class Juego {
 		}
 	}
 
-	private Zona calcularZona(int cordX, int cordY) { //La zona se calcula con las coordenadas x e y, con el punto (0,0) de la entidad
+	public Zona calcularZona(int cordX, int cordY) { //La zona se calcula con las coordenadas x e y, con el punto (0,0) de la entidad
 		int i;
 		int j;
 		
