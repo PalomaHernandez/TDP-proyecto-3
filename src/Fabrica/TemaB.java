@@ -46,11 +46,11 @@ public class TemaB extends Tema{
 		List<Enemigo> lista;
 		
 		lista = new LinkedList<Enemigo>();
-		
-		lista.add(new Inky(null));
-		lista.add(new Blinky(null));
-		lista.add(new Pinky(null));
-		lista.add(new Clyde(null));
+//		
+//		lista.add(new Inky(null));
+//		lista.add(new Blinky(null));
+//		lista.add(new Pinky(null));
+//		lista.add(new Clyde(null));
 		return lista;
 	}
 
@@ -79,6 +79,12 @@ public class TemaB extends Tema{
 
 	@Override
 	public Fruta getFruta() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Enemigo getEnemigo() {
 		// TODO Auto-generated method stub
 		return null;
 	}

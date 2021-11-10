@@ -1,5 +1,6 @@
 package Entidades.Estaticas;
 
+import Entidades.Moviles.Protagonista;
 import Logica.Nivel;
 import Logica.Zona;
 import Visitors.Visitor;
