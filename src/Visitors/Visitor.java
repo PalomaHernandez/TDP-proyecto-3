@@ -12,6 +12,8 @@ public interface Visitor {
 //	
 //	public void visitProtagonista(Protagonista protagonista);
 	
+	public void visit(Pared pared);
+	
 	public void visit(Enemigo enemigo);
 	
 	public void visit(Protagonista protagonista);

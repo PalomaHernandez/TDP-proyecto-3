@@ -20,9 +20,7 @@ public abstract class Entidad extends JLabel{
 	protected String representacion;
 	protected int tamano;
 	
-	public void setVisible(boolean visible) {
-		this.visible = visible;
-	}
+
 	
 	public int getTamano() {
 		return tamano;

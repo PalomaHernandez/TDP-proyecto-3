@@ -3,6 +3,7 @@ package Visitors;
 import Entidades.Estaticas.Bomba;
 import Entidades.Estaticas.Fruta;
 import Entidades.Estaticas.PacDot;
+import Entidades.Estaticas.Pared;
 import Entidades.Estaticas.PowerPellet;
 import Entidades.Estaticas.Velocidad;
 import Entidades.Moviles.Enemigo;
@@ -24,21 +25,33 @@ public class VisitorProtagonista implements Visitor{
 	}
 
 	@Override
-	public void visit(Bomba bomba) {
-		// TODO Auto-generated method stub
-		
+	public void visit(Bomba bomba) {//Falta el accept en bomba
+		System.out.println("visite bomba");
+		//Zona z=velocidad.getZona();
+		//z.removeEntidad(bomba);
+		bomba.setVisible(false);
+		//actualizarPuntaje
+		//Aumentar velocidad, cambiar estado del protagonista
 	}
 
 	@Override
-	public void visit(Velocidad velocidad) {
-		// TODO Auto-generated method stub
-		
+	public void visit(Velocidad velocidad) {//Falta el accept en velocidad
+		System.out.println("visite velocidad");
+		//Zona z=velocidad.getZona();
+		//z.removeEntidad(powerpellet);
+		velocidad.setVisible(false);
+		//actualizarPuntaje
+		//Aumentar velocidad, cambiar estado del protagonista
 	}
 
 	@Override
 	public void visit(PowerPellet powerpellet) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("visite powerPellet");
+		//powerpellet.setCantPuntos(powerpellet.getCantPuntos()-1);
+		//Zona z=powerpellet.getZona();
+		//z.removeEntidad(powerpellet);
+		powerpellet.setVisible(false);
+		//actualizarPuntaje
 	}
 
 	@Override
@@ -47,14 +60,23 @@ public class VisitorProtagonista implements Visitor{
 		pacdot.setCantPuntos(pacdot.getCantPuntos()-1);
 		//Zona z=pacdot.getZona();
 		//z.removeEntidad(pacdot);
-		//pacdot.setVisible(false);
+		pacdot.setVisible(false);
 		//actualizarPuntaje
 	}
 
 	@Override
-	public void visit(Fruta fruta) {
-		// TODO Auto-generated method stub
-		
+	public void visit(Fruta fruta) {//falta el accept en fruta
+		System.out.println("visite fruta");
+		//Zona z=fruta.getZona();
+		//z.removeEntidad(fruta);
+		fruta.setVisible(false);
+		//actualizarPuntaje
+	}
+
+	@Override
+	public void visit(Pared pared) {
+		System.out.println("Visite pared");
+		//no deberia dejar mover
 	}
 
 //	@Override
