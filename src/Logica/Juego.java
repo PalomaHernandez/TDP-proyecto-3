@@ -148,8 +148,8 @@ public class Juego {
 //			}
 //		}
 			
+
 		miProtagonista.moverDerecha();
-		
 		colisionProtagonista(miProtagonista, zonaFinalA.getLista());
 		if(zonaFinalA != zonaFinalB)
 			colisionProtagonista(miProtagonista, zonaFinalB.getLista());
@@ -157,6 +157,18 @@ public class Juego {
 			colisionProtagonista(miProtagonista, zonaFinalC.getLista());
 		if(zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
 			colisionProtagonista(miProtagonista, zonaFinalD.getLista());
+		
+		if(zonaFinalA != zonaActualA) {
+			zonaActualA.removeEntidad(miProtagonista);
+			zonaFinalA.addEntidad(miProtagonista);
+			colisionProtagonista(miProtagonista,zonaFinalA.getLista());
+		}
+		if(zonaFinalB != zonaActualB) {
+			zonaActualB.removeEntidad(miProtagonista);
+			zonaFinalB.addEntidad(miProtagonista);
+			colisionProtagonista(miProtagonista,zonaFinalB.getLista());
+		}
+		
 		
 	}
 
@@ -195,19 +207,12 @@ public class Juego {
 //			existe = zonaFinalD.existePosLibre(miProtagonista.getX() + miProtagonista.getTamano() - 32, miProtagonista.getY() + miProtagonista.getTamano(), miProtagonista.getTamano(), miProtagonista.getTamano());
 		
 //		if(existe) {
-//			if(zonaFinalA != zonaActualA) {
-//				zonaActualA.removeEntidad(miProtagonista);
-//				zonaFinalA.addEntidad(miProtagonista);
-//			}
-//			if(zonaFinalB != zonaActualB) {
-//				zonaActualB.removeEntidad(miProtagonista);
-//				zonaFinalB.addEntidad(miProtagonista);
-//			}
+//			
 //			miProtagonista.moverIzquierda();
 //		}
 		
+
 		miProtagonista.moverIzquierda();
-		
 		colisionProtagonista(miProtagonista, zonaFinalA.getLista());
 		if(zonaFinalA != zonaFinalB)
 			colisionProtagonista(miProtagonista, zonaFinalB.getLista());
@@ -215,7 +220,17 @@ public class Juego {
 			colisionProtagonista(miProtagonista, zonaFinalC.getLista());
 		if(zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
 			colisionProtagonista(miProtagonista, zonaFinalD.getLista());
-
+		
+		if(zonaFinalA != zonaActualA) {
+			zonaActualA.removeEntidad(miProtagonista);
+			zonaFinalA.addEntidad(miProtagonista);
+		}
+		if(zonaFinalB != zonaActualB) {
+			zonaActualB.removeEntidad(miProtagonista);
+			zonaFinalB.addEntidad(miProtagonista);
+		}
+		
+		
 	}
 
 	public void moverAbajoAction() {
@@ -253,18 +268,11 @@ public class Juego {
 //			existe = zonaFinalD.existePosLibre(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + miProtagonista.getTamano() + 32, miProtagonista.getTamano(), miProtagonista.getTamano());
 //		
 //		if(existe) {
-//			if(zonaFinalA != zonaActualA) {
-//				zonaActualA.removeEntidad(miProtagonista);
-//				zonaFinalA.addEntidad(miProtagonista);
-//			}
-//			if(zonaFinalC != zonaActualC){
-//				zonaActualC.removeEntidad(miProtagonista);
-//				zonaFinalC.addEntidad(miProtagonista);
-//			}
+//			
 //			miProtagonista.moverAbajo();
 //		}
-		
 		miProtagonista.moverAbajo();
+		
 		
 		colisionProtagonista(miProtagonista, zonaFinalA.getLista());
 		if(zonaFinalA != zonaFinalB)
@@ -273,9 +281,19 @@ public class Juego {
 			colisionProtagonista(miProtagonista, zonaFinalC.getLista());
 		if(zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
 			colisionProtagonista(miProtagonista, zonaFinalD.getLista());
+		
+		if(zonaFinalA != zonaActualA) {
+			zonaActualA.removeEntidad(miProtagonista);
+			zonaFinalA.addEntidad(miProtagonista);
+		}
+		if(zonaFinalC != zonaActualC){
+			zonaActualC.removeEntidad(miProtagonista);
+			zonaFinalC.addEntidad(miProtagonista);
+		}
+		
 	}
 
-	public synchronized void moverArribaAction() {
+	public void moverArribaAction() {
 		
 		boolean existe;
 		
@@ -330,6 +348,17 @@ public class Juego {
 			colisionProtagonista(miProtagonista, zonaFinalC.getLista());
 		if(zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
 			colisionProtagonista(miProtagonista, zonaFinalD.getLista());
+		
+		if(zonaFinalA != zonaActualA) {
+			zonaActualA.removeEntidad(miProtagonista);
+			zonaFinalA.addEntidad(miProtagonista);
+		}
+		if(zonaFinalC != zonaActualC){
+			zonaActualC.removeEntidad(miProtagonista);
+			zonaFinalC.addEntidad(miProtagonista);
+		}
+		
+		
 	}
 
 	private Zona calcularZona(int cordX, int cordY) { //La zona se calcula con las coordenadas x e y, con el punto (0,0) de la entidad
@@ -354,7 +383,7 @@ public class Juego {
 		else if(cordX <= 678)
 			i = 6;
 		
-		if(cordY < 96) 
+		if(cordY <= 96) 
 			j = 0;
 		else if(cordY <= 192)
 			j = 1;
