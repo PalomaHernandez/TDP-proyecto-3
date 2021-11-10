@@ -1,6 +1,7 @@
 package Entidades.Estaticas;
 
 import GUI.ParedGUI;
+import Logica.Juego;
 import Visitors.Visitor;
 
 public class Pared extends Estatica {
@@ -27,9 +28,8 @@ public class Pared extends Estatica {
 	}
 
 	@Override
-	public void accept(Visitor v) {
-		// TODO Auto-generated method stub
-		
+	public void accept(Visitor v, Juego j) {
+		v.visit(this);
 	}
 	
 }

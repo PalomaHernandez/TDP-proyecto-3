@@ -2,6 +2,7 @@ package Entidades.Moviles;
 
 import GUI.EnemigoGUI;
 import GUI.ProtagonistaGUI;
+import Logica.Juego;
 import Visitors.Visitor;
 import Visitors.VisitorFantasma;
 
@@ -18,10 +19,9 @@ public class Enemigo extends Movil {
 		tamano = 20;
 		v= new VisitorFantasma();
 	}
-
-	@Override
-	public void accept(Visitor v) {
-		
+	
+	public void accept(Visitor v, Juego j) {
+		v.visit(this, j);		
 	}
 	
 	public EnemigoGUI getGUI() {

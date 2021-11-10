@@ -1,6 +1,8 @@
 package Entidades.Estaticas;
 
+
 import Entidades.Moviles.Protagonista;
+import Logica.Juego;
 import Logica.Nivel;
 import Logica.Zona;
 import Visitors.Visitor;
@@ -27,5 +29,5 @@ public abstract class Punto extends Estatica{
 		return v;
 	}
 	
-	public abstract void accept(Visitor v);
+	public abstract void accept(Visitor v, Juego j);
 }

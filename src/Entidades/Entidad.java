@@ -4,8 +4,6 @@ import javax.swing.JLabel;
 
 import Entidades.Moviles.Protagonista;
 import Logica.Juego;
-import Logica.Nivel;
-import Logica.Zona;
 import Visitors.Visitor;
 
 public abstract class Entidad extends JLabel{
@@ -59,7 +57,7 @@ public abstract class Entidad extends JLabel{
 		return v;
 	}
 	
-	public abstract void accept(Visitor v);
+	public abstract void accept(Visitor v, Juego j);
 	
 	public String getRepresentacion() {
 		return representacion;

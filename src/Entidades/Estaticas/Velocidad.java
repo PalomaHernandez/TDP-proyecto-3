@@ -1,6 +1,7 @@
 package Entidades.Estaticas;
 
 import GUI.VelocidadGUI;
+import Logica.Juego;
 import Visitors.Visitor;
 
 public class Velocidad extends Pocion {
@@ -18,9 +19,8 @@ public class Velocidad extends Pocion {
 	}
 
 	@Override
-	public void accept(Visitor v) {
-		// TODO Auto-generated method stub
-		
+	public void accept(Visitor v, Juego j) {
+		v.visit(this, j);		
 	}
 	
 }

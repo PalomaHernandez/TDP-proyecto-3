@@ -1,6 +1,7 @@
 package Entidades.Estaticas;
 
 import GUI.FrutaGUI;
+import Logica.Juego;
 import Visitors.Visitor;
 
 public class Fruta extends Pocion {
@@ -18,9 +19,8 @@ public class Fruta extends Pocion {
 	}
 
 	@Override
-	public void accept(Visitor v) {
-		// TODO Auto-generated method stub
-		
+	public void accept(Visitor v, Juego j) {
+		v.visit(this, j);
 	}
 	
 }

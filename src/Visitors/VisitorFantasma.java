@@ -8,11 +8,12 @@ import Entidades.Estaticas.PowerPellet;
 import Entidades.Estaticas.Velocidad;
 import Entidades.Moviles.Enemigo;
 import Entidades.Moviles.Protagonista;
+import Logica.Juego;
 
 public class VisitorFantasma implements Visitor {
 
 	@Override
-	public void visit(Enemigo enemigo) {
+	public void visit(Enemigo enemigo, Juego j) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -24,31 +25,31 @@ public class VisitorFantasma implements Visitor {
 	}
 
 	@Override
-	public void visit(Bomba bomba) {
+	public void visit(Bomba bomba, Juego j) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void visit(Velocidad velocidad) {
+	public void visit(Velocidad velocidad, Juego j) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void visit(PowerPellet powerpellet) {
+	public void visit(PowerPellet powerpellet, Juego j) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void visit(PacDot pacdot) {
+	public void visit(PacDot pacdot, Juego j) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void visit(Fruta fruta) {
+	public void visit(Fruta fruta, Juego j) {
 		// TODO Auto-generated method stub
 		
 	}

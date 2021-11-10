@@ -18,6 +18,8 @@ import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.List;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class VentanaGUI extends JFrame implements KeyListener{
 
@@ -57,19 +59,32 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 800);
-		this.setSize(1000, 840);
-		
+		this.setSize(750, 800);
 		
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.BLACK);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		panel = new JPanel();
 		panel.setBackground(Color.GRAY);
-		panel.setBounds(10, 10, 672, 672);
+		panel.setBounds(31, 38, 672, 672);
 		contentPane.add(panel);
 		panel.setLayout(null);
+		
+		JLabel lblScore = new JLabel("SCORE");
+		lblScore.setFont(new Font("Segoe UI Black", Font.PLAIN, 18));
+		lblScore.setForeground(Color.WHITE);
+		lblScore.setBounds(42, 11, 69, 20);
+		contentPane.add(lblScore);
+		
+		JLabel lblPuntaje = new JLabel("0");
+		lblPuntaje.setFont(new Font("Segoe UI Black", Font.PLAIN, 18));
+		lblPuntaje.setHorizontalAlignment(SwingConstants.LEFT);
+		lblPuntaje.setForeground(Color.WHITE);
+		lblPuntaje.setBounds(110, 13, 43, 17);
+		contentPane.add(lblPuntaje);
 		
 		miJuego = new Juego(1, this);
 

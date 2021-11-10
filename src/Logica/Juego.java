@@ -94,7 +94,7 @@ public class Juego {
 			if(entidad.intersects(entidad2)) {
 				//System.out.println("Colision.");
 				Visitor v1= miProtagonista.getVisitor();
-				e.accept(v1);
+				e.accept(v1, this);
 			}
 		}
 	}
@@ -249,7 +249,7 @@ public class Juego {
 		}
 	}
 
-	private Zona calcularZona(int cordX, int cordY) { //La zona se calcula con las coordenadas x e y, con el punto (0,0) de la entidad
+	public Zona calcularZona(int cordX, int cordY) { //La zona se calcula con las coordenadas x e y, con el punto (0,0) de la entidad
 		int i;
 		int j;
 		

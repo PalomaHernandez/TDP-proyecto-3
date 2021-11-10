@@ -100,7 +100,7 @@ public class Protagonista extends Movil {
 	}
 
 	@Override
-	public void accept(Visitor v) {
+	public void accept(Visitor v, Juego j) {
 		
 	}
 	

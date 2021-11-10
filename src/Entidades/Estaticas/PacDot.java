@@ -2,8 +2,7 @@ package Entidades.Estaticas;
 
 import Entidades.Moviles.Protagonista;
 import GUI.PacDotGUI;
-import Logica.Nivel;
-import Logica.Zona;
+import Logica.Juego;
 import Visitors.Visitor;
 
 public class PacDot extends Punto{
@@ -18,8 +17,8 @@ public class PacDot extends Punto{
 	}
 
 	@Override
-	public void accept(Visitor v) {
-		v.visit(this);
+	public void accept(Visitor v, Juego j) {
+		v.visit(this, j);
 	}
 
 }

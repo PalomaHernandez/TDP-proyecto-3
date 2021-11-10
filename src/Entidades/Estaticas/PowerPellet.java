@@ -1,6 +1,7 @@
 package Entidades.Estaticas;
 
 import GUI.PowerPelletGUI;
+import Logica.Juego;
 import Visitors.Visitor;
 
 public class PowerPellet extends Pocion{
@@ -18,8 +19,8 @@ public class PowerPellet extends Pocion{
 	}
 
 	@Override
-	public void accept(Visitor v) {
-		v.visit(this);
+	public void accept(Visitor v, Juego j) {
+		v.visit(this, j);
 	}
 	
 }
