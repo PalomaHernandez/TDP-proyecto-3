@@ -92,32 +92,68 @@ public class HiloMoverProtagonista extends Thread {
 				Thread.sleep(step);
 				switch(movimiento) {
 				case 0: 
-					miProtagonista.setY(posY + 4);
-					posY +=4;
-					break;
-				case 1:
-					miProtagonista.setY(posY - 4);
-					posY -=4;
-					break;
-				case 2:
-						
-					esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalA.getLista());
+
+					esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalA.getLista(), posX, posY + 4);
 					if(!esPared && zonaFinalA != zonaFinalB)
-						esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalB.getLista());
+						esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalB.getLista(), posX, posY + 4);
 					if(!esPared && zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
-						esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalC.getLista());
+						esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalC.getLista(), posX, posY + 4);
 					if(!esPared && zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
-						esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalD.getLista());
+						miJuego.colisionProtagonista(miProtagonista, zonaFinalD.getLista(), posX, posY + 4);
 					
 					if(zonaFinalA != zonaActualA) {
 						zonaActualA.removeEntidad(miProtagonista);
 						zonaFinalA.addEntidad(miProtagonista);
-						//colisionProtagonista(miProtagonista,zonaFinalA.getLista());
+					}
+					if(zonaFinalC != zonaActualC){
+						zonaActualC.removeEntidad(miProtagonista);
+						zonaFinalC.addEntidad(miProtagonista);
+					}
+					if(!esPared) {
+						miProtagonista.setY(posY + 4);
+						posY +=4;
+					}
+					break;
+				case 1:
+					
+					esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalA.getLista(), posX, posY -4);
+					if(!esPared && zonaFinalA != zonaFinalB)
+						esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalB.getLista(), posX, posY - 4);
+					if(!esPared && zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
+						esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalC.getLista(), posX, posY - 4);
+					if(!esPared && zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
+						esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalD.getLista(), posX, posY - 4);
+					
+					if(zonaFinalA != zonaActualA) {
+						zonaActualA.removeEntidad(miProtagonista);
+						zonaFinalA.addEntidad(miProtagonista);
+					}
+					if(zonaFinalC != zonaActualC){
+						zonaActualC.removeEntidad(miProtagonista);
+						zonaFinalC.addEntidad(miProtagonista);
+					}
+					if(!esPared) {
+						miProtagonista.setY(posY - 4);
+						posY -=4;
+					}
+					break;
+				case 2:
+						
+					esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalA.getLista(), posX + 4, posY);
+					if(!esPared && zonaFinalA != zonaFinalB)
+						esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalB.getLista(), posX + 4, posY);
+					if(!esPared && zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
+						esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalC.getLista(), posX + 4, posY);
+					if(!esPared && zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
+						esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalD.getLista(), posX + 4, posY);
+					
+					if(zonaFinalA != zonaActualA) {
+						zonaActualA.removeEntidad(miProtagonista);
+						zonaFinalA.addEntidad(miProtagonista);
 					}
 					if(zonaFinalB != zonaActualB) {
 						zonaActualB.removeEntidad(miProtagonista);
 						zonaFinalB.addEntidad(miProtagonista);
-						//colisionProtagonista(miProtagonista,zonaFinalB.getLista());
 					}
 					if(!esPared) {
 						miProtagonista.setX(posX + 4);
@@ -125,8 +161,27 @@ public class HiloMoverProtagonista extends Thread {
 					}
 					break;
 				case 3: 
-					miProtagonista.setX(posX - 4);
-					posX -= 4;
+
+					esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalA.getLista(),posX - 4, posY);
+					if(!esPared && zonaFinalA != zonaFinalB)
+						esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalB.getLista(), posX - 4, posY);
+					if(!esPared && zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
+						esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalC.getLista(), posX - 4, posY);
+					if(!esPared && zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
+						esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalD.getLista(), posX - 4, posY);
+					
+					if(zonaFinalA != zonaActualA) {
+						zonaActualA.removeEntidad(miProtagonista);
+						zonaFinalA.addEntidad(miProtagonista);
+					}
+					if(zonaFinalB != zonaActualB) {
+						zonaActualB.removeEntidad(miProtagonista);
+						zonaFinalB.addEntidad(miProtagonista);
+					}
+					if(!esPared) {
+						miProtagonista.setX(posX - 4);
+						posX -= 4;
+					}
 					break;
 				}
 			}catch (InterruptedException e) {
