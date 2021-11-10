@@ -18,7 +18,7 @@ public abstract class Entidad extends JLabel{
 	protected boolean visible;
 	protected String representacion;
 	protected int tamano;
-	
+	protected boolean esPared = false;
 
 	
 	public int getTamano() {
@@ -61,6 +61,10 @@ public abstract class Entidad extends JLabel{
 	
 	public String getRepresentacion() {
 		return representacion;
+	}
+
+	public boolean esPared() {
+		return esPared;
 	}
 	
 //	public void setRepresentacion(String s) {
