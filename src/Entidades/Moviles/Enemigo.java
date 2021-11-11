@@ -14,10 +14,11 @@ public class Enemigo extends Movil {
 	private static final long serialVersionUID = 1L;
 	private EnemigoGUI miRepresentacion;
 	
-	public Enemigo(String enemigoAbajo, String enemigoArriba, String enemigoIzquierda, String enemigoDerecha, String enemigoAzul) {
-		miRepresentacion = new EnemigoGUI(enemigoAbajo,enemigoArriba, enemigoIzquierda, enemigoDerecha, enemigoAzul);
+	public Enemigo(String string) {
+		miRepresentacion = new EnemigoGUI();
 		tamano = 20;
 		v= new VisitorFantasma();
+		representacion=string ;
 	}
 	
 	public boolean accept(Visitor v, Juego j) {

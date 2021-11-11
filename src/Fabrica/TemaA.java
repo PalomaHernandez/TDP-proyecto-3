@@ -48,10 +48,10 @@ public class TemaA extends Tema{
 		
 		lista = new LinkedList<Enemigo>();
 		
-		lista.add(new Blinky("/imagenesA/PoliciaAbajo.png","/imagenesA/PoliciaArriba.png","/imagenesA/PoliciaIzquierda.png","/imagenesA/PoliciaDerecha.png","/imagenesA/PoliciaAbajo.png" ));
-		lista.add(new Inky("/imagenesA/PoliciaAbajo.png","/imagenesA/PoliciaArriba.png","/imagenesA/PoliciaIzquierda.png","/imagenesA/PoliciaDerecha.png","/imagenesA/PoliciaAbajo.png" ));
-		lista.add(new Pinky("/imagenesA/PoliciaAbajo.png","/imagenesA/PoliciaArriba.png","/imagenesA/PoliciaIzquierda.png","/imagenesA/PoliciaDerecha.png","/imagenesA/PoliciaAbajo.png" ));
-		lista.add(new Clyde("/imagenesA/PoliciaAbajo.png","/imagenesA/PoliciaArriba.png","/imagenesA/PoliciaIzquierda.png","/imagenesA/PoliciaDerecha.png","/imagenesA/PoliciaAbajo.png" ));
+//		lista.add(new Blinky("/imagenesA/PoliciaAbajo.png","/imagenesA/PoliciaArriba.png","/imagenesA/PoliciaIzquierda.png","/imagenesA/PoliciaDerecha.png","/imagenesA/PoliciaAbajo.png" ));
+//		lista.add(new Inky("/imagenesA/PoliciaAbajo.png","/imagenesA/PoliciaArriba.png","/imagenesA/PoliciaIzquierda.png","/imagenesA/PoliciaDerecha.png","/imagenesA/PoliciaAbajo.png" ));
+//		lista.add(new Pinky("/imagenesA/PoliciaAbajo.png","/imagenesA/PoliciaArriba.png","/imagenesA/PoliciaIzquierda.png","/imagenesA/PoliciaDerecha.png","/imagenesA/PoliciaAbajo.png" ));
+//		lista.add(new Clyde("/imagenesA/PoliciaAbajo.png","/imagenesA/PoliciaArriba.png","/imagenesA/PoliciaIzquierda.png","/imagenesA/PoliciaDerecha.png","/imagenesA/PoliciaAbajo.png" ));
 		
 		
 		return lista;
@@ -59,7 +59,8 @@ public class TemaA extends Tema{
 
 	public Enemigo getEnemigo() {
 		Enemigo enemigo;
-		enemigo=new Enemigo("/imagenesA/policiaAbajo.png","/imagenesA/policiaArriba.png","/imagenesA/policiaIzquierda.png","/imagenesA/policiaDerecha.png","/imagenesA/policiaAbajo.png" );
+		enemigo=new Enemigo("/imagenesA/policiaAbajo.png");
+		enemigo.getGUI().setNormal("/imagenesA/policiaAbajo.png","/imagenesA/policiaArriba.png","/imagenesA/policiaIzquierda.png","/imagenesA/policiaDerecha.png") ;
 		return enemigo;
 	}
 	

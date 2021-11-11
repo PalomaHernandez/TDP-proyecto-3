@@ -2,8 +2,8 @@ package Entidades.Moviles;
 
 public class Pinky extends Enemigo{
 
-	public Pinky(String enemigoAbajo, String enemigoArriba, String enemigoIzquierda, String enemigoDerecha, String enemigoAzul) {
-		super(enemigoAbajo, enemigoArriba, enemigoIzquierda, enemigoDerecha, enemigoAzul);
+	public Pinky(String s) {
+		super(s);
 		// TODO Auto-generated constructor stub
 	}
 

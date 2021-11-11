@@ -29,7 +29,7 @@ public class Director {
 		crearVelocidad1();
 		crearPacDots1();
 		crearParedes1();
-		//crearBlinky1();
+		crearBlinky1();
 		
 		
 		
