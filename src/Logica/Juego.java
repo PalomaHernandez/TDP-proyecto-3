@@ -40,6 +40,10 @@ public class Juego {
 		return miNivel;
 	}
 	
+	public Protagonista getProtagonista() {
+		return miProtagonista;
+	}
+	
 	public int getPuntaje() {
 		return puntaje;
 	}
@@ -336,4 +340,6 @@ public class Juego {
 		
 		return matriz[i][j];
 	}
+
+
 }

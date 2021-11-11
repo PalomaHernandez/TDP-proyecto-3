@@ -23,7 +23,14 @@ public class VisitorFantasma implements Visitor {
 
 	@Override
 	public void visit(Protagonista protagonista) {
-		// TODO Auto-generated method stub
+//		if(j.getProtagonista().getPowerPellet()==true)
+//		eliminarEnemigo();
+//	else {
+//		if(j.getProtagonista().getVidas()>0)
+//		eliminarProtagonista();
+//		else
+//			finalizarJuego();
+//	}
 		
 	}
 
@@ -56,18 +63,7 @@ public class VisitorFantasma implements Visitor {
 		// TODO Auto-generated method stub
 		
 	}
-//
-//	@Override
-//	public void visitFantasma(Enemigo fantasma) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-//
-//	@Override
-//	public void visitProtagonista(Protagonista protagonista) {
-//		// TODO Auto-generated method stub
-//		
-//	}
+
 
 	@Override
 	public void visit(Pared pared) {

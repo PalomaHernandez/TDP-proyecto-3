@@ -19,6 +19,14 @@ public class VisitorProtagonista implements Visitor{
 
 	@Override
 	public void visit(Enemigo enemigo, Juego j) {
+//		if(j.getProtagonista().getPowerPellet()==true)
+//			eliminarEnemigo();
+//		else {
+//			if(j.getProtagonista().getVidas()>0)
+//			eliminarProtagonista();
+//			else
+//				finalizarJuego();
+//		}
 		System.out.println("visite enemigo");
 		
 	}
@@ -35,8 +43,8 @@ public class VisitorProtagonista implements Visitor{
 		Zona z = j.calcularZona(bomba.getX(), bomba.getY());
 		z.removeEntidad(bomba);
 		bomba.setVisible(false);
-		//actualizarPuntaje
-		//Aumentar velocidad, cambiar estado del protagonista
+		j.getProtagonista().activarBomba();
+		j.getProtagonista().getGUI().setBomba("/imagenesA/autoArribaBomba.png", "/imagenesA/autoAbajoBomba.png", "/imagenesA/autoDerechaBomba.png", "/imagenesA/autoIzquierdaBomba.png");
 	}
 
 	@Override
@@ -45,7 +53,8 @@ public class VisitorProtagonista implements Visitor{
 		Zona z = j.calcularZona(velocidad.getX(), velocidad.getY());
 		z.removeEntidad(velocidad);
 		velocidad.setVisible(false);
-		//actualizarPuntaje
+		j.getProtagonista().activarVelocidad();
+		j.getProtagonista().getGUI().setBomba("/imagenesA/autoArribaVelocidad.png", "/imagenesA/autoAbajoVelocidad.png", "/imagenesA/autoDerechaVelocidad.png", "/imagenesA/autoIzquierdaVelocidad.png");
 		//Aumentar velocidad, cambiar estado del protagonista
 	}
 
@@ -57,11 +66,10 @@ public class VisitorProtagonista implements Visitor{
 		z.removeEntidad(powerpellet);
 		powerpellet.setVisible(false);
 		j.setPuntaje(j.getPuntaje()+30);
-		
+		j.getProtagonista().activarPowerPellet();
 		List<Enemigo> lista=j.getNivel().getEnemigos();
 		for(Enemigo e: lista)
 		e.getGUI().setAzul("/imagenesA/autoAbajo.png","/imagenesA/autoArriba.png","/imagenesA/autoIzquierda.png","/imagenesA/autoDerecha.png");
-		
 		
 	}
 

@@ -13,9 +13,9 @@ import Visitors.VisitorProtagonista;
 public class Protagonista extends Movil {
 
 	protected Visitor v;
-	protected int estadoVelocidad;
-	protected int estadoBomba;
-	protected int estadoPowerPellet;
+	protected boolean estadoVelocidad;
+	protected boolean estadoBomba;
+	protected boolean estadoPowerPellet;
 	protected int vidas;
 	protected ProtagonistaGUI miRepresentacion;
 	private HiloMoverProtagonista hilo;
@@ -23,9 +23,9 @@ public class Protagonista extends Movil {
 	public Protagonista(Juego miJuego) {
 		this.miJuego = miJuego;
 		miRepresentacion = new ProtagonistaGUI();
-		estadoVelocidad = 0;
-		estadoBomba = 0;
-		estadoPowerPellet = 0;
+		estadoVelocidad = false;
+		estadoBomba = false;
+		estadoPowerPellet = false;
 		vidas = 3;
 		tamano = 32;
 		v= new VisitorProtagonista();
@@ -102,16 +102,16 @@ public class Protagonista extends Movil {
 		return miRepresentacion;
 	}
 	
-	public void setVelocidad(int estadoVelocidad) {
-		this.estadoVelocidad = estadoVelocidad;
+	public void activarVelocidad() {
+		this.estadoVelocidad = true;
 	}
 	
-	public void setBomba(int estadoBomba) {
-		this.estadoBomba = estadoBomba;
+	public void activarBomba() {
+		this.estadoBomba = true;
 	}
 	
-	public void setPowerPellet(int estadoPowerPellet) {
-		this.estadoPowerPellet = estadoPowerPellet;
+	public void activarPowerPellet() {
+		this.estadoPowerPellet = true;
 	}
 	
 	public void setVidas(int vidas) {
@@ -121,11 +121,11 @@ public class Protagonista extends Movil {
 	public Visitor getVisitor() {
 		return v;
 	}
-	public int getVelocidad() {
+	public boolean getVelocidad() {
 		return estadoVelocidad;
 	}
 	
-	public int getBomba() {
+	public boolean getBomba() {
 		return estadoBomba;
 	}
 	
@@ -133,7 +133,7 @@ public class Protagonista extends Movil {
 		return vidas;
 	}
 	
-	public int getPowerPellet() {
+	public boolean getPowerPellet() {
 		return estadoPowerPellet;
 	}
 	

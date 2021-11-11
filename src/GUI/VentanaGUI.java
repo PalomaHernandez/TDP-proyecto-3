@@ -36,7 +36,6 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	private JLabel[] arregloLabel;
 	private JLabel labelProtagonista;
 	private JLabel lblPuntaje;
-	
 	/**
 	 * Launch the application.
 	 */
@@ -148,7 +147,7 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		// TODO Auto-generated method stub
 		
 	}
-
+	
 	public void actualizarPuntaje(int puntaje) {
 		lblPuntaje.setText(""+puntaje);
 	}
