@@ -57,7 +57,7 @@ public abstract class Entidad extends JLabel{
 		return v;
 	}
 	
-	public abstract void accept(Visitor v, Juego j);
+	public abstract boolean accept(Visitor v, Juego j);
 	
 	public String getRepresentacion() {
 		return representacion;

@@ -28,6 +28,4 @@ public abstract class Punto extends Estatica{
 	public Visitor getVisitor() {
 		return v;
 	}
-	
-	public abstract void accept(Visitor v, Juego j);
 }

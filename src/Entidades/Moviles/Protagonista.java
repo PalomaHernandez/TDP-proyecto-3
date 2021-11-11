@@ -92,7 +92,7 @@ public class Protagonista extends Movil {
 		int posFin;
 		
 		hilo = new HiloMoverProtagonista(20, miJuego);
-		posFin = posX + 32;
+		posFin = posX + 4;
 		
 		if(direccion != 2) {
 			cambiarImagen(2);
@@ -174,8 +174,8 @@ public class Protagonista extends Movil {
 	}
 
 	@Override
-	public void accept(Visitor v, Juego j) {
-		
+	public boolean accept(Visitor v, Juego j) {
+		return false;
 	}
 	
 }

@@ -17,8 +17,9 @@ public class PacDot extends Punto{
 	}
 
 	@Override
-	public void accept(Visitor v, Juego j) {
+	public boolean accept(Visitor v, Juego j) {
 		v.visit(this, j);
+		return false;
 	}
 
 }

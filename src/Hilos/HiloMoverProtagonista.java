@@ -37,7 +37,7 @@ public class HiloMoverProtagonista extends Thread {
 	}
 	
 	public void run() {
-		Zona zonaActualA = null;//(0,0)
+		/*Zona zonaActualA = null;//(0,0)
 		Zona zonaActualB = null;//(32,0)
 		Zona zonaActualC = null;
 		Zona zonaActualD = null;
@@ -78,13 +78,13 @@ public class HiloMoverProtagonista extends Thread {
 			zonaActualA = miJuego.calcularZona(miProtagonista.getX(), miProtagonista.getY());
 			zonaActualB = miJuego.calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY());
 			
-			zonaFinalA = miJuego.calcularZona(miProtagonista.getX() + 32, miProtagonista.getY());
+			zonaFinalA = miJuego.calcularZona(miProtagonista.getX() - 32, miProtagonista.getY());
 			zonaFinalB = miJuego.calcularZona(miProtagonista.getX() + miProtagonista.getTamano() + 32, miProtagonista.getY());
-			zonaFinalC = miJuego.calcularZona(miProtagonista.getX() + 32, miProtagonista.getY() + miProtagonista.getTamano());
+			zonaFinalC = miJuego.calcularZona(miProtagonista.getX() - 32, miProtagonista.getY() + miProtagonista.getTamano());
 			zonaFinalD = miJuego.calcularZona(miProtagonista.getX() + miProtagonista.getTamano() + 32, miProtagonista.getY() + miProtagonista.getTamano());
 			break;
 		}
-			
+			*/
 		boolean esPared = false;
 		
 		while((posXFin != posX || posYFin != posY) && !esPared) {
@@ -92,7 +92,7 @@ public class HiloMoverProtagonista extends Thread {
 				Thread.sleep(step);
 				switch(movimiento) {
 				case 0: 
-
+					/*
 					esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalA.getLista(), posX, posY + 4);
 					if(!esPared && zonaFinalA != zonaFinalB)
 						esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalB.getLista(), posX, posY + 4);
@@ -109,13 +109,14 @@ public class HiloMoverProtagonista extends Thread {
 						zonaActualC.removeEntidad(miProtagonista);
 						zonaFinalC.addEntidad(miProtagonista);
 					}
+					*/
 					if(!esPared) {
 						miProtagonista.setY(posY + 4);
 						posY +=4;
 					}
 					break;
 				case 1:
-					
+					/*
 					esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalA.getLista(), posX, posY -4);
 					if(!esPared && zonaFinalA != zonaFinalB)
 						esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalB.getLista(), posX, posY - 4);
@@ -132,13 +133,14 @@ public class HiloMoverProtagonista extends Thread {
 						zonaActualC.removeEntidad(miProtagonista);
 						zonaFinalC.addEntidad(miProtagonista);
 					}
+					*/
 					if(!esPared) {
 						miProtagonista.setY(posY - 4);
 						posY -=4;
 					}
 					break;
 				case 2:
-						
+						/*
 					esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalA.getLista(), posX + 4, posY);
 					if(!esPared && zonaFinalA != zonaFinalB)
 						esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalB.getLista(), posX + 4, posY);
@@ -155,13 +157,13 @@ public class HiloMoverProtagonista extends Thread {
 						zonaActualB.removeEntidad(miProtagonista);
 						zonaFinalB.addEntidad(miProtagonista);
 					}
-					if(!esPared) {
+					*/
 						miProtagonista.setX(posX + 4);
 						posX +=4;
-					}
+					
 					break;
 				case 3: 
-
+					/*
 					esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalA.getLista(),posX - 4, posY);
 					if(!esPared && zonaFinalA != zonaFinalB)
 						esPared = miJuego.colisionProtagonista(miProtagonista, zonaFinalB.getLista(), posX - 4, posY);
@@ -178,6 +180,7 @@ public class HiloMoverProtagonista extends Thread {
 						zonaActualB.removeEntidad(miProtagonista);
 						zonaFinalB.addEntidad(miProtagonista);
 					}
+					*/
 					if(!esPared) {
 						miProtagonista.setX(posX - 4);
 						posX -= 4;

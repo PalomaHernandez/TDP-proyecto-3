@@ -29,8 +29,9 @@ public class Pared extends Estatica {
 	}
 
 	@Override
-	public void accept(Visitor v, Juego j) {
+	public boolean accept(Visitor v, Juego j) {
 		v.visit(this);
+		return true;
 	}
 	
 }

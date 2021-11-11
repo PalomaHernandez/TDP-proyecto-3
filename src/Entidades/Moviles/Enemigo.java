@@ -20,8 +20,9 @@ public class Enemigo extends Movil {
 		v= new VisitorFantasma();
 	}
 	
-	public void accept(Visitor v, Juego j) {
+	public boolean accept(Visitor v, Juego j) {
 		v.visit(this, j);		
+		return false;
 	}
 	
 	public EnemigoGUI getGUI() {

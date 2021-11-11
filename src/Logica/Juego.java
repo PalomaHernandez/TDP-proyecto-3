@@ -1,6 +1,7 @@
 package Logica;
 
 import java.awt.Rectangle;
+import java.util.HashSet;
 import java.util.List;
 
 import Entidades.Entidad;
@@ -71,24 +72,22 @@ public class Juego {
 		miVentana.inicializarNivel1(miNivel.getNivel(), miProtagonista);
 	}
 
-	public boolean colisionProtagonista(Protagonista p, List<Entidad> list, int x, int y) {
+	public boolean colisionProtagonista(Protagonista p, List<Entidad> list, int posXFin, int posYFin) {
 		//boolean libre = true;
-		int cordX= x;
-		int cordY= y;
-		int tamanoX=miProtagonista.getTamano();
-		int tamanoY=miProtagonista.getTamano();
 		boolean esPared = false;
 		
-		Rectangle entidad = new Rectangle(cordX, cordY, tamanoX, tamanoY);
-		List<Entidad> listAux = List.copyOf(list);
-	
-		for(Entidad e : listAux) {
+		HashSet<Entidad> listaSinRep = new HashSet<Entidad>();
+		Rectangle entidad = new Rectangle(posXFin, posYFin, miProtagonista.getTamano(), miProtagonista.getTamano());
+		
+		for(Entidad e: list)
+			listaSinRep.add(e);
+		
+		for(Entidad e : listaSinRep) {
 			Rectangle entidad2 = new Rectangle(e.getX(), e.getY(), e.getTamano(), e.getTamano());
 			if(entidad.intersects(entidad2)) {
 				//System.out.println("Colision.");
 				Visitor v1= miProtagonista.getVisitor();
-				esPared = e.esPared();
-				e.accept(v1, this);
+				esPared = e.accept(v1, this);
 				if(esPared)
 					break;
 			}
@@ -123,9 +122,9 @@ public class Juego {
 	}
 	*/
 	public void moverDerAction() {
-		miProtagonista.moverDerecha();
+		boolean esPared = false;
 		
-		/*Zona zonaActualA;//(0,0)
+		Zona zonaActualA;//(0,0)
 		Zona zonaActualB;//(32,0)
 		
 		Zona zonaFinalA;
@@ -142,25 +141,24 @@ public class Juego {
 		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() + 32, miProtagonista.getY() + miProtagonista.getTamano());
 			
 		
-		colisionProtagonista(miProtagonista, zonaFinalA.getLista());
-		if(zonaFinalA != zonaFinalB)
-			colisionProtagonista(miProtagonista, zonaFinalB.getLista());
-		if(zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
-			colisionProtagonista(miProtagonista, zonaFinalC.getLista());
-		if(zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
-			colisionProtagonista(miProtagonista, zonaFinalD.getLista());
+		esPared = colisionProtagonista(miProtagonista, zonaFinalA.getLista(), miProtagonista.getX() + 4, miProtagonista.getY());
+		if(!esPared && zonaFinalA != zonaFinalB)
+			esPared = colisionProtagonista(miProtagonista, zonaFinalB.getLista(), miProtagonista.getX() + 4, miProtagonista.getY());
+		if(!esPared && zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
+			esPared = colisionProtagonista(miProtagonista, zonaFinalC.getLista(), miProtagonista.getX() + 4, miProtagonista.getY());
+		if(!esPared && zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
+			esPared = colisionProtagonista(miProtagonista, zonaFinalD.getLista(), miProtagonista.getX() + 4, miProtagonista.getY());
 		
 		if(zonaFinalA != zonaActualA) {
 			zonaActualA.removeEntidad(miProtagonista);
 			zonaFinalA.addEntidad(miProtagonista);
-			colisionProtagonista(miProtagonista,zonaFinalA.getLista());
 		}
 		if(zonaFinalB != zonaActualB) {
 			zonaActualB.removeEntidad(miProtagonista);
 			zonaFinalB.addEntidad(miProtagonista);
-			colisionProtagonista(miProtagonista,zonaFinalB.getLista());
 		}
-		*/
+		if(!esPared)
+			miProtagonista.moverDerecha();
 	}
 
 	public void moverIzqAction() {
