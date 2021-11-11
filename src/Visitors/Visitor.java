@@ -1,5 +1,7 @@
 package Visitors;
 
+import java.util.List;
+
 import Entidades.Estaticas.*;
 import Entidades.Moviles.Enemigo;
 import Entidades.Moviles.Protagonista;
@@ -7,10 +9,6 @@ import Logica.Juego;
 
 
 public interface Visitor {
-
-//	public void visitFantasma(Enemigo fantasma);
-//	
-//	public void visitProtagonista(Protagonista protagonista);
 	
 	public void visit(Pared pared);
 	
@@ -22,7 +20,7 @@ public interface Visitor {
 	
 	public void visit(Velocidad velocidad, Juego j);
 	
-	public void visit(PowerPellet powerpellet, Juego j);
+	public void visit(PowerPellet PowerPellet, Juego j);
 	
 	public void visit(PacDot pacdot, Juego j);
 	

@@ -3,6 +3,7 @@ package Entidades;
 import javax.swing.JLabel;
 
 import Entidades.Moviles.Protagonista;
+import GUI.EntidadGUI;
 import Logica.Juego;
 import Visitors.Visitor;
 
@@ -66,6 +67,7 @@ public abstract class Entidad extends JLabel{
 	public boolean esPared() {
 		return esPared;
 	}
+
 	
 //	public void setRepresentacion(String s) {
 //		representacion=s;

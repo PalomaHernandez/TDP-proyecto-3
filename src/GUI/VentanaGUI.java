@@ -35,6 +35,7 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	private List<Entidad> nivel;
 	private JLabel[] arregloLabel;
 	private JLabel labelProtagonista;
+	private JLabel lblPuntaje;
 	
 	/**
 	 * Launch the application.
@@ -79,7 +80,7 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		lblScore.setBounds(42, 11, 69, 20);
 		contentPane.add(lblScore);
 		
-		JLabel lblPuntaje = new JLabel("0");
+		lblPuntaje = new JLabel("0");
 		lblPuntaje.setFont(new Font("Segoe UI Black", Font.PLAIN, 18));
 		lblPuntaje.setHorizontalAlignment(SwingConstants.LEFT);
 		lblPuntaje.setForeground(Color.WHITE);
@@ -146,5 +147,9 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public void actualizarPuntaje(int puntaje) {
+		lblPuntaje.setText(""+puntaje);
 	}
 }

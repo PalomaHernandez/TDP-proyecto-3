@@ -12,9 +12,8 @@ public class Director {
 		miFabrica = new Fabrica(juego);
 		if(tema == 1)
 			this.tema = miFabrica.getTemaA();
-		else
+		else 
 			this.tema = miFabrica.getTemaB();
-		
 	}
 	
 	public void makeNivel1(Builder builder) {//El juego envia un builder nivel1, 2 o 3 segun corresponda0
@@ -207,7 +206,7 @@ public class Director {
 	}
 
 	private void crearBlinky1() {
-		builder.setBlinky1(tema, 320, 320);
+		builder.setBlinky(tema, 320, 320);
 	}
 
 	private void crearParedes1() {

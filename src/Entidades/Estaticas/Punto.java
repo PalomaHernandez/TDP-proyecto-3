@@ -1,6 +1,9 @@
 package Entidades.Estaticas;
 
 
+import java.util.List;
+
+import Entidades.Moviles.Enemigo;
 import Entidades.Moviles.Protagonista;
 import Logica.Juego;
 import Logica.Nivel;
@@ -28,4 +31,5 @@ public abstract class Punto extends Estatica{
 	public Visitor getVisitor() {
 		return v;
 	}
+
 }

@@ -63,11 +63,12 @@ public class BuilderNivel implements Builder{
 		
 	}
 
-	public void setBlinky1(Tema tema, int x, int y) {
+	public void setBlinky(Tema tema, int x, int y) {
 		Enemigo enemigo;
 		enemigo= tema.getEnemigo();
 		enemigo.setPos(x, y);
 		miNivel.addEntidad(enemigo);
+		//miNivel.addEnemigo(enemigo);
 	}
 	
 	@Override

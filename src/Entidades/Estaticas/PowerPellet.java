@@ -1,10 +1,13 @@
 package Entidades.Estaticas;
 
+import java.util.List;
+
+import Entidades.Moviles.Enemigo;
 import GUI.PowerPelletGUI;
 import Logica.Juego;
 import Visitors.Visitor;
 
-public class PowerPellet extends Pocion{
+public class PowerPellet extends Punto{
 
 	/**
 	 * 
@@ -20,8 +23,10 @@ public class PowerPellet extends Pocion{
 
 	@Override
 	public boolean accept(Visitor v, Juego j) {
-		v.visit(this, j);
+		v.visit(this,j); 
 		return false;
 	}
+
+
 	
 }

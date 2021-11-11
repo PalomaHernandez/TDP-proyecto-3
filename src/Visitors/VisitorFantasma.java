@@ -1,10 +1,13 @@
 package Visitors;
 
+import java.util.List;
+
 import Entidades.Estaticas.Bomba;
 import Entidades.Estaticas.Fruta;
 import Entidades.Estaticas.PacDot;
 import Entidades.Estaticas.Pared;
 import Entidades.Estaticas.PowerPellet;
+import Entidades.Estaticas.Punto;
 import Entidades.Estaticas.Velocidad;
 import Entidades.Moviles.Enemigo;
 import Entidades.Moviles.Protagonista;

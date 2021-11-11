@@ -14,5 +14,5 @@ public interface Builder {
 	public void setBomba(Tema tema, int x, int y);
 	public void setVelocidad(Tema tema,int x, int y);
 	public Nivel getResult();
-	public void setBlinky1(Tema tema, int i, int j);
+	public void setBlinky(Tema tema, int i, int j);
 }

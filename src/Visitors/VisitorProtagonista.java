@@ -1,10 +1,14 @@
 package Visitors;
 
+import java.util.List;
+
+import Entidades.Entidad;
 import Entidades.Estaticas.Bomba;
 import Entidades.Estaticas.Fruta;
 import Entidades.Estaticas.PacDot;
 import Entidades.Estaticas.Pared;
 import Entidades.Estaticas.PowerPellet;
+import Entidades.Estaticas.Punto;
 import Entidades.Estaticas.Velocidad;
 import Entidades.Moviles.Enemigo;
 import Entidades.Moviles.Protagonista;
@@ -52,7 +56,13 @@ public class VisitorProtagonista implements Visitor{
 		Zona z = j.calcularZona(powerpellet.getX(), powerpellet.getY());
 		z.removeEntidad(powerpellet);
 		powerpellet.setVisible(false);
-		//actualizarPuntaje
+		j.setPuntaje(j.getPuntaje()+30);
+		
+		List<Enemigo> lista=j.getNivel().getEnemigos();
+		for(Enemigo e: lista)
+		e.getGUI().setAzul("/imagenesA/autoAbajo.png","/imagenesA/autoArriba.png","/imagenesA/autoIzquierda.png","/imagenesA/autoDerecha.png");
+		
+		
 	}
 
 	@Override
@@ -62,7 +72,7 @@ public class VisitorProtagonista implements Visitor{
 		Zona z = j.calcularZona(pacdot.getX(), pacdot.getY());
 		z.removeEntidad(pacdot);
 		pacdot.setVisible(false);
-		//actualizarPuntaje
+		j.setPuntaje(j.getPuntaje()+10);
 	}
 
 	@Override
@@ -71,7 +81,7 @@ public class VisitorProtagonista implements Visitor{
 		Zona z = j.calcularZona(fruta.getX(), fruta.getY());
 		z.removeEntidad(fruta);
 		fruta.setVisible(false);
-		//actualizarPuntaje
+		j.setPuntaje(j.getPuntaje()+100);   //ver  como cambiar el valor segun el nivel
 	}
 
 	@Override

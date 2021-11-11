@@ -15,6 +15,7 @@ import Visitors.Visitor;
 
 public class Juego {
 
+	private int puntaje;
 	private VentanaGUI miVentana;
 	private Director miDirector;
 	private Nivel miNivel;
@@ -33,6 +34,19 @@ public class Juego {
 		
 		inicializarNivel1();
 		agregarAZona();
+	}
+	
+	public Nivel getNivel() {
+		return miNivel;
+	}
+	
+	public int getPuntaje() {
+		return puntaje;
+	}
+	
+	public void setPuntaje(int p) {
+		puntaje=p;
+		miVentana.actualizarPuntaje(puntaje);
 	}
 	
 	private void agregarAZona() {
