@@ -36,7 +36,7 @@ public class Protagonista extends Movil {
 		int posFin;
 
 		hilo = new HiloMoverProtagonista(20, miJuego);
-		posFin = posY + 32;
+		posFin = posY + 4;
 		
 		if(direccion != 0) {
 			cambiarImagen(0);
@@ -45,15 +45,14 @@ public class Protagonista extends Movil {
 		
 		hilo.moverEntidad(posX, posY, posX, posFin, 0, this);
 		hilo.start();	
-			
-		
+
 	}
 	
 	public void moverArriba() {
 		int posYFin;
 
 		hilo = new HiloMoverProtagonista(20, miJuego);
-		posYFin = posY - 32;
+		posYFin = posY - 4;
 		if(direccion != 1) {
 			cambiarImagen(1);
 			direccion = 1;
@@ -63,16 +62,14 @@ public class Protagonista extends Movil {
 
 		hilo.moverEntidad(posX, posY, posX, posYFin, 1, this);
 		hilo.start();
-			
-			
-		
+	
 	}
 
 	public void moverIzquierda() {
 		int posFin;
 
 		hilo = new HiloMoverProtagonista(20, miJuego);
-		posFin = posX - 32;
+		posFin = posX - 4;
 		
 		if(direccion != 3) {
 			cambiarImagen(3);
@@ -81,10 +78,8 @@ public class Protagonista extends Movil {
 	
 		hilo.moverEntidad(posX, posY, posFin, posY, 3, this);
 		hilo.start();
+
 		//Falta cambiar de zona si es necesario hacerlo
-			
-			
-		
 		
 	}
 	

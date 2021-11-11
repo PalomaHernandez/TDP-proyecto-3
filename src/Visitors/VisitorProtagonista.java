@@ -15,13 +15,13 @@ public class VisitorProtagonista implements Visitor{
 
 	@Override
 	public void visit(Enemigo enemigo, Juego j) {
-		// TODO Auto-generated method stub
+		System.out.println("visite enemigo");
 		
 	}
 
 	@Override
 	public void visit(Protagonista protagonista) {
-		// TODO Auto-generated method stub
+		System.out.println("visite protagonista");
 		
 	}
 
@@ -76,20 +76,9 @@ public class VisitorProtagonista implements Visitor{
 
 	@Override
 	public void visit(Pared pared) {
-		// TODO Auto-generated method stub
+		System.out.println("visite pared");
 		
 	}
 
-//	@Override
-//	public void visitFantasma(Enemigo fantasma) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-//
-//	@Override
-//	public void visitProtagonista(Protagonista protagonista) {
-//		// TODO Auto-generated method stub
-//		
-//	}
 
 }

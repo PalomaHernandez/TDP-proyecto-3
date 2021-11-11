@@ -135,13 +135,13 @@ public class Juego {
 		zonaActualA = calcularZona(miProtagonista.getX(), miProtagonista.getY());
 		zonaActualB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY());
 		
-		zonaFinalA = calcularZona(miProtagonista.getX() + 32, miProtagonista.getY());
-		zonaFinalB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() + 32, miProtagonista.getY());
-		zonaFinalC = calcularZona(miProtagonista.getX() + 32, miProtagonista.getY() + miProtagonista.getTamano());
-		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() + 32, miProtagonista.getY() + miProtagonista.getTamano());
+		zonaFinalA = calcularZona(miProtagonista.getX() + 4, miProtagonista.getY());
+		zonaFinalB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() + 4, miProtagonista.getY());
+		zonaFinalC = calcularZona(miProtagonista.getX() + 4, miProtagonista.getY() + miProtagonista.getTamano());
+		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() + 4, miProtagonista.getY() + miProtagonista.getTamano());
 			
 		
-		esPared = colisionProtagonista(miProtagonista, zonaFinalA.getLista(), miProtagonista.getX() + 4, miProtagonista.getY());
+			esPared = colisionProtagonista(miProtagonista, zonaFinalA.getLista(), miProtagonista.getX() + 4, miProtagonista.getY());
 		if(!esPared && zonaFinalA != zonaFinalB)
 			esPared = colisionProtagonista(miProtagonista, zonaFinalB.getLista(), miProtagonista.getX() + 4, miProtagonista.getY());
 		if(!esPared && zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
@@ -162,9 +162,9 @@ public class Juego {
 	}
 
 	public void moverIzqAction() {
-		miProtagonista.moverIzquierda();
+		boolean esPared=false;
 		
-		/*
+		
 		Zona zonaActualA;//(0,0)
 		Zona zonaActualB;//(32,0)
 		
@@ -176,19 +176,19 @@ public class Juego {
 		zonaActualA = calcularZona(miProtagonista.getX(), miProtagonista.getY());
 		zonaActualB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY());
 		
-		zonaFinalA = calcularZona(miProtagonista.getX() - 32, miProtagonista.getY());
-		zonaFinalB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() + 32, miProtagonista.getY());
-		zonaFinalC = calcularZona(miProtagonista.getX() - 32, miProtagonista.getY() + miProtagonista.getTamano());
-		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() + 32, miProtagonista.getY() + miProtagonista.getTamano());
+		zonaFinalA = calcularZona(miProtagonista.getX() - 4, miProtagonista.getY());
+		zonaFinalB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() - 4, miProtagonista.getY());
+		zonaFinalC = calcularZona(miProtagonista.getX() - 4, miProtagonista.getY() + miProtagonista.getTamano());
+		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() - 4, miProtagonista.getY() + miProtagonista.getTamano());
 		
 		
-		colisionProtagonista(miProtagonista, zonaFinalA.getLista());
+			esPared=colisionProtagonista(miProtagonista, zonaFinalA.getLista(),miProtagonista.getX() - 4, miProtagonista.getY());
 		if(zonaFinalA != zonaFinalB)
-			colisionProtagonista(miProtagonista, zonaFinalB.getLista());
+			esPared=colisionProtagonista(miProtagonista, zonaFinalB.getLista(),miProtagonista.getX() - 4, miProtagonista.getY());
 		if(zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
-			colisionProtagonista(miProtagonista, zonaFinalC.getLista());
+			esPared=colisionProtagonista(miProtagonista, zonaFinalC.getLista(),miProtagonista.getX() - 4, miProtagonista.getY());
 		if(zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
-			colisionProtagonista(miProtagonista, zonaFinalD.getLista());
+			esPared=colisionProtagonista(miProtagonista, zonaFinalD.getLista(),miProtagonista.getX() - 4, miProtagonista.getY());
 		
 		if(zonaFinalA != zonaActualA) {
 			zonaActualA.removeEntidad(miProtagonista);
@@ -197,12 +197,14 @@ public class Juego {
 		if(zonaFinalB != zonaActualB) {
 			zonaActualB.removeEntidad(miProtagonista);
 			zonaFinalB.addEntidad(miProtagonista);
-		}*/
+		}
+		if(!esPared)
+			miProtagonista.moverIzquierda();
 	}
 
 	public void moverAbajoAction() {
-		miProtagonista.moverAbajo();
-		/*
+		boolean esPared=false; 
+		
 		Zona zonaActualA;//(0,0)
 		Zona zonaActualC;//(0,32)
 		
@@ -214,19 +216,19 @@ public class Juego {
 		zonaActualA = calcularZona(miProtagonista.getX(), miProtagonista.getY());
 		zonaActualC = calcularZona(miProtagonista.getX(), miProtagonista.getY() + miProtagonista.getTamano());
 		
-		zonaFinalA = calcularZona(miProtagonista.getX(), miProtagonista.getY() + 32);
-		zonaFinalB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + 32);
-		zonaFinalC = calcularZona(miProtagonista.getX(), miProtagonista.getY() + miProtagonista.getTamano() + 32);
-		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + miProtagonista.getTamano() + 32);
+		zonaFinalA = calcularZona(miProtagonista.getX(), miProtagonista.getY() + 4);
+		zonaFinalB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + 4);
+		zonaFinalC = calcularZona(miProtagonista.getX(), miProtagonista.getY() + miProtagonista.getTamano() + 4);
+		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + miProtagonista.getTamano() + 4);
 
 		
-		colisionProtagonista(miProtagonista, zonaFinalA.getLista());
+			esPared=colisionProtagonista(miProtagonista, zonaFinalA.getLista(), miProtagonista.getX(), miProtagonista.getY() + 4);
 		if(zonaFinalA != zonaFinalB)
-			colisionProtagonista(miProtagonista, zonaFinalB.getLista());
+			esPared=colisionProtagonista(miProtagonista, zonaFinalB.getLista(), miProtagonista.getX(), miProtagonista.getY() + 4);
 		if(zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
-			colisionProtagonista(miProtagonista, zonaFinalC.getLista());
+			esPared=colisionProtagonista(miProtagonista, zonaFinalC.getLista(),miProtagonista.getX(), miProtagonista.getY() + 4);
 		if(zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
-			colisionProtagonista(miProtagonista, zonaFinalD.getLista());
+			esPared=colisionProtagonista(miProtagonista, zonaFinalD.getLista(), miProtagonista.getX(), miProtagonista.getY() + 4);
 		
 		if(zonaFinalA != zonaActualA) {
 			zonaActualA.removeEntidad(miProtagonista);
@@ -236,12 +238,14 @@ public class Juego {
 			zonaActualC.removeEntidad(miProtagonista);
 			zonaFinalC.addEntidad(miProtagonista);
 		}
-		*/
+		
+		if(!esPared)
+			miProtagonista.moverAbajo();
 	}
 
 	public void moverArribaAction() {
-		miProtagonista.moverArriba();
-		/*
+		boolean esPared=false; 
+		
 		Zona zonaActualA;//(0,0)
 		Zona zonaActualC;//(0,32)
 		
@@ -253,19 +257,19 @@ public class Juego {
 		zonaActualA = calcularZona(miProtagonista.getX(), miProtagonista.getY());
 		zonaActualC = calcularZona(miProtagonista.getX(), miProtagonista.getY() + miProtagonista.getTamano());
 		
-		zonaFinalA = calcularZona(miProtagonista.getX(), miProtagonista.getY() - 32);
-		zonaFinalB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() - 32);
-		zonaFinalC = calcularZona(miProtagonista.getX(), miProtagonista.getY() + miProtagonista.getTamano() - 32);
-		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + miProtagonista.getTamano() - 32);
+		zonaFinalA = calcularZona(miProtagonista.getX(), miProtagonista.getY() - 4);
+		zonaFinalB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() - 4);
+		zonaFinalC = calcularZona(miProtagonista.getX(), miProtagonista.getY() + miProtagonista.getTamano() - 4);
+		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + miProtagonista.getTamano() - 4);
 		
 		
-		colisionProtagonista(miProtagonista, zonaFinalA.getLista());
+			esPared=colisionProtagonista(miProtagonista, zonaFinalA.getLista(),miProtagonista.getX(), miProtagonista.getY() - 4);
 		if(zonaFinalA != zonaFinalB)
-			colisionProtagonista(miProtagonista, zonaFinalB.getLista());
+			esPared=colisionProtagonista(miProtagonista, zonaFinalB.getLista(),  miProtagonista.getX(), miProtagonista.getY() - 4);
 		if(zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
-			colisionProtagonista(miProtagonista, zonaFinalC.getLista());
+			esPared=colisionProtagonista(miProtagonista, zonaFinalC.getLista(), miProtagonista.getX(), miProtagonista.getY() - 4);
 		if(zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
-			colisionProtagonista(miProtagonista, zonaFinalD.getLista());
+			esPared=colisionProtagonista(miProtagonista, zonaFinalD.getLista(),  miProtagonista.getX(), miProtagonista.getY() - 4);
 		
 		if(zonaFinalA != zonaActualA) {
 			zonaActualA.removeEntidad(miProtagonista);
@@ -275,7 +279,8 @@ public class Juego {
 			zonaActualC.removeEntidad(miProtagonista);
 			zonaFinalC.addEntidad(miProtagonista);
 		}
-		*/
+		if(!esPared)
+			miProtagonista.moverArriba();
 	}
 
 	public Zona calcularZona(int cordX, int cordY) { //La zona se calcula con las coordenadas x e y, con el punto (0,0) de la entidad

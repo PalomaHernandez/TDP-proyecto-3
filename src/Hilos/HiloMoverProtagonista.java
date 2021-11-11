@@ -110,10 +110,10 @@ public class HiloMoverProtagonista extends Thread {
 						zonaFinalC.addEntidad(miProtagonista);
 					}
 					*/
-					if(!esPared) {
+					
 						miProtagonista.setY(posY + 4);
 						posY +=4;
-					}
+					
 					break;
 				case 1:
 					/*
@@ -134,10 +134,10 @@ public class HiloMoverProtagonista extends Thread {
 						zonaFinalC.addEntidad(miProtagonista);
 					}
 					*/
-					if(!esPared) {
+					
 						miProtagonista.setY(posY - 4);
 						posY -=4;
-					}
+					
 					break;
 				case 2:
 						/*
@@ -181,10 +181,10 @@ public class HiloMoverProtagonista extends Thread {
 						zonaFinalB.addEntidad(miProtagonista);
 					}
 					*/
-					if(!esPared) {
+					
 						miProtagonista.setX(posX - 4);
 						posX -= 4;
-					}
+					
 					break;
 				}
 			}catch (InterruptedException e) {
