@@ -54,18 +54,8 @@ public class Juego {
 		
 		for(Entidad e : miNivel.getNivel()) {
 			zona1 = calcularZona(e.getX(), e.getY());
-			zona2 = calcularZona(e.getX() + e.getTamano(), e.getY());
-			zona3 = calcularZona(e.getX(), e.getY() + e.getTamano());
-			zona4 = calcularZona(e.getX() + e.getTamano(), e.getY() + e.getTamano());
 			
 			zona1.addEntidad(e);
-			if(zona1 != zona2)
-				zona2.addEntidad(e);
-			if(zona1 != zona3 && zona2 != zona3)
-				zona3.addEntidad(e);
-			if(zona1 != zona4 && zona2 != zona4 && zona3 != zona4)
-				zona4.addEntidad(e);
-			
 		}
 	}
 

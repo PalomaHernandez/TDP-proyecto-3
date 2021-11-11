@@ -78,9 +78,9 @@ public class HiloMoverProtagonista extends Thread {
 			zonaActualA = miJuego.calcularZona(miProtagonista.getX(), miProtagonista.getY());
 			zonaActualB = miJuego.calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY());
 			
-			zonaFinalA = miJuego.calcularZona(miProtagonista.getX() - 32, miProtagonista.getY());
+			zonaFinalA = miJuego.calcularZona(miProtagonista.getX() + 32, miProtagonista.getY());
 			zonaFinalB = miJuego.calcularZona(miProtagonista.getX() + miProtagonista.getTamano() + 32, miProtagonista.getY());
-			zonaFinalC = miJuego.calcularZona(miProtagonista.getX() - 32, miProtagonista.getY() + miProtagonista.getTamano());
+			zonaFinalC = miJuego.calcularZona(miProtagonista.getX() + 32, miProtagonista.getY() + miProtagonista.getTamano());
 			zonaFinalD = miJuego.calcularZona(miProtagonista.getX() + miProtagonista.getTamano() + 32, miProtagonista.getY() + miProtagonista.getTamano());
 			break;
 		}
