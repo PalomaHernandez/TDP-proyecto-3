@@ -29,7 +29,17 @@ public abstract class MovilGUI {
 		estadoActual = representacion[4];
 	}
 	
+	public void bomba() {
+		estadoActual= representacion[8];
+	}
+	
+	public void velocidad() {
+		estadoActual= representacion[12];
+		
+	}
+	
 	public String getImagen() {
 		return estadoActual;
 	}
+
 }

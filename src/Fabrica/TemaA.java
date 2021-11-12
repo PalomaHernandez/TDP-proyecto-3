@@ -39,6 +39,8 @@ public class TemaA extends Tema{
 		protagonista = new Protagonista(miJuego);
 		protagonista.getGUI().setNormal("/imagenesA/autoArriba.png", "/imagenesA/autoAbajo.png", "/imagenesA/autoDerecha.png", "/imagenesA/autoIzquierda.png");
 		protagonista.getGUI().setAzul("/imagenesA/autoArribaAzul.png", "/imagenesA/autoAbajoAzul.png", "/imagenesA/autoDerechaAzul.png", "/imagenesA/autoIzquierdaAzul.png");
+		protagonista.getGUI().setBomba("/imagenesA/autoArribaBomba.png", "/imagenesA/autoAbajoBomba.png", "/imagenesA/autoDerechaBomba.png", "/imagenesA/autoIzquierdaBomba.png");
+		protagonista.getGUI().setVelocidad("/imagenesA/autoArribaVelocidad.png", "/imagenesA/autoAbajoVelocidad.png", "/imagenesA/autoDerechaVelocidad.png", "/imagenesA/autoIzquierdaVelocidad.png");
 		return protagonista;
 	}
 

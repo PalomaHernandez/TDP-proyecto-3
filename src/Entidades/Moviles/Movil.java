@@ -49,6 +49,12 @@ public abstract class Movil extends Entidad{
 		case 4:
 			this.miRepresentacion.ponerAzul();
 			break;
+		case 5:
+			this.miRepresentacion.bomba();
+			break;
+		case 6:
+			this.miRepresentacion.velocidad();
+			break;
 		}
 	}
 	

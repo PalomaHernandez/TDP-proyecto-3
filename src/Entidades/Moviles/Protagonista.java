@@ -159,7 +159,7 @@ public class Protagonista extends Movil {
 			this.miRepresentacion.ponerAzul();
 			break;
 		case 5:
-			//this.miRepresentacion.bomba();
+			this.miRepresentacion.bomba();
 			break;
 		case 6: 
 			//this.miRepresentacion.velocidad();

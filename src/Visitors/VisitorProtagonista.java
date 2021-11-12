@@ -44,7 +44,8 @@ public class VisitorProtagonista implements Visitor{
 		z.removeEntidad(bomba);
 		bomba.setVisible(false);
 		j.getProtagonista().activarBomba();
-		j.getProtagonista().getGUI().setBomba("/imagenesA/autoArribaBomba.png", "/imagenesA/autoAbajoBomba.png", "/imagenesA/autoDerechaBomba.png", "/imagenesA/autoIzquierdaBomba.png");
+		j.bomba();
+		//j.getProtagonista().getGUI().setBomba("/imagenesA/autoArribaBomba.png", "/imagenesA/autoAbajoBomba.png", "/imagenesA/autoDerechaBomba.png", "/imagenesA/autoIzquierdaBomba.png");
 	}
 
 	@Override
@@ -54,7 +55,8 @@ public class VisitorProtagonista implements Visitor{
 		z.removeEntidad(velocidad);
 		velocidad.setVisible(false);
 		j.getProtagonista().activarVelocidad();
-		j.getProtagonista().getGUI().setBomba("/imagenesA/autoArribaVelocidad.png", "/imagenesA/autoAbajoVelocidad.png", "/imagenesA/autoDerechaVelocidad.png", "/imagenesA/autoIzquierdaVelocidad.png");
+		j.velocidad();
+//		j.getProtagonista().getGUI().setBomba("/imagenesA/autoArribaVelocidad.png", "/imagenesA/autoAbajoVelocidad.png", "/imagenesA/autoDerechaVelocidad.png", "/imagenesA/autoIzquierdaVelocidad.png");
 		//Aumentar velocidad, cambiar estado del protagonista
 	}
 
