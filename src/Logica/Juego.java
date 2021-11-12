@@ -5,12 +5,15 @@ import java.util.HashSet;
 import java.util.List;
 
 import Entidades.Entidad;
+import Entidades.Moviles.Blinky;
+import Entidades.Moviles.Enemigo;
 import Entidades.Moviles.Movil;
 import Entidades.Moviles.Protagonista;
 import Fabrica.Builder;
 import Fabrica.BuilderNivel;
 import Fabrica.Director;
 import GUI.VentanaGUI;
+import Hilos.HiloMoverEnemigos;
 import Visitors.Visitor;
 
 public class Juego {
@@ -21,6 +24,8 @@ public class Juego {
 	private Nivel miNivel;
 	private Protagonista miProtagonista;
 	private Zona [][] matriz;
+	private HiloMoverEnemigos hiloEnemigos;
+	private Blinky blinky;
 	
 	public Juego(int tema, VentanaGUI ventana) {
 		miDirector = new Director(tema, this);
@@ -29,11 +34,12 @@ public class Juego {
 		for(int i = 0; i < 7 ; i++)
 			for(int j = 0 ; j < 7 ; j++)
 				matriz[i][j] = new Zona();
-		
 		miVentana = ventana;
 		
 		inicializarNivel1();
 		agregarAZona();
+		hiloEnemigos = new HiloMoverEnemigos(this, 70, null, null, blinky, null, miProtagonista);
+		hiloEnemigos.start();
 	}
 	
 	public Nivel getNivel() {
@@ -87,7 +93,8 @@ public class Juego {
 		
 		miNivel = constructorNivel1.getResult();
 		miProtagonista = miNivel.getProtagonista();
-		miVentana.inicializarNivel1(miNivel.getNivel(), miProtagonista);
+		blinky = miNivel.getBlinky();
+		miVentana.inicializarNivel1(miNivel.getNivel(), miProtagonista, blinky);
 	}
 
 	public boolean colisionProtagonista(Protagonista p, List<Entidad> list, int posXFin, int posYFin) {
@@ -339,6 +346,31 @@ public class Juego {
 			j = 6;
 		
 		return matriz[i][j];
+	}
+
+	public boolean moverIzqEnem(Enemigo enemigo) {
+		enemigo.moverIzquierda();
+		return true;
+	}
+
+	public boolean moverAbajoEnem(Enemigo enemigo) {
+		enemigo.moverAbajo();
+		return true;
+	}
+
+	public boolean moverArribaEnem(Enemigo enemigo) {
+		enemigo.moverArriba();
+		return true;
+	}
+
+	public boolean moverDerEnem(Enemigo enemigo) {
+		enemigo.moverDerecha();
+		return true;
+	}
+
+	public void ponerAzul() {
+		blinky.cambiarImagen(4);
+		miProtagonista.cambiarImagen(4);
 	}
 
 

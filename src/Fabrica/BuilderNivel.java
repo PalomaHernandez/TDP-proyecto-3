@@ -8,6 +8,7 @@ import Entidades.Estaticas.PacDot;
 import Entidades.Estaticas.Pared;
 import Entidades.Estaticas.PowerPellet;
 import Entidades.Estaticas.Velocidad;
+import Entidades.Moviles.Blinky;
 import Entidades.Moviles.Enemigo;
 import Entidades.Moviles.Protagonista;
 import Logica.Nivel;
@@ -64,10 +65,11 @@ public class BuilderNivel implements Builder{
 	}
 
 	public void setBlinky(Tema tema, int x, int y) {
-		Enemigo enemigo;
-		enemigo= tema.getEnemigo();
+		Blinky enemigo;
+		enemigo= tema.getBlinky();
 		enemigo.setPos(x, y);
-		miNivel.addEntidad(enemigo);
+		miNivel.setBlinky(enemigo);
+		//miNivel.addEntidad(enemigo);
 		//miNivel.addEnemigo(enemigo);
 	}
 	

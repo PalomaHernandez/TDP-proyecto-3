@@ -17,7 +17,7 @@ public abstract class Movil extends Entidad{
 	private final int rango = 608;
 	protected Juego miJuego;
 	private HiloMoverProtagonista hilo;
-	private HiloMoverFantasmas hiloF;
+	private HiloMoverEnemigos hiloF;
 	
 	public Movil() {
 		direccion = 3; //se inicializa moviendose hacia la izquierda

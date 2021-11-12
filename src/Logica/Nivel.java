@@ -4,12 +4,20 @@ import java.util.LinkedList;
 import java.util.List;
 
 import Entidades.Entidad;
+import Entidades.Moviles.Blinky;
+import Entidades.Moviles.Clyde;
 import Entidades.Moviles.Enemigo;
+import Entidades.Moviles.Inky;
+import Entidades.Moviles.Pinky;
 import Entidades.Moviles.Protagonista;
 
 public class Nivel {
 	
 	private Protagonista protagonista;
+	private Clyde clyde;
+	private Blinky blinky;
+	private Inky inky;
+	private Pinky pinky;
 	private List<Entidad> lista;
 	private List<Enemigo> listaEnemigos;
 
@@ -52,5 +60,37 @@ public class Nivel {
 	
 	public Protagonista getProtagonista() {
 		return this.protagonista;
+	}
+	
+	public void setClyde(Clyde clyde) {
+		this.clyde = clyde;
+	}
+	
+	public Clyde getClyde() {
+		return this.clyde;
+	}
+	
+	public void setPinky(Pinky pinky) {
+		this.pinky = pinky;
+	}
+	
+	public Pinky getPinky() {
+		return this.pinky;
+	}
+	
+	public void setBlinky(Blinky blinky) {
+		this.blinky = blinky;
+	}
+	
+	public Blinky getBlinky() {
+		return this.blinky;
+	}
+	
+	public void setInky(Inky inky) {
+		this.inky = inky;
+	}
+	
+	public Inky getInky() {
+		return this.inky;
 	}
 }

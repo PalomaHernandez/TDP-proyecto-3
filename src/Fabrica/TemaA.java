@@ -38,7 +38,7 @@ public class TemaA extends Tema{
 		
 		protagonista = new Protagonista(miJuego);
 		protagonista.getGUI().setNormal("/imagenesA/autoArriba.png", "/imagenesA/autoAbajo.png", "/imagenesA/autoDerecha.png", "/imagenesA/autoIzquierda.png");
-		
+		protagonista.getGUI().setAzul("/imagenesA/autoArribaAzul.png", "/imagenesA/autoAbajoAzul.png", "/imagenesA/autoDerechaAzul.png", "/imagenesA/autoIzquierdaAzul.png");
 		return protagonista;
 	}
 
@@ -57,9 +57,9 @@ public class TemaA extends Tema{
 		return lista;
 	}
 
-	public Enemigo getEnemigo() {
-		Enemigo enemigo;
-		enemigo=new Enemigo("/imagenesA/policiaAbajo.png");
+	public Blinky getBlinky() {
+		Blinky enemigo;
+		enemigo=new Blinky("/imagenesA/policiaAbajo.png");
 		enemigo.getGUI().setNormal("/imagenesA/policiaAbajo.png","/imagenesA/policiaArriba.png","/imagenesA/policiaIzquierda.png","/imagenesA/policiaDerecha.png") ;
 		return enemigo;
 	}

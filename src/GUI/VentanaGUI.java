@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Entidades.Entidad;
+import Entidades.Moviles.Blinky;
 import Logica.Juego;
 
 import java.awt.Color;
@@ -99,13 +100,16 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		//((JLabel)panel.getComponentAt(posX, posY)).setBounds(posXFin, posYFin, 32, 32);
 	}
 
-	public void inicializarNivel1(List<Entidad> nivel, Entidad protagonista) {
+	public void inicializarNivel1(List<Entidad> nivel, Entidad protagonista, Blinky blinky) {
 		arregloLabel = new JLabel[nivel.size()];
 		this.nivel = nivel;
 		ImageIcon imagen;
 		protagonista.setBounds(protagonista.getX(), protagonista.getY(), 32, 32);
 		panel.add(protagonista);
 		protagonista.setIcon(new ImageIcon(VentanaGUI.class.getResource(protagonista.getRepresentacion())));
+		blinky.setBounds(blinky.getX(), blinky.getY(), 32, 32);
+		panel.add(blinky);
+		blinky.setIcon(new ImageIcon(VentanaGUI.class.getResource(blinky.getRepresentacion())));
 		for(Entidad e : nivel) {
 			//arregloLabel[i] = new JLabel();
 			//arregloLabel[i].setBounds(e.getX(), e.getY(), 32, 32);

@@ -67,9 +67,10 @@ public class VisitorProtagonista implements Visitor{
 		powerpellet.setVisible(false);
 		j.setPuntaje(j.getPuntaje()+30);
 		j.getProtagonista().activarPowerPellet();
-		List<Enemigo> lista=j.getNivel().getEnemigos();
-		for(Enemigo e: lista)
-		e.getGUI().setAzul("/imagenesA/autoAbajo.png","/imagenesA/autoArriba.png","/imagenesA/autoIzquierda.png","/imagenesA/autoDerecha.png");
+		//List<Enemigo> lista=j.getNivel().getEnemigos();
+		j.ponerAzul();
+		//for(Enemigo e: lista)
+		//e.getGUI().setAzul("/imagenesA/autoAbajo.png","/imagenesA/autoArriba.png","/imagenesA/autoIzquierda.png","/imagenesA/autoDerecha.png");
 		
 	}
 

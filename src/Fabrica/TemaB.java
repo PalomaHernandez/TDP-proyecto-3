@@ -83,8 +83,9 @@ public class TemaB extends Tema{
 		return null;
 	}
 
+
 	@Override
-	public Enemigo getEnemigo() {
+	public Blinky getBlinky() {
 		// TODO Auto-generated method stub
 		return null;
 	}

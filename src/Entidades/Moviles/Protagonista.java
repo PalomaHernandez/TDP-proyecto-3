@@ -12,6 +12,10 @@ import Visitors.VisitorProtagonista;
 
 public class Protagonista extends Movil {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected Visitor v;
 	protected boolean estadoVelocidad;
 	protected boolean estadoBomba;
