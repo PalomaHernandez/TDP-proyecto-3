@@ -372,6 +372,14 @@ public class Juego {
 		blinky.cambiarImagen(4);
 		miProtagonista.cambiarImagen(4);
 	}
+	
+	public void bomba() {
+		miProtagonista.cambiarImagen(5);
+	}
+
+	public void velocidad() {
+		miProtagonista.cambiarImagen(6);
+	}
 
 
 }
