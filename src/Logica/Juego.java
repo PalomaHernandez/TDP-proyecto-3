@@ -97,21 +97,21 @@ public class Juego {
 		miVentana.inicializarNivel1(miNivel.getNivel(), miProtagonista, blinky);
 	}
 
-	public boolean colisionProtagonista(Protagonista p, List<Entidad> list, int posXFin, int posYFin) {
-		//boolean libre = true;
+	public boolean colision(Movil movil, List<Entidad> list, int posXFin, int posYFin) {
 		boolean esPared = false;
-		
+		Visitor v1;
+		Rectangle entidad2;
 		HashSet<Entidad> listaSinRep = new HashSet<Entidad>();
-		Rectangle entidad = new Rectangle(posXFin, posYFin, miProtagonista.getTamano(), miProtagonista.getTamano());
+		Rectangle entidad = new Rectangle(posXFin, posYFin, movil.getTamano(), movil.getTamano());
 		
 		for(Entidad e: list)
 			listaSinRep.add(e);
 		
 		for(Entidad e : listaSinRep) {
-			Rectangle entidad2 = new Rectangle(e.getX(), e.getY(), e.getTamano(), e.getTamano());
+			entidad2 = new Rectangle(e.getX(), e.getY(), e.getTamano(), e.getTamano());
 			if(entidad.intersects(entidad2)) {
 				//System.out.println("Colision.");
-				Visitor v1= miProtagonista.getVisitor();
+				v1= movil.getVisitor();
 				esPared = e.accept(v1, this);
 				if(esPared)
 					break;
@@ -121,32 +121,11 @@ public class Juego {
 		return esPared;
 	}
 	
-	/*
-	public boolean colisionProtagonista(Protagonista p, List<Entidad> list) {
-		//boolean libre = true;
-		int cordX=miProtagonista.getX();
-		int cordY=miProtagonista.getY();
-		int tamanoX=miProtagonista.getTamano();
-		int tamanoY=miProtagonista.getTamano();
-		boolean esPared = false;
-		
-		Rectangle entidad = new Rectangle(cordX, cordY, tamanoX, tamanoY);
-		for(Entidad e : list) {
-			Rectangle entidad2 = new Rectangle(e.getX(), e.getY(), e.getTamano(), e.getTamano());
-			if(entidad.intersects(entidad2)) {
-				//System.out.println("Colision.");
-				Visitor v1= miProtagonista.getVisitor();
-				esPared = e.esPared();
-				e.accept(v1, this);
-				if(esPared)
-					break;
-			}
-		}
-		
-		return esPared;
-	}
-	*/
 	public void moverDerAction() {
+		moverDer(miProtagonista);
+	}
+	
+	private boolean moverDer(Movil movil) {
 		boolean esPared = false;
 		
 		Zona zonaActualA;//(0,0)
@@ -157,36 +136,41 @@ public class Juego {
 		Zona zonaFinalC;
 		Zona zonaFinalD;
 	
-		zonaActualA = calcularZona(miProtagonista.getX(), miProtagonista.getY());
-		zonaActualB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY());
+		zonaActualA = calcularZona(movil.getX(), movil.getY());
+		zonaActualB = calcularZona(movil.getX() + movil.getTamano(), movil.getY());
 		
-		zonaFinalA = calcularZona(miProtagonista.getX() + 4, miProtagonista.getY());
-		zonaFinalB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() + 4, miProtagonista.getY());
-		zonaFinalC = calcularZona(miProtagonista.getX() + 4, miProtagonista.getY() + miProtagonista.getTamano());
-		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() + 4, miProtagonista.getY() + miProtagonista.getTamano());
+		zonaFinalA = calcularZona(movil.getX() + 4, movil.getY());
+		zonaFinalB = calcularZona(movil.getX() + movil.getTamano() + 4, movil.getY());
+		zonaFinalC = calcularZona(movil.getX() + 4, movil.getY() + movil.getTamano());
+		zonaFinalD = calcularZona(movil.getX() + movil.getTamano() + 4, movil.getY() + movil.getTamano());
 			
 		
-			esPared = colisionProtagonista(miProtagonista, zonaFinalA.getLista(), miProtagonista.getX() + 4, miProtagonista.getY());
+		esPared = colision(movil, zonaFinalA.getLista(), movil.getX() + 4, movil.getY());
 		if(!esPared && zonaFinalA != zonaFinalB)
-			esPared = colisionProtagonista(miProtagonista, zonaFinalB.getLista(), miProtagonista.getX() + 4, miProtagonista.getY());
+			esPared = colision(movil, zonaFinalB.getLista(), movil.getX() + 4, movil.getY());
 		if(!esPared && zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
-			esPared = colisionProtagonista(miProtagonista, zonaFinalC.getLista(), miProtagonista.getX() + 4, miProtagonista.getY());
+			esPared = colision(movil, zonaFinalC.getLista(), movil.getX() + 4, movil.getY());
 		if(!esPared && zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
-			esPared = colisionProtagonista(miProtagonista, zonaFinalD.getLista(), miProtagonista.getX() + 4, miProtagonista.getY());
+			esPared = colision(movil, zonaFinalD.getLista(), movil.getX() + 4, movil.getY());
 		
 		if(zonaFinalA != zonaActualA) {
-			zonaActualA.removeEntidad(miProtagonista);
-			zonaFinalA.addEntidad(miProtagonista);
+			zonaActualA.removeEntidad(movil);
+			zonaFinalA.addEntidad(movil);
 		}
 		if(zonaFinalB != zonaActualB) {
-			zonaActualB.removeEntidad(miProtagonista);
-			zonaFinalB.addEntidad(miProtagonista);
+			zonaActualB.removeEntidad(movil);
+			zonaFinalB.addEntidad(movil);
 		}
 		if(!esPared)
-			miProtagonista.moverDerecha();
+			movil.moverDerecha();
+		return esPared;
 	}
 
 	public void moverIzqAction() {
+		moverIzq(miProtagonista);
+	}
+	
+	private boolean moverIzq(Movil movil) {
 		boolean esPared=false;
 		
 		
@@ -198,36 +182,41 @@ public class Juego {
 		Zona zonaFinalC;
 		Zona zonaFinalD;
 		
-		zonaActualA = calcularZona(miProtagonista.getX(), miProtagonista.getY());
-		zonaActualB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY());
+		zonaActualA = calcularZona(movil.getX(), movil.getY());
+		zonaActualB = calcularZona(movil.getX() + movil.getTamano(), movil.getY());
 		
-		zonaFinalA = calcularZona(miProtagonista.getX() - 4, miProtagonista.getY());
-		zonaFinalB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() - 4, miProtagonista.getY());
-		zonaFinalC = calcularZona(miProtagonista.getX() - 4, miProtagonista.getY() + miProtagonista.getTamano());
-		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano() - 4, miProtagonista.getY() + miProtagonista.getTamano());
+		zonaFinalA = calcularZona(movil.getX() - 4, movil.getY());
+		zonaFinalB = calcularZona(movil.getX() + movil.getTamano() - 4, movil.getY());
+		zonaFinalC = calcularZona(movil.getX() - 4, movil.getY() + movil.getTamano());
+		zonaFinalD = calcularZona(movil.getX() + movil.getTamano() - 4, movil.getY() + movil.getTamano());
 		
 		
-			esPared=colisionProtagonista(miProtagonista, zonaFinalA.getLista(),miProtagonista.getX() - 4, miProtagonista.getY());
-		if(zonaFinalA != zonaFinalB)
-			esPared=colisionProtagonista(miProtagonista, zonaFinalB.getLista(),miProtagonista.getX() - 4, miProtagonista.getY());
-		if(zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
-			esPared=colisionProtagonista(miProtagonista, zonaFinalC.getLista(),miProtagonista.getX() - 4, miProtagonista.getY());
-		if(zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
-			esPared=colisionProtagonista(miProtagonista, zonaFinalD.getLista(),miProtagonista.getX() - 4, miProtagonista.getY());
+			esPared=colision(movil, zonaFinalA.getLista(),movil.getX() - 4, movil.getY());
+		if(!esPared && zonaFinalA != zonaFinalB)
+			esPared=colision(movil, zonaFinalB.getLista(),movil.getX() - 4, movil.getY());
+		if(!esPared && zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
+			esPared=colision(movil, zonaFinalC.getLista(),movil.getX() - 4, movil.getY());
+		if(!esPared && zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
+			esPared=colision(movil, zonaFinalD.getLista(),movil.getX() - 4, movil.getY());
 		
 		if(zonaFinalA != zonaActualA) {
-			zonaActualA.removeEntidad(miProtagonista);
-			zonaFinalA.addEntidad(miProtagonista);
+			zonaActualA.removeEntidad(movil);
+			zonaFinalA.addEntidad(movil);
 		}
 		if(zonaFinalB != zonaActualB) {
-			zonaActualB.removeEntidad(miProtagonista);
-			zonaFinalB.addEntidad(miProtagonista);
+			zonaActualB.removeEntidad(movil);
+			zonaFinalB.addEntidad(movil);
 		}
 		if(!esPared)
-			miProtagonista.moverIzquierda();
+			movil.moverIzquierda();
+		return esPared;
 	}
 
 	public void moverAbajoAction() {
+		moverAbajo(miProtagonista);
+	}
+	
+	private boolean moverAbajo(Movil movil) {
 		boolean esPared=false; 
 		
 		Zona zonaActualA;//(0,0)
@@ -247,13 +236,13 @@ public class Juego {
 		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + miProtagonista.getTamano() + 4);
 
 		
-			esPared=colisionProtagonista(miProtagonista, zonaFinalA.getLista(), miProtagonista.getX(), miProtagonista.getY() + 4);
-		if(zonaFinalA != zonaFinalB)
-			esPared=colisionProtagonista(miProtagonista, zonaFinalB.getLista(), miProtagonista.getX(), miProtagonista.getY() + 4);
-		if(zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
-			esPared=colisionProtagonista(miProtagonista, zonaFinalC.getLista(),miProtagonista.getX(), miProtagonista.getY() + 4);
-		if(zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
-			esPared=colisionProtagonista(miProtagonista, zonaFinalD.getLista(), miProtagonista.getX(), miProtagonista.getY() + 4);
+			esPared=colision(movil, zonaFinalA.getLista(), miProtagonista.getX(), miProtagonista.getY() + 4);
+		if(!esPared && zonaFinalA != zonaFinalB)
+			esPared=colision(movil, zonaFinalB.getLista(), miProtagonista.getX(), miProtagonista.getY() + 4);
+		if(!esPared && zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
+			esPared=colision(movil, zonaFinalC.getLista(),miProtagonista.getX(), miProtagonista.getY() + 4);
+		if(!esPared && zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
+			esPared=colision(movil, zonaFinalD.getLista(), miProtagonista.getX(), miProtagonista.getY() + 4);
 		
 		if(zonaFinalA != zonaActualA) {
 			zonaActualA.removeEntidad(miProtagonista);
@@ -265,10 +254,15 @@ public class Juego {
 		}
 		
 		if(!esPared)
-			miProtagonista.moverAbajo();
+			movil.moverAbajo();
+		return esPared;
 	}
 
 	public void moverArribaAction() {
+		moverArriba(miProtagonista);
+	}
+	
+	private boolean moverArriba(Movil movil) {
 		boolean esPared=false; 
 		
 		Zona zonaActualA;//(0,0)
@@ -288,13 +282,13 @@ public class Juego {
 		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + miProtagonista.getTamano() - 4);
 		
 		
-			esPared=colisionProtagonista(miProtagonista, zonaFinalA.getLista(),miProtagonista.getX(), miProtagonista.getY() - 4);
-		if(zonaFinalA != zonaFinalB)
-			esPared=colisionProtagonista(miProtagonista, zonaFinalB.getLista(),  miProtagonista.getX(), miProtagonista.getY() - 4);
-		if(zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
-			esPared=colisionProtagonista(miProtagonista, zonaFinalC.getLista(), miProtagonista.getX(), miProtagonista.getY() - 4);
-		if(zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
-			esPared=colisionProtagonista(miProtagonista, zonaFinalD.getLista(),  miProtagonista.getX(), miProtagonista.getY() - 4);
+			esPared=colision(movil, zonaFinalA.getLista(),miProtagonista.getX(), miProtagonista.getY() - 4);
+		if(!esPared && zonaFinalA != zonaFinalB)
+			esPared=colision(movil, zonaFinalB.getLista(),  miProtagonista.getX(), miProtagonista.getY() - 4);
+		if(!esPared && zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
+			esPared=colision(movil, zonaFinalC.getLista(), miProtagonista.getX(), miProtagonista.getY() - 4);
+		if(!esPared && zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
+			esPared=colision(movil, zonaFinalD.getLista(),  miProtagonista.getX(), miProtagonista.getY() - 4);
 		
 		if(zonaFinalA != zonaActualA) {
 			zonaActualA.removeEntidad(miProtagonista);
@@ -305,7 +299,9 @@ public class Juego {
 			zonaFinalC.addEntidad(miProtagonista);
 		}
 		if(!esPared)
-			miProtagonista.moverArriba();
+			movil.moverArriba();
+		
+		return esPared;
 	}
 
 	public Zona calcularZona(int cordX, int cordY) { //La zona se calcula con las coordenadas x e y, con el punto (0,0) de la entidad
@@ -349,23 +345,19 @@ public class Juego {
 	}
 
 	public boolean moverIzqEnem(Enemigo enemigo) {
-		enemigo.moverIzquierda();
-		return true;
+		return moverIzq(enemigo);
 	}
 
 	public boolean moverAbajoEnem(Enemigo enemigo) {
-		enemigo.moverAbajo();
-		return true;
+		return moverAbajo(enemigo);
 	}
 
 	public boolean moverArribaEnem(Enemigo enemigo) {
-		enemigo.moverArriba();
-		return true;
+		return moverArriba(enemigo);
 	}
 
 	public boolean moverDerEnem(Enemigo enemigo) {
-		enemigo.moverDerecha();
-		return true;
+		return moverDer(enemigo);
 	}
 
 	public void ponerAzul() {
