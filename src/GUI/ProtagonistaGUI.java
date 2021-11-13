@@ -34,6 +34,54 @@ public class ProtagonistaGUI extends MovilGUI {
 		representacion[14] = velocidadDerecha;
 		representacion[15] = velocidadIzquierda;
 	}
+
+	public void azulAbajo() {
+		this.estadoActual = representacion[4];
+	}
+
+	public void azulArriba() {
+		this.estadoActual = representacion[5];
+	}
+
+	public void azulDer() {
+		this.estadoActual = representacion[6];
+	}
+
+	public void azulIzquierda() {
+		this.estadoActual = representacion[7];
+	}
+
+	public void bombaAbajo() {
+		this.estadoActual = representacion[8];
+	}
+
+	public void bombaArriba() {
+		this.estadoActual = representacion[9];
+	}
+
+	public void bombaDer() {
+		this.estadoActual = representacion[10];
+	}
+
+	public void bombaIzquierda() {
+		this.estadoActual = representacion[11];
+	}
+
+	public void velocidadAbajo() {
+		this.estadoActual = representacion[12];
+	}
+
+	public void velocidadArriba() {
+		this.estadoActual = representacion[13];
+	}
+
+	public void velocidadIzquierda() {
+		this.estadoActual = representacion[14];
+	}
+
+	public void velocidadDer() {
+		this.estadoActual = representacion[15];
+	}
 	
 	
 }

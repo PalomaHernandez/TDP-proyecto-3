@@ -35,7 +35,7 @@ public abstract class Enemigo extends Movil {
 		return estado;
 	}
 	
-	public void setEstado(int estado) {
+	public void setEstado(int estado) {//0 dispersarse, 1 perseguir,  2 correr. 3 morir (ir a la casa)
 		this.estado = estado;
 	}
 	

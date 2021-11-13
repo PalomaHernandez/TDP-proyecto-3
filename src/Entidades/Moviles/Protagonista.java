@@ -35,114 +35,178 @@ public class Protagonista extends Movil {
 	}
 	
 
+	public void setEstadoBomba(boolean estado) {
+		this.estadoBomba = estado;
+		if(estado) {
+			switch(direccion) {
+			case 0:
+				cambiarImagen(8);
+				break;
+			case 1: 
+				cambiarImagen(9);
+				break;
+			case 2:
+				cambiarImagen(10);
+				break;
+			case 3:
+				cambiarImagen(11);
+				break;
+			}
+		}else {
+			switch(direccion) {
+			case 0:
+				cambiarImagen(0);
+				break;
+			case 1: 
+				cambiarImagen(1);
+				break;
+			case 2:
+				cambiarImagen(2);
+				break;
+			case 3:
+				cambiarImagen(3);
+				break;
+			}
+		}
+	}
+	
+	public void setEstadoPowerPellet(boolean estado) {
+		this.estadoPowerPellet = estado;
+		if(estado) {
+			switch(direccion) {
+			case 0:
+				cambiarImagen(4);
+				break;
+			case 1: 
+				cambiarImagen(5);
+				break;
+			case 2:
+				cambiarImagen(6);
+				break;
+			case 3:
+				cambiarImagen(7);
+				break;
+			}
+		}else {
+			switch(direccion) {
+			case 0:
+				cambiarImagen(0);
+				break;
+			case 1: 
+				cambiarImagen(1);
+				break;
+			case 2:
+				cambiarImagen(2);
+				break;
+			case 3:
+				cambiarImagen(3);
+				break;
+			}
+		}
+	}
+	
+	public void setEstadoVelocidad(boolean estado) {
+		this.estadoVelocidad = estado;
+		if(estado) {
+			switch(direccion) {
+			case 0:
+				cambiarImagen(12);
+				break;
+			case 1: 
+				cambiarImagen(13);
+				break;
+			case 2:
+				cambiarImagen(14);
+				break;
+			case 3:
+				cambiarImagen(15);
+				break;
+			}
+		}else {
+			switch(direccion) {
+			case 0:
+				cambiarImagen(0);
+				break;
+			case 1: 
+				cambiarImagen(1);
+				break;
+			case 2:
+				cambiarImagen(2);
+				break;
+			case 3:
+				cambiarImagen(3);
+				break;
+			}
+		}
+	}
+	
 	public void moverAbajo() {
-		if(direccion != 0) {
+		if(estadoVelocidad) 
+			cambiarImagen(12);
+		if(estadoPowerPellet) 
+			cambiarImagen(4);
+		if(estadoBomba) 
+			cambiarImagen(8);
+		if(!estadoVelocidad && !estadoBomba && !estadoPowerPellet)
 			cambiarImagen(0);
+		
+		if(direccion != 0) {
 			direccion = 0;
 		}
 		this.setY(posY + 4);
-		/*int posFin;
-
-		//hilo = new HiloMoverProtagonista(20, miJuego);
-		posFin = posY + 4;
-		
-		if(direccion != 0) {
-			cambiarImagen(0);
-			direccion = 0;
-		}
-		
-		hilo.moverEntidad(posX, posY, posX, posFin, 0, this);
-		//hilo.start();	
-		
-		*/
-
 	}
 	
 	public void moverArriba() {
-		if(direccion != 1) {
+		if(estadoVelocidad) 
+			cambiarImagen(13);
+		if(estadoPowerPellet) 
+			cambiarImagen(5);
+		if(estadoBomba) 
+			cambiarImagen(9);
+		if(!estadoVelocidad && !estadoBomba && !estadoPowerPellet)
 			cambiarImagen(1);
+		if(direccion != 1) {
 			direccion = 1;
 		}
 		this.setY(posY - 4);
-		/*
-		int posYFin;
-
-		hilo = new HiloMoverProtagonista(20, miJuego);
-		posYFin = posY - 4;
-		if(direccion != 1) {
-			cambiarImagen(1);
-			direccion = 1;
-		}
-		
-		// Este if deberia hacerse chequeando colisiones con paredes, no mirando el rangoif(posY - 32 >= 32) {
-
-		hilo.moverEntidad(posX, posY, posX, posYFin, 1, this);
-		hilo.start();*/
-	
 	}
 
 	public void moverIzquierda() {
-		
+		if(estadoVelocidad) 
+			cambiarImagen(15);
+		else if(estadoPowerPellet) 
+			cambiarImagen(7);
+		else if(estadoBomba) 
+			cambiarImagen(11);
+		if(!estadoVelocidad && !estadoBomba && !estadoPowerPellet)
+			cambiarImagen(3);
 
 		if(direccion != 3) {
-			cambiarImagen(3);
 			direccion = 3;
 		}
 		this.setX(posX - 4);
-		/*int posFin;
-
-		hilo = new HiloMoverProtagonista(20, miJuego);
-		posFin = posX - 4;
 		
-		if(direccion != 3) {
-			cambiarImagen(3);
-			direccion = 3;
-		}
-	
-		hilo.moverEntidad(posX, posY, posFin, posY, 3, this);
-		hilo.start();
-
-		//Falta cambiar de zona si es necesario hacerlo
-		*/
 	}
 	
 	public void moverDerecha() {
+		if(estadoVelocidad) 
+			cambiarImagen(14);
+		if(estadoPowerPellet) 
+			cambiarImagen(6);
+		if(estadoBomba) 
+			cambiarImagen(10);
+		if(!estadoVelocidad && !estadoBomba && !estadoPowerPellet)
+			cambiarImagen(2);
 		
 		if(direccion != 2) {
-			cambiarImagen(2);
 			direccion = 2;
 		}
 		this.setX(posX + 4);
-		/*
-		int posFin;
 		
-		hilo = new HiloMoverProtagonista(20, miJuego);
-		posFin = posX + 4;
-		
-		if(direccion != 2) {
-			cambiarImagen(2);
-			direccion = 2;
-		}
-		
-		hilo.moverEntidad(posX, posY, posFin, posY, 2, this);
-		hilo.start();
-		*/
 	}
 	
 	public ProtagonistaGUI getGUI() {
 		return miRepresentacion;
-	}
-	
-	public void activarVelocidad() {
-		this.estadoVelocidad = true;
-	}
-	
-	public void activarBomba() {
-		this.estadoBomba = true;
-	}
-	
-	public void activarPowerPellet() {
-		this.estadoPowerPellet = true;
 	}
 	
 	public void setVidas(int vidas) {
@@ -183,13 +247,40 @@ public class Protagonista extends Movil {
 			this.miRepresentacion.rotarIzq();
 			break;
 		case 4:
-			this.miRepresentacion.ponerAzul();
+			this.miRepresentacion.azulAbajo();
 			break;
 		case 5:
-			this.miRepresentacion.bomba();
+			this.miRepresentacion.azulArriba();
 			break;
 		case 6: 
-			//this.miRepresentacion.velocidad();
+			this.miRepresentacion.azulDer();
+			break;
+		case 7: 
+			miRepresentacion.azulIzquierda();
+			break;
+		case 8:
+			miRepresentacion.bombaAbajo();
+			break;
+		case 9: 
+			miRepresentacion.bombaArriba();
+			break;
+		case 10: 
+			miRepresentacion.bombaDer();
+			break;
+		case 11: 
+			miRepresentacion.bombaIzquierda();
+			break;
+		case 12:
+			miRepresentacion.velocidadAbajo();
+			break;
+		case 13:
+			miRepresentacion.velocidadArriba();
+			break;
+		case 14:
+			miRepresentacion.velocidadDer();
+			break;
+		case 15:
+			miRepresentacion.velocidadIzquierda();
 			break;
 		}
 		this.setIcon(new ImageIcon(VentanaGUI.class.getResource(miRepresentacion.getImagen())));

@@ -6,8 +6,11 @@ import java.util.List;
 
 import Entidades.Entidad;
 import Entidades.Moviles.Blinky;
+import Entidades.Moviles.Clyde;
 import Entidades.Moviles.Enemigo;
+import Entidades.Moviles.Inky;
 import Entidades.Moviles.Movil;
+import Entidades.Moviles.Pinky;
 import Entidades.Moviles.Protagonista;
 import Fabrica.Builder;
 import Fabrica.BuilderNivel;
@@ -27,6 +30,9 @@ public class Juego {
 	private Zona [][] matriz;
 	private HiloMoverEnemigos hiloEnemigos;
 	private Blinky blinky;
+	private Clyde clyde;
+	private Inky inky;
+	private Pinky pinky;
 	private HiloMoverProtagonista hiloProtagonista;
 	
 	public Juego(int tema, VentanaGUI ventana) {
@@ -406,17 +412,39 @@ public class Juego {
 		return !esPared;
 	}
 
-	public void ponerAzul() {
-		blinky.cambiarImagen(4);
-		miProtagonista.cambiarImagen(4);
+	public void activarPowerPellet() {
+		blinky.setEstado(2); //es responsabilidad del enemigo cambiar sus imagenes
+		//pinky.setEstado(2);
+		//inky.setEstado(2);
+		//clyde.setEstado(2);
+		miProtagonista.setEstadoPowerPellet(true);
+		hiloProtagonista.setPowerPellet();
 	}
 	
-	public void bomba() {
-		miProtagonista.cambiarImagen(5);
+	public void activarBomba() {
+		miProtagonista.setEstadoBomba(true);
+		hiloProtagonista.setBomba();
 	}
 
-	public void velocidad() {
-		miProtagonista.cambiarImagen(6);
+	public void activarVelocidad() {
+		miProtagonista.setEstadoVelocidad(true);
+		hiloProtagonista.setVelocidad();
+	}
+
+	public void desactivarBomba() {
+		miProtagonista.setEstadoBomba(false);
+	}
+
+	public void desactivarPowerPellet() {
+		miProtagonista.setEstadoPowerPellet(false);
+		blinky.setEstado(1);
+		//pinky.setEstado(0);
+		//inky.setEstado(0);
+		//clyde.setEstado(0);
+	}
+
+	public void desactivarVelocidad() {
+		miProtagonista.setEstadoVelocidad(false);
 	}
 
 

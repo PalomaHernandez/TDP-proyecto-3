@@ -41,23 +41,18 @@ public class VisitorProtagonista implements Visitor{
 	public void visit(Bomba bomba, Juego j) {
 		System.out.println("visite bomba");
 		Zona z = j.calcularZona(bomba.getX(), bomba.getY());
-		z.removeEntidad(bomba);
 		bomba.setVisible(false);
-		j.getProtagonista().activarBomba();
-		j.bomba();
-		//j.getProtagonista().getGUI().setBomba("/imagenesA/autoArribaBomba.png", "/imagenesA/autoAbajoBomba.png", "/imagenesA/autoDerechaBomba.png", "/imagenesA/autoIzquierdaBomba.png");
+		z.removeEntidad(bomba);
+		j.activarBomba();
 	}
 
 	@Override
 	public void visit(Velocidad velocidad, Juego j) {
 		System.out.println("visite velocidad");
 		Zona z = j.calcularZona(velocidad.getX(), velocidad.getY());
-		z.removeEntidad(velocidad);
 		velocidad.setVisible(false);
-		j.getProtagonista().activarVelocidad();
-		j.velocidad();
-//		j.getProtagonista().getGUI().setBomba("/imagenesA/autoArribaVelocidad.png", "/imagenesA/autoAbajoVelocidad.png", "/imagenesA/autoDerechaVelocidad.png", "/imagenesA/autoIzquierdaVelocidad.png");
-		//Aumentar velocidad, cambiar estado del protagonista
+		z.removeEntidad(velocidad);
+		j.activarVelocidad(); //Este metodo Aumenta velocidad del hilo
 	}
 
 	@Override
@@ -68,11 +63,7 @@ public class VisitorProtagonista implements Visitor{
 		z.removeEntidad(powerpellet);
 		powerpellet.setVisible(false);
 		j.setPuntaje(j.getPuntaje()+30);
-		j.getProtagonista().activarPowerPellet();
-		//List<Enemigo> lista=j.getNivel().getEnemigos();
-		j.ponerAzul();
-		//for(Enemigo e: lista)
-		//e.getGUI().setAzul("/imagenesA/autoAbajo.png","/imagenesA/autoArriba.png","/imagenesA/autoIzquierda.png","/imagenesA/autoDerecha.png");
+		j.activarPowerPellet();//este metodo actualizaria los estados del fantasma (actualizando su imagen)
 		
 	}
 

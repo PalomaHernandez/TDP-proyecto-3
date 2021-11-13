@@ -13,13 +13,38 @@ public class HiloMoverProtagonista extends Thread {
 	private int step;
 	private Juego miJuego;
 	private boolean activo;
+	private boolean estadoBomba;
+	private boolean estadoPowerPellet;
+	private boolean estadoVelocidad;
+	private long tiempoBomba;
+	private long tiempoVelocidad;
+	private long tiempoPowerPellet;
+	private long tiempoActual;
 	
 	public HiloMoverProtagonista(int s, Juego miJuego, Protagonista miProtagonista) {
 		step=s;
 		this.miJuego = miJuego;
 		this.miProtagonista = miProtagonista;
 		movimiento = 3;
+		estadoBomba = false;
+		estadoPowerPellet = false;
+		estadoVelocidad = false;
 		activo = true;
+	}
+	
+	public void setBomba() {
+		estadoBomba = true;
+		tiempoBomba = System.currentTimeMillis()/1000; //tiempo en el que se activo la bomba
+	}
+	
+	public void setPowerPellet() {
+		estadoPowerPellet = true;
+		tiempoPowerPellet = System.currentTimeMillis()/1000; //tiempo en el que se activo el powerpellet
+	}
+	
+	public void setVelocidad() {
+		estadoVelocidad = true;
+		tiempoVelocidad = System.currentTimeMillis()/1000; //tiempo en el que se activo la velocidad
 	}
 	
 	public void setStep(int s) {
@@ -51,6 +76,27 @@ public class HiloMoverProtagonista extends Thread {
 				case 3:
 					miJuego.moverIzqAction();
 					break;
+				}
+				if(estadoBomba) {
+					tiempoActual = System.currentTimeMillis()/1000;
+					if(tiempoBomba + 10 <= tiempoActual) {
+						estadoBomba = false;
+						miJuego.desactivarBomba();
+					}
+				}
+				if(estadoPowerPellet) {
+					tiempoActual = System.currentTimeMillis()/1000;
+					if(tiempoPowerPellet + 5 <= tiempoActual) {
+						estadoPowerPellet = false;
+						miJuego.desactivarPowerPellet();
+					}
+				}
+				if(estadoVelocidad) {
+					tiempoActual = System.currentTimeMillis()/1000;
+					if(tiempoVelocidad + 10 <= tiempoActual) {
+						estadoVelocidad = false;
+						miJuego.desactivarVelocidad();
+					}
 				}
 			}
 		}catch(InterruptedException e) {
