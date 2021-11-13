@@ -45,16 +45,16 @@ public class HiloMoverEnemigos extends Thread {
 	}
 	
 	public void run() {
-		while(activo) {
-			try {
+		try {
+			while(activo) {
 				Thread.sleep(step);
 				moverClyde();
 				moverInky();
 				moverPinky();
-				moverBlinky();
-			}catch (InterruptedException e) {
-				e.printStackTrace();
+				moverBlinky();	
 			}
+		}catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
 

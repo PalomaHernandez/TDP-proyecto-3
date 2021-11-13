@@ -22,7 +22,6 @@ public class Protagonista extends Movil {
 	protected boolean estadoPowerPellet;
 	protected int vidas;
 	protected ProtagonistaGUI miRepresentacion;
-	private HiloMoverProtagonista hilo;
 	
 	public Protagonista(Juego miJuego) {
 		this.miJuego = miJuego;
@@ -37,9 +36,14 @@ public class Protagonista extends Movil {
 	
 
 	public void moverAbajo() {
-		int posFin;
+		if(direccion != 0) {
+			cambiarImagen(0);
+			direccion = 0;
+		}
+		this.setY(posY + 4);
+		/*int posFin;
 
-		hilo = new HiloMoverProtagonista(20, miJuego);
+		//hilo = new HiloMoverProtagonista(20, miJuego);
 		posFin = posY + 4;
 		
 		if(direccion != 0) {
@@ -48,11 +52,19 @@ public class Protagonista extends Movil {
 		}
 		
 		hilo.moverEntidad(posX, posY, posX, posFin, 0, this);
-		hilo.start();	
+		//hilo.start();	
+		
+		*/
 
 	}
 	
 	public void moverArriba() {
+		if(direccion != 1) {
+			cambiarImagen(1);
+			direccion = 1;
+		}
+		this.setY(posY - 4);
+		/*
 		int posYFin;
 
 		hilo = new HiloMoverProtagonista(20, miJuego);
@@ -65,12 +77,19 @@ public class Protagonista extends Movil {
 		// Este if deberia hacerse chequeando colisiones con paredes, no mirando el rangoif(posY - 32 >= 32) {
 
 		hilo.moverEntidad(posX, posY, posX, posYFin, 1, this);
-		hilo.start();
+		hilo.start();*/
 	
 	}
 
 	public void moverIzquierda() {
-		int posFin;
+		
+
+		if(direccion != 3) {
+			cambiarImagen(3);
+			direccion = 3;
+		}
+		this.setX(posX - 4);
+		/*int posFin;
 
 		hilo = new HiloMoverProtagonista(20, miJuego);
 		posFin = posX - 4;
@@ -84,10 +103,17 @@ public class Protagonista extends Movil {
 		hilo.start();
 
 		//Falta cambiar de zona si es necesario hacerlo
-		
+		*/
 	}
 	
 	public void moverDerecha() {
+		
+		if(direccion != 2) {
+			cambiarImagen(2);
+			direccion = 2;
+		}
+		this.setX(posX + 4);
+		/*
 		int posFin;
 		
 		hilo = new HiloMoverProtagonista(20, miJuego);
@@ -100,6 +126,7 @@ public class Protagonista extends Movil {
 		
 		hilo.moverEntidad(posX, posY, posFin, posY, 2, this);
 		hilo.start();
+		*/
 	}
 	
 	public ProtagonistaGUI getGUI() {

@@ -1,7 +1,6 @@
 package GUI;
 
 import java.awt.EventQueue;
-import java.awt.Graphics;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -14,8 +13,6 @@ import Entidades.Moviles.Blinky;
 import Logica.Juego;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.List;
@@ -30,13 +27,11 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JPanel panel;
-	private Graphics graph;
 	private Juego miJuego;
-	private Entidad entidadActual;
-	private List<Entidad> nivel;
-	private JLabel[] arregloLabel;
-	private JLabel labelProtagonista;
 	private JLabel lblPuntaje;
+	private int codigoAnterior = KeyEvent.VK_LEFT;
+	private int codigoSiguiente = KeyEvent.VK_LEFT;
+	private boolean puedeMover = true;
 	/**
 	 * Launch the application.
 	 */
@@ -94,15 +89,10 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	}
 
 	public void moverEntidad(int posX, int posY, int posXFin, int posYFin, Entidad e) {
-		//labelProtagonista.move(posXFin, posYFin);
 		e.setBounds(posXFin, posYFin, e.getWidth(), e.getHeight());
-		//((JLabel)panel.getComponentAt(posX, posY)).move(posXFin, posYFin);;
-		//((JLabel)panel.getComponentAt(posX, posY)).setBounds(posXFin, posYFin, 32, 32);
 	}
 
 	public void inicializarNivel1(List<Entidad> nivel, Entidad protagonista, Blinky blinky) {
-		arregloLabel = new JLabel[nivel.size()];
-		this.nivel = nivel;
 		ImageIcon imagen;
 		protagonista.setBounds(protagonista.getX(), protagonista.getY(), 32, 32);
 		panel.add(protagonista);
@@ -111,8 +101,6 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		panel.add(blinky);
 		blinky.setIcon(new ImageIcon(VentanaGUI.class.getResource(blinky.getRepresentacion())));
 		for(Entidad e : nivel) {
-			//arregloLabel[i] = new JLabel();
-			//arregloLabel[i].setBounds(e.getX(), e.getY(), 32, 32);
 			e.setBounds(e.getX(), e.getY(), 32, 32);
 			panel.add(e);
 			imagen = new ImageIcon(VentanaGUI.class.getResource(e.getRepresentacion()));
@@ -144,6 +132,56 @@ public class VentanaGUI extends JFrame implements KeyListener{
 			miJuego.moverArribaAction();
 			break;
 		}
+		
+		/*
+		int code = e.getKeyCode();
+		switch(code) {
+		case KeyEvent.VK_RIGHT:
+			puedeMover = miJuego.moverDerAction();
+			if(puedeMover)
+				codigoAnterior = KeyEvent.VK_RIGHT;
+			else 
+				codigoSiguiente = KeyEvent.VK_RIGHT;
+			break;
+		case KeyEvent.VK_LEFT: 
+			puedeMover = miJuego.moverIzqAction();
+			if(puedeMover)
+				codigoAnterior = KeyEvent.VK_LEFT;
+			else 
+				codigoSiguiente = KeyEvent.VK_LEFT;
+			break;
+		case KeyEvent.VK_DOWN:
+			puedeMover = miJuego.moverAbajoAction();
+			if(puedeMover)
+				codigoAnterior = KeyEvent.VK_DOWN;
+			else
+				codigoSiguiente = KeyEvent.VK_DOWN;
+			break;
+		case KeyEvent.VK_UP:
+			puedeMover = miJuego.moverArribaAction();
+			if(puedeMover)
+				codigoAnterior = KeyEvent.VK_UP;
+			else 
+				codigoSiguiente = KeyEvent.VK_UP;
+			break;
+		}
+		if(!puedeMover) {
+			switch(codigoAnterior) {
+			case KeyEvent.VK_RIGHT:
+				miJuego.moverDerAction();
+				break;
+			case KeyEvent.VK_LEFT:
+				miJuego.moverIzqAction();
+				break;
+			case KeyEvent.VK_UP:
+				miJuego.moverArribaAction();
+				break;
+			case KeyEvent.VK_DOWN:
+				miJuego.moverAbajoAction();
+				break;
+			}
+			
+		}*/
 	}
 
 	@Override

@@ -14,6 +14,7 @@ import Fabrica.BuilderNivel;
 import Fabrica.Director;
 import GUI.VentanaGUI;
 import Hilos.HiloMoverEnemigos;
+import Hilos.HiloMoverProtagonista;
 import Visitors.Visitor;
 
 public class Juego {
@@ -26,10 +27,10 @@ public class Juego {
 	private Zona [][] matriz;
 	private HiloMoverEnemigos hiloEnemigos;
 	private Blinky blinky;
+	private HiloMoverProtagonista hiloProtagonista;
 	
 	public Juego(int tema, VentanaGUI ventana) {
 		miDirector = new Director(tema, this);
-		//hiloMover = new HiloMover(10);
 		matriz = new Zona[7][7];
 		for(int i = 0; i < 7 ; i++)
 			for(int j = 0 ; j < 7 ; j++)
@@ -39,6 +40,8 @@ public class Juego {
 		inicializarNivel1();
 		agregarAZona();
 		hiloEnemigos = new HiloMoverEnemigos(this, 70, null, null, blinky, null, miProtagonista);
+		hiloProtagonista = new HiloMoverProtagonista(30, this, miProtagonista);
+		hiloProtagonista.start();
 		hiloEnemigos.start();
 	}
 	
@@ -104,13 +107,12 @@ public class Juego {
 		HashSet<Entidad> listaSinRep = new HashSet<Entidad>();
 		Rectangle entidad = new Rectangle(posXFin, posYFin, movil.getTamano(), movil.getTamano());
 		
-		for(Entidad e: list)
+		for(Entidad e: list)//Arreglar esto
 			listaSinRep.add(e);
 		
 		for(Entidad e : listaSinRep) {
 			entidad2 = new Rectangle(e.getX(), e.getY(), e.getTamano(), e.getTamano());
 			if(entidad.intersects(entidad2)) {
-				//System.out.println("Colision.");
 				v1= movil.getVisitor();
 				esPared = e.accept(v1, this);
 				if(esPared)
@@ -121,8 +123,15 @@ public class Juego {
 		return esPared;
 	}
 	
-	public void moverDerAction() {
-		moverDer(miProtagonista);
+	public synchronized boolean moverDerAction() {
+		boolean esPared;
+		
+		esPared = moverDer(miProtagonista);
+		if(!esPared) {
+			miProtagonista.moverDerecha();
+			hiloProtagonista.movimiento(2);
+		}
+		return !esPared;
 	}
 	
 	private boolean moverDer(Movil movil) {
@@ -161,13 +170,18 @@ public class Juego {
 			zonaActualB.removeEntidad(movil);
 			zonaFinalB.addEntidad(movil);
 		}
-		if(!esPared)
-			movil.moverDerecha();
 		return esPared;
 	}
 
-	public void moverIzqAction() {
-		moverIzq(miProtagonista);
+	public synchronized boolean moverIzqAction() {
+		boolean esPared;
+		
+		esPared = moverIzq(miProtagonista);
+		if(!esPared) {
+			miProtagonista.moverIzquierda();
+			hiloProtagonista.movimiento(3);
+		}
+		return !esPared;
 	}
 	
 	private boolean moverIzq(Movil movil) {
@@ -207,13 +221,18 @@ public class Juego {
 			zonaActualB.removeEntidad(movil);
 			zonaFinalB.addEntidad(movil);
 		}
-		if(!esPared)
-			movil.moverIzquierda();
 		return esPared;
 	}
 
-	public void moverAbajoAction() {
-		moverAbajo(miProtagonista);
+	public synchronized boolean moverAbajoAction() {
+		boolean esPared;
+		
+		esPared = moverAbajo(miProtagonista);
+		if(!esPared) {
+			miProtagonista.moverAbajo();
+			hiloProtagonista.movimiento(0);
+		}
+		return !esPared;
 	}
 	
 	private boolean moverAbajo(Movil movil) {
@@ -236,7 +255,7 @@ public class Juego {
 		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + miProtagonista.getTamano() + 4);
 
 		
-			esPared=colision(movil, zonaFinalA.getLista(), miProtagonista.getX(), miProtagonista.getY() + 4);
+		esPared=colision(movil, zonaFinalA.getLista(), miProtagonista.getX(), miProtagonista.getY() + 4);
 		if(!esPared && zonaFinalA != zonaFinalB)
 			esPared=colision(movil, zonaFinalB.getLista(), miProtagonista.getX(), miProtagonista.getY() + 4);
 		if(!esPared && zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
@@ -253,13 +272,19 @@ public class Juego {
 			zonaFinalC.addEntidad(miProtagonista);
 		}
 		
-		if(!esPared)
-			movil.moverAbajo();
 		return esPared;
 	}
 
-	public void moverArribaAction() {
-		moverArriba(miProtagonista);
+	public synchronized boolean moverArribaAction() {
+		boolean esPared;
+		
+		esPared = moverArriba(miProtagonista);
+		
+		if(!esPared) {
+			miProtagonista.moverArriba();
+			hiloProtagonista.movimiento(1);
+		}
+		return !esPared;
 	}
 	
 	private boolean moverArriba(Movil movil) {
@@ -298,13 +323,10 @@ public class Juego {
 			zonaActualC.removeEntidad(miProtagonista);
 			zonaFinalC.addEntidad(miProtagonista);
 		}
-		if(!esPared)
-			movil.moverArriba();
-		
 		return esPared;
 	}
 
-	public Zona calcularZona(int cordX, int cordY) { //La zona se calcula con las coordenadas x e y, con el punto (0,0) de la entidad
+	public Zona calcularZona(int cordX, int cordY) {
 		int i;
 		int j;
 		
@@ -345,19 +367,43 @@ public class Juego {
 	}
 
 	public boolean moverIzqEnem(Enemigo enemigo) {
-		return moverIzq(enemigo);
+		boolean esPared;
+		
+		esPared = moverIzq(enemigo);
+		if(!esPared)
+			enemigo.moverIzquierda();
+		
+		return !esPared;
 	}
 
 	public boolean moverAbajoEnem(Enemigo enemigo) {
-		return moverAbajo(enemigo);
+		boolean esPared;
+		
+		esPared = moverAbajo(enemigo);
+		if(!esPared)
+			enemigo.moverAbajo();
+		
+		return !esPared;
 	}
 
 	public boolean moverArribaEnem(Enemigo enemigo) {
-		return moverArriba(enemigo);
+		boolean esPared;
+		
+		esPared = moverArriba(enemigo);
+		if(!esPared)
+			enemigo.moverArriba();
+		
+		return !esPared;
 	}
 
 	public boolean moverDerEnem(Enemigo enemigo) {
-		return moverDer(enemigo);
+		boolean esPared;
+		
+		esPared = moverDer(enemigo);
+		if(!esPared)
+			enemigo.moverDerecha();
+		
+		return !esPared;
 	}
 
 	public void ponerAzul() {
