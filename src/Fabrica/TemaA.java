@@ -63,6 +63,7 @@ public class TemaA extends Tema{
 		Blinky enemigo;
 		enemigo=new Blinky("/imagenesA/policiaAbajo.png");
 		enemigo.getGUI().setNormal("/imagenesA/policiaAbajo.png","/imagenesA/policiaArriba.png","/imagenesA/policiaIzquierda.png","/imagenesA/policiaDerecha.png") ;
+		enemigo.getGUI().setAzul("/imagenesA/policiaArribaAzul.png", "/imagenesA/policiaAbajoAzul.png", "/imagenesA/policiaDerechaAzul.png", "/imagenesA/policiaIzquierdaAzul.png");
 		return enemigo;
 	}
 	

@@ -31,8 +31,8 @@ public class ProtagonistaGUI extends MovilGUI {
 	public void setVelocidad(String velocidadArriba, String velocidadAbajo, String velocidadDerecha, String velocidadIzquierda) {
 		representacion[12] = velocidadAbajo;
 		representacion[13] = velocidadArriba;
-		representacion[14] = velocidadDerecha;
-		representacion[15] = velocidadIzquierda;
+		representacion[14] = velocidadIzquierda;
+		representacion[15] = velocidadDerecha;
 	}
 
 	public void azulAbajo() {

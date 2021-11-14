@@ -13,6 +13,7 @@ public abstract class Enemigo extends Movil {
 	private static final long serialVersionUID = 1L;
 	protected EnemigoGUI miRepresentacion;
 	protected int estado;
+	protected boolean estadoPowerPellet;
 	
 	public Enemigo(String string) {
 		miRepresentacion = new EnemigoGUI();
@@ -77,4 +78,69 @@ public abstract class Enemigo extends Movil {
 		}
 		this.setX(posX + 4);
 	}
+	
+	public void setEstadoPowerPellet(boolean estado) {
+		this.estadoPowerPellet = estado;
+		if(estado) {
+			switch(direccion) {
+			case 0:
+				cambiarImagen(4);
+				break;
+			case 1: 
+				cambiarImagen(5);
+				break;
+			case 2:
+				cambiarImagen(6);
+				break;
+			case 3:
+				cambiarImagen(7);
+				break;
+			}
+		}else {
+			switch(direccion) {
+			case 0:
+				cambiarImagen(0);
+				break;
+			case 1: 
+				cambiarImagen(1);
+				break;
+			case 2:
+				cambiarImagen(2);
+				break;
+			case 3:
+				cambiarImagen(3);
+				break;
+			}
+		}
+	}
+	
+	public void cambiarImagen(int num) {
+		switch(num) {
+		case 0:
+			this.miRepresentacion.rotarAbajo();
+			break;
+		case 1: 
+			this.miRepresentacion.rotarArriba();
+			break;
+		case 2:
+			this.miRepresentacion.rotarDer();
+			break;
+		case 3:
+			this.miRepresentacion.rotarIzq();
+			break;
+		case 4:
+			this.miRepresentacion.azulAbajo();
+			break;
+		case 5:
+			this.miRepresentacion.azulArriba();
+			break;
+		case 6: 
+			this.miRepresentacion.azulDer();
+			break;
+		case 7: 
+			miRepresentacion.azulIzquierda();
+			break;
+		}
+	}
+	
 }

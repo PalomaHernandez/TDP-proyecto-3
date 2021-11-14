@@ -413,12 +413,14 @@ public class Juego {
 	}
 
 	public void activarPowerPellet() {
-		blinky.setEstado(2); //es responsabilidad del enemigo cambiar sus imagenes
+		blinky.setEstado(4); //es responsabilidad del enemigo cambiar sus imagenes
 		//pinky.setEstado(2);
 		//inky.setEstado(2);
 		//clyde.setEstado(2);
 		miProtagonista.setEstadoPowerPellet(true);
+		//blinky.setEstadoPowerPellet(true);
 		hiloProtagonista.setPowerPellet();
+		//hiloEnemigos.setPowerPellet();
 	}
 	
 	public void activarBomba() {
@@ -445,6 +447,18 @@ public class Juego {
 
 	public void desactivarVelocidad() {
 		miProtagonista.setEstadoVelocidad(false);
+	}
+
+	public void eliminarProtagonista() {
+		miVentana.eliminarVidas(miProtagonista.getVidas());
+		
+	}
+
+	public void finalizarJuego() {
+		miVentana.cerrarJuego();
+		hiloProtagonista.detener();
+		hiloEnemigos.detener();
+		
 	}
 
 

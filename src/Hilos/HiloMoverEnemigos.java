@@ -22,6 +22,9 @@ public class HiloMoverEnemigos extends Thread {
 	private boolean activo;
 	private Rectangle casa;
 	private Juego miJuego;
+	private boolean estadoPowerPellet;
+	private long tiempoPowerPellet;
+	private long tiempoActual;
 	
 	//Estado 0 dispersarse. 1 perseguir. 2 correr. 3 morir (ir a la casa)
 	public HiloMoverEnemigos(Juego miJuego, int s, Clyde clyde, Inky inky, Blinky blinky, Pinky pinky, Protagonista protagonista) {
@@ -34,6 +37,7 @@ public class HiloMoverEnemigos extends Thread {
 		casa = new Rectangle(288, 288, 64, 96);
 		activo = true;
 		step=s;
+		estadoPowerPellet = false;
 	}
 	
 	public void setStep(int s) {
@@ -52,6 +56,14 @@ public class HiloMoverEnemigos extends Thread {
 				moverInky();
 				moverPinky();
 				moverBlinky();	
+				
+				if(estadoPowerPellet) {
+					tiempoActual = System.currentTimeMillis()/1000;
+					if(tiempoPowerPellet + 5 <= tiempoActual) {
+						estadoPowerPellet = false;
+						miJuego.desactivarPowerPellet();
+					}
+				}
 			}
 		}catch (InterruptedException e) {
 			e.printStackTrace();
@@ -132,6 +144,12 @@ public class HiloMoverEnemigos extends Thread {
 
 	private void moverClyde() {
 		// TODO Auto-generated method stub
+		
+	}
+
+	public void setPowerPellet() {
+		estadoPowerPellet = true;
+		tiempoPowerPellet = System.currentTimeMillis()/1000; //tiempo en el que se activo el powerpellet
 		
 	}
 		

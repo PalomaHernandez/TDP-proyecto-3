@@ -14,7 +14,7 @@ public interface Visitor {
 	
 	public void visit(Enemigo enemigo, Juego j);
 	
-	public void visit(Protagonista protagonista);
+	public void visit(Protagonista protagonista, Juego j);
 	
 	public void visit(Bomba bomba, Juego j);
 	

@@ -11,12 +11,13 @@ import javax.swing.border.EmptyBorder;
 import Entidades.Entidad;
 import Entidades.Moviles.Blinky;
 import Logica.Juego;
-
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.List;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.SwingConstants;
 
 public class VentanaGUI extends JFrame implements KeyListener{
@@ -32,6 +33,10 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	private int codigoAnterior = KeyEvent.VK_LEFT;
 	private int codigoSiguiente = KeyEvent.VK_LEFT;
 	private boolean puedeMover = true;
+	private JLabel lblVida1;
+	private JLabel lblVida2;
+	private JLabel lblVida3;
+	private int puntaje;
 	/**
 	 * Launch the application.
 	 */
@@ -65,11 +70,11 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		
 		panel = new JPanel();
 		panel.setBackground(Color.GRAY);
-		panel.setBounds(31, 38, 672, 672);
+		panel.setBounds(31, 51, 672, 657);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblScore = new JLabel("SCORE");
+		JLabel lblScore = new JLabel("SCORE:");
 		lblScore.setFont(new Font("Segoe UI Black", Font.PLAIN, 18));
 		lblScore.setForeground(Color.WHITE);
 		lblScore.setBounds(42, 11, 69, 20);
@@ -82,8 +87,32 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		lblPuntaje.setBounds(110, 13, 43, 17);
 		contentPane.add(lblPuntaje);
 		
+		lblVida1 = new JLabel("");
+		lblVida1.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblVida1.setForeground(Color.RED);
+		lblVida1.setBounds(455, 11, 36, 29);
+		contentPane.add(lblVida1);
+		
+		lblVida2 = new JLabel("");
+		lblVida2.setForeground(Color.RED);
+		lblVida2.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblVida2.setBounds(519, 11, 43, 29);
+		contentPane.add(lblVida2);
+		
+		lblVida3 = new JLabel("");
+		lblVida3.setForeground(Color.RED);
+		lblVida3.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblVida3.setBounds(584, 11, 43, 29);
+		contentPane.add(lblVida3);
+		
 		miJuego = new Juego(1, this);
 
+		ImageIcon icon= new ImageIcon(getClass().getResource("/imagenesA/autoDerecha.png"));
+		ImageIcon img= new ImageIcon(icon.getImage().getScaledInstance(lblVida1.getWidth(), lblVida1.getHeight(), Image.SCALE_SMOOTH));
+		lblVida1.setIcon(img);
+		lblVida2.setIcon(img);
+		lblVida3.setIcon(img);
+		
 		addKeyListener(this);
 		
 	}
@@ -191,6 +220,27 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	}
 	
 	public void actualizarPuntaje(int puntaje) {
+		this.puntaje=puntaje;
 		lblPuntaje.setText(""+puntaje);
+	}
+
+	public void eliminarVidas(int vidas) {
+		switch(vidas) {
+		case 1: lblVida1.setVisible(false);
+		break;
+		case 2: lblVida2.setVisible(false);
+		break;
+		case 3: lblVida3.setVisible(false);
+		break;
+		}
+		
+	}
+	
+	public void cerrarJuego() {
+		this.dispose();
+	}
+
+	public String getPuntaje() {
+		return puntaje+"";
 	}
 }
