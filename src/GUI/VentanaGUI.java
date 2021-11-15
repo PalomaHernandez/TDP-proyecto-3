@@ -85,7 +85,7 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		lblPuntaje.setFont(new Font("Segoe UI Black", Font.PLAIN, 18));
 		lblPuntaje.setHorizontalAlignment(SwingConstants.LEFT);
 		lblPuntaje.setForeground(Color.WHITE);
-		lblPuntaje.setBounds(110, 13, 43, 17);
+		lblPuntaje.setBounds(110, 13, 150, 17);
 		contentPane.add(lblPuntaje);
 		
 		lblVida1 = new JLabel("");
@@ -146,8 +146,9 @@ public class VentanaGUI extends JFrame implements KeyListener{
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		int code = e.getKeyCode();
 		
+		int code = e.getKeyCode();
+		/*
 		switch(code) {
 		case KeyEvent.VK_RIGHT:
 			miJuego.moverDerAction();
@@ -163,8 +164,8 @@ public class VentanaGUI extends JFrame implements KeyListener{
 			break;
 		}
 		
-		/*
-		int code = e.getKeyCode();
+		
+		*/
 		switch(code) {
 		case KeyEvent.VK_RIGHT:
 			puedeMover = miJuego.moverDerAction();
@@ -196,6 +197,9 @@ public class VentanaGUI extends JFrame implements KeyListener{
 			break;
 		}
 		if(!puedeMover) {
+			movimientoAnteriorHastaPoderMoverEnDireccionPedida(code);
+			
+			/*
 			switch(codigoAnterior) {
 			case KeyEvent.VK_RIGHT:
 				miJuego.moverDerAction();
@@ -210,8 +214,47 @@ public class VentanaGUI extends JFrame implements KeyListener{
 				miJuego.moverAbajoAction();
 				break;
 			}
+			*/
+		}
+	}
+
+	private void movimientoAnteriorHastaPoderMoverEnDireccionPedida(int code) {
+		boolean puedeMover = false;
+		
+		while(!puedeMover) {
+
+			switch(code) {
+			case KeyEvent.VK_RIGHT:
+				puedeMover = miJuego.moverDerAction();
+				break;
+			case KeyEvent.VK_LEFT: 
+				puedeMover = miJuego.moverIzqAction();
+				break;
+			case KeyEvent.VK_DOWN:
+				puedeMover = miJuego.moverAbajoAction();
+				break;
+			case KeyEvent.VK_UP:
+				puedeMover = miJuego.moverArribaAction();
+				break;
+			}
 			
-		}*/
+			if(!puedeMover) {
+				switch(codigoAnterior) {
+				case KeyEvent.VK_RIGHT:
+					miJuego.moverDerAction();
+					break;
+				case KeyEvent.VK_LEFT:
+					miJuego.moverIzqAction();
+					break;
+				case KeyEvent.VK_UP:
+					miJuego.moverArribaAction();
+					break;
+				case KeyEvent.VK_DOWN:
+					miJuego.moverAbajoAction();
+					break;
+				}
+			}
+		}
 	}
 
 	@Override
