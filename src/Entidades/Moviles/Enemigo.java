@@ -23,6 +23,7 @@ public abstract class Enemigo extends Movil {
 		tamano = 32;
 		v= new VisitorFantasma();
 		representacion=string;
+		estadoPowerPellet = false;
 		estado = 0; //Estado dispersarse
 	}
 	
@@ -46,8 +47,11 @@ public abstract class Enemigo extends Movil {
 	@Override
 	public void moverArriba() {
 
-		if(direccion != 1) {
+		if(estadoPowerPellet)
+			cambiarImagen(5);
+		else 
 			cambiarImagen(1);
+		if(direccion != 1) {
 			direccion = 1;
 		}
 		this.setY(posY - 4);
@@ -55,9 +59,11 @@ public abstract class Enemigo extends Movil {
 
 	@Override
 	public void moverAbajo() {
-		
-		if(direccion != 0) {
+		if(estadoPowerPellet)
+			cambiarImagen(4);
+		else
 			cambiarImagen(0);
+		if(direccion != 0) {
 			direccion = 0;
 		}
 		this.setY(posY + 4);
@@ -65,9 +71,11 @@ public abstract class Enemigo extends Movil {
 
 	@Override
 	public void moverIzquierda() {
-		
-		if(direccion != 3) {
+		if(estadoPowerPellet)
+			cambiarImagen(7);
+		else
 			cambiarImagen(3);
+		if(direccion != 3) {
 			direccion = 3;
 		}
 		this.setX(posX - 4);
@@ -75,8 +83,11 @@ public abstract class Enemigo extends Movil {
 
 	@Override
 	public void moverDerecha() {
-		if(direccion != 2) {
+		if(estadoPowerPellet)
+			cambiarImagen(6);
+		else
 			cambiarImagen(2);
+		if(direccion != 2) {
 			direccion = 2;
 		}
 		this.setX(posX + 4);

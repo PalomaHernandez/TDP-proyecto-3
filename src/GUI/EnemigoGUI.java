@@ -21,24 +21,23 @@ public class EnemigoGUI extends MovilGUI{
 		representacion[5] = azulAbajo;
 		representacion[6] = azulIzquierda;
 		representacion[7] = azulDerecha;
-		this.estadoActual=azulAbajo;
 	}
 	
 	
 	
 	public void azulAbajo() {
-		this.estadoActual = representacion[4];
-	}
-
-	public void azulArriba() {
 		this.estadoActual = representacion[5];
 	}
 
+	public void azulArriba() {
+		this.estadoActual = representacion[4];
+	}
+
 	public void azulDer() {
-		this.estadoActual = representacion[6];
+		this.estadoActual = representacion[7];
 	}
 
 	public void azulIzquierda() {
-		this.estadoActual = representacion[7];
+		this.estadoActual = representacion[6];
 	}
 }

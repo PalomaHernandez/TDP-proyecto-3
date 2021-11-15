@@ -43,8 +43,7 @@ public class VisitorProtagonista implements Visitor{
 
 	@Override
 	public void visit(Protagonista protagonista, Juego j) {
-		System.out.println("visite protagonista");
-
+		
 	}
 
 	@Override

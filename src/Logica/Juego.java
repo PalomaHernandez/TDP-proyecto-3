@@ -446,6 +446,7 @@ public class Juego {
 
 	public void desactivarPowerPellet() {
 		miProtagonista.setEstadoPowerPellet(false);
+		blinky.setEstadoPowerPellet(false);
 		//blinky.setEstado(1);
 		//pinky.setEstado(0);
 		//inky.setEstado(0);
@@ -489,7 +490,7 @@ public class Juego {
 		Rectangle recBlinky = new Rectangle(blinky.getX(), blinky.getY(), blinky.getTamano(), blinky.getTamano());
 		//Rectangle recInky = new Rectangle(inky.getX(), inky.getY(), inky.getTamano(), inky.getTamano());
 		//Rectangle recPinky = new Rectangle(pinky.getX(), pinky.getY(), pinky.getTamano(), pinky.getTamano());
-		Rectangle recProtagonista = new Rectangle(miProtagonista.getX(), miProtagonista.getY(), miProtagonista.getTamano(), miProtagonista.getTamano());
+		Rectangle recProtagonista = new Rectangle(miProtagonista.getX()-1, miProtagonista.getY()-1, miProtagonista.getTamano()+2, miProtagonista.getTamano()+2);
 		
 		/*
 		if(recClyde.intersects(recProtagonista)) {
