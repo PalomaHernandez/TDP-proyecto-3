@@ -25,7 +25,14 @@ public class Nivel {
 	
 	public Nivel() {
 		lista = new HashSet<Entidad>();
+<<<<<<< HEAD
 		cantPuntos=200;
+=======
+	}
+	
+	public void setCantPuntos(int puntos) {
+		cantPuntos = puntos;
+>>>>>>> c7dfa3f48f36ac7f6aa3783cd3ca3c6ebaf32a6b
 	}
 	
 	public int getCantPuntos() {

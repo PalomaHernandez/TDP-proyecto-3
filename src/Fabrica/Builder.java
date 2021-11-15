@@ -8,6 +8,7 @@ public interface Builder {
 	public void setPared(Tema tema,int x, int y, int repre);
 	public void setProtagonista(Tema tema,int x, int y);
 	public void setEnemigos(Tema tema,int x, int y);
+	public void setCantPuntos();
 	public void setFruta(Tema tema, int x, int y);
 	public void setPowerPellet(Tema tema, int x, int y);
 	public void setPacDot(Tema tema, int x, int y);
