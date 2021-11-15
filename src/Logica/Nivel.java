@@ -21,9 +21,19 @@ public class Nivel {
 	private Pinky pinky;
 	private HashSet<Entidad> lista;
 	private List<Enemigo> listaEnemigos;
-
+	private int cantPuntos;
+	
 	public Nivel() {
 		lista = new HashSet<Entidad>();
+		cantPuntos=155;
+	}
+	
+	public int getCantPuntos() {
+		return cantPuntos;
+	}
+	
+	public void restarPunto() {
+		cantPuntos--;
 	}
 	
 	public HashSet<Entidad> getNivel(){

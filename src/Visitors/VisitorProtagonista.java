@@ -13,6 +13,7 @@ import Entidades.Estaticas.Velocidad;
 import Entidades.Moviles.Enemigo;
 import Entidades.Moviles.Protagonista;
 import Logica.Juego;
+import Logica.Nivel;
 import Logica.Zona;
 
 public class VisitorProtagonista implements Visitor{
@@ -67,23 +68,33 @@ public class VisitorProtagonista implements Visitor{
 	@Override
 	public void visit(PowerPellet powerpellet, Juego j) {
 		System.out.println("visite powerPellet");
-		//powerpellet.setCantPuntos(powerpellet.getCantPuntos()-1);
+		Nivel nivel= j.getNivel();
+		nivel.restarPunto();
 		Zona z = j.calcularZona(powerpellet.getX(), powerpellet.getY());
 		z.removeEntidad(powerpellet);
 		powerpellet.setVisible(false);
 		j.setPuntaje(j.getPuntaje()+30);
 		j.activarPowerPellet();//este metodo actualizaria los estados del fantasma (actualizando su imagen)
+		if(nivel.getCantPuntos()==0) {
+			System.out.println("termine");
+			j.finalizarJuego();
+		}
 		
 	}
 
 	@Override
 	public void visit(PacDot pacdot, Juego j) {
 		System.out.println("visite pacdot");
-		pacdot.setCantPuntos(pacdot.getCantPuntos()-1);
+		Nivel nivel= j.getNivel();
+		nivel.restarPunto();
 		Zona z = j.calcularZona(pacdot.getX(), pacdot.getY());
 		z.removeEntidad(pacdot);
 		pacdot.setVisible(false);
 		j.setPuntaje(j.getPuntaje()+10);
+		if(nivel.getCantPuntos()==0) {
+			System.out.println("termine");
+			j.finalizarJuego();
+		}
 	}
 
 	@Override
