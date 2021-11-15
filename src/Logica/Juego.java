@@ -462,5 +462,16 @@ public class Juego {
 		
 	}
 
+	public void reiniciarEnemigos(Enemigo enemigo) {
+		enemigo.setX(320);
+		enemigo.setY(320);
+	}
+	
 
+	public void reiniciarProtagonista() {
+		miProtagonista.setX(320);
+		miProtagonista.setY(544);
+		//ver como acomodar la rotacion del protagonista
+		}
+	
 }

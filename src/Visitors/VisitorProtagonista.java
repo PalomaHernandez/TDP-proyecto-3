@@ -22,19 +22,16 @@ public class VisitorProtagonista implements Visitor{
 		Protagonista miProta= j.getProtagonista();
 		if(miProta.getPowerPellet()==true) {
 			//el enemigo vuelve a la casa
-			enemigo.setX(320);
-			enemigo.setY(320);
+			j.reiniciarEnemigos(enemigo);
 		}
 		else {
 			if(miProta.getVidas()>0) { //si el protagonista aun tiene vida
 			j.eliminarProtagonista();
 			miProta.setVidas(miProta.getVidas() - 1);
 			//reiniciar posiciones de las entidades moviles
-			miProta.setX(320);
-			miProta.setY(544);
+			j.reiniciarProtagonista();
 			//aca deberia pedir la lista de los enemigos y reiniciarle la pos a todos
-			enemigo.setX(320);
-			enemigo.setY(320);
+			j.reiniciarEnemigos(enemigo);
 			}
 			else
 				j.finalizarJuego();

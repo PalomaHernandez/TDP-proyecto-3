@@ -34,7 +34,7 @@ public class Protagonista extends Movil {
 		v= new VisitorProtagonista();
 	}
 	
-
+	
 	public void setEstadoBomba(boolean estado) {
 		this.estadoBomba = estado;
 		if(estado) {

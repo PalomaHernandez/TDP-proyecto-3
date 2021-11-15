@@ -135,8 +135,11 @@ public class Director {
 		builder.setPacDot(tema, 330, 192);
 		builder.setPacDot(tema, 330, 224);
 
+		for(int i = 266; i < 326; i += 32) {
+			builder.setPacDot(tema, i, 160);
+		}
 		
-		for(int i = 266; i <= 394; i += 32) {
+		for(int i = 358; i <= 394; i += 32) {
 			builder.setPacDot(tema, i, 160);
 		}
 		
