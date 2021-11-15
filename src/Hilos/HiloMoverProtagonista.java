@@ -45,6 +45,7 @@ public class HiloMoverProtagonista extends Thread {
 	public void setVelocidad() {
 		estadoVelocidad = true;
 		tiempoVelocidad = System.currentTimeMillis()/1000; //tiempo en el que se activo la velocidad
+		step = 20;
 	}
 	
 	public void setStep(int s) {

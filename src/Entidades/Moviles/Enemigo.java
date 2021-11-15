@@ -17,7 +17,7 @@ public abstract class Enemigo extends Movil {
 	
 	public Enemigo(String string) {
 		miRepresentacion = new EnemigoGUI();
-		tamano = 20;
+		tamano = 32;
 		v= new VisitorFantasma();
 		representacion=string;
 		estado = 0; //Estado dispersarse

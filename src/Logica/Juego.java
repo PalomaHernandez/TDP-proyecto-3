@@ -211,7 +211,7 @@ public class Juego {
 		zonaFinalD = calcularZona(movil.getX() + movil.getTamano() - 4, movil.getY() + movil.getTamano());
 		
 		
-			esPared=colision(movil, zonaFinalA.getLista(),movil.getX() - 4, movil.getY());
+		esPared=colision(movil, zonaFinalA.getLista(),movil.getX() - 4, movil.getY());
 		if(!esPared && zonaFinalA != zonaFinalB)
 			esPared=colision(movil, zonaFinalB.getLista(),movil.getX() - 4, movil.getY());
 		if(!esPared && zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
@@ -339,34 +339,34 @@ public class Juego {
 		i = 0;
 		j = 0;
 		
-		if(cordX <= 96) 
+		if(cordX < 96) 
 			i = 0;
-		else if(cordX <= 192)
+		else if(cordX < 192)
 			i = 1;
-		else if(cordX <= 288)
+		else if(cordX < 288)
 			i = 2;
-		else if(cordX <= 384)
+		else if(cordX < 384)
 			i = 3;
-		else if(cordX <= 480)
+		else if(cordX < 480)
 			i = 4;
-		else if(cordX <= 576)
+		else if(cordX < 576)
 			i = 5;
-		else if(cordX <= 678)
+		else if(cordX < 672)
 			i = 6;
 		
-		if(cordY <= 96) 
+		if(cordY < 96) 
 			j = 0;
-		else if(cordY <= 192)
+		else if(cordY < 192)
 			j = 1;
-		else if(cordY <= 288)
+		else if(cordY < 288)
 			j = 2;
-		else if(cordY <= 384)
+		else if(cordY < 384)
 			j = 3;
-		else if(cordY <= 480)
+		else if(cordY < 480)
 			j = 4;
-		else if(cordY <= 576)
+		else if(cordY < 576)
 			j = 5;
-		else if(cordY <= 678)
+		else if(cordY < 672)
 			j = 6;
 		
 		return matriz[i][j];
@@ -447,6 +447,7 @@ public class Juego {
 
 	public void desactivarVelocidad() {
 		miProtagonista.setEstadoVelocidad(false);
+		hiloProtagonista.setStep(30);
 	}
 
 	public void eliminarProtagonista() {
