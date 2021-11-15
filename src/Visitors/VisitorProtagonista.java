@@ -27,24 +27,24 @@ public class VisitorProtagonista implements Visitor{
 		}
 		else {
 			if(miProta.getVidas()>0) { //si el protagonista aun tiene vida
-			j.eliminarProtagonista();
-			miProta.setVidas(miProta.getVidas() - 1);
-			//reiniciar posiciones de las entidades moviles
-			j.reiniciarProtagonista();
-			//aca deberia pedir la lista de los enemigos y reiniciarle la pos a todos
-			j.reiniciarEnemigos(enemigo);
+				j.eliminarProtagonista();
+				miProta.setVidas(miProta.getVidas() - 1);
+				//reiniciar posiciones de las entidades moviles
+				j.reiniciarProtagonista();
+				//aca deberia pedir la lista de los enemigos y reiniciarle la pos a todos
+				j.reiniciarEnemigos(enemigo);
 			}
 			else
 				j.finalizarJuego();
 		}
 		System.out.println("visite enemigo");
-		
+
 	}
 
 	@Override
 	public void visit(Protagonista protagonista, Juego j) {
 		System.out.println("visite protagonista");
-		
+
 	}
 
 	@Override
@@ -79,7 +79,7 @@ public class VisitorProtagonista implements Visitor{
 			System.out.println("termine");
 			j.finalizarJuego();
 		}
-		
+
 	}
 
 	@Override
@@ -109,7 +109,7 @@ public class VisitorProtagonista implements Visitor{
 	@Override
 	public void visit(Pared pared) {
 		System.out.println("visite pared");
-		
+
 	}
 
 

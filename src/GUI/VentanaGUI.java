@@ -71,39 +71,39 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		
 		panel = new JPanel();
 		panel.setBackground(Color.GRAY);
-		panel.setBounds(31, 51, 672, 657);
+		panel.setBounds(31, 51, 672, 672);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblScore = new JLabel("SCORE:");
 		lblScore.setFont(new Font("Segoe UI Black", Font.PLAIN, 18));
 		lblScore.setForeground(Color.WHITE);
-		lblScore.setBounds(42, 11, 69, 20);
+		lblScore.setBounds(31, 20, 69, 20);
 		contentPane.add(lblScore);
 		
 		lblPuntaje = new JLabel("0");
 		lblPuntaje.setFont(new Font("Segoe UI Black", Font.PLAIN, 18));
 		lblPuntaje.setHorizontalAlignment(SwingConstants.LEFT);
 		lblPuntaje.setForeground(Color.WHITE);
-		lblPuntaje.setBounds(110, 13, 150, 17);
+		lblPuntaje.setBounds(102, 22, 150, 17);
 		contentPane.add(lblPuntaje);
 		
 		lblVida1 = new JLabel("");
 		lblVida1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblVida1.setForeground(Color.RED);
-		lblVida1.setBounds(455, 11, 36, 29);
+		lblVida1.setBounds(466, 11, 32, 32);
 		contentPane.add(lblVida1);
 		
 		lblVida2 = new JLabel("");
 		lblVida2.setForeground(Color.RED);
 		lblVida2.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblVida2.setBounds(519, 11, 43, 29);
+		lblVida2.setBounds(519, 11, 32, 32);
 		contentPane.add(lblVida2);
 		
 		lblVida3 = new JLabel("");
 		lblVida3.setForeground(Color.RED);
 		lblVida3.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblVida3.setBounds(584, 11, 43, 29);
+		lblVida3.setBounds(572, 11, 32, 32);
 		contentPane.add(lblVida3);
 		
 		miJuego = new Juego(1, this);
