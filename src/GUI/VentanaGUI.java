@@ -14,6 +14,7 @@ import Logica.Juego;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.HashSet;
 import java.util.List;
 import java.awt.Font;
 import java.awt.Image;
@@ -121,7 +122,7 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		e.setBounds(posXFin, posYFin, e.getWidth(), e.getHeight());
 	}
 
-	public void inicializarNivel1(List<Entidad> nivel, Entidad protagonista, Blinky blinky) {
+	public void inicializarNivel1(HashSet<Entidad> nivel, Entidad protagonista, Blinky blinky) {
 		ImageIcon imagen;
 		protagonista.setBounds(protagonista.getX(), protagonista.getY(), 32, 32);
 		panel.add(protagonista);

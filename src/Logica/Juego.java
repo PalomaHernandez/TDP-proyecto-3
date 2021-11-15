@@ -106,7 +106,7 @@ public class Juego {
 		miVentana.inicializarNivel1(miNivel.getNivel(), miProtagonista, blinky);
 	}
 
-	public boolean colision(Movil movil, List<Entidad> list, int posXFin, int posYFin) {
+	public boolean colision(Movil movil, HashSet<Entidad> list, int posXFin, int posYFin) {
 		boolean esPared = false;
 		Visitor v1;
 		Rectangle entidad2;

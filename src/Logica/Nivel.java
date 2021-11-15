@@ -1,5 +1,6 @@
 package Logica;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,14 +19,14 @@ public class Nivel {
 	private Blinky blinky;
 	private Inky inky;
 	private Pinky pinky;
-	private List<Entidad> lista;
+	private HashSet<Entidad> lista;
 	private List<Enemigo> listaEnemigos;
 
 	public Nivel() {
-		lista = new LinkedList<Entidad>();
+		lista = new HashSet<Entidad>();
 	}
 	
-	public List<Entidad> getNivel(){
+	public HashSet<Entidad> getNivel(){
 		return lista;
 	}
 	

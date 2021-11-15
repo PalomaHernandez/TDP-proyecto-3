@@ -1,23 +1,22 @@
 package Logica;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashSet;
 
 import Entidades.Entidad;
 
 public class Zona {
 
-	private List<Entidad> lista;
+	private HashSet<Entidad> lista;
 	
 	public Zona() {
-		lista = new LinkedList<Entidad>();
+		lista = new HashSet<Entidad>();
 	}
 	
 	public void addEntidad(Entidad e) {
 		lista.add(e);
 	}
 	
-	public List<Entidad> getLista() {
+	public HashSet<Entidad> getLista() {
 		return lista;
 	}
 	
