@@ -62,8 +62,8 @@ public class Juego {
 		return puntaje;
 	}
 
-	public void setPuntaje(int p) {
-		puntaje=p;
+	public void aumentarPuntaje(int p) {
+		puntaje+=p;
 		miVentana.actualizarPuntaje(puntaje);
 	}
 
@@ -252,30 +252,30 @@ public class Juego {
 		Zona zonaFinalC;
 		Zona zonaFinalD;
 
-		zonaActualA = calcularZona(miProtagonista.getX(), miProtagonista.getY());
-		zonaActualC = calcularZona(miProtagonista.getX(), miProtagonista.getY() + miProtagonista.getTamano());
+		zonaActualA = calcularZona(movil.getX(), movil.getY());
+		zonaActualC = calcularZona(movil.getX(), movil.getY() + movil.getTamano());
 
-		zonaFinalA = calcularZona(miProtagonista.getX(), miProtagonista.getY() + 4);
-		zonaFinalB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + 4);
-		zonaFinalC = calcularZona(miProtagonista.getX(), miProtagonista.getY() + miProtagonista.getTamano() + 4);
-		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + miProtagonista.getTamano() + 4);
+		zonaFinalA = calcularZona(movil.getX(), movil.getY() + 4);
+		zonaFinalB = calcularZona(movil.getX() + movil.getTamano(), movil.getY() + 4);
+		zonaFinalC = calcularZona(movil.getX(), movil.getY() + movil.getTamano() + 4);
+		zonaFinalD = calcularZona(movil.getX() + movil.getTamano(), movil.getY() + movil.getTamano() + 4);
 
 
-		esPared=colision(movil, zonaFinalA.getLista(), miProtagonista.getX(), miProtagonista.getY() + 4);
+		esPared=colision(movil, zonaFinalA.getLista(), movil.getX(), movil.getY() + 4);
 		if(!esPared && zonaFinalA != zonaFinalB)
-			esPared=colision(movil, zonaFinalB.getLista(), miProtagonista.getX(), miProtagonista.getY() + 4);
+			esPared=colision(movil, zonaFinalB.getLista(), movil.getX(), movil.getY() + 4);
 		if(!esPared && zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
-			esPared=colision(movil, zonaFinalC.getLista(),miProtagonista.getX(), miProtagonista.getY() + 4);
+			esPared=colision(movil, zonaFinalC.getLista(),movil.getX(), movil.getY() + 4);
 		if(!esPared && zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
-			esPared=colision(movil, zonaFinalD.getLista(), miProtagonista.getX(), miProtagonista.getY() + 4);
+			esPared=colision(movil, zonaFinalD.getLista(), movil.getX(), movil.getY() + 4);
 
 		if(zonaFinalA != zonaActualA) {
-			zonaActualA.removeEntidad(miProtagonista);
-			zonaFinalA.addEntidad(miProtagonista);
+			zonaActualA.removeEntidad(movil);
+			zonaFinalA.addEntidad(movil);
 		}
 		if(zonaFinalC != zonaActualC){
-			zonaActualC.removeEntidad(miProtagonista);
-			zonaFinalC.addEntidad(miProtagonista);
+			zonaActualC.removeEntidad(movil);
+			zonaFinalC.addEntidad(movil);
 		}
 
 		return esPared;
@@ -304,30 +304,30 @@ public class Juego {
 		Zona zonaFinalC;
 		Zona zonaFinalD;
 
-		zonaActualA = calcularZona(miProtagonista.getX(), miProtagonista.getY());
-		zonaActualC = calcularZona(miProtagonista.getX(), miProtagonista.getY() + miProtagonista.getTamano());
+		zonaActualA = calcularZona(movil.getX(), movil.getY());
+		zonaActualC = calcularZona(movil.getX(), movil.getY() + movil.getTamano());
 
-		zonaFinalA = calcularZona(miProtagonista.getX(), miProtagonista.getY() - 4);
-		zonaFinalB = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() - 4);
-		zonaFinalC = calcularZona(miProtagonista.getX(), miProtagonista.getY() + miProtagonista.getTamano() - 4);
-		zonaFinalD = calcularZona(miProtagonista.getX() + miProtagonista.getTamano(), miProtagonista.getY() + miProtagonista.getTamano() - 4);
+		zonaFinalA = calcularZona(movil.getX(), movil.getY() - 4);
+		zonaFinalB = calcularZona(movil.getX() + movil.getTamano(), movil.getY() - 4);
+		zonaFinalC = calcularZona(movil.getX(), movil.getY() + movil.getTamano() - 4);
+		zonaFinalD = calcularZona(movil.getX() + movil.getTamano(), movil.getY() + movil.getTamano() - 4);
 
 
-		esPared=colision(movil, zonaFinalA.getLista(),miProtagonista.getX(), miProtagonista.getY() - 4);
+		esPared=colision(movil, zonaFinalA.getLista(),movil.getX(), movil.getY() - 4);
 		if(!esPared && zonaFinalA != zonaFinalB)
-			esPared=colision(movil, zonaFinalB.getLista(),  miProtagonista.getX(), miProtagonista.getY() - 4);
+			esPared=colision(movil, zonaFinalB.getLista(),  movil.getX(), movil.getY() - 4);
 		if(!esPared && zonaFinalA != zonaFinalC && zonaFinalB != zonaFinalC)
-			esPared=colision(movil, zonaFinalC.getLista(), miProtagonista.getX(), miProtagonista.getY() - 4);
+			esPared=colision(movil, zonaFinalC.getLista(), movil.getX(), movil.getY() - 4);
 		if(!esPared && zonaFinalA != zonaFinalD && zonaFinalB != zonaFinalD && zonaFinalC != zonaFinalD)
-			esPared=colision(movil, zonaFinalD.getLista(),  miProtagonista.getX(), miProtagonista.getY() - 4);
+			esPared=colision(movil, zonaFinalD.getLista(),  movil.getX(), movil.getY() - 4);
 
 		if(zonaFinalA != zonaActualA) {
-			zonaActualA.removeEntidad(miProtagonista);
-			zonaFinalA.addEntidad(miProtagonista);
+			zonaActualA.removeEntidad(movil);
+			zonaFinalA.addEntidad(movil);
 		}
 		if(zonaFinalC != zonaActualC){
-			zonaActualC.removeEntidad(miProtagonista);
-			zonaFinalC.addEntidad(miProtagonista);
+			zonaActualC.removeEntidad(movil);
+			zonaFinalC.addEntidad(movil);
 		}
 		return esPared;
 	}
@@ -480,6 +480,30 @@ public class Juego {
 		miProtagonista.setY(544);
 		moverIzqAction();
 		//ver como acomodar la rotacion del protagonista
+	}
+
+	public Enemigo buscarEnemigo() {
+		Enemigo enemigoAEliminar = null;
+		Rectangle recClyde = new Rectangle(clyde.getX(), clyde.getY(), clyde.getTamano(), clyde.getTamano());
+		Rectangle recBlinky = new Rectangle(blinky.getX(), blinky.getY(), blinky.getTamano(), blinky.getTamano());
+		Rectangle recInky = new Rectangle(inky.getX(), inky.getY(), inky.getTamano(), inky.getTamano());
+		Rectangle recPinky = new Rectangle(pinky.getX(), pinky.getY(), pinky.getTamano(), pinky.getTamano());
+		Rectangle recProtagonista = new Rectangle(miProtagonista.getX(), miProtagonista.getY(), miProtagonista.getTamano(), miProtagonista.getTamano());
+		
+		if(recClyde.intersects(recProtagonista)) {
+			enemigoAEliminar = clyde;
+		}
+		if(recInky.intersects(recProtagonista)) {
+			enemigoAEliminar = inky;
+		}
+		if(recBlinky.intersects(recProtagonista)) {
+			enemigoAEliminar = blinky;
+		}
+		if(recPinky.intersects(recProtagonista)) {
+			enemigoAEliminar = pinky;
+		}
+		
+		return enemigoAEliminar;
 	}
 
 }

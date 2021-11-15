@@ -292,6 +292,7 @@ public class Protagonista extends Movil {
 
 	@Override
 	public boolean accept(Visitor v, Juego j) {
+		v.visit(this, j);
 		return false;
 	}
 	

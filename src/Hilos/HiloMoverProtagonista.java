@@ -61,23 +61,26 @@ public class HiloMoverProtagonista extends Thread {
 	}
 	
 	public void run() {
+		boolean puedeMover = false;
 		try {
 			while(activo) {
 				Thread.sleep(step);
 				switch(movimiento) {
 				case 0:
-					miJuego.moverAbajoAction();
+					puedeMover = miJuego.moverAbajoAction();
 					break;
 				case 1:
-					miJuego.moverArribaAction();
+					puedeMover = miJuego.moverArribaAction();
 					break;
 				case 2:
-					miJuego.moverDerAction();
+					puedeMover = miJuego.moverDerAction();
 					break;
 				case 3:
-					miJuego.moverIzqAction();
+					puedeMover = miJuego.moverIzqAction();
 					break;
 				}
+				if(!puedeMover)
+					movimiento = 4;//Para que no siga chequeando la misma colision
 				if(estadoBomba) {
 					tiempoActual = System.currentTimeMillis()/1000;
 					if(tiempoBomba + 10 <= tiempoActual) {

@@ -73,7 +73,7 @@ public class VisitorProtagonista implements Visitor{
 		Zona z = j.calcularZona(powerpellet.getX(), powerpellet.getY());
 		z.removeEntidad(powerpellet);
 		powerpellet.setVisible(false);
-		j.setPuntaje(j.getPuntaje()+30);
+		j.aumentarPuntaje(30);
 		j.activarPowerPellet();//este metodo actualizaria los estados del fantasma (actualizando su imagen)
 		if(nivel.getCantPuntos()==0) {
 			System.out.println("termine");
@@ -90,7 +90,7 @@ public class VisitorProtagonista implements Visitor{
 		Zona z = j.calcularZona(pacdot.getX(), pacdot.getY());
 		z.removeEntidad(pacdot);
 		pacdot.setVisible(false);
-		j.setPuntaje(j.getPuntaje()+10);
+		j.aumentarPuntaje(10);
 		if(nivel.getCantPuntos()==0) {
 			System.out.println("termine");
 			j.finalizarJuego();
@@ -103,7 +103,7 @@ public class VisitorProtagonista implements Visitor{
 		Zona z = j.calcularZona(fruta.getX(), fruta.getY());
 		z.removeEntidad(fruta);
 		fruta.setVisible(false);
-		j.setPuntaje(j.getPuntaje()+100);   //ver  como cambiar el valor segun el nivel
+		j.aumentarPuntaje(100);//ver  como cambiar el valor segun el nivel
 	}
 
 	@Override

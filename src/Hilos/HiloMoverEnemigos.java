@@ -25,6 +25,8 @@ public class HiloMoverEnemigos extends Thread {
 	private boolean estadoPowerPellet;
 	private long tiempoPowerPellet;
 	private long tiempoActual;
+	private final int puertaX = 320;
+	private final int puertaY = 288; 
 	
 	//Estado 0 dispersarse. 1 perseguir. 2 correr. 3 morir (ir a la casa)
 	public HiloMoverEnemigos(Juego miJuego, int s, Clyde clyde, Inky inky, Blinky blinky, Pinky pinky, Protagonista protagonista) {
@@ -77,20 +79,12 @@ public class HiloMoverEnemigos extends Thread {
 			perseguir(blinky);
 			break;
 		case 2:
-			correr(blinky);
-			break;
-		case 3:
 			irACasa(blinky);
 			break;
 		}
 	}
 
 	private void irACasa(Enemigo enemigo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void correr(Enemigo enemigo) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -120,7 +114,7 @@ public class HiloMoverEnemigos extends Thread {
 			if(!puedeMover && enemigo.getY() > y)
 				puedeMover = miJuego.moverArribaEnem(enemigo);
 		}else if(enemigo.getX() == x) {
-			if(enemigo.getY() < y)
+			if((enemigo.getX() != puertaX || enemigo.getY() != puertaY) && enemigo.getY() < y)
 				puedeMover = miJuego.moverAbajoEnem(enemigo);
 			else if(enemigo.getY() > y)
 				puedeMover = miJuego.moverArribaEnem(enemigo);

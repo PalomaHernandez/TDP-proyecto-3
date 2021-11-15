@@ -148,7 +148,7 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	public void keyPressed(KeyEvent e) {
 		
 		int code = e.getKeyCode();
-		/*
+		
 		switch(code) {
 		case KeyEvent.VK_RIGHT:
 			miJuego.moverDerAction();
@@ -165,7 +165,7 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		}
 		
 		
-		*/
+		/*
 		switch(code) {
 		case KeyEvent.VK_RIGHT:
 			puedeMover = miJuego.moverDerAction();
@@ -199,7 +199,7 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		if(!puedeMover) {
 			movimientoAnteriorHastaPoderMoverEnDireccionPedida(code);
 			
-			/*
+			
 			switch(codigoAnterior) {
 			case KeyEvent.VK_RIGHT:
 				miJuego.moverDerAction();
@@ -214,8 +214,9 @@ public class VentanaGUI extends JFrame implements KeyListener{
 				miJuego.moverAbajoAction();
 				break;
 			}
-			*/
+			
 		}
+	*/
 	}
 
 	private void movimientoAnteriorHastaPoderMoverEnDireccionPedida(int code) {
