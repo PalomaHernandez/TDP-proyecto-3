@@ -416,13 +416,14 @@ public class Juego {
 		miProtagonista.setEstadoBomba(false);
 		miProtagonista.setEstadoVelocidad(false);
 		blinky.setEstado(1); //es responsabilidad del enemigo cambiar sus imagenes
+		blinky.setEstadoPowerPellet(true);
 		//pinky.setEstado(2);
 		//inky.setEstado(2);
 		//clyde.setEstado(2);
 		miProtagonista.setEstadoPowerPellet(true);
 		//blinky.setEstadoPowerPellet(true);
 		hiloProtagonista.setPowerPellet();
-		//hiloEnemigos.setPowerPellet();
+//		hiloEnemigos.setPowerPellet();
 	}
 
 	public void activarBomba() {

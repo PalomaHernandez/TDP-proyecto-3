@@ -17,10 +17,10 @@ public class EnemigoGUI extends MovilGUI{
 	}
 
 	public void setAzul(String azulAbajo, String azulArriba, String azulIzquierda, String azulDerecha) {
-		representacion[4] = azulAbajo;
-		representacion[5] = azulArriba;
-		representacion[6] = azulDerecha;
-		representacion[7] = azulIzquierda;
+		representacion[4] = azulArriba;
+		representacion[5] = azulAbajo;
+		representacion[6] = azulIzquierda;
+		representacion[7] = azulDerecha;
 		this.estadoActual=azulAbajo;
 	}
 	

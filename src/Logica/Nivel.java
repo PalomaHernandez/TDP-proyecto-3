@@ -25,11 +25,15 @@ public class Nivel {
 	
 	public Nivel() {
 		lista = new HashSet<Entidad>();
-		cantPuntos=155;
+		cantPuntos=200;
 	}
 	
 	public int getCantPuntos() {
 		return cantPuntos;
+	}
+	
+	public void sumarPunto() {
+		cantPuntos++;
 	}
 	
 	public void restarPunto() {
