@@ -1,6 +1,9 @@
 package Entidades.Moviles;
 
+import javax.swing.ImageIcon;
+
 import GUI.EnemigoGUI;
+import GUI.VentanaGUI;
 import Logica.Juego;
 import Visitors.Visitor;
 import Visitors.VisitorFantasma;
@@ -141,6 +144,7 @@ public abstract class Enemigo extends Movil {
 			miRepresentacion.azulIzquierda();
 			break;
 		}
+		this.setIcon(new ImageIcon(VentanaGUI.class.getResource(miRepresentacion.getImagen())));
 	}
 	
 }

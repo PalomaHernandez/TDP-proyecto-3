@@ -13,7 +13,7 @@ public class EnemigoGUI extends MovilGUI{
 		representacion[1] = arriba;
 		representacion[2] = derecha;
 		representacion[3] = izquierda;
-		this.estadoActual = abajo;
+		this.estadoActual = arriba;
 	}
 
 	public void setAzul(String azulAbajo, String azulArriba, String azulIzquierda, String azulDerecha) {
@@ -23,6 +23,8 @@ public class EnemigoGUI extends MovilGUI{
 		representacion[7] = azulIzquierda;
 		this.estadoActual=azulAbajo;
 	}
+	
+	
 	
 	public void azulAbajo() {
 		this.estadoActual = representacion[4];
