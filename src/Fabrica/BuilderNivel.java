@@ -16,6 +16,7 @@ import Logica.Nivel;
 public class BuilderNivel implements Builder{
 
 	private Nivel miNivel;
+	private int cantPuntos;
 	
 	public BuilderNivel() {
 		miNivel = new Nivel();
@@ -63,6 +64,10 @@ public class BuilderNivel implements Builder{
 		}
 		
 	}
+	
+	public void setCantPuntos() {
+		miNivel.setCantPuntos(cantPuntos);
+	}
 
 	public void setBlinky(Tema tema, int x, int y) {
 		Blinky enemigo;
@@ -95,6 +100,7 @@ public class BuilderNivel implements Builder{
 		//powerP.setX(x);
 		//powerP.setY(y);
 		miNivel.addEntidad(powerP);
+		cantPuntos++;
 	}
 
 	@Override
@@ -107,6 +113,7 @@ public class BuilderNivel implements Builder{
 		//pacD.setX(x);
 		//pacD.setY(y);
 		miNivel.addEntidad(pacD);
+		cantPuntos++;
 	}
 
 	

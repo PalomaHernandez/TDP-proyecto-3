@@ -484,25 +484,28 @@ public class Juego {
 
 	public Enemigo buscarEnemigo() {
 		Enemigo enemigoAEliminar = null;
-		Rectangle recClyde = new Rectangle(clyde.getX(), clyde.getY(), clyde.getTamano(), clyde.getTamano());
+		//Rectangle recClyde = new Rectangle(clyde.getX(), clyde.getY(), clyde.getTamano(), clyde.getTamano());
 		Rectangle recBlinky = new Rectangle(blinky.getX(), blinky.getY(), blinky.getTamano(), blinky.getTamano());
-		Rectangle recInky = new Rectangle(inky.getX(), inky.getY(), inky.getTamano(), inky.getTamano());
-		Rectangle recPinky = new Rectangle(pinky.getX(), pinky.getY(), pinky.getTamano(), pinky.getTamano());
+		//Rectangle recInky = new Rectangle(inky.getX(), inky.getY(), inky.getTamano(), inky.getTamano());
+		//Rectangle recPinky = new Rectangle(pinky.getX(), pinky.getY(), pinky.getTamano(), pinky.getTamano());
 		Rectangle recProtagonista = new Rectangle(miProtagonista.getX(), miProtagonista.getY(), miProtagonista.getTamano(), miProtagonista.getTamano());
 		
+		/*
 		if(recClyde.intersects(recProtagonista)) {
 			enemigoAEliminar = clyde;
 		}
 		if(recInky.intersects(recProtagonista)) {
 			enemigoAEliminar = inky;
 		}
+		*/
 		if(recBlinky.intersects(recProtagonista)) {
 			enemigoAEliminar = blinky;
 		}
+		/*
 		if(recPinky.intersects(recProtagonista)) {
 			enemigoAEliminar = pinky;
 		}
-		
+		*/
 		return enemigoAEliminar;
 	}
 
