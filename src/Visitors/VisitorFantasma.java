@@ -30,14 +30,13 @@ public class VisitorFantasma implements Visitor {
 		}
 		else {
 			if(protagonista.getVidas()>0) {// si el protagonista aun tiene vida
-			j.eliminarProtagonista();
-			protagonista.setVidas(protagonista.getVidas() - 1);
-			//reiniciar posiciones de las entidades moviles
-			protagonista.setX(320);
-			protagonista.setY(544);
-			//aca deberia pedir la lista de los enemigos y reiniciarle la pos a todos
-			enemigo.setX(320);
-			enemigo.setY(320);
+				j.eliminarProtagonista();
+				protagonista.setVidas(protagonista.getVidas() - 1);
+				//reiniciar posiciones de las entidades moviles
+				j.reiniciarProtagonista();
+				//aca deberia pedir la lista de los enemigos y reiniciarle la pos a todos
+				enemigo.setX(320);
+				enemigo.setY(320);
 			}
 			else
 				j.finalizarJuego();

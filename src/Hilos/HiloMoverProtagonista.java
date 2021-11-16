@@ -20,12 +20,14 @@ public class HiloMoverProtagonista extends Thread {
 	private long tiempoVelocidad;
 	private long tiempoPowerPellet;
 	private long tiempoActual;
+	private int movimientoPendiente;
 	
 	public HiloMoverProtagonista(int s, Juego miJuego, Protagonista miProtagonista) {
 		step=s;
 		this.miJuego = miJuego;
 		this.miProtagonista = miProtagonista;
 		movimiento = 3;
+		movimientoPendiente = 5;
 		estadoBomba = false;
 		estadoPowerPellet = false;
 		estadoVelocidad = false;
@@ -56,8 +58,8 @@ public class HiloMoverProtagonista extends Thread {
 		activo = false;
 	}
 	
-	public void movimiento(int movimiento) {
-		this.movimiento = movimiento;
+	public void movimiento(int movimientoPendiente) {
+		this.movimientoPendiente = movimientoPendiente;
 	}
 	
 	public void run() {
@@ -65,22 +67,43 @@ public class HiloMoverProtagonista extends Thread {
 		try {
 			while(activo) {
 				Thread.sleep(step);
-				switch(movimiento) {
+				switch(movimientoPendiente) {
 				case 0:
-					puedeMover = miJuego.moverAbajoAction();
+					puedeMover = miJuego.moverAbajo(miProtagonista);
 					break;
 				case 1:
-					puedeMover = miJuego.moverArribaAction();
+					puedeMover = miJuego.moverArriba(miProtagonista);
 					break;
 				case 2:
-					puedeMover = miJuego.moverDerAction();
+					puedeMover = miJuego.moverDer(miProtagonista);
 					break;
 				case 3:
-					puedeMover = miJuego.moverIzqAction();
+					puedeMover = miJuego.moverIzq(miProtagonista);
 					break;
 				}
+				
+				if(puedeMover) {
+					movimiento = movimientoPendiente;
+				}else {
+					switch(movimiento) {
+					case 0:
+						miJuego.moverAbajo(miProtagonista);
+						break;
+					case 1:
+						miJuego.moverArriba(miProtagonista);
+						break;
+					case 2:
+						miJuego.moverDer(miProtagonista);
+						break;
+					case 3:
+						miJuego.moverIzq(miProtagonista);
+						break;
+					}
+				}
+				/*
 				if(!puedeMover)
 					movimiento = 4;//Para que no siga chequeando la misma colision
+					*/
 				if(estadoBomba) {
 					tiempoActual = System.currentTimeMillis()/1000;
 					if(tiempoBomba + 10 <= tiempoActual) {

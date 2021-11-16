@@ -129,18 +129,21 @@ public class Juego {
 		return esPared;
 	}
 
-	public synchronized boolean moverDerAction() {
+	public synchronized void moverDerAction() {
+		/*
 		boolean esPared;
-
+		
 		esPared = moverDer(miProtagonista);
+		
 		if(!esPared) {
 			miProtagonista.moverDerecha();
 			hiloProtagonista.movimiento(2);
 		}
-		return !esPared;
+		*/
+		hiloProtagonista.movimiento(2);
 	}
 
-	private boolean moverDer(Movil movil) {
+	public boolean moverDer(Movil movil) {
 		boolean esPared = false;
 
 		Zona zonaActualA;//(0,0)
@@ -176,21 +179,28 @@ public class Juego {
 			zonaActualB.removeEntidad(movil);
 			zonaFinalB.addEntidad(movil);
 		}
-		return esPared;
+		
+		if(!esPared)
+			movil.moverDerecha();
+		
+		return !esPared;
 	}
 
-	public synchronized boolean moverIzqAction() {
+	public synchronized void moverIzqAction() {
+		/*
 		boolean esPared;
 
 		esPared = moverIzq(miProtagonista);
+		
 		if(!esPared) {
 			miProtagonista.moverIzquierda();
 			hiloProtagonista.movimiento(3);
 		}
-		return !esPared;
+		*/
+		hiloProtagonista.movimiento(3);
 	}
 
-	private boolean moverIzq(Movil movil) {
+	public boolean moverIzq(Movil movil) {
 		boolean esPared=false;
 
 
@@ -227,21 +237,29 @@ public class Juego {
 			zonaActualB.removeEntidad(movil);
 			zonaFinalB.addEntidad(movil);
 		}
-		return esPared;
+		
+		if(!esPared)
+			movil.moverIzquierda();
+		
+		return !esPared;
 	}
 
-	public synchronized boolean moverAbajoAction() {
+	public synchronized void moverAbajoAction() {
+		/*
 		boolean esPared;
 
 		esPared = moverAbajo(miProtagonista);
+		
 		if(!esPared) {
 			miProtagonista.moverAbajo();
 			hiloProtagonista.movimiento(0);
 		}
-		return !esPared;
+		*/
+		hiloProtagonista.movimiento(0);
+		
 	}
 
-	private boolean moverAbajo(Movil movil) {
+	public boolean moverAbajo(Movil movil) {
 		boolean esPared=false; 
 
 		Zona zonaActualA;//(0,0)
@@ -277,23 +295,28 @@ public class Juego {
 			zonaActualC.removeEntidad(movil);
 			zonaFinalC.addEntidad(movil);
 		}
-
-		return esPared;
+		
+		if(!esPared)
+			movil.moverAbajo();
+		
+		return !esPared;
 	}
 
-	public synchronized boolean moverArribaAction() {
+	public synchronized void moverArribaAction() {
+		/*
 		boolean esPared;
 
 		esPared = moverArriba(miProtagonista);
-
+		
 		if(!esPared) {
 			miProtagonista.moverArriba();
 			hiloProtagonista.movimiento(1);
 		}
-		return !esPared;
+		*/
+		hiloProtagonista.movimiento(1);
 	}
 
-	private boolean moverArriba(Movil movil) {
+	public boolean moverArriba(Movil movil) {
 		boolean esPared=false; 
 
 		Zona zonaActualA;//(0,0)
@@ -329,7 +352,9 @@ public class Juego {
 			zonaActualC.removeEntidad(movil);
 			zonaFinalC.addEntidad(movil);
 		}
-		return esPared;
+		if(!esPared)
+			movil.moverArriba();
+		return !esPared;
 	}
 
 	public Zona calcularZona(int cordX, int cordY) {
@@ -477,7 +502,6 @@ public class Juego {
 
 
 	public void reiniciarProtagonista() {
-		hiloProtagonista.movimiento(4);
 		miProtagonista.setX(320);
 		miProtagonista.setY(544);
 		moverIzqAction();

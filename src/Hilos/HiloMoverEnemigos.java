@@ -102,26 +102,26 @@ public class HiloMoverEnemigos extends Thread {
 		boolean puedeMover = true;
 		
 		if(enemigo.getX() > x) {
-			puedeMover = miJuego.moverIzqEnem(enemigo);
+			puedeMover = miJuego.moverIzq(enemigo);
 			if(!puedeMover && enemigo.getY() <= y)//El objetivo esta abajo
-				puedeMover = miJuego.moverAbajoEnem(enemigo);
+				puedeMover = miJuego.moverAbajo(enemigo);
 			if(!puedeMover && enemigo.getY() > y)
-				puedeMover = miJuego.moverArribaEnem(enemigo);
+				puedeMover = miJuego.moverArriba(enemigo);
 		}else if(enemigo.getX() < x) {
-			puedeMover = miJuego.moverDerEnem(enemigo);
+			puedeMover = miJuego.moverDer(enemigo);
 			if(!puedeMover && enemigo.getY() <= y)//El objetivo esta abajo
-				puedeMover = miJuego.moverAbajoEnem(enemigo);
+				puedeMover = miJuego.moverAbajo(enemigo);
 			if(!puedeMover && enemigo.getY() > y)
-				puedeMover = miJuego.moverArribaEnem(enemigo);
+				puedeMover = miJuego.moverArriba(enemigo);
 		}else if(enemigo.getX() == x) {
 			if((enemigo.getX() != puertaX || enemigo.getY() != puertaY) && enemigo.getY() < y)
-				puedeMover = miJuego.moverAbajoEnem(enemigo);
+				puedeMover = miJuego.moverAbajo(enemigo);
 			else if(enemigo.getY() > y)
-				puedeMover = miJuego.moverArribaEnem(enemigo);
+				puedeMover = miJuego.moverArriba(enemigo);
 			if(!puedeMover) 
-				puedeMover = miJuego.moverDerEnem(enemigo);
+				puedeMover = miJuego.moverDer(enemigo);
 			if(!puedeMover)
-				puedeMover = miJuego.moverIzqEnem(enemigo);
+				puedeMover = miJuego.moverIzq(enemigo);
 		}
 		
 	}

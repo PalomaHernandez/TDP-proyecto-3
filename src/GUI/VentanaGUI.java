@@ -218,7 +218,7 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		}
 	*/
 	}
-
+/*
 	private void movimientoAnteriorHastaPoderMoverEnDireccionPedida(int code) {
 		boolean puedeMover = false;
 		
@@ -257,7 +257,7 @@ public class VentanaGUI extends JFrame implements KeyListener{
 			}
 		}
 	}
-
+ */
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
