@@ -18,13 +18,28 @@ public abstract class Enemigo extends Movil {
 	protected int estado;
 	protected boolean estadoPowerPellet;
 	
+
+	private static final int direccionAbajo = 0;
+	private static final int direccionArriba = 1;
+	private static final int direccionDerecha = 2;
+	private static final int direccionIzquierda = 3;
+	private static final int normalAbajo = 0;
+	private static final int normalArriba = 1;
+	private static final int normalDerecha = 2;
+	private static final int normalIzquierda = 3;
+	private static final int abajoAzul = 4;
+	private static final int arribaAzul = 5;
+	private static final int derechaAzul = 6;
+	private static final int izquierdaAzul = 7;
+	
+	
 	public Enemigo(String string) {
 		miRepresentacion = new EnemigoGUI();
 		tamano = 32;
 		v= new VisitorFantasma();
 		representacion=string;
 		estadoPowerPellet = false;
-		estado = 0; //Estado dispersarse
+		 //Estado dispersarse
 	}
 	
 	public boolean accept(Visitor v, Juego j) {
@@ -48,11 +63,11 @@ public abstract class Enemigo extends Movil {
 	public void moverArriba() {
 
 		if(estadoPowerPellet)
-			cambiarImagen(5);
+			cambiarImagen(arribaAzul);
 		else 
-			cambiarImagen(1);
-		if(direccion != 1) {
-			direccion = 1;
+			cambiarImagen(normalArriba);
+		if(direccion != direccionArriba) {
+			direccion = direccionArriba;
 		}
 		this.setY(posY - 4);
 	}
@@ -60,11 +75,11 @@ public abstract class Enemigo extends Movil {
 	@Override
 	public void moverAbajo() {
 		if(estadoPowerPellet)
-			cambiarImagen(4);
+			cambiarImagen(abajoAzul);
 		else
-			cambiarImagen(0);
-		if(direccion != 0) {
-			direccion = 0;
+			cambiarImagen(normalAbajo);
+		if(direccion != direccionAbajo) {
+			direccion = direccionAbajo;
 		}
 		this.setY(posY + 4);
 	}
@@ -72,11 +87,11 @@ public abstract class Enemigo extends Movil {
 	@Override
 	public void moverIzquierda() {
 		if(estadoPowerPellet)
-			cambiarImagen(7);
+			cambiarImagen(izquierdaAzul);
 		else
-			cambiarImagen(3);
-		if(direccion != 3) {
-			direccion = 3;
+			cambiarImagen(normalIzquierda);
+		if(direccion != direccionIzquierda) {
+			direccion = direccionIzquierda;
 		}
 		this.setX(posX - 4);
 	}
@@ -84,11 +99,11 @@ public abstract class Enemigo extends Movil {
 	@Override
 	public void moverDerecha() {
 		if(estadoPowerPellet)
-			cambiarImagen(6);
+			cambiarImagen(derechaAzul);
 		else
-			cambiarImagen(2);
-		if(direccion != 2) {
-			direccion = 2;
+			cambiarImagen(normalDerecha);
+		if(direccion != direccionDerecha) {
+			direccion = direccionDerecha;
 		}
 		this.setX(posX + 4);
 	}
@@ -97,32 +112,32 @@ public abstract class Enemigo extends Movil {
 		this.estadoPowerPellet = estado;
 		if(estado) {
 			switch(direccion) {
-			case 0:
-				cambiarImagen(4);
+			case direccionAbajo:
+				cambiarImagen(abajoAzul);
 				break;
-			case 1: 
-				cambiarImagen(5);
+			case direccionArriba: 
+				cambiarImagen(arribaAzul);
 				break;
-			case 2:
-				cambiarImagen(6);
+			case direccionDerecha:
+				cambiarImagen(derechaAzul);
 				break;
-			case 3:
-				cambiarImagen(7);
+			case direccionIzquierda:
+				cambiarImagen(izquierdaAzul);
 				break;
 			}
 		}else {
 			switch(direccion) {
-			case 0:
-				cambiarImagen(0);
+			case direccionAbajo:
+				cambiarImagen(normalAbajo);
 				break;
-			case 1: 
-				cambiarImagen(1);
+			case direccionArriba: 
+				cambiarImagen(normalArriba);
 				break;
-			case 2:
-				cambiarImagen(2);
+			case direccionDerecha:
+				cambiarImagen(normalDerecha);
 				break;
-			case 3:
-				cambiarImagen(3);
+			case direccionIzquierda:
+				cambiarImagen(normalIzquierda);
 				break;
 			}
 		}
@@ -130,28 +145,28 @@ public abstract class Enemigo extends Movil {
 	
 	public void cambiarImagen(int num) {
 		switch(num) {
-		case 0:
+		case normalAbajo:
 			this.miRepresentacion.rotarAbajo();
 			break;
-		case 1: 
+		case normalArriba: 
 			this.miRepresentacion.rotarArriba();
 			break;
-		case 2:
+		case normalDerecha:
 			this.miRepresentacion.rotarDer();
 			break;
-		case 3:
+		case normalIzquierda:
 			this.miRepresentacion.rotarIzq();
 			break;
-		case 4:
+		case abajoAzul:
 			this.miRepresentacion.azulAbajo();
 			break;
-		case 5:
+		case arribaAzul:
 			this.miRepresentacion.azulArriba();
 			break;
-		case 6: 
+		case derechaAzul: 
 			this.miRepresentacion.azulDer();
 			break;
-		case 7: 
+		case izquierdaAzul: 
 			miRepresentacion.azulIzquierda();
 			break;
 		}

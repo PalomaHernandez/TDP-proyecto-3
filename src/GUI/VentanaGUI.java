@@ -10,12 +10,14 @@ import javax.swing.border.EmptyBorder;
 
 import Entidades.Entidad;
 import Entidades.Moviles.Blinky;
+import Entidades.Moviles.Clyde;
+import Entidades.Moviles.Inky;
+import Entidades.Moviles.Pinky;
 import Logica.Juego;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.HashSet;
-import java.util.List;
 import java.awt.Font;
 import java.awt.Image;
 
@@ -31,9 +33,6 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	private JPanel panel;
 	private Juego miJuego;
 	private JLabel lblPuntaje;
-	private int codigoAnterior = KeyEvent.VK_LEFT;
-	private int codigoSiguiente = KeyEvent.VK_LEFT;
-	private boolean puedeMover = true;
 	private JLabel lblVida1;
 	private JLabel lblVida2;
 	private JLabel lblVida3;
@@ -122,14 +121,28 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		e.setBounds(posXFin, posYFin, e.getWidth(), e.getHeight());
 	}
 
-	public void inicializarNivel1(HashSet<Entidad> nivel, Entidad protagonista, Blinky blinky) {
+	public void inicializarNivel(HashSet<Entidad> nivel, Entidad protagonista, Blinky blinky, Clyde clyde, Pinky pinky, Inky inky) {
 		ImageIcon imagen;
+		
 		protagonista.setBounds(protagonista.getX(), protagonista.getY(), 32, 32);
 		panel.add(protagonista);
 		protagonista.setIcon(new ImageIcon(VentanaGUI.class.getResource(protagonista.getRepresentacion())));
+		
 		blinky.setBounds(blinky.getX(), blinky.getY(), 32, 32);
 		panel.add(blinky);
 		blinky.setIcon(new ImageIcon(VentanaGUI.class.getResource(blinky.getRepresentacion())));
+		
+		pinky.setBounds(pinky.getX(), pinky.getY(), 32, 32);
+		panel.add(pinky);
+		pinky.setIcon(new ImageIcon(VentanaGUI.class.getResource(pinky.getRepresentacion())));
+		
+		clyde.setBounds(clyde.getX(), clyde.getY(), 32, 32);
+		panel.add(clyde);
+		clyde.setIcon(new ImageIcon(VentanaGUI.class.getResource(clyde.getRepresentacion())));
+		
+		inky.setBounds(inky.getX(), inky.getY(), 32, 32);
+		panel.add(inky);
+		inky.setIcon(new ImageIcon(VentanaGUI.class.getResource(inky.getRepresentacion())));
 		for(Entidad e : nivel) {
 			e.setBounds(e.getX(), e.getY(), 32, 32);
 			panel.add(e);
@@ -165,99 +178,8 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		}
 		
 		
-		/*
-		switch(code) {
-		case KeyEvent.VK_RIGHT:
-			puedeMover = miJuego.moverDerAction();
-			if(puedeMover)
-				codigoAnterior = KeyEvent.VK_RIGHT;
-			else 
-				codigoSiguiente = KeyEvent.VK_RIGHT;
-			break;
-		case KeyEvent.VK_LEFT: 
-			puedeMover = miJuego.moverIzqAction();
-			if(puedeMover)
-				codigoAnterior = KeyEvent.VK_LEFT;
-			else 
-				codigoSiguiente = KeyEvent.VK_LEFT;
-			break;
-		case KeyEvent.VK_DOWN:
-			puedeMover = miJuego.moverAbajoAction();
-			if(puedeMover)
-				codigoAnterior = KeyEvent.VK_DOWN;
-			else
-				codigoSiguiente = KeyEvent.VK_DOWN;
-			break;
-		case KeyEvent.VK_UP:
-			puedeMover = miJuego.moverArribaAction();
-			if(puedeMover)
-				codigoAnterior = KeyEvent.VK_UP;
-			else 
-				codigoSiguiente = KeyEvent.VK_UP;
-			break;
-		}
-		if(!puedeMover) {
-			movimientoAnteriorHastaPoderMoverEnDireccionPedida(code);
-			
-			
-			switch(codigoAnterior) {
-			case KeyEvent.VK_RIGHT:
-				miJuego.moverDerAction();
-				break;
-			case KeyEvent.VK_LEFT:
-				miJuego.moverIzqAction();
-				break;
-			case KeyEvent.VK_UP:
-				miJuego.moverArribaAction();
-				break;
-			case KeyEvent.VK_DOWN:
-				miJuego.moverAbajoAction();
-				break;
-			}
-			
-		}
-	*/
 	}
-/*
-	private void movimientoAnteriorHastaPoderMoverEnDireccionPedida(int code) {
-		boolean puedeMover = false;
-		
-		while(!puedeMover) {
 
-			switch(code) {
-			case KeyEvent.VK_RIGHT:
-				puedeMover = miJuego.moverDerAction();
-				break;
-			case KeyEvent.VK_LEFT: 
-				puedeMover = miJuego.moverIzqAction();
-				break;
-			case KeyEvent.VK_DOWN:
-				puedeMover = miJuego.moverAbajoAction();
-				break;
-			case KeyEvent.VK_UP:
-				puedeMover = miJuego.moverArribaAction();
-				break;
-			}
-			
-			if(!puedeMover) {
-				switch(codigoAnterior) {
-				case KeyEvent.VK_RIGHT:
-					miJuego.moverDerAction();
-					break;
-				case KeyEvent.VK_LEFT:
-					miJuego.moverIzqAction();
-					break;
-				case KeyEvent.VK_UP:
-					miJuego.moverArribaAction();
-					break;
-				case KeyEvent.VK_DOWN:
-					miJuego.moverAbajoAction();
-					break;
-				}
-			}
-		}
-	}
- */
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
@@ -287,5 +209,10 @@ public class VentanaGUI extends JFrame implements KeyListener{
 
 	public String getPuntaje() {
 		return puntaje+"";
+	}
+
+	public void limpiar() {
+		panel.removeAll();
+		panel.repaint();
 	}
 }

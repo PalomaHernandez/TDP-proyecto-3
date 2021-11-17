@@ -28,7 +28,7 @@ public class Director {
 		crearVelocidad1();
 		crearPacDots1();
 		crearParedes1();
-		crearBlinky1();
+		crearEnemigos();
 		builder.setCantPuntos();
 	}
 
@@ -205,8 +205,11 @@ public class Director {
 
 	}
 
-	private void crearBlinky1() {
+	private void crearEnemigos() {
 		builder.setBlinky(tema, 320, 320);
+		builder.setInky(tema, 288, 320);
+		builder.setPinky(tema, 288, 320);
+		builder.setClyde(tema, 352, 320);
 	}
 
 	private void crearParedes1() {
@@ -395,17 +398,20 @@ public class Director {
 		this.builder = builder;
 		builder.reset();
 
-
-		builder.setProtagonista(tema, 320, 480);
-
+		builder.setProtagonista(tema, 320, 544);
 		crearPowerPellets2();
 		crearBomba2();
 		crearFruta2();
 		crearVelocidad2();
+		crearBlinky2();
 		//crearEnemigos2();
 		crearPacDots2();
 		crearParedes2(); 
 		builder.setCantPuntos();
+	}
+
+	private void crearBlinky2() {
+		builder.setBlinky(tema, 320, 320);
 	}
 
 	private void crearVelocidad2() {
@@ -430,7 +436,7 @@ public class Director {
 	}
 
 	private void crearBomba2() {
-		builder.setBomba(tema, 320, 544);
+		builder.setBomba(tema, 320, 480);
 
 	}
 
@@ -758,7 +764,7 @@ public class Director {
 		builder.reset();
 
 
-		builder.setProtagonista(tema, 320, 480);
+		builder.setProtagonista(tema, 320, 544);
 
 		crearEnemigos3();
 		crearPowerPellets3();
@@ -766,8 +772,13 @@ public class Director {
 		crearFruta3();
 		crearVelocidad3();
 		crearPacDots3();
+		crearBlinky3();
 		crearParedes3();
 		builder.setCantPuntos();
+	}
+
+	private void crearBlinky3() {
+		builder.setBlinky(tema, 320, 320);
 	}
 
 	private void crearVelocidad3() {
@@ -791,7 +802,7 @@ public class Director {
 	}
 
 	private void crearBomba3() {
-		builder.setBomba(tema, 320, 544);
+		builder.setBomba(tema, 320, 480);
 	}
 
 	private void crearPacDots3() {

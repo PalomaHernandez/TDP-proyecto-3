@@ -75,8 +75,8 @@ public class VisitorProtagonista implements Visitor{
 		j.aumentarPuntaje(30);
 		j.activarPowerPellet();//este metodo actualizaria los estados del fantasma (actualizando su imagen)
 		if(nivel.getCantPuntos()==0) {
-			System.out.println("termine");
-			j.finalizarJuego();
+			System.out.println("paseNivel");
+			j.avanzarNivel();
 		}
 
 	}
@@ -91,8 +91,8 @@ public class VisitorProtagonista implements Visitor{
 		pacdot.setVisible(false);
 		j.aumentarPuntaje(10);
 		if(nivel.getCantPuntos()==0) {
-			System.out.println("termine");
-			j.finalizarJuego();
+			System.out.println("paseNivel");
+			j.avanzarNivel();
 		}
 	}
 

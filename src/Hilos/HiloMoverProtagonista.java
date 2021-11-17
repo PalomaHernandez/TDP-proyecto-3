@@ -22,12 +22,18 @@ public class HiloMoverProtagonista extends Thread {
 	private long tiempoActual;
 	private int movimientoPendiente;
 	
+	private static final int direccionAbajo = 0;
+	private static final int direccionArriba = 1;
+	private static final int direccionDerecha = 2;
+	private static final int direccionIzquierda = 3;
+	private static final int direccionNula = 4;
+	
 	public HiloMoverProtagonista(int s, Juego miJuego, Protagonista miProtagonista) {
 		step=s;
 		this.miJuego = miJuego;
 		this.miProtagonista = miProtagonista;
-		movimiento = 3;
-		movimientoPendiente = 5;
+		movimiento = direccionIzquierda;
+		movimientoPendiente = direccionNula;
 		estadoBomba = false;
 		estadoPowerPellet = false;
 		estadoVelocidad = false;
@@ -64,20 +70,21 @@ public class HiloMoverProtagonista extends Thread {
 	
 	public void run() {
 		boolean puedeMover = false;
+		boolean puedeMoverActual = false;
 		try {
 			while(activo) {
 				Thread.sleep(step);
 				switch(movimientoPendiente) {
-				case 0:
+				case direccionAbajo:
 					puedeMover = miJuego.moverAbajo(miProtagonista);
 					break;
-				case 1:
+				case direccionArriba:
 					puedeMover = miJuego.moverArriba(miProtagonista);
 					break;
-				case 2:
+				case direccionDerecha:
 					puedeMover = miJuego.moverDer(miProtagonista);
 					break;
-				case 3:
+				case direccionIzquierda:
 					puedeMover = miJuego.moverIzq(miProtagonista);
 					break;
 				}
@@ -86,24 +93,25 @@ public class HiloMoverProtagonista extends Thread {
 					movimiento = movimientoPendiente;
 				}else {
 					switch(movimiento) {
-					case 0:
-						miJuego.moverAbajo(miProtagonista);
+					case direccionAbajo:
+						puedeMoverActual = miJuego.moverAbajo(miProtagonista);
 						break;
-					case 1:
-						miJuego.moverArriba(miProtagonista);
+					case direccionArriba:
+						puedeMoverActual = miJuego.moverArriba(miProtagonista);
 						break;
-					case 2:
-						miJuego.moverDer(miProtagonista);
+					case direccionDerecha:
+						puedeMoverActual = miJuego.moverDer(miProtagonista);
 						break;
-					case 3:
-						miJuego.moverIzq(miProtagonista);
+					case direccionIzquierda:
+						puedeMoverActual = miJuego.moverIzq(miProtagonista);
 						break;
 					}
+					if(!puedeMoverActual && !puedeMover)
+						movimiento = direccionNula;//Para que no siga chequeando la misma colision
+					
 				}
-				/*
-				if(!puedeMover)
-					movimiento = 4;//Para que no siga chequeando la misma colision
-					*/
+				
+					
 				if(estadoBomba) {
 					tiempoActual = System.currentTimeMillis()/1000;
 					if(tiempoBomba + 10 <= tiempoActual) {

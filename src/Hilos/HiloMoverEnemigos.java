@@ -25,8 +25,9 @@ public class HiloMoverEnemigos extends Thread {
 	private boolean estadoPowerPellet;
 	private long tiempoPowerPellet;
 	private long tiempoActual;
-	private final int puertaX = 320;
-	private final int puertaY = 288; 
+	private static final int puertaX = 320;
+	private static final int puertaY = 288; 
+	private static final int rango = 608;
 	
 	//Estado 0 dispersarse. 1 perseguir. 2 correr. 3 morir (ir a la casa)
 	public HiloMoverEnemigos(Juego miJuego, int s, Clyde clyde, Inky inky, Blinky blinky, Pinky pinky, Protagonista protagonista) {
@@ -127,12 +128,65 @@ public class HiloMoverEnemigos extends Thread {
 	}
 
 	private void moverPinky() {
-		// TODO Auto-generated method stub
+		int estado = pinky.getEstado();
+		switch(estado) {
+		case 0:
+			dispersarPinky();
+			break;
+		case 2:
+			irACasa(pinky);
+			break;
+		}
+	}
+
+	private void dispersarPinky() {
 		
+		Rectangle pos = new Rectangle(inky.getX(), inky.getY(), inky.getWidth(), inky.getHeight());
+
+		if(pos.intersects(casa)) {
+			dirigirA(320, 256, inky); //Puerta de la casa
+		}else {
+			
+		}
 	}
 
 	private void moverInky() {
-		// TODO Auto-generated method stub
+		int estado = inky.getEstado();
+		switch(estado) {
+		case 0:
+			dispersarInky();
+			break;
+		case 2:
+			irACasa(inky);
+			break;
+		}
+	}
+
+	private void dispersarInky() {
+		int posX;
+		int posY;
+		Rectangle pos = new Rectangle(inky.getX(), inky.getY(), inky.getWidth(), inky.getHeight());
+
+		posY = protagonista.getY() - blinky.getY();
+		posX = blinky.getX();
+		if(pos.intersects(casa)) {
+			dirigirA(320, 256, inky); //Puerta de la casa
+		}else {
+			if(posY > 0) {
+				posY += protagonista.getY();
+				if(posY < rango) {
+					dirigirA(posX, posY, inky);
+				}else {
+					dirigirA(posX, rango, inky);
+				}
+			}else {
+				posY += protagonista.getY();
+				if(posY > 32) {
+					dirigirA(posX, posY, inky);
+				}else
+					dirigirA(posX, 32, inky);
+			}
+		}
 		
 	}
 

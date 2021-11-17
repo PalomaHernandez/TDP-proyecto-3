@@ -32,31 +32,7 @@ public abstract class Movil extends Entidad{
 	public abstract void moverDerecha();
 	
 	
-	public void cambiarImagen(int num) {
-		switch(num) {
-		case 0:
-			this.miRepresentacion.rotarAbajo();
-			break;
-		case 1: 
-			this.miRepresentacion.rotarArriba();
-			break;
-		case 2:
-			this.miRepresentacion.rotarDer();
-			break;
-		case 3:
-			this.miRepresentacion.rotarIzq();
-			break;
-		case 4:
-			this.miRepresentacion.ponerAzul();
-			break;
-		case 5:
-			this.miRepresentacion.bomba();
-			break;
-		case 6:
-			this.miRepresentacion.velocidad();
-			break;
-		}
-	}
+	public abstract void cambiarImagen(int num);
 	
 	public String getRepresentacion() {
 		return representacion;

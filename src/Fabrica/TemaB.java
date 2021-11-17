@@ -90,4 +90,22 @@ public class TemaB extends Tema{
 		return null;
 	}
 
+	@Override
+	public Inky getInky() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Pinky getPinky() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Clyde getClyde() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -7,10 +7,5 @@ public class Clyde extends Enemigo{
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void cambiarImagen(int num) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

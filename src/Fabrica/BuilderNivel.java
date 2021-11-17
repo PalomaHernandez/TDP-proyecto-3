@@ -9,7 +9,10 @@ import Entidades.Estaticas.Pared;
 import Entidades.Estaticas.PowerPellet;
 import Entidades.Estaticas.Velocidad;
 import Entidades.Moviles.Blinky;
+import Entidades.Moviles.Clyde;
 import Entidades.Moviles.Enemigo;
+import Entidades.Moviles.Inky;
+import Entidades.Moviles.Pinky;
 import Entidades.Moviles.Protagonista;
 import Logica.Nivel;
 
@@ -34,8 +37,6 @@ public class BuilderNivel implements Builder{
 		pared = tema.getPared();
 		pared.setImagen(repre);
 		pared.setPos(x, y);
-		//pared.setX(x);
-		//pared.setY(y);
 		miNivel.addEntidad(pared);
 	}
 
@@ -45,8 +46,6 @@ public class BuilderNivel implements Builder{
 		
 		protagonista = tema.getProtagonista();
 		protagonista.setPos(x, y);
-		//protagonista.setX(x);
-		//protagonista.setY(y);
 		miNivel.setProtagonista(protagonista);
 	}
 
@@ -58,8 +57,6 @@ public class BuilderNivel implements Builder{
 		
 		for(Enemigo e : lista) {
 			e.setPos(x, y);
-			//e.setX(x);
-			//e.setY(y);
 			miNivel.addEntidad(e);
 		}
 		
@@ -74,8 +71,6 @@ public class BuilderNivel implements Builder{
 		enemigo= tema.getBlinky();
 		enemigo.setPos(x, y);
 		miNivel.setBlinky(enemigo);
-		//miNivel.addEntidad(enemigo);
-		//miNivel.addEnemigo(enemigo);
 	}
 	
 	@Override
@@ -85,8 +80,6 @@ public class BuilderNivel implements Builder{
 		fruta = tema.getFruta();
 		
 		fruta.setPos(x, y);
-		//fruta.setX(x);
-		//fruta.setY(y);
 		miNivel.addEntidad(fruta);
 	}
 
@@ -97,8 +90,6 @@ public class BuilderNivel implements Builder{
 		powerP = tema.getPowerPellet();
 		
 		powerP.setPos(x, y);
-		//powerP.setX(x);
-		//powerP.setY(y);
 		miNivel.addEntidad(powerP);
 		cantPuntos++;
 	}
@@ -110,8 +101,6 @@ public class BuilderNivel implements Builder{
 		pacD = tema.getPacDot();
 		
 		pacD.setPos(x, y);
-		//pacD.setX(x);
-		//pacD.setY(y);
 		miNivel.addEntidad(pacD);
 		cantPuntos++;
 	}
@@ -124,8 +113,6 @@ public class BuilderNivel implements Builder{
 		bomba = tema.getBomba();
 		
 		bomba.setPos(x, y);
-		//bomba.setX(x);
-		//bomba.setY(y);
 		miNivel.addEntidad(bomba);
 	}
 
@@ -136,14 +123,36 @@ public class BuilderNivel implements Builder{
 		velocidad = tema.getVelocidad();
 		
 		velocidad.setPos(x, y);
-		//velocidad.setX(x);
-		//velocidad.setY(y);
 		miNivel.addEntidad(velocidad);
 	}
 
 	@Override
 	public Nivel getResult() {
 		return miNivel;
+	}
+
+	@Override
+	public void setInky(Tema tema, int i, int j) {
+		Inky enemigo;
+		enemigo= tema.getInky();
+		enemigo.setPos(i, j);
+		miNivel.setInky(enemigo);
+	}
+
+	@Override
+	public void setPinky(Tema tema, int i, int j) {
+		Pinky enemigo;
+		enemigo= tema.getPinky();
+		enemigo.setPos(i, j);
+		miNivel.setPinky(enemigo);
+	}
+
+	@Override
+	public void setClyde(Tema tema, int i, int j) {
+		Clyde enemigo;
+		enemigo= tema.getClyde();
+		enemigo.setPos(i, j);
+		miNivel.setClyde(enemigo);
 	}
 
 }

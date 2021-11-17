@@ -1,7 +1,6 @@
 package Logica;
 
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 
 import Entidades.Entidad;
@@ -25,7 +24,6 @@ public class Nivel {
 	
 	public Nivel() {
 		lista = new HashSet<Entidad>();
-		cantPuntos=200;
 	}
 	
 	public void setCantPuntos(int puntos) {

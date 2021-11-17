@@ -16,4 +16,7 @@ public interface Builder {
 	public void setVelocidad(Tema tema,int x, int y);
 	public Nivel getResult();
 	public void setBlinky(Tema tema, int i, int j);
+	public void setInky(Tema tema, int i, int j);
+	public void setPinky(Tema tema, int i, int j);
+	public void setClyde(Tema tema, int i, int j);
 }

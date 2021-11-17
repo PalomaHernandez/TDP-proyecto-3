@@ -26,6 +26,7 @@ public class Juego {
 	private Director miDirector;
 	private Nivel miNivel;
 	private Protagonista miProtagonista;
+	private int nivel;
 	private Zona [][] matriz;
 	private HiloMoverEnemigos hiloEnemigos;
 	private Blinky blinky;
@@ -37,17 +38,10 @@ public class Juego {
 	public Juego(int tema, VentanaGUI ventana) {
 		miDirector = new Director(tema, this);
 		matriz = new Zona[7][7];
-		for(int i = 0; i < 7 ; i++)
-			for(int j = 0 ; j < 7 ; j++)
-				matriz[i][j] = new Zona();
+		
 		miVentana = ventana;
-
+		nivel = 1;
 		inicializarNivel1();
-		agregarAZona();
-		hiloEnemigos = new HiloMoverEnemigos(this, 70, null, null, blinky, null, miProtagonista);
-		hiloProtagonista = new HiloMoverProtagonista(30, this, miProtagonista);
-		hiloProtagonista.start();
-		hiloEnemigos.start();
 	}
 
 	public Nivel getNivel() {
@@ -93,18 +87,88 @@ public class Juego {
 	}
 
 	private void inicializarNivel1() {
-		Builder constructorNivel1;
+		Builder constructorNivel;
+		for(int i = 0; i < 7 ; i++)
+			for(int j = 0 ; j < 7 ; j++)
+				matriz[i][j] = new Zona();
+		constructorNivel = new BuilderNivel();
 
-		constructorNivel1 = new BuilderNivel();
+		miDirector.makeNivel1(constructorNivel);
 
-		miDirector.makeNivel1(constructorNivel1);
-
-		miNivel = constructorNivel1.getResult();
+		miNivel = constructorNivel.getResult();
 		miProtagonista = miNivel.getProtagonista();
+		
 		blinky = miNivel.getBlinky();
-		miVentana.inicializarNivel1(miNivel.getNivel(), miProtagonista, blinky);
+		clyde = miNivel.getClyde();
+		pinky = miNivel.getPinky();
+		inky = miNivel.getInky();
+		
+		miVentana.inicializarNivel(miNivel.getNivel(), miProtagonista, blinky, clyde, pinky, inky);
+
+		agregarAZona();
+		hiloEnemigos = new HiloMoverEnemigos(this, 70, clyde, inky, blinky, pinky, miProtagonista);
+		hiloProtagonista = new HiloMoverProtagonista(30, this, miProtagonista);
+		hiloProtagonista.start();
+		hiloEnemigos.start();
+	}
+	
+	public void pararHilo() {
+		hiloProtagonista.detener();//Para probar, no deberia estar
 	}
 
+	private void inicializarNivel3() {
+		Builder constructorNivel;
+		
+		hiloEnemigos.detener();
+		hiloProtagonista.detener();
+		
+		for(int i = 0; i < 7 ; i++)
+			for(int j = 0 ; j < 7 ; j++)
+				matriz[i][j] = new Zona();
+		constructorNivel = new BuilderNivel();
+
+		miDirector.makeNivel3(constructorNivel);
+
+		miNivel = constructorNivel.getResult();
+		miProtagonista = miNivel.getProtagonista();
+		blinky = miNivel.getBlinky();
+		miVentana.limpiar();
+		//miVentana.inicializarNivel(miNivel.getNivel(), miProtagonista, blinky);
+
+		agregarAZona();
+		hiloEnemigos = new HiloMoverEnemigos(this, 60, clyde, inky, blinky, pinky, miProtagonista);
+		hiloProtagonista = new HiloMoverProtagonista(30, this, miProtagonista);
+		hiloProtagonista.start();
+		hiloEnemigos.start();
+	}
+
+	private void inicializarNivel2() {
+		Builder constructorNivel;
+		
+		hiloEnemigos.detener();
+		hiloProtagonista.detener();
+		
+		for(int i = 0; i < 7 ; i++)
+			for(int j = 0 ; j < 7 ; j++)
+				matriz[i][j] = new Zona();
+		constructorNivel = new BuilderNivel();
+
+		miDirector.makeNivel2(constructorNivel);
+
+		miNivel = constructorNivel.getResult();
+		miProtagonista = miNivel.getProtagonista();
+		blinky = miNivel.getBlinky();
+
+		miVentana.limpiar();
+	//	miVentana.inicializarNivel(miNivel.getNivel(), miProtagonista, blinky);
+
+		agregarAZona();
+		hiloEnemigos = new HiloMoverEnemigos(this, 50, clyde, inky, blinky, pinky, miProtagonista);
+		hiloProtagonista = new HiloMoverProtagonista(30, this, miProtagonista);
+		hiloProtagonista.start();
+		hiloEnemigos.start();
+	}
+	
 	public boolean colision(Movil movil, HashSet<Entidad> list, int posXFin, int posYFin) {
 		boolean esPared = false;
 		Visitor v1;
@@ -130,16 +194,6 @@ public class Juego {
 	}
 
 	public synchronized void moverDerAction() {
-		/*
-		boolean esPared;
-		
-		esPared = moverDer(miProtagonista);
-		
-		if(!esPared) {
-			miProtagonista.moverDerecha();
-			hiloProtagonista.movimiento(2);
-		}
-		*/
 		hiloProtagonista.movimiento(2);
 	}
 
@@ -187,16 +241,6 @@ public class Juego {
 	}
 
 	public synchronized void moverIzqAction() {
-		/*
-		boolean esPared;
-
-		esPared = moverIzq(miProtagonista);
-		
-		if(!esPared) {
-			miProtagonista.moverIzquierda();
-			hiloProtagonista.movimiento(3);
-		}
-		*/
 		hiloProtagonista.movimiento(3);
 	}
 
@@ -245,16 +289,6 @@ public class Juego {
 	}
 
 	public synchronized void moverAbajoAction() {
-		/*
-		boolean esPared;
-
-		esPared = moverAbajo(miProtagonista);
-		
-		if(!esPared) {
-			miProtagonista.moverAbajo();
-			hiloProtagonista.movimiento(0);
-		}
-		*/
 		hiloProtagonista.movimiento(0);
 		
 	}
@@ -303,16 +337,6 @@ public class Juego {
 	}
 
 	public synchronized void moverArribaAction() {
-		/*
-		boolean esPared;
-
-		esPared = moverArriba(miProtagonista);
-		
-		if(!esPared) {
-			miProtagonista.moverArriba();
-			hiloProtagonista.movimiento(1);
-		}
-		*/
 		hiloProtagonista.movimiento(1);
 	}
 
@@ -440,7 +464,7 @@ public class Juego {
 	public void activarPowerPellet() {
 		miProtagonista.setEstadoBomba(false);
 		miProtagonista.setEstadoVelocidad(false);
-		blinky.setEstado(1); //es responsabilidad del enemigo cambiar sus imagenes
+		blinky.setEstado(1);
 		blinky.setEstadoPowerPellet(true);
 		//pinky.setEstado(2);
 		//inky.setEstado(2);
@@ -472,7 +496,6 @@ public class Juego {
 	public void desactivarPowerPellet() {
 		miProtagonista.setEstadoPowerPellet(false);
 		blinky.setEstadoPowerPellet(false);
-		//blinky.setEstado(1);
 		//pinky.setEstado(0);
 		//inky.setEstado(0);
 		//clyde.setEstado(0);
@@ -489,9 +512,9 @@ public class Juego {
 	}
 
 	public void finalizarJuego() {
-		miVentana.cerrarJuego();
 		hiloProtagonista.detener();
 		hiloEnemigos.detener();
+		miVentana.cerrarJuego();
 
 	}
 
@@ -534,5 +557,28 @@ public class Juego {
 		*/
 		return enemigoAEliminar;
 	}
+
+	public void avanzarNivel() {
+		switch(nivel) {
+		case 1:
+			nivel++;
+			inicializarNivel2();
+			break;
+		case 2:
+			nivel++;
+			inicializarNivel3();
+			break;
+		case 3:
+			ganoElJuego();
+			break;
+		}
+	}
+
+	private void ganoElJuego() {
+		// TODO Auto-generated method stub
+		//Deberia mostrar una imagen festejando o algo asi y preguntar si quiere jugar de nuevo
+	}
+
+	
 
 }

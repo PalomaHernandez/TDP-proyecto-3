@@ -10,7 +10,10 @@ import Entidades.Estaticas.PowerPellet;
 import Entidades.Estaticas.Velocidad;
 import Entidades.Moviles.Protagonista;
 import Entidades.Moviles.Blinky;
+import Entidades.Moviles.Clyde;
 import Entidades.Moviles.Enemigo;
+import Entidades.Moviles.Inky;
+import Entidades.Moviles.Pinky;
 
 public abstract class Tema {
 
@@ -23,4 +26,7 @@ public abstract class Tema {
 	public abstract PacDot getPacDot();
 	public abstract Fruta getFruta();
 	public abstract Blinky getBlinky();
+	public abstract Inky getInky();
+	public abstract Pinky getPinky();
+	public abstract Clyde getClyde();
 }

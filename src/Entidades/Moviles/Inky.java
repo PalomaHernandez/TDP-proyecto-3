@@ -2,15 +2,15 @@ package Entidades.Moviles;
 
 public class Inky extends Enemigo{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public Inky(String s) {
 		super(s);
-		// TODO Auto-generated constructor stub
+		this.estado = 0;
 	}
 
-	@Override
-	public void cambiarImagen(int num) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
