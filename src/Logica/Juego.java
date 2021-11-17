@@ -17,6 +17,7 @@ import Fabrica.Director;
 import GUI.VentanaGUI;
 import Hilos.HiloMoverEnemigos;
 import Hilos.HiloMoverProtagonista;
+import Hilos.HiloMusica;
 import Visitors.Visitor;
 
 public class Juego {
@@ -34,6 +35,7 @@ public class Juego {
 	private Inky inky;
 	private Pinky pinky;
 	private HiloMoverProtagonista hiloProtagonista;
+	private HiloMusica hiloMusica;
 
 	public Juego(int tema, VentanaGUI ventana) {
 		miDirector = new Director(tema, this);
@@ -41,6 +43,7 @@ public class Juego {
 		
 		miVentana = ventana;
 		nivel = 1;
+//		hiloMusica= new HiloMusica(this);
 		inicializarNivel1();
 	}
 
@@ -577,6 +580,10 @@ public class Juego {
 	private void ganoElJuego() {
 		// TODO Auto-generated method stub
 		//Deberia mostrar una imagen festejando o algo asi y preguntar si quiere jugar de nuevo
+	}
+
+	public synchronized void activarSonido() {
+//		hiloMusica.start();
 	}
 
 	

@@ -22,6 +22,10 @@ import java.awt.Font;
 import java.awt.Image;
 
 import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.applet.AudioClip;
 
 public class VentanaGUI extends JFrame implements KeyListener{
 
@@ -112,6 +116,15 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		lblVida1.setIcon(img);
 		lblVida2.setIcon(img);
 		lblVida3.setIcon(img);
+		
+//		JButton btnNewButton = new JButton("play");
+//		btnNewButton.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				miJuego.activarSonido();
+//				}
+//		});
+//		btnNewButton.setBounds(227, 20, 89, 23);
+//		contentPane.add(btnNewButton);
 		
 		addKeyListener(this);
 		
