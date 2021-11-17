@@ -26,6 +26,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.applet.AudioClip;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class VentanaGUI extends JFrame implements KeyListener{
 
@@ -41,6 +43,7 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	private JLabel lblVida2;
 	private JLabel lblVida3;
 	private int puntaje;
+	private boolean sonidoActivo;
 	/**
 	 * Launch the application.
 	 */
@@ -117,14 +120,40 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		lblVida2.setIcon(img);
 		lblVida3.setIcon(img);
 		
-//		JButton btnNewButton = new JButton("play");
-//		btnNewButton.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				miJuego.activarSonido();
-//				}
-//		});
-//		btnNewButton.setBounds(227, 20, 89, 23);
-//		contentPane.add(btnNewButton);
+		JButton btnNewButton = new JButton("play");
+		JButton btnNewButton_1 = new JButton("stop");
+		
+		sonidoActivo=false;
+		
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				if(!sonidoActivo) {
+					sonidoActivo=true;
+					miJuego.setearSonido(true);
+					btnNewButton.setEnabled(false);
+					btnNewButton_1.setEnabled(true);
+				}
+			}
+		});
+
+		btnNewButton.setBounds(166, 22, 89, 23);
+		contentPane.add(btnNewButton);
+		
+		btnNewButton_1.setEnabled(false);
+		btnNewButton_1.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				if(sonidoActivo) {
+				sonidoActivo=false;
+				miJuego.setearSonido(false);
+				btnNewButton_1.setEnabled(false);
+				btnNewButton.setEnabled(true);
+				}
+				}
+		});
+		btnNewButton_1.setBounds(276, 22, 89, 23);
+		contentPane.add(btnNewButton_1);
 		
 		addKeyListener(this);
 		
@@ -227,5 +256,9 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	public void limpiar() {
 		panel.removeAll();
 		panel.repaint();
+	}
+	
+	public boolean getSonido() {
+		return sonidoActivo;
 	}
 }

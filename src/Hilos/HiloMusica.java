@@ -17,12 +17,17 @@ public class HiloMusica extends Thread{
 	}
 	
 	public void run(){
-		while(activo) {
-			activarSonido();
-		}
+		
+			try {
+				Thread.sleep(10); //ver como sincronizar con los movimientos del protagonista
+				sonido.loop();;
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		
     }
-
-	public void activarSonido() {
-		sonido.play();
+	
+	public void desactivar() {
+		sonido.stop();
 	}
 }

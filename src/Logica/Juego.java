@@ -43,7 +43,6 @@ public class Juego {
 		
 		miVentana = ventana;
 		nivel = 1;
-//		hiloMusica= new HiloMusica(this);
 		inicializarNivel1();
 	}
 
@@ -111,6 +110,8 @@ public class Juego {
 		agregarAZona();
 		hiloEnemigos = new HiloMoverEnemigos(this, 70, clyde, inky, blinky, pinky, miProtagonista);
 		hiloProtagonista = new HiloMoverProtagonista(30, this, miProtagonista);
+		hiloMusica= new HiloMusica(this);
+		
 		hiloProtagonista.start();
 		hiloEnemigos.start();
 	}
@@ -142,7 +143,7 @@ public class Juego {
 		hiloEnemigos = new HiloMoverEnemigos(this, 60, clyde, inky, blinky, pinky, miProtagonista);
 		hiloProtagonista = new HiloMoverProtagonista(30, this, miProtagonista);
 		hiloProtagonista.start();
-		hiloEnemigos.start();
+//		hiloEnemigos.start();
 	}
 
 	private void inicializarNivel2() {
@@ -582,9 +583,12 @@ public class Juego {
 		//Deberia mostrar una imagen festejando o algo asi y preguntar si quiere jugar de nuevo
 	}
 
-	public synchronized void activarSonido() {
-//		hiloMusica.start();
-	}
+	public synchronized void setearSonido(boolean b) {
+		if(b==true)
+			hiloMusica.run();
+		else
+			hiloMusica.desactivar();
+		}
 
 	
 
