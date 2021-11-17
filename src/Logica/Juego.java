@@ -518,7 +518,7 @@ public class Juego {
 	public void finalizarJuego() {
 		hiloProtagonista.detener();
 		hiloEnemigos.detener();
-		miVentana.cerrarJuego();
+		miVentana.dispose();
 
 	}
 
@@ -565,8 +565,9 @@ public class Juego {
 	public void avanzarNivel() {
 		switch(nivel) {
 		case 1:
-			nivel++;
-			inicializarNivel2();
+			ganoElJuego();
+//			nivel++;
+//			inicializarNivel2();
 			break;
 		case 2:
 			nivel++;
@@ -581,6 +582,7 @@ public class Juego {
 	private void ganoElJuego() {
 		// TODO Auto-generated method stub
 		//Deberia mostrar una imagen festejando o algo asi y preguntar si quiere jugar de nuevo
+		miVentana.finJuego();
 	}
 
 	public synchronized void setearSonido(boolean b) {

@@ -120,40 +120,30 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		lblVida2.setIcon(img);
 		lblVida3.setIcon(img);
 		
-		JButton btnNewButton = new JButton("play");
-		JButton btnNewButton_1 = new JButton("stop");
 		
-		sonidoActivo=false;
-		
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-				if(!sonidoActivo) {
-					sonidoActivo=true;
-					miJuego.setearSonido(true);
-					btnNewButton.setEnabled(false);
-					btnNewButton_1.setEnabled(true);
-				}
-			}
-		});
-
-		btnNewButton.setBounds(166, 22, 89, 23);
-		contentPane.add(btnNewButton);
-		
-		btnNewButton_1.setEnabled(false);
-		btnNewButton_1.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) {
-				if(sonidoActivo) {
-				sonidoActivo=false;
-				miJuego.setearSonido(false);
-				btnNewButton_1.setEnabled(false);
-				btnNewButton.setEnabled(true);
-				}
-				}
-		});
-		btnNewButton_1.setBounds(276, 22, 89, 23);
-		contentPane.add(btnNewButton_1);
+//		JButton btnNewButton = new JButton("music");
+//		
+//		sonidoActivo=false;
+//		
+//		btnNewButton.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//				
+//				if(!sonidoActivo) {
+//					sonidoActivo=true;
+//					miJuego.setearSonido(true);
+//					//cambiar imagen a activada
+//				}
+//				else {
+//					sonidoActivo=false;
+//					miJuego.setearSonido(false);
+//					//cambiar imagen a desactivada
+//				}
+//			}
+//		});
+//
+//		btnNewButton.setBounds(166, 22, 89, 23);
+//		contentPane.add(btnNewButton);
 		
 		addKeyListener(this);
 		
@@ -244,9 +234,30 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		}
 		
 	}
+
+	public void reiniciarVidas() {
+		lblVida1.setVisible(true);
+		lblVida2.setVisible(true);
+		lblVida3.setVisible(true);
+	}
+	
+	public void reiniciarJuego() {
+		new VentanaGUI();
+		this.setVisible(true);
+		limpiar();
+		reiniciarVidas();
+		miJuego= new Juego(1,this);
+	}
+	
+	public void finJuego() {
+		VentanaFinJuego ventanaF = new VentanaFinJuego(this);
+		ventanaF.setVisible(true);
+		ventanaF.setPuntuacion(puntaje);
+		this.dispose();
+	}
 	
 	public void cerrarJuego() {
-		this.dispose();
+		miJuego.finalizarJuego();
 	}
 
 	public String getPuntaje() {
