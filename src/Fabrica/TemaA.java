@@ -62,8 +62,8 @@ public class TemaA extends Tema{
 	@Override
 	public Blinky getBlinky() {
 		Blinky enemigo;
-		enemigo=new Blinky("/imagenesA/policiaAbajo.png");
-		enemigo.getGUI().setNormal("/imagenesA/policiaAbajo.png","/imagenesA/policiaArriba.png","/imagenesA/policiaIzquierda.png","/imagenesA/policiaDerecha.png") ;
+		enemigo=new Blinky("/imagenesA/blinkyAbajo.png");
+		enemigo.getGUI().setNormal("/imagenesA/blinkyAbajo.png","/imagenesA/blinkyArriba.png","/imagenesA/blinkyIzquierda.png","/imagenesA/blinkyDerecha.png") ;
 		enemigo.getGUI().setAzul("/imagenesA/policiaAbajoAzul.png", "/imagenesA/policiaArribaAzul.png", "/imagenesA/policiaIzquierdaAzul.png", "/imagenesA/policiaDerechaAzul.png");
 		return enemigo;
 	}
@@ -96,8 +96,8 @@ public class TemaA extends Tema{
 	@Override
 	public Inky getInky() {
 		Inky enemigo;
-		enemigo=new Inky("/imagenesA/policiaAbajo.png");
-		enemigo.getGUI().setNormal("/imagenesA/policiaAbajo.png","/imagenesA/policiaArriba.png","/imagenesA/policiaIzquierda.png","/imagenesA/policiaDerecha.png") ;
+		enemigo=new Inky("/imagenesA/inkyAbajo.png");
+		enemigo.getGUI().setNormal("/imagenesA/inkyAbajo.png","/imagenesA/inkyArriba.png","/imagenesA/inkyIzquierda.png","/imagenesA/inkyDerecha.png") ;
 		enemigo.getGUI().setAzul("/imagenesA/policiaAbajoAzul.png", "/imagenesA/policiaArribaAzul.png", "/imagenesA/policiaIzquierdaAzul.png", "/imagenesA/policiaDerechaAzul.png");
 		return enemigo;
 	}
@@ -105,8 +105,8 @@ public class TemaA extends Tema{
 	@Override
 	public Pinky getPinky() {
 		Pinky enemigo;
-		enemigo=new Pinky("/imagenesA/policiaAbajo.png");
-		enemigo.getGUI().setNormal("/imagenesA/policiaAbajo.png","/imagenesA/policiaArriba.png","/imagenesA/policiaIzquierda.png","/imagenesA/policiaDerecha.png") ;
+		enemigo=new Pinky("/imagenesA/pinkyAbajo.png");
+		enemigo.getGUI().setNormal("/imagenesA/pinkyAbajo.png","/imagenesA/pinkyArriba.png","/imagenesA/pinkyIzquierda.png","/imagenesA/pinkyDerecha.png") ;
 		enemigo.getGUI().setAzul("/imagenesA/policiaAbajoAzul.png", "/imagenesA/policiaArribaAzul.png", "/imagenesA/policiaIzquierdaAzul.png", "/imagenesA/policiaDerechaAzul.png");
 		return enemigo;
 	}
@@ -114,8 +114,8 @@ public class TemaA extends Tema{
 	@Override
 	public Clyde getClyde() {
 		Clyde enemigo;
-		enemigo=new Clyde("/imagenesA/policiaAbajo.png");
-		enemigo.getGUI().setNormal("/imagenesA/policiaAbajo.png","/imagenesA/policiaArriba.png","/imagenesA/policiaIzquierda.png","/imagenesA/policiaDerecha.png") ;
+		enemigo=new Clyde("/imagenesA/clydeAbajo.png");
+		enemigo.getGUI().setNormal("/imagenesA/clydeAbajo.png","/imagenesA/clydeArriba.png","/imagenesA/clydeIzquierda.png","/imagenesA/clydeDerecha.png") ;
 		enemigo.getGUI().setAzul("/imagenesA/policiaAbajoAzul.png", "/imagenesA/policiaArribaAzul.png", "/imagenesA/policiaIzquierdaAzul.png", "/imagenesA/policiaDerechaAzul.png");
 		return enemigo;
 	}

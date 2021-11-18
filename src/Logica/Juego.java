@@ -36,11 +36,13 @@ public class Juego {
 	private Pinky pinky;
 	private HiloMoverProtagonista hiloProtagonista;
 	private HiloMusica hiloMusica;
+	private int stepActual;
 
 	public Juego(int tema, VentanaGUI ventana) {
 		miDirector = new Director(tema, this);
 		matriz = new Zona[7][7];
 		
+		stepActual = 70;
 		miVentana = ventana;
 		nivel = 1;
 		inicializarNivel1();
@@ -108,16 +110,12 @@ public class Juego {
 		miVentana.inicializarNivel(miNivel.getNivel(), miProtagonista, blinky, clyde, pinky, inky);
 
 		agregarAZona();
-		hiloEnemigos = new HiloMoverEnemigos(this, 70, clyde, inky, blinky, pinky, miProtagonista);
+		hiloEnemigos = new HiloMoverEnemigos(this, stepActual, clyde, inky, blinky, pinky, miProtagonista);
 		hiloProtagonista = new HiloMoverProtagonista(30, this, miProtagonista);
 		hiloMusica= new HiloMusica(this);
 		
 		hiloProtagonista.start();
 		hiloEnemigos.start();
-	}
-	
-	public void pararHilo() {
-		hiloProtagonista.detener();//Para probar, no deberia estar
 	}
 
 	private void inicializarNivel3() {
@@ -137,10 +135,9 @@ public class Juego {
 		miProtagonista = miNivel.getProtagonista();
 		blinky = miNivel.getBlinky();
 		miVentana.limpiar();
-		//miVentana.inicializarNivel(miNivel.getNivel(), miProtagonista, blinky);
-
+		stepActual = 50;
 		agregarAZona();
-		hiloEnemigos = new HiloMoverEnemigos(this, 60, clyde, inky, blinky, pinky, miProtagonista);
+		hiloEnemigos = new HiloMoverEnemigos(this, stepActual, clyde, inky, blinky, pinky, miProtagonista);
 		hiloProtagonista = new HiloMoverProtagonista(30, this, miProtagonista);
 		hiloProtagonista.start();
 //		hiloEnemigos.start();
@@ -165,9 +162,9 @@ public class Juego {
 
 		miVentana.limpiar();
 	//	miVentana.inicializarNivel(miNivel.getNivel(), miProtagonista, blinky);
-
+		stepActual = 60;
 		agregarAZona();
-		hiloEnemigos = new HiloMoverEnemigos(this, 50, clyde, inky, blinky, pinky, miProtagonista);
+		hiloEnemigos = new HiloMoverEnemigos(this, stepActual, clyde, inky, blinky, pinky, miProtagonista);
 		hiloProtagonista = new HiloMoverProtagonista(30, this, miProtagonista);
 		hiloProtagonista.start();
 		hiloEnemigos.start();
@@ -468,15 +465,12 @@ public class Juego {
 	public void activarPowerPellet() {
 		miProtagonista.setEstadoBomba(false);
 		miProtagonista.setEstadoVelocidad(false);
-		blinky.setEstado(1);
 		blinky.setEstadoPowerPellet(true);
-		//pinky.setEstado(2);
-		//inky.setEstado(2);
-		//clyde.setEstado(2);
+		inky.setEstadoPowerPellet(true);
+		pinky.setEstadoPowerPellet(true);
+		clyde.setEstadoPowerPellet(true);
 		miProtagonista.setEstadoPowerPellet(true);
-		//blinky.setEstadoPowerPellet(true);
 		hiloProtagonista.setPowerPellet();
-//		hiloEnemigos.setPowerPellet();
 	}
 
 	public void activarBomba() {
@@ -500,9 +494,9 @@ public class Juego {
 	public void desactivarPowerPellet() {
 		miProtagonista.setEstadoPowerPellet(false);
 		blinky.setEstadoPowerPellet(false);
-		//pinky.setEstado(0);
-		//inky.setEstado(0);
-		//clyde.setEstado(0);
+		pinky.setEstadoPowerPellet(false);
+		inky.setEstadoPowerPellet(false);
+		clyde.setEstadoPowerPellet(false);
 	}
 
 	public void desactivarVelocidad() {
@@ -522,7 +516,7 @@ public class Juego {
 
 	}
 
-	public void reiniciarEnemigos(Enemigo enemigo) {
+	public void reiniciarEnemigo(Enemigo enemigo) {
 		enemigo.setX(320);
 		enemigo.setY(320);
 	}
@@ -537,28 +531,28 @@ public class Juego {
 
 	public Enemigo buscarEnemigo() {
 		Enemigo enemigoAEliminar = null;
-		//Rectangle recClyde = new Rectangle(clyde.getX(), clyde.getY(), clyde.getTamano(), clyde.getTamano());
+		Rectangle recClyde = new Rectangle(clyde.getX(), clyde.getY(), clyde.getTamano(), clyde.getTamano());
 		Rectangle recBlinky = new Rectangle(blinky.getX(), blinky.getY(), blinky.getTamano(), blinky.getTamano());
-		//Rectangle recInky = new Rectangle(inky.getX(), inky.getY(), inky.getTamano(), inky.getTamano());
-		//Rectangle recPinky = new Rectangle(pinky.getX(), pinky.getY(), pinky.getTamano(), pinky.getTamano());
+		Rectangle recInky = new Rectangle(inky.getX(), inky.getY(), inky.getTamano(), inky.getTamano());
+		Rectangle recPinky = new Rectangle(pinky.getX(), pinky.getY(), pinky.getTamano(), pinky.getTamano());
 		Rectangle recProtagonista = new Rectangle(miProtagonista.getX()-1, miProtagonista.getY()-1, miProtagonista.getTamano()+2, miProtagonista.getTamano()+2);
 		
-		/*
+		
 		if(recClyde.intersects(recProtagonista)) {
 			enemigoAEliminar = clyde;
 		}
 		if(recInky.intersects(recProtagonista)) {
 			enemigoAEliminar = inky;
 		}
-		*/
+		
 		if(recBlinky.intersects(recProtagonista)) {
 			enemigoAEliminar = blinky;
 		}
-		/*
+		
 		if(recPinky.intersects(recProtagonista)) {
 			enemigoAEliminar = pinky;
 		}
-		*/
+		
 		return enemigoAEliminar;
 	}
 
@@ -580,7 +574,6 @@ public class Juego {
 	}
 
 	private void ganoElJuego() {
-		// TODO Auto-generated method stub
 		//Deberia mostrar una imagen festejando o algo asi y preguntar si quiere jugar de nuevo
 		miVentana.finJuego();
 	}
@@ -591,6 +584,14 @@ public class Juego {
 		else
 			hiloMusica.desactivar();
 		}
+
+	public void reiniciarEnemigos() {
+		blinky.setPos(320, 320);
+		inky.setPos(288, 320);
+		clyde.setPos(352, 320);
+		pinky.setPos(288, 320);
+		
+	}
 
 	
 

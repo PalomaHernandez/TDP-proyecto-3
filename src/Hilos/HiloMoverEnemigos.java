@@ -25,10 +25,16 @@ public class HiloMoverEnemigos extends Thread {
 	private boolean estadoPowerPellet;
 	private long tiempoPowerPellet;
 	private long tiempoActual;
+	private boolean volvio = false;
 	private static final int puertaX = 320;
 	private static final int puertaY = 288; 
 	private static final int rango = 608;
-	
+
+	private static final int direccionAbajo = 0;
+	private static final int direccionArriba = 1;
+	private static final int direccionDerecha = 2;
+	private static final int direccionIzquierda = 3;
+
 	//Estado 0 dispersarse. 1 perseguir. 2 correr. 3 morir (ir a la casa)
 	public HiloMoverEnemigos(Juego miJuego, int s, Clyde clyde, Inky inky, Blinky blinky, Pinky pinky, Protagonista protagonista) {
 		this.clyde = clyde;
@@ -52,15 +58,21 @@ public class HiloMoverEnemigos extends Thread {
 	}
 	
 	public void run() {
+		long tiempoComienzo;
 		try {
+			tiempoComienzo = (System.currentTimeMillis()/1000) + 3;
 			while(activo) {
+				tiempoActual = System.currentTimeMillis()/1000;
 				Thread.sleep(step);
-				moverClyde();
-				moverInky();
-				moverPinky();
 				moverBlinky();	
-				
-				if(estadoPowerPellet) {
+				if(tiempoActual >= tiempoComienzo) {
+					moverInky();
+				if(tiempoActual >= tiempoComienzo + 3)// para que no salgan todos a la vez
+					moverPinky();
+				if(tiempoActual >= tiempoComienzo + 6)
+					moverClyde();
+				}
+				if(estadoPowerPellet) {//Esto creo que no hace falta
 					tiempoActual = System.currentTimeMillis()/1000;
 					if(tiempoPowerPellet + 5 <= tiempoActual) {
 						estadoPowerPellet = false;
@@ -140,13 +152,71 @@ public class HiloMoverEnemigos extends Thread {
 	}
 
 	private void dispersarPinky() {
-		
-		Rectangle pos = new Rectangle(inky.getX(), inky.getY(), inky.getWidth(), inky.getHeight());
+		int posX;
+		int posY;
+		Rectangle pos = new Rectangle(pinky.getX(), pinky.getY(), pinky.getWidth(), pinky.getHeight());
 
 		if(pos.intersects(casa)) {
-			dirigirA(320, 256, inky); //Puerta de la casa
+			dirigirA(320, 256, pinky); //Puerta de la casa
 		}else {
-			
+			switch(protagonista.getDireccion()) {
+				case direccionArriba:
+					posY = protagonista.getY() - 128;
+					posY -= (posY % 32); //Para que la posicion dada sea correcta hablando de pixeles
+					posX = protagonista.getX() - 64;
+					posX -= (posX % 32);
+					
+					if(posX < 32) {
+						posX = 32;
+					}
+					if(posY < 32) {
+						posY = 32;
+					}
+					dirigirA(posX, posY, pinky);
+					break;
+				case direccionAbajo:
+					posY = 128 + protagonista.getY();
+					posY -= (posY % 32); //Para que la posicion dada sea correcta hablando de pixeles
+					posX = protagonista.getX() + 64;
+					posX -= (posX % 32);
+					
+					if(posX > rango) {
+						posX = rango;
+					}
+					if(posY > rango) {
+						posY = rango;
+					}
+					dirigirA(posX, posY, pinky);
+					break;
+				case direccionDerecha:
+					posY = protagonista.getY() - 64;
+					posY -= (posY % 32); //Para que la posicion dada sea correcta hablando de pixeles
+					posX = protagonista.getX() + 128;
+					posX -= (posX % 32);
+					
+					if(posX > rango) {
+						posX = rango;
+					}
+					if(posY < 32) {
+						posY = 32;
+					}
+					dirigirA(posX, posY, pinky);
+					break;
+				case direccionIzquierda:
+					posY = protagonista.getY() + 64;
+					posY -= (posY % 32); //Para que la posicion dada sea correcta hablando de pixeles
+					posX = protagonista.getX() - 128;
+					posX -= (posX % 32);
+					
+					if(posX < 32) {
+						posX = 32;
+					}
+					if(posY > rango) {
+						posY = rango;
+					}
+					dirigirA(posX, posY, pinky);
+					break;
+			}
 		}
 	}
 
@@ -191,8 +261,40 @@ public class HiloMoverEnemigos extends Thread {
 	}
 
 	private void moverClyde() {
-		// TODO Auto-generated method stub
+		int estado = clyde.getEstado();
+		switch(estado) {
+		case 0:
+			dispersarClyde();
+			break;
+		case 2:
+			irACasa(clyde);
+			break;
+		}
+	}
+
+	private void dispersarClyde() {
+		int posX;
+		int posY;
+		Rectangle pos = new Rectangle(clyde.getX(), clyde.getY(), clyde.getWidth(), clyde.getHeight());
+
 		
+		if(pos.intersects(casa)) {
+			dirigirA(320, 256, clyde); //Puerta de la casa
+		}else {
+			posX = clyde.getX();
+			posY = clyde.getY();
+			if(Math.abs(posX - protagonista.getX()) <= 256 && Math.abs(posY - protagonista.getY()) <= 256) {
+				perseguir(clyde);
+			}else {
+				if(!volvio) {
+					dirigirA(32, 32, clyde);//habria que ver que este vuelva
+					if(clyde.getX() == 32 && clyde.getY() == 32)
+						volvio = true;
+				}else
+					perseguir(clyde);
+			}
+			
+		}
 	}
 
 	public void setPowerPellet() {

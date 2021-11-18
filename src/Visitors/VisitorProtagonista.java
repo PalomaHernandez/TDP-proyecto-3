@@ -23,7 +23,7 @@ public class VisitorProtagonista implements Visitor{
 		Protagonista miProta= j.getProtagonista();
 		if(miProta.getPowerPellet()==true) {
 			//el enemigo vuelve a la casa
-			j.reiniciarEnemigos(enemigo);
+			j.reiniciarEnemigo(enemigo);
 		}
 		else {
 			if(miProta.getVidas()>0) { //si el protagonista aun tiene vida
@@ -32,7 +32,7 @@ public class VisitorProtagonista implements Visitor{
 				//reiniciar posiciones de las entidades moviles
 				j.reiniciarProtagonista();
 				//aca deberia pedir la lista de los enemigos y reiniciarle la pos a todos
-				j.reiniciarEnemigos(enemigo);
+				j.reiniciarEnemigos();
 			}
 			else
 				j.finalizarJuego();
