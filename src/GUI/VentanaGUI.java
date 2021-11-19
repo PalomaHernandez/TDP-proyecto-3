@@ -181,6 +181,8 @@ public class VentanaGUI extends JFrame implements KeyListener{
 			imagen = new ImageIcon(VentanaGUI.class.getResource(e.getRepresentacion()));
 			e.setIcon(imagen);
 		}
+		
+		reiniciarVidas();
 	}
 
 	@Override

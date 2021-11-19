@@ -135,12 +135,13 @@ public class Juego {
 		miProtagonista = miNivel.getProtagonista();
 		blinky = miNivel.getBlinky();
 		miVentana.limpiar();
+		miVentana.inicializarNivel(miNivel.getNivel(), miProtagonista, blinky, clyde, pinky, inky);
 		stepActual = 50;
 		agregarAZona();
 		hiloEnemigos = new HiloMoverEnemigos(this, stepActual, clyde, inky, blinky, pinky, miProtagonista);
 		hiloProtagonista = new HiloMoverProtagonista(30, this, miProtagonista);
 		hiloProtagonista.start();
-		//		hiloEnemigos.start();
+		hiloEnemigos.start();
 	}
 
 	private void inicializarNivel2() {
@@ -161,7 +162,7 @@ public class Juego {
 		blinky = miNivel.getBlinky();
 
 		miVentana.limpiar();
-		//	miVentana.inicializarNivel(miNivel.getNivel(), miProtagonista, blinky);
+		miVentana.inicializarNivel(miNivel.getNivel(), miProtagonista, blinky, clyde, pinky, inky);
 		stepActual = 60;
 		agregarAZona();
 		hiloEnemigos = new HiloMoverEnemigos(this, stepActual, clyde, inky, blinky, pinky, miProtagonista);
@@ -555,12 +556,14 @@ public class Juego {
 	public void avanzarNivel() {
 		switch(nivel) {
 		case 1:
-			ganoElJuego();
-			//nivel++;
-			//inicializarNivel2();
+//			ganoElJuego();
+			nivel++;
+			reiniciarEnemigos();
+			inicializarNivel2();
 			break;
 		case 2:
 			nivel++;
+			reiniciarEnemigos();
 			inicializarNivel3();
 			break;
 		case 3:

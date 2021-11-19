@@ -403,8 +403,8 @@ public class Director {
 		crearBomba2();
 		crearFruta2();
 		crearVelocidad2();
-		crearBlinky2();
-		//crearEnemigos2();
+//		crearBlinky2();
+		crearEnemigos();
 		crearPacDots2();
 		crearParedes2(); 
 		builder.setCantPuntos();
@@ -766,13 +766,13 @@ public class Director {
 
 		builder.setProtagonista(tema, 320, 544);
 
-		crearEnemigos3();
+		crearEnemigos();
 		crearPowerPellets3();
 		crearBomba3();
 		crearFruta3();
 		crearVelocidad3();
 		crearPacDots3();
-		crearBlinky3();
+//		crearBlinky3();
 		crearParedes3();
 		builder.setCantPuntos();
 	}
