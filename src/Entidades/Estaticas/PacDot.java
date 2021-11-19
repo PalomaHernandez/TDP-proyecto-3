@@ -1,11 +1,11 @@
 package Entidades.Estaticas;
 
-import Entidades.Moviles.Protagonista;
+import Entidades.Entidad;
 import GUI.PacDotGUI;
 import Logica.Juego;
 import Visitors.Visitor;
 
-public class PacDot extends Punto{
+public class PacDot extends Entidad{
 
 	private static final long serialVersionUID = 1L;
 	private PacDotGUI miRepresentacion;
@@ -16,7 +16,6 @@ public class PacDot extends Punto{
 		tamano = 10;
 	}
 
-	@Override
 	public boolean accept(Visitor v, Juego j) {
 		v.visit(this, j);
 		return false;

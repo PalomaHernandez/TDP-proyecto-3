@@ -1,10 +1,11 @@
 package Entidades.Estaticas;
 
+import Entidades.Entidad;
 import GUI.FrutaGUI;
 import Logica.Juego;
 import Visitors.Visitor;
 
-public class Fruta extends Pocion {
+public class Fruta extends Entidad{
 	
 	/**
 	 * 

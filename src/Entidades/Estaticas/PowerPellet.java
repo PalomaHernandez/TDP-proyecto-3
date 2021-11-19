@@ -1,13 +1,11 @@
 package Entidades.Estaticas;
 
-import java.util.List;
-
-import Entidades.Moviles.Enemigo;
+import Entidades.Entidad;
 import GUI.PowerPelletGUI;
 import Logica.Juego;
 import Visitors.Visitor;
 
-public class PowerPellet extends Punto{
+public class PowerPellet extends Entidad{
 
 	/**
 	 * 
@@ -27,6 +25,4 @@ public class PowerPellet extends Punto{
 		return false;
 	}
 
-
-	
 }

@@ -15,15 +15,14 @@ public class VisitorFantasma implements Visitor {
 
 	@Override
 	public void visit(Enemigo enemigo, Juego j) {
-		
+
 	}
 
 	public void visit(Protagonista protagonista, Juego j) { //falta ver como conocer al enemigo que actua en el metodo
 		Enemigo enemigo = j.buscarEnemigo();
 		if(protagonista.getPowerPellet()==true) {
 			//el enemigo vuelve a la casa
-			enemigo.setX(320);
-			enemigo.setY(320);
+			j.reiniciarEnemigo(enemigo);
 			j.aumentarPuntaje(200);
 		}
 		else {
@@ -40,38 +39,38 @@ public class VisitorFantasma implements Visitor {
 				j.finalizarJuego();
 		}
 		System.out.println("visite protagonista");
-		
+
 	}
 
 	@Override
 	public void visit(Bomba bomba, Juego j) {
-		
+
 	}
 
 	@Override
 	public void visit(Velocidad velocidad, Juego j) {
-		
+
 	}
 
 	@Override
 	public void visit(PowerPellet powerpellet, Juego j) {
-		
+
 	}
 
 	@Override
 	public void visit(PacDot pacdot, Juego j) {
-		
+
 	}
 
 	@Override
 	public void visit(Fruta fruta, Juego j) {
-		
+
 	}
 
 
 	@Override
 	public void visit(Pared pared) {
-		
+
 	}
 
 }

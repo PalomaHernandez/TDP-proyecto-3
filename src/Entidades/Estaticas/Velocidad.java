@@ -1,10 +1,11 @@
 package Entidades.Estaticas;
 
+import Entidades.Entidad;
 import GUI.VelocidadGUI;
 import Logica.Juego;
 import Visitors.Visitor;
 
-public class Velocidad extends Pocion {
+public class Velocidad extends Entidad {
 	
 	/**
 	 * 

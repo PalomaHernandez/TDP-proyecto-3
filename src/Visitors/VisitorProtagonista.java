@@ -1,14 +1,11 @@
 package Visitors;
 
-import java.util.List;
 
-import Entidades.Entidad;
 import Entidades.Estaticas.Bomba;
 import Entidades.Estaticas.Fruta;
 import Entidades.Estaticas.PacDot;
 import Entidades.Estaticas.Pared;
 import Entidades.Estaticas.PowerPellet;
-import Entidades.Estaticas.Punto;
 import Entidades.Estaticas.Velocidad;
 import Entidades.Moviles.Enemigo;
 import Entidades.Moviles.Protagonista;
@@ -24,6 +21,7 @@ public class VisitorProtagonista implements Visitor{
 		if(miProta.getPowerPellet()==true) {
 			//el enemigo vuelve a la casa
 			j.reiniciarEnemigo(enemigo);
+			j.aumentarPuntaje(200);
 		}
 		else {
 			if(miProta.getVidas()>0) { //si el protagonista aun tiene vida
@@ -43,7 +41,7 @@ public class VisitorProtagonista implements Visitor{
 
 	@Override
 	public void visit(Protagonista protagonista, Juego j) {
-		
+
 	}
 
 	@Override

@@ -1,10 +1,11 @@
 package Entidades.Estaticas;
 
+import Entidades.Entidad;
 import GUI.ParedGUI;
 import Logica.Juego;
 import Visitors.Visitor;
 
-public class Pared extends Estatica {
+public class Pared extends Entidad {
 
 	/**
 	 * 

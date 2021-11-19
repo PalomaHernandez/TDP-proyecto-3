@@ -41,7 +41,7 @@ public class Juego {
 	public Juego(int tema, VentanaGUI ventana) {
 		miDirector = new Director(tema, this);
 		matriz = new Zona[7][7];
-		
+
 		stepActual = 70;
 		miVentana = ventana;
 		nivel = 1;
@@ -101,29 +101,29 @@ public class Juego {
 
 		miNivel = constructorNivel.getResult();
 		miProtagonista = miNivel.getProtagonista();
-		
+
 		blinky = miNivel.getBlinky();
 		clyde = miNivel.getClyde();
 		pinky = miNivel.getPinky();
 		inky = miNivel.getInky();
-		
+
 		miVentana.inicializarNivel(miNivel.getNivel(), miProtagonista, blinky, clyde, pinky, inky);
 
 		agregarAZona();
 		hiloEnemigos = new HiloMoverEnemigos(this, stepActual, clyde, inky, blinky, pinky, miProtagonista);
 		hiloProtagonista = new HiloMoverProtagonista(30, this, miProtagonista);
 		hiloMusica= new HiloMusica(this);
-		
+
 		hiloProtagonista.start();
 		hiloEnemigos.start();
 	}
 
 	private void inicializarNivel3() {
 		Builder constructorNivel;
-		
+
 		hiloEnemigos.detener();
 		hiloProtagonista.detener();
-		
+
 		for(int i = 0; i < 7 ; i++)
 			for(int j = 0 ; j < 7 ; j++)
 				matriz[i][j] = new Zona();
@@ -140,15 +140,15 @@ public class Juego {
 		hiloEnemigos = new HiloMoverEnemigos(this, stepActual, clyde, inky, blinky, pinky, miProtagonista);
 		hiloProtagonista = new HiloMoverProtagonista(30, this, miProtagonista);
 		hiloProtagonista.start();
-//		hiloEnemigos.start();
+		//		hiloEnemigos.start();
 	}
 
 	private void inicializarNivel2() {
 		Builder constructorNivel;
-		
+
 		hiloEnemigos.detener();
 		hiloProtagonista.detener();
-		
+
 		for(int i = 0; i < 7 ; i++)
 			for(int j = 0 ; j < 7 ; j++)
 				matriz[i][j] = new Zona();
@@ -161,7 +161,7 @@ public class Juego {
 		blinky = miNivel.getBlinky();
 
 		miVentana.limpiar();
-	//	miVentana.inicializarNivel(miNivel.getNivel(), miProtagonista, blinky);
+		//	miVentana.inicializarNivel(miNivel.getNivel(), miProtagonista, blinky);
 		stepActual = 60;
 		agregarAZona();
 		hiloEnemigos = new HiloMoverEnemigos(this, stepActual, clyde, inky, blinky, pinky, miProtagonista);
@@ -169,7 +169,7 @@ public class Juego {
 		hiloProtagonista.start();
 		hiloEnemigos.start();
 	}
-	
+
 	public boolean colision(Movil movil, HashSet<Entidad> list, int posXFin, int posYFin) {
 		boolean esPared = false;
 		Visitor v1;
@@ -234,10 +234,10 @@ public class Juego {
 			zonaActualB.removeEntidad(movil);
 			zonaFinalB.addEntidad(movil);
 		}
-		
+
 		if(!esPared)
 			movil.moverDerecha();
-		
+
 		return !esPared;
 	}
 
@@ -282,16 +282,16 @@ public class Juego {
 			zonaActualB.removeEntidad(movil);
 			zonaFinalB.addEntidad(movil);
 		}
-		
+
 		if(!esPared)
 			movil.moverIzquierda();
-		
+
 		return !esPared;
 	}
 
 	public synchronized void moverAbajoAction() {
 		hiloProtagonista.movimiento(0);
-		
+
 	}
 
 	public boolean moverAbajo(Movil movil) {
@@ -330,10 +330,10 @@ public class Juego {
 			zonaActualC.removeEntidad(movil);
 			zonaFinalC.addEntidad(movil);
 		}
-		
+
 		if(!esPared)
 			movil.moverAbajo();
-		
+
 		return !esPared;
 	}
 
@@ -506,14 +506,12 @@ public class Juego {
 
 	public void eliminarProtagonista() {
 		miVentana.eliminarVidas(miProtagonista.getVidas());
-
 	}
 
 	public void finalizarJuego() {
 		hiloProtagonista.detener();
 		hiloEnemigos.detener();
 		miVentana.dispose();
-
 	}
 
 	public void reiniciarEnemigo(Enemigo enemigo) {
@@ -521,11 +519,9 @@ public class Juego {
 		enemigo.setY(320);
 	}
 
-
 	public void reiniciarProtagonista() {
 		miProtagonista.setX(320);
 		miProtagonista.setY(544);
-		moverIzqAction();
 		//ver como acomodar la rotacion del protagonista
 	}
 
@@ -536,23 +532,23 @@ public class Juego {
 		Rectangle recInky = new Rectangle(inky.getX(), inky.getY(), inky.getTamano(), inky.getTamano());
 		Rectangle recPinky = new Rectangle(pinky.getX(), pinky.getY(), pinky.getTamano(), pinky.getTamano());
 		Rectangle recProtagonista = new Rectangle(miProtagonista.getX()-1, miProtagonista.getY()-1, miProtagonista.getTamano()+2, miProtagonista.getTamano()+2);
-		
-		
+
+
 		if(recClyde.intersects(recProtagonista)) {
 			enemigoAEliminar = clyde;
 		}
 		if(recInky.intersects(recProtagonista)) {
 			enemigoAEliminar = inky;
 		}
-		
+
 		if(recBlinky.intersects(recProtagonista)) {
 			enemigoAEliminar = blinky;
 		}
-		
+
 		if(recPinky.intersects(recProtagonista)) {
 			enemigoAEliminar = pinky;
 		}
-		
+
 		return enemigoAEliminar;
 	}
 
@@ -560,8 +556,8 @@ public class Juego {
 		switch(nivel) {
 		case 1:
 			ganoElJuego();
-//			nivel++;
-//			inicializarNivel2();
+			//nivel++;
+			//inicializarNivel2();
 			break;
 		case 2:
 			nivel++;
@@ -583,16 +579,13 @@ public class Juego {
 			hiloMusica.run();
 		else
 			hiloMusica.desactivar();
-		}
+	}
 
 	public void reiniciarEnemigos() {
 		blinky.setPos(320, 320);
 		inky.setPos(288, 320);
 		clyde.setPos(352, 320);
 		pinky.setPos(288, 320);
-		
+
 	}
-
-	
-
 }

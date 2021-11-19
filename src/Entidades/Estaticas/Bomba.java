@@ -1,10 +1,11 @@
 package Entidades.Estaticas;
 
+import Entidades.Entidad;
 import GUI.BombaGUI;
 import Logica.Juego;
 import Visitors.Visitor;
 
-public class Bomba extends Pocion {
+public class Bomba extends Entidad {
 	
 	/**
 	 * 
