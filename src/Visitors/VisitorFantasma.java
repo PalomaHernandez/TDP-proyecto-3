@@ -32,8 +32,7 @@ public class VisitorFantasma implements Visitor {
 				//reiniciar posiciones de las entidades moviles
 				j.reiniciarProtagonista();
 				//aca deberia pedir la lista de los enemigos y reiniciarle la pos a todos
-				enemigo.setX(320);
-				enemigo.setY(320);
+				j.reiniciarEnemigos();
 			}
 			else
 				j.perdiElJuego();

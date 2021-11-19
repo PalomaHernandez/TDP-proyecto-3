@@ -3,10 +3,6 @@ package GUI;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +10,10 @@ import javax.swing.SwingConstants;
 
 public class VentanaFinJuego extends JDialog{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel lblPuntaje;
 	private JLabel lblResultado;
 //	private VentanaGUI miVentana;
@@ -21,6 +21,7 @@ public class VentanaFinJuego extends JDialog{
 	public VentanaFinJuego(VentanaGUI miVentana) {
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		getContentPane().setLayout(null);
+		setBounds(100, 100, 470, 300);
 		
 		setResizable(true);
 		setEnabled(true);
@@ -46,9 +47,8 @@ public class VentanaFinJuego extends JDialog{
 		
 		btnSi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miVentana.cerrarJuego();
 				miVentana.reiniciarJuego();
-				dispose();
+				setVisible(false);
 			}
 		});
 		

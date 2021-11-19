@@ -44,6 +44,8 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	private JLabel lblVida3;
 	private int puntaje;
 	private boolean sonidoActivo;
+	private VentanaFinJuego finJuego = new VentanaFinJuego(this);
+	
 	/**
 	 * Launch the application.
 	 */
@@ -245,7 +247,6 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	}
 	
 	public void reiniciarJuego() {
-		new VentanaGUI();
 		this.setVisible(true);
 		limpiar();
 		reiniciarVidas();
@@ -253,11 +254,9 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	}
 	
 	public void finJuego(String texto) {
-		VentanaFinJuego ventanaF = new VentanaFinJuego(this);
-		ventanaF.setResultado(texto);
-		ventanaF.setVisible(true);
-		ventanaF.setPuntuacion(puntaje);
-		this.dispose();
+		finJuego.setResultado(texto);
+		finJuego.setVisible(true);
+		finJuego.setPuntuacion(puntaje);
 	}
 	
 	public void cerrarJuego() {

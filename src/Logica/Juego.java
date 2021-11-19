@@ -1,8 +1,8 @@
 package Logica;
 
 import java.awt.Rectangle;
+import java.util.ConcurrentModificationException;
 import java.util.HashSet;
-import java.util.List;
 
 import Entidades.Entidad;
 import Entidades.Estaticas.Bomba;
@@ -183,17 +183,20 @@ public class Juego {
 		Rectangle entidad = new Rectangle(posXFin, posYFin, movil.getTamano(), movil.getTamano());
 
 
-		for(Entidad e: list)//Arreglar esto
-			listaSinRep.add(e);
-
-		for(Entidad e : listaSinRep) {
-			entidad2 = new Rectangle(e.getX(), e.getY(), e.getTamano(), e.getTamano());
-			if(entidad.intersects(entidad2)) {
-				v1= movil.getVisitor();
-				esPared = e.accept(v1, this);
-				if(esPared)
-					break;
+		try {
+			for(Entidad e: list)//Arreglar esto
+				listaSinRep.add(e);
+			
+			for(Entidad e : listaSinRep) {
+				entidad2 = new Rectangle(e.getX(), e.getY(), e.getTamano(), e.getTamano());
+				if(entidad.intersects(entidad2)) {
+					v1= movil.getVisitor();
+					esPared = e.accept(v1, this);
+					if(esPared)
+						break;
+				}
 			}
+		}catch(ConcurrentModificationException exc) {
 		}
 
 		return esPared;
@@ -583,10 +586,9 @@ public class Juego {
 	public void avanzarNivel() {
 		switch(nivel) {
 		case 1:
-			ganoElJuego();
-//			nivel++;
-//			reiniciarEnemigos();
-//			inicializarNivel2();
+			nivel++;
+			reiniciarEnemigos();
+			inicializarNivel2();
 			break;
 		case 2:
 			nivel++;

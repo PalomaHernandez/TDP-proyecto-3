@@ -403,16 +403,12 @@ public class Director {
 		crearBomba2();
 		crearFruta2();
 		crearVelocidad2();
-//		crearBlinky2();
 		crearEnemigos();
 		crearPacDots2();
 		crearParedes2(); 
 		builder.setCantPuntos();
 	}
 
-	private void crearBlinky2() {
-		builder.setBlinky(tema, 320, 320);
-	}
 
 	private void crearVelocidad2() {
 		builder.setVelocidad(tema, 326, 96);
@@ -575,11 +571,6 @@ public class Director {
 
 		builder.setPacDot(tema, 330, 160);
 		builder.setPacDot(tema, 330, 192);
-	}
-
-	private void crearEnemigos2() {
-		builder.setEnemigos(tema, 320, 320);
-
 	}
 
 	private void crearParedes2() {
@@ -777,9 +768,6 @@ public class Director {
 		builder.setCantPuntos();
 	}
 
-	private void crearBlinky3() {
-		builder.setBlinky(tema, 320, 320);
-	}
 
 	private void crearVelocidad3() {
 		builder.setVelocidad(tema, 326, 96);

@@ -1,11 +1,8 @@
 package Hilos;
 
 import Entidades.Estaticas.Bomba;
-import Entidades.Moviles.Movil;
 import Entidades.Moviles.Protagonista;
-import GUI.VentanaGUI;
 import Logica.Juego;
-import Logica.Zona;
 
 public class HiloMoverProtagonista extends Thread {
 	

@@ -1,6 +1,5 @@
 package Visitors;
 
-import java.util.List;
 
 import Entidades.Estaticas.*;
 import Entidades.Moviles.Enemigo;
