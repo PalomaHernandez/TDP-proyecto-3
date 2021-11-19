@@ -36,7 +36,7 @@ public class VisitorFantasma implements Visitor {
 				enemigo.setY(320);
 			}
 			else
-				j.finalizarJuego();
+				j.perdiElJuego();
 		}
 		System.out.println("visite protagonista");
 

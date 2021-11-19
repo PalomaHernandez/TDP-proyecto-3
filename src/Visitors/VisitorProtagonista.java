@@ -33,7 +33,7 @@ public class VisitorProtagonista implements Visitor{
 				j.reiniciarEnemigos();
 			}
 			else
-				j.finalizarJuego();
+				j.perdiElJuego();
 		}
 		System.out.println("visite enemigo");
 

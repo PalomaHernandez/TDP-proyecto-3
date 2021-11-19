@@ -251,15 +251,16 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		miJuego= new Juego(1,this);
 	}
 	
-	public void finJuego() {
+	public void finJuego(String texto) {
 		VentanaFinJuego ventanaF = new VentanaFinJuego(this);
+		ventanaF.setResultado(texto);
 		ventanaF.setVisible(true);
 		ventanaF.setPuntuacion(puntaje);
 		this.dispose();
 	}
 	
 	public void cerrarJuego() {
-		miJuego.finalizarJuego();
+		miJuego.cerrarJuego();
 	}
 
 	public String getPuntaje() {

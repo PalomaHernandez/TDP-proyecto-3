@@ -509,12 +509,6 @@ public class Juego {
 		miVentana.eliminarVidas(miProtagonista.getVidas());
 	}
 
-	public void finalizarJuego() {
-		hiloProtagonista.detener();
-		hiloEnemigos.detener();
-		miVentana.dispose();
-	}
-
 	public void reiniciarEnemigo(Enemigo enemigo) {
 		enemigo.setX(320);
 		enemigo.setY(320);
@@ -556,10 +550,10 @@ public class Juego {
 	public void avanzarNivel() {
 		switch(nivel) {
 		case 1:
-//			ganoElJuego();
-			nivel++;
-			reiniciarEnemigos();
-			inicializarNivel2();
+			ganoElJuego();
+//			nivel++;
+//			reiniciarEnemigos();
+//			inicializarNivel2();
 			break;
 		case 2:
 			nivel++;
@@ -572,9 +566,23 @@ public class Juego {
 		}
 	}
 
+	public void perdiElJuego() {
+		hiloProtagonista.detener();
+		hiloEnemigos.detener();
+		miVentana.finJuego("Game-Over");
+	}
+	
+	public void cerrarJuego() {
+		hiloProtagonista.detener();
+		hiloEnemigos.detener();
+		miVentana.dispose();
+	}
+	
 	private void ganoElJuego() {
+		hiloProtagonista.detener();
+		hiloEnemigos.detener();
 		//Deberia mostrar una imagen festejando o algo asi y preguntar si quiere jugar de nuevo
-		miVentana.finJuego();
+		miVentana.finJuego("Congratulations!");
 	}
 
 	public synchronized void setearSonido(boolean b) {
