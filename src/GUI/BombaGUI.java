@@ -6,4 +6,7 @@ public class BombaGUI extends EntidadGUI{
 		this.representacion = representacion;
 	}
 	
+	public void cambiarImagen(String representacion) {
+		this.representacion = representacion;
+	}
 }

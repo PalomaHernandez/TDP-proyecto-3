@@ -25,4 +25,8 @@ public class Bomba extends Entidad {
 		return false;
 	}
 	
+	public void explosion() {
+		miRepresentacion.cambiarImagen( "/imagenesA/explosion.png");
+	}
+	
 }

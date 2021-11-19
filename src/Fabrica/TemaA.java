@@ -50,10 +50,10 @@ public class TemaA extends Tema{
 		
 		lista = new LinkedList<Enemigo>();
 		
-//		lista.add(new Blinky("/imagenesA/PoliciaAbajo.png","/imagenesA/PoliciaArriba.png","/imagenesA/PoliciaIzquierda.png","/imagenesA/PoliciaDerecha.png","/imagenesA/PoliciaAbajo.png" ));
-//		lista.add(new Inky("/imagenesA/PoliciaAbajo.png","/imagenesA/PoliciaArriba.png","/imagenesA/PoliciaIzquierda.png","/imagenesA/PoliciaDerecha.png","/imagenesA/PoliciaAbajo.png" ));
-//		lista.add(new Pinky("/imagenesA/PoliciaAbajo.png","/imagenesA/PoliciaArriba.png","/imagenesA/PoliciaIzquierda.png","/imagenesA/PoliciaDerecha.png","/imagenesA/PoliciaAbajo.png" ));
-//		lista.add(new Clyde("/imagenesA/PoliciaAbajo.png","/imagenesA/PoliciaArriba.png","/imagenesA/PoliciaIzquierda.png","/imagenesA/PoliciaDerecha.png","/imagenesA/PoliciaAbajo.png" ));
+		lista.add(getBlinky());
+		lista.add(getInky());
+		lista.add(getPinky());
+		lista.add(getClyde());
 		
 		
 		return lista;

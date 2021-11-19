@@ -69,7 +69,7 @@ public abstract class Entidad extends JLabel{
 	}
 
 	
-//	public void setRepresentacion(String s) {
-//		representacion=s;
-//	}
+	public void setRepresentacion(String s) {
+		representacion=s;
+	}
 }

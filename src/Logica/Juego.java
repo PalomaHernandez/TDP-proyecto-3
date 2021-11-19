@@ -2,6 +2,7 @@ package Logica;
 
 import java.awt.Rectangle;
 import java.util.HashSet;
+import java.util.List;
 
 import Entidades.Entidad;
 import Entidades.Estaticas.Bomba;
@@ -39,6 +40,7 @@ public class Juego {
 	private HiloMusica hiloMusica;
 	private Bomba bomba;
 	private int stepActual;
+	private static final int rangoBomba = 64;
 
 	public Juego(int tema, VentanaGUI ventana) {
 		miDirector = new Director(tema, this);
@@ -496,7 +498,19 @@ public class Juego {
 	
 	public void explotarBomba() {
 		System.out.println("Explotó bomba");
-		
+		bomba.explosion();
+		if((pinky.getY() < bomba.getY() + rangoBomba && pinky.getY() > bomba.getY() - rangoBomba) && (pinky.getX() > bomba.getX() - rangoBomba && pinky.getX() < bomba.getX() + rangoBomba)) {
+			reiniciarEnemigo(pinky);
+		}
+		if((inky.getY() < bomba.getY() + rangoBomba && inky.getY() > bomba.getY() - rangoBomba) && (inky.getX() > bomba.getX() - rangoBomba && inky.getX() < bomba.getX() + rangoBomba)) {
+			reiniciarEnemigo(inky);
+		}
+		if((blinky.getY() < bomba.getY() + rangoBomba && blinky.getY() > bomba.getY() - rangoBomba) && (blinky.getX() > bomba.getX() - rangoBomba && blinky.getX() < bomba.getX() + rangoBomba)) {
+			reiniciarEnemigo(blinky);
+		}
+		if((clyde.getY() < bomba.getY() + rangoBomba && clyde.getY() > bomba.getY() - rangoBomba) && (clyde.getX() > bomba.getX() - rangoBomba && clyde.getX() < bomba.getX() + rangoBomba)) {
+			reiniciarEnemigo(clyde);
+		}
 		bomba.setVisible(false);
 	}
 

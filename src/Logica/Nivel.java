@@ -65,6 +65,10 @@ public class Nivel {
 	public List<Enemigo> getEnemigos(){
 		return listaEnemigos;
 	}
+	
+	public void setListaEnemigos(List<Enemigo> list) {
+		listaEnemigos = list;
+	}
 
 	public void limpiar() {
 		if(!lista.isEmpty())
