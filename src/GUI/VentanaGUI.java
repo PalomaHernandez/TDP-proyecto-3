@@ -209,9 +209,10 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		case KeyEvent.VK_UP:
 			miJuego.moverArribaAction();
 			break;
+		case KeyEvent.VK_SPACE:
+			miJuego.colocarBomba();
+			break;
 		}
-		
-		
 	}
 
 	@Override

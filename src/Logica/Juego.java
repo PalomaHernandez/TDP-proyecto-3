@@ -4,6 +4,7 @@ import java.awt.Rectangle;
 import java.util.HashSet;
 
 import Entidades.Entidad;
+import Entidades.Estaticas.Bomba;
 import Entidades.Moviles.Blinky;
 import Entidades.Moviles.Clyde;
 import Entidades.Moviles.Enemigo;
@@ -36,6 +37,7 @@ public class Juego {
 	private Pinky pinky;
 	private HiloMoverProtagonista hiloProtagonista;
 	private HiloMusica hiloMusica;
+	private Bomba bomba;
 	private int stepActual;
 
 	public Juego(int tema, VentanaGUI ventana) {
@@ -474,11 +476,28 @@ public class Juego {
 		hiloProtagonista.setPowerPellet();
 	}
 
-	public void activarBomba() {
+	public void activarBomba(Bomba bomba) {
 		miProtagonista.setEstadoPowerPellet(false);
 		miProtagonista.setEstadoVelocidad(false);
 		miProtagonista.setEstadoBomba(true);
+		this.bomba = bomba;
 		hiloProtagonista.setBomba();
+	}
+	
+	public void colocarBomba() {
+		if(miProtagonista.getBomba()) {
+			bomba.setX(miProtagonista.getX());
+			bomba.setY(miProtagonista.getY());
+			bomba.setVisible(true);
+			miProtagonista.setEstadoBomba(false);
+			hiloProtagonista.explosionBomba(bomba);
+		}
+	}
+	
+	public void explotarBomba() {
+		System.out.println("Explotó bomba");
+		
+		bomba.setVisible(false);
 	}
 
 	public void activarVelocidad() {

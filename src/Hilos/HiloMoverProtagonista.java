@@ -1,5 +1,6 @@
 package Hilos;
 
+import Entidades.Estaticas.Bomba;
 import Entidades.Moviles.Movil;
 import Entidades.Moviles.Protagonista;
 import GUI.VentanaGUI;
@@ -16,7 +17,9 @@ public class HiloMoverProtagonista extends Thread {
 	private boolean estadoBomba;
 	private boolean estadoPowerPellet;
 	private boolean estadoVelocidad;
+	private boolean colocoBomba;
 	private long tiempoBomba;
+	private long tiempoColocoBomba;
 	private long tiempoVelocidad;
 	private long tiempoPowerPellet;
 	private long tiempoActual;
@@ -37,12 +40,18 @@ public class HiloMoverProtagonista extends Thread {
 		estadoBomba = false;
 		estadoPowerPellet = false;
 		estadoVelocidad = false;
+		colocoBomba = false;
 		activo = true;
 	}
 	
 	public void setBomba() {
 		estadoBomba = true;
-		tiempoBomba = System.currentTimeMillis()/1000; //tiempo en el que se activo la bomba
+		tiempoBomba = System.currentTimeMillis()/1000; //tiempo en el que se activo el estado bomba
+	}
+	
+	public void explosionBomba(Bomba bomba) {
+		colocoBomba = true;
+		tiempoColocoBomba = System.currentTimeMillis()/1000; 
 	}
 	
 	public void setPowerPellet() {
@@ -53,7 +62,7 @@ public class HiloMoverProtagonista extends Thread {
 	public void setVelocidad() {
 		estadoVelocidad = true;
 		tiempoVelocidad = System.currentTimeMillis()/1000; //tiempo en el que se activo la velocidad
-		step = 20;
+		step = 15;
 	}
 	
 	public void setStep(int s) {
@@ -131,6 +140,13 @@ public class HiloMoverProtagonista extends Thread {
 					if(tiempoVelocidad + 10 <= tiempoActual) {
 						estadoVelocidad = false;
 						miJuego.desactivarVelocidad();
+					}
+				}
+				if(colocoBomba) {
+					tiempoActual = System.currentTimeMillis()/1000;
+					if(tiempoColocoBomba + 5 <= tiempoActual) {
+						colocoBomba = false;
+						miJuego.explotarBomba();
 					}
 				}
 			}

@@ -50,7 +50,7 @@ public class VisitorProtagonista implements Visitor{
 		Zona z = j.calcularZona(bomba.getX(), bomba.getY());
 		bomba.setVisible(false);
 		z.removeEntidad(bomba);
-		j.activarBomba();
+		j.activarBomba(bomba);
 	}
 
 	@Override
