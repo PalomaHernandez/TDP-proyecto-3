@@ -24,9 +24,11 @@ public abstract class Tema {
 	public abstract Velocidad getVelocidad();
 	public abstract PowerPellet getPowerPellet();
 	public abstract PacDot getPacDot();
-	public abstract Fruta getFruta();
+	public abstract Fruta getFruta1();
 	public abstract Blinky getBlinky();
 	public abstract Inky getInky();
 	public abstract Pinky getPinky();
 	public abstract Clyde getClyde();
+	public abstract Fruta getFruta2();
+	public abstract Fruta getFruta3();
 }

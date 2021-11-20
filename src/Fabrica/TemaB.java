@@ -78,13 +78,6 @@ public class TemaB extends Tema{
 	}
 
 	@Override
-	public Fruta getFruta() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
 	public Blinky getBlinky() {
 		// TODO Auto-generated method stub
 		return null;
@@ -104,6 +97,24 @@ public class TemaB extends Tema{
 
 	@Override
 	public Clyde getClyde() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Fruta getFruta1() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Fruta getFruta2() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Fruta getFruta3() {
 		// TODO Auto-generated method stub
 		return null;
 	}

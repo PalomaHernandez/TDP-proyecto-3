@@ -123,10 +123,10 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		lblVida3.setIcon(img);
 		
 		
-//		JButton btnNewButton = new JButton("music");
-//		
-//		sonidoActivo=false;
-//		
+		JButton btnNewButton = new JButton("music");
+		
+		sonidoActivo=false;
+		
 //		btnNewButton.addMouseListener(new MouseAdapter() {
 //			@Override
 //			public void mouseClicked(MouseEvent e) {

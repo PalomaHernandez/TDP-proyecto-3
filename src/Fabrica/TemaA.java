@@ -89,10 +89,20 @@ public class TemaA extends Tema{
 	}
 
 	@Override
-	public Fruta getFruta() {
+	public Fruta getFruta1() {
 		return new Fruta("/imagenesA/herramienta.png");
 	}
 
+	@Override
+	public Fruta getFruta2() {
+		return new Fruta("/imagenesA/Fruta2.png");
+	}
+	
+	@Override
+	public Fruta getFruta3() {
+		return new Fruta("/imagenesA/Fruta3.png");
+	}
+	
 	@Override
 	public Inky getInky() {
 		Inky enemigo;

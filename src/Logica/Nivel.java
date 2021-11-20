@@ -21,9 +21,11 @@ public class Nivel {
 	private HashSet<Entidad> lista;
 	private List<Enemigo> listaEnemigos;
 	private int cantPuntos;
+	private int valorFruta;
 	
 	public Nivel() {
 		lista = new HashSet<Entidad>();
+		valorFruta=0;
 	}
 	
 	public void setCantPuntos(int puntos) {
@@ -113,5 +115,13 @@ public class Nivel {
 	
 	public Inky getInky() {
 		return this.inky;
+	}
+
+	public void setValorFruta(int n) {
+		valorFruta=n;
+	}
+	
+	public int getValorFruta() {
+		return valorFruta;
 	}
 }

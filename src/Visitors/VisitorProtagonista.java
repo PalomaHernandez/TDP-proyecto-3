@@ -100,7 +100,7 @@ public class VisitorProtagonista implements Visitor{
 		Zona z = j.calcularZona(fruta.getX(), fruta.getY());
 		z.removeEntidad(fruta);
 		fruta.setVisible(false);
-		j.aumentarPuntaje(100);//ver  como cambiar el valor segun el nivel
+		j.aumentarPuntaje(j.getNivel().getValorFruta());
 	}
 
 	@Override
