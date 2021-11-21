@@ -43,29 +43,17 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	private JLabel lblVida2;
 	private JLabel lblVida3;
 	private int puntaje;
+	private int tema;
 	private boolean sonidoActivo;
+
 	private VentanaFinJuego finJuego = new VentanaFinJuego(this);
 	
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaGUI frame = new VentanaGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
-	public VentanaGUI() {
+	
+	public VentanaGUI(int tema) {
+
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 800);
@@ -114,8 +102,9 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		lblVida3.setBounds(572, 11, 32, 32);
 		contentPane.add(lblVida3);
 		
-		miJuego = new Juego(1, this);
-
+		miJuego = new Juego(tema, this);
+		this.tema = tema;
+		
 		ImageIcon icon= new ImageIcon(getClass().getResource("/imagenesA/autoDerecha.png"));
 		ImageIcon img= new ImageIcon(icon.getImage().getScaledInstance(lblVida1.getWidth(), lblVida1.getHeight(), Image.SCALE_SMOOTH));
 		lblVida1.setIcon(img);
@@ -150,6 +139,7 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		addKeyListener(this);
 		
 	}
+	
 
 	public void moverEntidad(int posX, int posY, int posXFin, int posYFin, Entidad e) {
 		e.setBounds(posXFin, posYFin, e.getWidth(), e.getHeight());
@@ -247,10 +237,13 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	}
 	
 	public void reiniciarJuego() {
+
+		new VentanaGUI(tema);
+
 		this.setVisible(true);
 		limpiar();
 		reiniciarVidas();
-		miJuego= new Juego(1,this);
+		miJuego= new Juego(tema,this);
 	}
 	
 	public void finJuego(String texto) {
