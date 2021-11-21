@@ -40,7 +40,7 @@ public class TemaB extends Tema{
 		protagonista.getGUI().setNormal("/imagenesB/barco_arriba.png", "/imagenesB/barco_abajo.png", "/imagenesB/barco_der.png", "/imagenesB/barco_izq.png");
 		protagonista.getGUI().setAzul("/imagenesB/barcoAzul_arriba.png", "/imagenesB/barcoAzul_abajo.png", "/imagenesB/barcoAzul_derecha.png", "/imagenesB/barcoAzul_izquierda.png");
 		protagonista.getGUI().setBomba("/imagenesB/barcoBomba_arriba.png", "/imagenesB/barcoBomba_abajo.png", "/imagenesB/barcoBomba_derecha.png", "/imagenesB/barcoBomba_izquierda.png");
-		protagonista.getGUI().setAzul("/imagenesB/barcoVelocidad_arriba.png", "/imagenesB/barcoVelocidad_abajo.png", "/imagenesB/barcoVelocidad_derecha.png", "/imagenesB/barcoVelocidad_izquierda.png");
+		protagonista.getGUI().setVelocidad("/imagenesB/barcoVelocidad_arriba.png", "/imagenesB/barcoVelocidad_abajo.png", "/imagenesB/barcoVelocidad_derecha.png", "/imagenesB/barcoVelocidad_izquierda.png");
 		return protagonista;
 	}
 

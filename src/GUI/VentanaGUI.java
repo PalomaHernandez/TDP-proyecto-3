@@ -64,6 +64,11 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
+		if(tema == 1)
+			panel.setBackground(Color.GRAY);
+		else
+			panel.setBackground(Color.CYAN);
+		
 		JLabel lblScore = new JLabel("SCORE:");
 		lblScore.setFont(new Font("Segoe UI Black", Font.PLAIN, 18));
 		lblScore.setForeground(Color.WHITE);
