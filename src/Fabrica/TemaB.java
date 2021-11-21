@@ -103,20 +103,17 @@ public class TemaB extends Tema{
 
 	@Override
 	public Fruta getFruta1() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Fruta("/imagenesB/Fruta1.png");
 	}
 
 	@Override
 	public Fruta getFruta2() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Fruta("/imagenesB/Fruta2.png");
 	}
 
 	@Override
 	public Fruta getFruta3() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Fruta("/imagenesB/Fruta3.png");
 	}
 
 }
