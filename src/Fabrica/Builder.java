@@ -9,7 +9,7 @@ public interface Builder {
 	public void setProtagonista(Tema tema,int x, int y);
 	public void setEnemigos(Tema tema,int x, int y);
 	public void setCantPuntos();
-	public void setFruta1(Tema tema, int x, int y);
+	public void setFruta(Tema tema, int x, int y, int i);
 	public void setPowerPellet(Tema tema, int x, int y);
 	public void setPacDot(Tema tema, int x, int y);
 	public void setBomba(Tema tema, int x, int y);
@@ -19,7 +19,5 @@ public interface Builder {
 	public void setInky(Tema tema, int i, int j);
 	public void setPinky(Tema tema, int i, int j);
 	public void setClyde(Tema tema, int i, int j);
-	public void setFruta2(Tema tema, int x, int y);
-	public void setFruta3(Tema tema, int x, int y);
 	
 }

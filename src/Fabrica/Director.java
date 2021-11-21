@@ -56,7 +56,7 @@ public class Director {
 	}
 
 	private void crearFruta1() {
-		builder.setFruta1(tema, 326, 384);
+		builder.setFruta(tema, 326, 384, 1);
 	}
 
 	private void crearBomba1() {
@@ -427,7 +427,7 @@ public class Director {
 	}
 
 	private void crearFruta2() {
-		builder.setFruta2(tema, 326, 384);
+		builder.setFruta(tema, 326, 384, 2);
 
 	}
 
@@ -786,7 +786,7 @@ public class Director {
 	}
 
 	private void crearFruta3() {
-		builder.setFruta3(tema, 326, 384);
+		builder.setFruta(tema, 326, 384, 3);
 	}
 
 	private void crearBomba3() {

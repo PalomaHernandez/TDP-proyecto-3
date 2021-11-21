@@ -101,7 +101,7 @@ public class Juego {
 				matriz[i][j] = new Zona();
 		constructorNivel = new BuilderNivel();
 
-		miDirector.makeNivel1(constructorNivel);
+		miDirector.makeNivel3(constructorNivel);
 
 		miNivel = constructorNivel.getResult();
 		miProtagonista = miNivel.getProtagonista();

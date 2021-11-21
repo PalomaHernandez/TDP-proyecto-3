@@ -74,34 +74,26 @@ public class BuilderNivel implements Builder{
 	}
 	
 	@Override
-	public void setFruta1(Tema tema, int x, int y) {
-		Fruta fruta;
+	public void setFruta(Tema tema, int x, int y, int i) {
+		Fruta fruta= null;
 		
-		fruta = tema.getFruta1();
-		
-		fruta.setPos(x, y);
-		miNivel.addEntidad(fruta);
-		miNivel.setValorFruta(100);
-	}
+		switch(i) {
+		case 1: 
+			fruta=tema.getFruta1();
+			miNivel.setValorFruta(100);
+			break;
+		case 2: 
+			fruta=tema.getFruta2();
+			miNivel.setValorFruta(250);
+			break;
+		case 3: 
+			fruta=tema.getFruta3();
+			miNivel.setValorFruta(500);
+			break;
+		}
 	
-	public void setFruta2(Tema tema, int x, int y) {
-		Fruta fruta;
-		
-		fruta = tema.getFruta2();
-		
 		fruta.setPos(x, y);
 		miNivel.addEntidad(fruta);
-		miNivel.setValorFruta(250);
-	}
-	
-	public void setFruta3(Tema tema, int x, int y) {
-		Fruta fruta;
-		
-		fruta = tema.getFruta3();
-		
-		fruta.setPos(x, y);
-		miNivel.addEntidad(fruta);
-		miNivel.setValorFruta(500);
 	}
 
 	@Override
