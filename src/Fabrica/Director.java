@@ -16,7 +16,7 @@ public class Director {
 			this.tema = miFabrica.getTemaB();
 	}
 
-	public void makeNivel1(Builder builder) {//El juego envia un builder nivel1, 2 o 3 segun corresponda0
+	public void makeNivel1(Builder builder) {
 		this.builder = builder;
 		builder.reset();
 
@@ -763,7 +763,6 @@ public class Director {
 		crearFruta3();
 		crearVelocidad3();
 		crearPacDots3();
-//		crearBlinky3();
 		crearParedes3();
 		builder.setCantPuntos();
 	}
@@ -896,11 +895,6 @@ public class Director {
 		builder.setPacDot(tema, 330, 64);
 		builder.setPacDot(tema, 330, 96);
 		builder.setPacDot(tema, 330, 608);
-	}
-
-	private void crearEnemigos3() {
-		// TODO Auto-generated method stub
-
 	}
 
 	private void crearParedes3() {

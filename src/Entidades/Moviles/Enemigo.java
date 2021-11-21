@@ -32,6 +32,7 @@ public abstract class Enemigo extends Movil {
 	private static final int derechaAzul = 6;
 	private static final int izquierdaAzul = 7;
 	
+	private int movimientoAnterior;
 	
 	public Enemigo(String string) {
 		miRepresentacion = new EnemigoGUI();
@@ -39,7 +40,16 @@ public abstract class Enemigo extends Movil {
 		v= new VisitorFantasma();
 		representacion=string;
 		estadoPowerPellet = false;
+		movimientoAnterior = 4;
 		 //Estado dispersarse
+	}
+	
+	public int movAnterior() {
+		return movimientoAnterior;
+	}
+	
+	public void setMovAnterior(int mov) {
+		movimientoAnterior = mov;
 	}
 	
 	public boolean accept(Visitor v, Juego j) {

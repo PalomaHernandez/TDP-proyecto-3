@@ -2,18 +2,14 @@ package Hilos;
 
 import java.applet.AudioClip;
 
-import Logica.Juego;
 
+@SuppressWarnings("deprecation")
 public class HiloMusica extends Thread{
 
-	private Juego miJuego;
 	private AudioClip sonido;
-	private boolean activo;
 	
-	public HiloMusica(Juego miJuego) {
-	this.miJuego=miJuego;	
+	public HiloMusica() {
 	sonido = java.applet.Applet.newAudioClip(getClass().getResource("/Audio/musica.wav"));
-	activo=true;
 	}
 	
 	public void run(){

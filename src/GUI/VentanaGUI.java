@@ -1,7 +1,5 @@
 package GUI;
 
-import java.awt.EventQueue;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -22,12 +20,6 @@ import java.awt.Font;
 import java.awt.Image;
 
 import javax.swing.SwingConstants;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.applet.AudioClip;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class VentanaGUI extends JFrame implements KeyListener{
 
@@ -44,7 +36,8 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	private JLabel lblVida3;
 	private int puntaje;
 	private int tema;
-	private boolean sonidoActivo;
+	private JLabel labelSonido;
+	private boolean sonidoActivo = true;
 
 	private VentanaFinJuego finJuego = new VentanaFinJuego(this);
 	
@@ -57,7 +50,7 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 800);
-		this.setSize(750, 800);
+		this.setSize(750, 806);
 		
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.BLACK);
@@ -67,39 +60,39 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		
 		panel = new JPanel();
 		panel.setBackground(Color.GRAY);
-		panel.setBounds(31, 51, 672, 672);
+		panel.setBounds(31, 72, 672, 672);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblScore = new JLabel("SCORE:");
 		lblScore.setFont(new Font("Segoe UI Black", Font.PLAIN, 18));
 		lblScore.setForeground(Color.WHITE);
-		lblScore.setBounds(31, 20, 69, 20);
+		lblScore.setBounds(31, 30, 69, 20);
 		contentPane.add(lblScore);
 		
 		lblPuntaje = new JLabel("0");
 		lblPuntaje.setFont(new Font("Segoe UI Black", Font.PLAIN, 18));
 		lblPuntaje.setHorizontalAlignment(SwingConstants.LEFT);
 		lblPuntaje.setForeground(Color.WHITE);
-		lblPuntaje.setBounds(102, 22, 150, 17);
+		lblPuntaje.setBounds(102, 32, 150, 17);
 		contentPane.add(lblPuntaje);
 		
 		lblVida1 = new JLabel("");
 		lblVida1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblVida1.setForeground(Color.RED);
-		lblVida1.setBounds(466, 11, 32, 32);
+		lblVida1.setBounds(288, 18, 32, 32);
 		contentPane.add(lblVida1);
 		
 		lblVida2 = new JLabel("");
 		lblVida2.setForeground(Color.RED);
 		lblVida2.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblVida2.setBounds(519, 11, 32, 32);
+		lblVida2.setBounds(341, 18, 32, 32);
 		contentPane.add(lblVida2);
 		
 		lblVida3 = new JLabel("");
 		lblVida3.setForeground(Color.RED);
 		lblVida3.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblVida3.setBounds(572, 11, 32, 32);
+		lblVida3.setBounds(394, 18, 32, 32);
 		contentPane.add(lblVida3);
 		
 		miJuego = new Juego(tema, this);
@@ -111,30 +104,13 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		lblVida2.setIcon(img);
 		lblVida3.setIcon(img);
 		
+		labelSonido = new JLabel("");
+		labelSonido.setIcon(new ImageIcon(VentanaGUI.class.getResource("/imagenes/musicaActivada.png")));
+		labelSonido.setForeground(Color.WHITE);
+		labelSonido.setBounds(636, 10, 50, 50);
+		contentPane.add(labelSonido);
 		
-		JButton btnNewButton = new JButton("music");
-		
-		sonidoActivo=false;
-		
-//		btnNewButton.addMouseListener(new MouseAdapter() {
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//				
-//				if(!sonidoActivo) {
-//					sonidoActivo=true;
-//					miJuego.setearSonido(true);
-//					//cambiar imagen a activada
-//				}
-//				else {
-//					sonidoActivo=false;
-//					miJuego.setearSonido(false);
-//					//cambiar imagen a desactivada
-//				}
-//			}
-//		});
-//
-//		btnNewButton.setBounds(166, 22, 89, 23);
-//		contentPane.add(btnNewButton);
+		miJuego.setearSonido(true);
 		
 		addKeyListener(this);
 		
@@ -203,6 +179,14 @@ public class VentanaGUI extends JFrame implements KeyListener{
 			break;
 		case KeyEvent.VK_SPACE:
 			miJuego.colocarBomba();
+			break;
+		case KeyEvent.VK_M:
+			sonidoActivo = !sonidoActivo;
+			miJuego.setearSonido(sonidoActivo);
+			if(sonidoActivo)
+				labelSonido.setIcon(new ImageIcon(VentanaGUI.class.getResource("/imagenes/musicaActivada.png")));
+			else 
+				labelSonido.setIcon(new ImageIcon(VentanaGUI.class.getResource("/imagenes/musicaDesactivada.png")));
 			break;
 		}
 	}

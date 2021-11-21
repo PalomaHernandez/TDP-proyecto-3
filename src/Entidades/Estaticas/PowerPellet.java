@@ -18,6 +18,10 @@ public class PowerPellet extends Entidad{
 		this.representacion = powerPellet;
 		tamano = 20;
 	}
+	
+	public PowerPelletGUI getGUI() {
+		return miRepresentacion;
+	}
 
 	@Override
 	public boolean accept(Visitor v, Juego j) {

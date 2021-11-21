@@ -2,8 +2,6 @@ package Entidades;
 
 import javax.swing.JLabel;
 
-import Entidades.Moviles.Protagonista;
-import GUI.EntidadGUI;
 import Logica.Juego;
 import Visitors.Visitor;
 

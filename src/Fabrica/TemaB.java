@@ -27,7 +27,8 @@ public class TemaB extends Tema{
 	
 	@Override
 	public Pared getPared() {
-		Pared pared =new Pared("/imagenesB/ParedB.png");
+		Pared pared =new Pared("/imagenesB/pared/h0.png");
+		pared.getRepre().agregarImagenes("/imagenesB/pared/h1.png", "/imagenesB/pared/h2.png", "/imagenesB/pared/v3.png", "/imagenesB/pared/v4.png", "/imagenesB/pared/v5.png", "/imagenesB/pared/c6.png", "/imagenesB/pared/c7.png", "/imagenesB/pared/c8.png", "/imagenesB/pared/c9.png", "/imagenesB/pared/c10.png", "/imagenesB/pared/c11.png", "/imagenesB/pared/c12.png", "/imagenesB/pared/c13.png", "/imagenesB/pared/c14.png", "/imagenesB/pared/c15.png", "/imagenesB/pared/c16.png", "/imagenesB/pared/c17.png", "/imagenesB/pared/v18.png", "/imagenesB/pared/v19.png", "/imagenesB/pared/h20.png", "/imagenesB/pared/h21.png", "/imagenesB/pared/cesped.png", "/imagenesB/pared/rotonda.png");
 		return pared;
 	}
 
@@ -48,11 +49,12 @@ public class TemaB extends Tema{
 		List<Enemigo> lista;
 		
 		lista = new LinkedList<Enemigo>();
-//		
-//		lista.add(new Inky(null));
-//		lista.add(new Blinky(null));
-//		lista.add(new Pinky(null));
-//		lista.add(new Clyde(null));
+			
+		lista.add(getBlinky());
+		lista.add(getInky());
+		lista.add(getPinky());
+		lista.add(getClyde());
+		
 		return lista;
 	}
 
@@ -73,7 +75,7 @@ public class TemaB extends Tema{
 
 	@Override
 	public PacDot getPacDot() {
-		return new PacDot("/imagenesB/pacdotB");
+		return new PacDot("/imagenesB/pacdotB.png");
 	}
 
 	@Override
@@ -106,7 +108,7 @@ public class TemaB extends Tema{
 	@Override
 	public Clyde getClyde() {
 		Clyde enemigo;
-		enemigo=new Clyde("/imagenesB/inky_abajo.png");
+		enemigo=new Clyde("/imagenesB/clyde_abajo.png");
 		enemigo.getGUI().setNormal("/imagenesB/clyde_abajo.png","/imagenesB/clyde_arriba.png","/imagenesB/clyde_izquierda.png","/imagenesB/clyde_derecha.png") ;
 		enemigo.getGUI().setAzul("/imagenesB/barcoPoliciaAzul_abajo.png", "/imagenesB/barcoPoliciaAzul_arriba.png", "/imagenesB/barcoPoliciaAzul_izquierda.png", "/imagenesB/barcoPoliciaAzul_derecha.png");
 		return enemigo;
@@ -114,17 +116,17 @@ public class TemaB extends Tema{
 
 	@Override
 	public Fruta getFruta1() {
-		return new Fruta("/imagenesB/Fruta1.png");
+		return new Fruta("/imagenesB/Fruta1B.png");
 	}
 
 	@Override
 	public Fruta getFruta2() {
-		return new Fruta("/imagenesB/Fruta2.png");
+		return new Fruta("/imagenesB/Fruta2B.png");
 	}
 
 	@Override
 	public Fruta getFruta3() {
-		return new Fruta("/imagenesB/Fruta3.png");
+		return new Fruta("/imagenesB/Fruta3B.png");
 	}
 
 }

@@ -20,6 +20,10 @@ public class Fruta extends Entidad{
 		tamano = 20;
 	}
 
+	public FrutaGUI getGUI() {
+		return miRepresentacion;
+	}
+	
 	@Override
 	public boolean accept(Visitor v, Juego j) {
 		v.visit(this, j);

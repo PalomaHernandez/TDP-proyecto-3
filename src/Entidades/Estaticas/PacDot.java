@@ -21,4 +21,8 @@ public class PacDot extends Entidad{
 		return false;
 	}
 
+	public PacDotGUI getGUI() {
+		return miRepresentacion;
+	}
+	
 }

@@ -19,6 +19,10 @@ public class Velocidad extends Entidad {
 		tamano = 20;
 	}
 
+	public VelocidadGUI getGUI() {
+		return miRepresentacion;
+	}
+	
 	@Override
 	public boolean accept(Visitor v, Juego j) {
 		v.visit(this, j);

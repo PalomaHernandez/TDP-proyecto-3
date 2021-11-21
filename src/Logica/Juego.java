@@ -101,7 +101,7 @@ public class Juego {
 				matriz[i][j] = new Zona();
 		constructorNivel = new BuilderNivel();
 
-		miDirector.makeNivel3(constructorNivel);
+		miDirector.makeNivel1(constructorNivel);
 
 		miNivel = constructorNivel.getResult();
 		miProtagonista = miNivel.getProtagonista();
@@ -116,7 +116,7 @@ public class Juego {
 		agregarAZona();
 		hiloEnemigos = new HiloMoverEnemigos(this, stepActual, clyde, inky, blinky, pinky, miProtagonista);
 		hiloProtagonista = new HiloMoverProtagonista(30, this, miProtagonista);
-		hiloMusica= new HiloMusica(this);
+		hiloMusica= new HiloMusica();
 
 		hiloProtagonista.start();
 		hiloEnemigos.start();
@@ -553,6 +553,7 @@ public class Juego {
 	public void reiniciarProtagonista() {
 		miProtagonista.setX(320);
 		miProtagonista.setY(544);
+		hiloProtagonista.movimiento(3);
 		//ver como acomodar la rotacion del protagonista
 	}
 
@@ -562,7 +563,7 @@ public class Juego {
 		Rectangle recBlinky = new Rectangle(blinky.getX(), blinky.getY(), blinky.getTamano(), blinky.getTamano());
 		Rectangle recInky = new Rectangle(inky.getX(), inky.getY(), inky.getTamano(), inky.getTamano());
 		Rectangle recPinky = new Rectangle(pinky.getX(), pinky.getY(), pinky.getTamano(), pinky.getTamano());
-		Rectangle recProtagonista = new Rectangle(miProtagonista.getX()-1, miProtagonista.getY()-1, miProtagonista.getTamano()+2, miProtagonista.getTamano()+2);
+		Rectangle recProtagonista = new Rectangle(miProtagonista.getX()-2, miProtagonista.getY()-2, miProtagonista.getTamano()+4, miProtagonista.getTamano()+4);
 
 
 		if(recClyde.intersects(recProtagonista)) {
