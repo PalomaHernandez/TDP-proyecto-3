@@ -611,7 +611,7 @@ public class Juego {
 	public void cerrarJuego() {
 		hiloProtagonista.detener();
 		hiloEnemigos.detener();
-		miVentana.dispose();
+		hiloMusica.desactivar();
 	}
 	
 	private void ganoElJuego() {

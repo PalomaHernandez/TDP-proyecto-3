@@ -102,9 +102,17 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		
 		miJuego = new Juego(tema, this);
 		this.tema = tema;
+		ImageIcon img;
+		ImageIcon icon;
 		
-		ImageIcon icon= new ImageIcon(getClass().getResource("/imagenesA/autoDerecha.png"));
-		ImageIcon img= new ImageIcon(icon.getImage().getScaledInstance(lblVida1.getWidth(), lblVida1.getHeight(), Image.SCALE_SMOOTH));
+		if(tema == 1) {
+			icon= new ImageIcon(getClass().getResource("/imagenesA/autoDerecha.png"));
+			img= new ImageIcon(icon.getImage().getScaledInstance(lblVida1.getWidth(), lblVida1.getHeight(), Image.SCALE_SMOOTH));
+		}else {
+			icon= new ImageIcon(getClass().getResource("/imagenesB/barco_der.png"));
+			img= new ImageIcon(icon.getImage().getScaledInstance(lblVida1.getWidth(), lblVida1.getHeight(), Image.SCALE_SMOOTH));
+		}
+			
 		lblVida1.setIcon(img);
 		lblVida2.setIcon(img);
 		lblVida3.setIcon(img);
@@ -226,9 +234,12 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	}
 	
 	public void reiniciarJuego() {
+		miJuego.setearSonido(false);
 
+		sonidoActivo = true;
 		new VentanaGUI(tema);
-
+		labelSonido.setIcon(new ImageIcon(VentanaGUI.class.getResource("/imagenes/musicaActivada.png")));
+		
 		this.setVisible(true);
 		limpiar();
 		reiniciarVidas();
@@ -236,6 +247,11 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	}
 	
 	public void finJuego(String texto) {
+		if(sonidoActivo == true) {
+			miJuego.setearSonido(false);
+			sonidoActivo = false;
+		}
+		
 		finJuego.setResultado(texto);
 		finJuego.setVisible(true);
 		finJuego.setPuntuacion(puntaje);
@@ -243,6 +259,7 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	
 	public void cerrarJuego() {
 		miJuego.cerrarJuego();
+		dispose();
 	}
 
 	public String getPuntaje() {

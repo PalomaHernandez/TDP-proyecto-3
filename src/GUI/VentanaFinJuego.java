@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.SwingConstants;
+import java.awt.Color;
 
 public class VentanaFinJuego extends JDialog{
 	
@@ -19,21 +20,22 @@ public class VentanaFinJuego extends JDialog{
 //	private VentanaGUI miVentana;
 	
 	public VentanaFinJuego(VentanaGUI miVentana) {
-		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+		getContentPane().setBackground(Color.ORANGE);
 		getContentPane().setLayout(null);
 		setBounds(100, 100, 470, 300);
+		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		
-		setResizable(true);
+		setResizable(false);
 		setEnabled(true);
 		
 		JLabel lblNewLabel = new JLabel("PUNTUACI\u00D3N:");
 		lblNewLabel.setFont(new Font("Segoe UI Black", Font.PLAIN, 18));
-		lblNewLabel.setBounds(115, 108, 138, 26);
+		lblNewLabel.setBounds(103, 108, 138, 26);
 		getContentPane().add(lblNewLabel);
 		
 		lblPuntaje = new JLabel("");
 		lblPuntaje.setFont(new Font("Segoe UI Black", Font.PLAIN, 18));
-		lblPuntaje.setBounds(263, 108, 46, 23);
+		lblPuntaje.setBounds(237, 108, 138, 26);
 		getContentPane().add(lblPuntaje);
 		
 		JLabel lblNewLabel_1 = new JLabel("\u00BFDesea jugar de nuevo?");
