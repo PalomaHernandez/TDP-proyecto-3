@@ -64,13 +64,13 @@ public class HiloMoverEnemigos extends Thread {
 			while(activo) {
 				tiempoActual = System.currentTimeMillis()/1000;
 				Thread.sleep(step);
-				moverBlinky();	
+				perseguir(blinky);
 				if(tiempoActual >= tiempoComienzo) {
-					moverInky();
+					dispersarInky();
 				if(tiempoActual >= tiempoComienzo + 3)// para que no salgan todos a la vez
-					moverPinky();
+					dispersarPinky();
 				if(tiempoActual >= tiempoComienzo + 6)
-					moverClyde();
+					dispersarClyde();
 				}
 				if(estadoPowerPellet) {//Esto creo que no hace falta
 					tiempoActual = System.currentTimeMillis()/1000;
@@ -83,23 +83,6 @@ public class HiloMoverEnemigos extends Thread {
 		}catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-	}
-
-	private void moverBlinky() {
-		int estado = blinky.getEstado();
-		switch(estado) {
-		case 1:
-			perseguir(blinky);
-			break;
-		case 2:
-			irACasa(blinky);
-			break;
-		}
-	}
-
-	private void irACasa(Enemigo enemigo) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	private void perseguir(Enemigo enemigo) {
@@ -139,17 +122,7 @@ public class HiloMoverEnemigos extends Thread {
 		
 	}
 
-	private void moverPinky() {
-		int estado = pinky.getEstado();
-		switch(estado) {
-		case 0:
-			dispersarPinky();
-			break;
-		case 2:
-			irACasa(pinky);
-			break;
-		}
-	}
+	
 
 	private void dispersarPinky() {
 		int posX;
@@ -220,18 +193,6 @@ public class HiloMoverEnemigos extends Thread {
 		}
 	}
 
-	private void moverInky() {
-		int estado = inky.getEstado();
-		switch(estado) {
-		case 0:
-			dispersarInky();
-			break;
-		case 2:
-			irACasa(inky);
-			break;
-		}
-	}
-
 	private void dispersarInky() {
 		int posX;
 		int posY;
@@ -258,18 +219,6 @@ public class HiloMoverEnemigos extends Thread {
 			}
 		}
 		
-	}
-
-	private void moverClyde() {
-		int estado = clyde.getEstado();
-		switch(estado) {
-		case 0:
-			dispersarClyde();
-			break;
-		case 2:
-			irACasa(clyde);
-			break;
-		}
 	}
 
 	private void dispersarClyde() {

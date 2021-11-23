@@ -236,24 +236,20 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	}
 	
 	public void reiniciarJuego() {
-//		new VentanaGUI(tema);
-////		labelSonido.setIcon(new ImageIcon(VentanaGUI.class.getResource("/imagenes/musicaDesactivada.png")));
-//		
-//		limpiar();
-//		reiniciarVidas();
-//		this.setVisible(true);
-////		miJuego= new Juego(tema,this);
-	}
-	
-	public void finJuego(String texto) {
-		finJuego.setResultado(texto);
-		finJuego.setPuntuacion(puntaje);
-		finJuego.setVisible(true);
-	}
+        labelSonido.setIcon(new ImageIcon(VentanaGUI.class.getResource("/imagenes/musicaDesactivada.png")));
+        limpiar();
+        reiniciarVidas();
+        miJuego.inicializarNivel1();
+    }
 	
 	public void cerrarJuego() {
 		miJuego.cerrarJuego();
 		dispose();
+	}
+	public void finJuego(String texto) {
+		finJuego.setResultado(texto);
+		finJuego.setPuntuacion(puntaje);
+		finJuego.setVisible(true);
 	}
 
 	public String getPuntaje() {

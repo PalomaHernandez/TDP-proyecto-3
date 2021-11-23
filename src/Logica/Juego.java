@@ -94,7 +94,7 @@ public class Juego {
 		}
 	}
 
-	private void inicializarNivel1() {
+	public void inicializarNivel1() {
 		Builder constructorNivel;
 		for(int i = 0; i < 7 ; i++)
 			for(int j = 0 ; j < 7 ; j++)
@@ -430,46 +430,6 @@ public class Juego {
 		return matriz[i][j];
 	}
 
-	public boolean moverIzqEnem(Enemigo enemigo) {
-		boolean esPared;
-
-		esPared = moverIzq(enemigo);
-		if(!esPared)
-			enemigo.moverIzquierda();
-
-		return !esPared;
-	}
-
-	public boolean moverAbajoEnem(Enemigo enemigo) {
-		boolean esPared;
-
-		esPared = moverAbajo(enemigo);
-		if(!esPared)
-			enemigo.moverAbajo();
-
-		return !esPared;
-	}
-
-	public boolean moverArribaEnem(Enemigo enemigo) {
-		boolean esPared;
-
-		esPared = moverArriba(enemigo);
-		if(!esPared)
-			enemigo.moverArriba();
-
-		return !esPared;
-	}
-
-	public boolean moverDerEnem(Enemigo enemigo) {
-		boolean esPared;
-
-		esPared = moverDer(enemigo);
-		if(!esPared)
-			enemigo.moverDerecha();
-
-		return !esPared;
-	}
-
 	public void activarPowerPellet() {
 		miProtagonista.setEstadoBomba(false);
 		miProtagonista.setEstadoVelocidad(false);
@@ -636,4 +596,5 @@ public class Juego {
 		pinky.setPos(288, 320);
 
 	}
+
 }

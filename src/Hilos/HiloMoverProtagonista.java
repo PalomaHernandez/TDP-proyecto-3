@@ -59,7 +59,7 @@ public class HiloMoverProtagonista extends Thread {
 	public void setVelocidad() {
 		estadoVelocidad = true;
 		tiempoVelocidad = System.currentTimeMillis()/1000; //tiempo en el que se activo la velocidad
-		step = 15;
+		step = 23;
 	}
 	
 	public void setStep(int s) {
@@ -141,7 +141,7 @@ public class HiloMoverProtagonista extends Thread {
 				}
 				if(colocoBomba) {
 					tiempoActual = System.currentTimeMillis()/1000;
-					if(tiempoColocoBomba + 5 <= tiempoActual) {
+					if(tiempoColocoBomba + 2 <= tiempoActual) {
 						colocoBomba = false;
 						miJuego.explotarBomba();
 					}

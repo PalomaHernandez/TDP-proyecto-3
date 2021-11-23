@@ -1,7 +1,10 @@
 package Entidades.Estaticas;
 
+import javax.swing.ImageIcon;
+
 import Entidades.Entidad;
 import GUI.BombaGUI;
+import GUI.VentanaGUI;
 import Logica.Juego;
 import Visitors.Visitor;
 
@@ -27,6 +30,7 @@ public class Bomba extends Entidad {
 	
 	public void explosion() {
 		miRepresentacion.cambiarImagen( "/imagenesA/explosion.png");
+		this.setIcon(new ImageIcon(VentanaGUI.class.getResource(miRepresentacion.getImagen())));
 	}
 	
 }
