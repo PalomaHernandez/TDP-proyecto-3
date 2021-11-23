@@ -20,22 +20,25 @@ public class VisitorFantasma implements Visitor {
 
 	public void visit(Protagonista protagonista, Juego j) { //falta ver como conocer al enemigo que actua en el metodo
 		Enemigo enemigo = j.buscarEnemigo();
-		if(protagonista.getPowerPellet()==true) {
-			//el enemigo vuelve a la casa
-			j.reiniciarEnemigo(enemigo);
-			j.aumentarPuntaje(200);
-		}
-		else {
-			if(protagonista.getVidas()>0) {// si el protagonista aun tiene vida
-				j.eliminarProtagonista();
-				protagonista.setVidas(protagonista.getVidas() - 1);
-				//reiniciar posiciones de las entidades moviles
-				j.reiniciarProtagonista();
-				//aca deberia pedir la lista de los enemigos y reiniciarle la pos a todos
-				j.reiniciarEnemigos();
+
+		if(enemigo!= null) {
+			if(protagonista.getPowerPellet()==true) {
+				//el enemigo vuelve a la casa
+				j.reiniciarEnemigo(enemigo);
+				j.aumentarPuntaje(200);
 			}
-			else
-				j.perdiElJuego();
+			else {
+				if(protagonista.getVidas()>0) {// si el protagonista aun tiene vida
+					j.eliminarProtagonista();
+					protagonista.setVidas(protagonista.getVidas() - 1);
+					//reiniciar posiciones de las entidades moviles
+					j.reiniciarProtagonista();
+					//aca deberia pedir la lista de los enemigos y reiniciarle la pos a todos
+					j.reiniciarEnemigos();
+				}
+				else
+					j.perdiElJuego();
+			}
 		}
 	}
 
