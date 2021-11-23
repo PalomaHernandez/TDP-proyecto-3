@@ -30,20 +30,22 @@ public class VentanaFinJuego extends JDialog{
 		
 		JLabel lblNewLabel = new JLabel("PUNTUACI\u00D3N:");
 		lblNewLabel.setFont(new Font("Segoe UI Black", Font.PLAIN, 18));
-		lblNewLabel.setBounds(103, 108, 138, 26);
+		lblNewLabel.setBounds(126, 108, 138, 26);
 		getContentPane().add(lblNewLabel);
 		
 		lblPuntaje = new JLabel("");
+		lblPuntaje.setHorizontalAlignment(SwingConstants.LEFT);
 		lblPuntaje.setFont(new Font("Segoe UI Black", Font.PLAIN, 18));
-		lblPuntaje.setBounds(237, 108, 138, 26);
+		lblPuntaje.setBounds(265, 108, 138, 26);
 		getContentPane().add(lblPuntaje);
 		
 		JLabel lblNewLabel_1 = new JLabel("\u00BFDesea jugar de nuevo?");
 		lblNewLabel_1.setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
-		lblNewLabel_1.setBounds(128, 145, 181, 26);
+		lblNewLabel_1.setBounds(136, 146, 181, 26);
 		getContentPane().add(lblNewLabel_1);
 		
 		JButton btnSi = new JButton("SI");
+		btnSi.setFont(new Font("Segoe UI Black", Font.PLAIN, 11));
 		btnSi.setBounds(125, 194, 89, 23);
 		getContentPane().add(btnSi);
 		
@@ -55,6 +57,7 @@ public class VentanaFinJuego extends JDialog{
 		});
 		
 		JButton btnNo = new JButton("NO");
+		btnNo.setFont(new Font("Segoe UI Black", Font.PLAIN, 11));
 		btnNo.setBounds(220, 194, 89, 23);
 		getContentPane().add(btnNo);
 		

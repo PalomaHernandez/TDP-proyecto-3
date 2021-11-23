@@ -117,7 +117,7 @@ public class Juego {
 		hiloEnemigos = new HiloMoverEnemigos(this, stepActual, clyde, inky, blinky, pinky, miProtagonista);
 		hiloProtagonista = new HiloMoverProtagonista(30, this, miProtagonista);
 		hiloMusica= new HiloMusica();
-
+		puntaje = 0;
 		hiloProtagonista.start();
 		hiloEnemigos.start();;
 	}
@@ -184,7 +184,7 @@ public class Juego {
 
 
 		try {
-			for(Entidad e: list)//Arreglar esto
+			for(Entidad e: list)
 				listaSinRep.add(e);
 			
 			for(Entidad e : listaSinRep) {
@@ -197,6 +197,7 @@ public class Juego {
 				}
 			}
 		}catch(ConcurrentModificationException exc) {
+			
 		}
 
 		return esPared;
@@ -460,7 +461,6 @@ public class Juego {
 	}
 	
 	public void explotarBomba() {
-		System.out.println("Explotó bomba");
 		bomba.explosion();
 		if((pinky.getY() < bomba.getY() + rangoBomba && pinky.getY() > bomba.getY() - rangoBomba) && (pinky.getX() > bomba.getX() - rangoBomba && pinky.getX() < bomba.getX() + rangoBomba)) {
 			reiniciarEnemigo(pinky);

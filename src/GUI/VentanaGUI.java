@@ -239,6 +239,7 @@ public class VentanaGUI extends JFrame implements KeyListener{
         labelSonido.setIcon(new ImageIcon(VentanaGUI.class.getResource("/imagenes/musicaDesactivada.png")));
         limpiar();
         reiniciarVidas();
+        actualizarPuntaje(0);
         miJuego.inicializarNivel1();
     }
 	

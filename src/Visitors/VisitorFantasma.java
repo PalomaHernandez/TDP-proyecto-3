@@ -37,8 +37,6 @@ public class VisitorFantasma implements Visitor {
 			else
 				j.perdiElJuego();
 		}
-		System.out.println("visite protagonista");
-
 	}
 
 	@Override
@@ -65,8 +63,7 @@ public class VisitorFantasma implements Visitor {
 	public void visit(Fruta fruta, Juego j) {
 
 	}
-
-
+	
 	@Override
 	public void visit(Pared pared) {
 

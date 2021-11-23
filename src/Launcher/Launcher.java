@@ -92,8 +92,8 @@ public class Launcher extends JFrame{
 		
 		JLabel lblNewLabel = new JLabel("Seleccionar tematica");
 		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setBounds(131, 191, 225, 26);
-		lblNewLabel.setFont(new Font("Segoe UI Black", Font.PLAIN, 18));
+		lblNewLabel.setBounds(131, 199, 237, 32);
+		lblNewLabel.setFont(new Font("Bauhaus 93", Font.PLAIN, 20));
 		contentPane.add(lblNewLabel);
 		
 	}
