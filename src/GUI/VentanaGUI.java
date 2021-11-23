@@ -37,7 +37,7 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	private int puntaje;
 	private int tema;
 	private JLabel labelSonido;
-	private boolean sonidoActivo = true;
+	private boolean sonidoActivo;
 
 	private VentanaFinJuego finJuego = new VentanaFinJuego(this);
 	
@@ -67,7 +67,7 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		if(tema == 1)
 			panel.setBackground(Color.GRAY);
 		else
-			panel.setBackground(Color.CYAN);
+			panel.setBackground(new Color(0, 191, 255));
 		
 		JLabel lblScore = new JLabel("SCORE:");
 		lblScore.setFont(new Font("Segoe UI Black", Font.PLAIN, 18));
@@ -123,7 +123,9 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		labelSonido.setBounds(636, 10, 50, 50);
 		contentPane.add(labelSonido);
 		
-		miJuego.setearSonido(true);
+		sonidoActivo=false;
+		labelSonido.setIcon(new ImageIcon(VentanaGUI.class.getResource("/imagenes/musicaDesactivada.png")));
+//		miJuego.setearSonido(true);
 		
 		addKeyListener(this);
 		
@@ -234,27 +236,19 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	}
 	
 	public void reiniciarJuego() {
-		miJuego.setearSonido(false);
-
-		sonidoActivo = true;
-		new VentanaGUI(tema);
-		labelSonido.setIcon(new ImageIcon(VentanaGUI.class.getResource("/imagenes/musicaActivada.png")));
-		
-		this.setVisible(true);
-		limpiar();
-		reiniciarVidas();
-		miJuego= new Juego(tema,this);
+//		new VentanaGUI(tema);
+////		labelSonido.setIcon(new ImageIcon(VentanaGUI.class.getResource("/imagenes/musicaDesactivada.png")));
+//		
+//		limpiar();
+//		reiniciarVidas();
+//		this.setVisible(true);
+////		miJuego= new Juego(tema,this);
 	}
 	
 	public void finJuego(String texto) {
-		if(sonidoActivo == true) {
-			miJuego.setearSonido(false);
-			sonidoActivo = false;
-		}
-		
 		finJuego.setResultado(texto);
-		finJuego.setVisible(true);
 		finJuego.setPuntuacion(puntaje);
+		finJuego.setVisible(true);
 	}
 	
 	public void cerrarJuego() {

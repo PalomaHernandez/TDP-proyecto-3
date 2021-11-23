@@ -119,7 +119,7 @@ public class Juego {
 		hiloMusica= new HiloMusica();
 
 		hiloProtagonista.start();
-		hiloEnemigos.start();
+		hiloEnemigos.start();;
 	}
 
 	private void inicializarNivel3() {
@@ -605,6 +605,7 @@ public class Juego {
 	public void perdiElJuego() {
 		hiloProtagonista.detener();
 		hiloEnemigos.detener();
+		hiloMusica.desactivar();
 		miVentana.finJuego("Game-Over");
 	}
 	
@@ -617,7 +618,7 @@ public class Juego {
 	private void ganoElJuego() {
 		hiloProtagonista.detener();
 		hiloEnemigos.detener();
-		//Deberia mostrar una imagen festejando o algo asi y preguntar si quiere jugar de nuevo
+		hiloMusica.desactivar();
 		miVentana.finJuego("Congratulations!");
 	}
 

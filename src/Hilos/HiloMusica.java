@@ -15,7 +15,7 @@ public class HiloMusica extends Thread{
 	public void run(){
 		
 			try {
-				Thread.sleep(10); //ver como sincronizar con los movimientos del protagonista
+				Thread.sleep(10); 
 				sonido.loop();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -26,4 +26,5 @@ public class HiloMusica extends Thread{
 	public void desactivar() {
 		sonido.stop();
 	}
+	
 }
