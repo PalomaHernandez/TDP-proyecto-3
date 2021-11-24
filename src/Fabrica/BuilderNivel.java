@@ -54,7 +54,6 @@ public class BuilderNivel implements Builder{
 		List<Enemigo> lista;
 
 		lista = tema.getEnemigos();
-		miNivel.setListaEnemigos(lista);
 		for(Enemigo e : lista) {
 			e.setPos(x, y);
 			miNivel.addEntidad(e);

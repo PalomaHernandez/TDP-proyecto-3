@@ -6,7 +6,6 @@ import java.util.List;
 import Entidades.Entidad;
 import Entidades.Moviles.Blinky;
 import Entidades.Moviles.Clyde;
-import Entidades.Moviles.Enemigo;
 import Entidades.Moviles.Inky;
 import Entidades.Moviles.Pinky;
 import Entidades.Moviles.Protagonista;
@@ -19,7 +18,6 @@ public class Nivel {
 	private Inky inky;
 	private Pinky pinky;
 	private HashSet<Entidad> lista;
-	private List<Enemigo> listaEnemigos;
 	private int cantPuntos;
 	private int valorFruta;
 	
@@ -54,22 +52,6 @@ public class Nivel {
 	
 	public void eliminarEntidad(Entidad e) {
 		lista.remove(e);
-	}
-	
-	public void addEnemigo(Enemigo e) {
-		listaEnemigos.add(e);
-	}
-	
-	public void eliminarEnemigo(Enemigo e) {
-		listaEnemigos.remove(e);
-	}
-	
-	public List<Enemigo> getEnemigos(){
-		return listaEnemigos;
-	}
-	
-	public void setListaEnemigos(List<Enemigo> list) {
-		listaEnemigos = list;
 	}
 
 	public void limpiar() {
