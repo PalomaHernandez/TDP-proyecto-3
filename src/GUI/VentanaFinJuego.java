@@ -4,6 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.SwingConstants;
@@ -23,6 +24,7 @@ public class VentanaFinJuego extends JDialog{
 		getContentPane().setBackground(Color.ORANGE);
 		getContentPane().setLayout(null);
 		setBounds(100, 100, 470, 300);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaFinJuego.class.getResource("/imagenes/logo-sirena.png")));
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		
 		setResizable(false);

@@ -2,13 +2,17 @@ package Launcher;
 
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+
 
 import GUI.InstruccionesGUI;
 import GUI.VentanaGUI;
@@ -44,7 +48,7 @@ public class Launcher extends JFrame{
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		//setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaGUI.class.getResource("")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Launcher.class.getResource("/imagenes/logo-sirena.png")));
 		setResizable(false);
 		
 		JButton btnTema1 = new JButton("Autos");
@@ -58,7 +62,7 @@ public class Launcher extends JFrame{
 			}
 		});
 		btnTema1.setFont(new Font("Segoe UI Black", Font.PLAIN, 18));
-		btnTema1.setBounds(155, 234, 146, 35);
+		btnTema1.setBounds(155, 249, 146, 35);
 		contentPane.add(btnTema1);
 		
 		JButton btnTema2 = new JButton("Barcos");
@@ -72,13 +76,13 @@ public class Launcher extends JFrame{
 			}
 		});
 		btnTema2.setFont(new Font("Segoe UI Black", Font.PLAIN, 18));
-		btnTema2.setBounds(155, 284, 146, 35);
+		btnTema2.setBounds(155, 295, 146, 35);
 		contentPane.add(btnTema2);
 		
 		JButton btnInstrucciones = new JButton("Cómo jugar");
 		btnInstrucciones.setForeground(Color.BLACK);
 		btnInstrucciones.setBackground(Color.WHITE);
-		btnInstrucciones.setBounds(155, 336, 146, 35);
+		btnInstrucciones.setBounds(155, 341, 146, 35);
 		
 		btnInstrucciones.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -92,9 +96,14 @@ public class Launcher extends JFrame{
 		
 		JLabel lblNewLabel = new JLabel("Seleccionar tematica");
 		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setBounds(131, 199, 237, 32);
+		lblNewLabel.setBounds(134, 210, 208, 32);
 		lblNewLabel.setFont(new Font("Bauhaus 93", Font.PLAIN, 20));
 		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setBounds(87, 11, 299, 188);
+		lblNewLabel_1.setIcon(new ImageIcon(VentanaGUI.class.getResource("/imagenes/logo.png")));
+		contentPane.add(lblNewLabel_1);
 		
 	}
 }

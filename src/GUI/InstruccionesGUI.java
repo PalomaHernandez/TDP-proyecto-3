@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Toolkit;
 
 public class InstruccionesGUI extends JFrame{
 
@@ -15,6 +16,7 @@ public class InstruccionesGUI extends JFrame{
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 509, 513);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(InstruccionesGUI.class.getResource("/imagenes/logo-sirena.png")));
 		setResizable(false);
 		getContentPane().setLayout(null);
 		

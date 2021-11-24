@@ -514,7 +514,6 @@ public class Juego {
 		miProtagonista.setX(320);
 		miProtagonista.setY(544);
 		hiloProtagonista.movimiento(3);
-		//ver como acomodar la rotacion del protagonista
 	}
 
 	public Enemigo buscarEnemigo() {

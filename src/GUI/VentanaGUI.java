@@ -18,6 +18,7 @@ import java.awt.event.KeyListener;
 import java.util.HashSet;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.Toolkit;
 
 import javax.swing.SwingConstants;
 
@@ -35,11 +36,11 @@ public class VentanaGUI extends JFrame implements KeyListener{
 	private JLabel lblVida2;
 	private JLabel lblVida3;
 	private int puntaje;
-	private int tema;
 	private JLabel labelSonido;
 	private boolean sonidoActivo;
 
 	private VentanaFinJuego finJuego = new VentanaFinJuego(this);
+	
 	
 	/**
 	 * Create the frame.
@@ -57,6 +58,7 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaGUI.class.getResource("/imagenes/logo-sirena.png")));
 		
 		panel = new JPanel();
 		panel.setBackground(Color.GRAY);
@@ -64,44 +66,45 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
+		
+		
 		if(tema == 1)
 			panel.setBackground(Color.GRAY);
 		else
 			panel.setBackground(new Color(0, 191, 255));
 		
 		JLabel lblScore = new JLabel("SCORE:");
-		lblScore.setFont(new Font("Segoe UI Black", Font.PLAIN, 18));
+		lblScore.setFont(new Font("Bauhaus 93", Font.PLAIN, 20));
 		lblScore.setForeground(Color.WHITE);
-		lblScore.setBounds(31, 30, 69, 20);
+		lblScore.setBounds(30, 39, 69, 25);
 		contentPane.add(lblScore);
 		
 		lblPuntaje = new JLabel("0");
-		lblPuntaje.setFont(new Font("Segoe UI Black", Font.PLAIN, 18));
+		lblPuntaje.setFont(new Font("Bauhaus 93", Font.PLAIN, 20));
 		lblPuntaje.setHorizontalAlignment(SwingConstants.LEFT);
 		lblPuntaje.setForeground(Color.WHITE);
-		lblPuntaje.setBounds(102, 32, 150, 17);
+		lblPuntaje.setBounds(109, 36, 150, 30);
 		contentPane.add(lblPuntaje);
 		
 		lblVida1 = new JLabel("");
 		lblVida1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblVida1.setForeground(Color.RED);
-		lblVida1.setBounds(288, 18, 32, 32);
+		lblVida1.setBounds(286, 29, 32, 32);
 		contentPane.add(lblVida1);
 		
 		lblVida2 = new JLabel("");
 		lblVida2.setForeground(Color.RED);
 		lblVida2.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblVida2.setBounds(341, 18, 32, 32);
+		lblVida2.setBounds(341, 29, 32, 32);
 		contentPane.add(lblVida2);
 		
 		lblVida3 = new JLabel("");
 		lblVida3.setForeground(Color.RED);
 		lblVida3.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblVida3.setBounds(394, 18, 32, 32);
+		lblVida3.setBounds(393, 29, 32, 32);
 		contentPane.add(lblVida3);
 		
 		miJuego = new Juego(tema, this);
-		this.tema = tema;
 		ImageIcon img;
 		ImageIcon icon;
 		
@@ -125,10 +128,9 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		
 		sonidoActivo=false;
 		labelSonido.setIcon(new ImageIcon(VentanaGUI.class.getResource("/imagenes/musicaDesactivada.png")));
-//		miJuego.setearSonido(true);
+		miJuego.setearSonido(true);
 		
 		addKeyListener(this);
-		
 	}
 	
 
