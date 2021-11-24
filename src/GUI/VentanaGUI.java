@@ -128,7 +128,6 @@ public class VentanaGUI extends JFrame implements KeyListener{
 		
 		sonidoActivo=false;
 		labelSonido.setIcon(new ImageIcon(VentanaGUI.class.getResource("/imagenes/musicaDesactivada.png")));
-		miJuego.setearSonido(true);
 		
 		addKeyListener(this);
 	}
