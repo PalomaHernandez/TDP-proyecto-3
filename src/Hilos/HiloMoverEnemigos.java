@@ -27,7 +27,7 @@ public class HiloMoverEnemigos extends Thread {
 	private long tiempoActual;
 	private boolean volvio = false;
 	private static final int puertaX = 320;
-	private static final int puertaY = 288; 
+	private static final int puertaY = 256; 
 	private static final int rango = 608;
 
 	private static final int direccionAbajo = 0;
@@ -88,14 +88,21 @@ public class HiloMoverEnemigos extends Thread {
 	private void perseguir(Enemigo enemigo) {
 		Rectangle pos = new Rectangle(enemigo.getX(), enemigo.getY(), enemigo.getWidth(), enemigo.getHeight());
 		if(pos.intersects(casa)) {
-			dirigirA(320, 256, enemigo); //Puerta de la casa
+			salirDeCasa(enemigo);
+			//dirigirA(320, 256, enemigo); //Puerta de la casa
 		}else {
 			dirigirA(protagonista.getX(), protagonista.getY(), enemigo);
 		}
 	}
 
-	private void dirigirA(int x, int y, Enemigo enemigo) {
+	private void salirDeCasa(Enemigo enemigo) {
 		boolean puedeMover = true;
+		
+		int x;
+		int y;
+		
+		x = puertaX;
+		y = puertaY;
 		
 		if(enemigo.getX() > x) {
 			puedeMover = miJuego.moverIzq(enemigo);
@@ -122,7 +129,81 @@ public class HiloMoverEnemigos extends Thread {
 		
 	}
 
-	
+	private void dirigirA(int x, int y, Enemigo enemigo) {
+		boolean puedeMover = false;
+		int movimientoAnterior = enemigo.movAnterior();
+		
+		
+		if(enemigo.getX() > x) {
+			if(movimientoAnterior != direccionDerecha) {
+				puedeMover = miJuego.moverIzq(enemigo);
+				movAnt(puedeMover, direccionIzquierda, enemigo);
+			}
+			if(!puedeMover && enemigo.getY() <= y && movimientoAnterior != direccionArriba){//El objetivo esta abajo
+				puedeMover = miJuego.moverAbajo(enemigo);
+				movAnt(puedeMover, direccionAbajo, enemigo);
+			}
+			if(!puedeMover && enemigo.getY() > y && movimientoAnterior != direccionAbajo) {
+				puedeMover = miJuego.moverArriba(enemigo);
+				movAnt(puedeMover, direccionArriba, enemigo);
+			}
+		}else if(enemigo.getX() < x) {
+			if(movimientoAnterior != direccionIzquierda) {
+				puedeMover = miJuego.moverDer(enemigo);
+				movAnt(puedeMover, direccionDerecha, enemigo);
+			}
+			if(!puedeMover && enemigo.getY() <= y && movimientoAnterior != direccionArriba){//El objetivo esta abajo
+				puedeMover = miJuego.moverAbajo(enemigo);
+				movAnt(puedeMover, direccionAbajo, enemigo);
+			}
+			if(!puedeMover && enemigo.getY() > y && movimientoAnterior != direccionAbajo) {
+				puedeMover = miJuego.moverArriba(enemigo);
+				movAnt(puedeMover, direccionArriba, enemigo);
+			}
+		}else if(enemigo.getX() == x) {
+			if((enemigo.getX() != puertaX || enemigo.getY() != puertaY) && enemigo.getY() < y && movimientoAnterior != direccionArriba) {
+				puedeMover = miJuego.moverAbajo(enemigo);
+				movAnt(puedeMover, direccionAbajo, enemigo);
+			}
+			else if(enemigo.getY() > y && movimientoAnterior != direccionAbajo) {
+				puedeMover = miJuego.moverArriba(enemigo);
+				movAnt(puedeMover, direccionArriba, enemigo);
+			}
+			if(!puedeMover) {
+				puedeMover = miJuego.moverDer(enemigo);
+				movAnt(puedeMover, direccionDerecha, enemigo);
+			}if(!puedeMover) {
+				puedeMover = miJuego.moverIzq(enemigo);
+				movAnt(puedeMover, direccionIzquierda, enemigo);
+			}
+		}
+		if(!puedeMover) {
+			switch(movimientoAnterior) {
+			case direccionArriba:
+				puedeMover = miJuego.moverArriba(enemigo);
+				movAnt(puedeMover, direccionArriba, enemigo);
+				break;
+			case direccionAbajo:
+				puedeMover = miJuego.moverAbajo(enemigo);
+				movAnt(puedeMover, direccionAbajo, enemigo);
+				break;
+			case direccionIzquierda:
+				puedeMover = miJuego.moverIzq(enemigo);
+				movAnt(puedeMover, direccionIzquierda, enemigo);
+				break;
+			case direccionDerecha: 
+				puedeMover = miJuego.moverDer(enemigo);
+				movAnt(puedeMover, direccionDerecha, enemigo);
+				break;
+			}
+		}
+		
+	}
+
+	private void movAnt(boolean puedeMover, int direccion, Enemigo enemigo) {
+		if(puedeMover)
+			enemigo.setMovAnterior(direccion);
+	}
 
 	private void dispersarPinky() {
 		int posX;
@@ -130,7 +211,7 @@ public class HiloMoverEnemigos extends Thread {
 		Rectangle pos = new Rectangle(pinky.getX(), pinky.getY(), pinky.getWidth(), pinky.getHeight());
 
 		if(pos.intersects(casa)) {
-			dirigirA(320, 256, pinky); //Puerta de la casa
+			salirDeCasa(pinky);
 		}else {
 			switch(protagonista.getDireccion()) {
 				case direccionArriba:
@@ -201,7 +282,7 @@ public class HiloMoverEnemigos extends Thread {
 		posY = protagonista.getY() - blinky.getY();
 		posX = blinky.getX();
 		if(pos.intersects(casa)) {
-			dirigirA(320, 256, inky); //Puerta de la casa
+			salirDeCasa(inky);
 		}else {
 			if(posY > 0) {
 				posY += protagonista.getY();
@@ -228,7 +309,7 @@ public class HiloMoverEnemigos extends Thread {
 
 		
 		if(pos.intersects(casa)) {
-			dirigirA(320, 256, clyde); //Puerta de la casa
+			salirDeCasa(clyde);
 		}else {
 			posX = clyde.getX();
 			posY = clyde.getY();
